@@ -1,13 +1,13 @@
 ---
-title: " Top 5 Filipino Chicken Dishes"
+title: "Top 5 Filipino Chicken Dishes"
 date: 2024-02-09
-description: " A collection of the most popular Filipino chicken dishes"
+description: "A collection of the most popular Filipino chicken dishes"
 whetter: " Chicken Top 5"
 sidenote: " Poultry or locally known as Pollería is where you buy chicken. They have a wide range of choices from gallinas to spring chicken. They have the proper cuts for your specific sidh requirements. Also, on sale are some taste birds such as quail, duck and turkey."
 image: /images/tinola-chicken-bowl.jpg
 sideImage: /images/polleria.jpg
-sideImageCaption: ":  The Spanish word for chicken is 'pollo' and 'manok' in Tagalog."
-tags: [] # Empty array instead of null
+sideImageCaption: "The Spanish word for chicken is 'pollo' and 'manok' in Tagalog."
+tags: [chicken, lunch, dinner] # Empty array instead of null
 related: [] # Add empty array if no related posts
 author: "UlamPinoy"
 draft: false

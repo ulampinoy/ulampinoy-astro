@@ -57,6 +57,16 @@ const { currentPath } = Astro.props;
         >
           Tags
         </a>
+        <a
+          href="/videos"
+          class={`text-sm font-medium ${
+            currentPath === "/videos"
+              ? "text-yellow-600"
+              : "text-gray-600 hover:text-yellow-600"
+          }`}
+        >
+          Videos
+        </a>
       </div>
     </div>
 
@@ -81,6 +91,16 @@ const { currentPath } = Astro.props;
         }`}
       >
         Tags
+      </a>
+      <a
+        href="/videos"
+        class={`block px-4 py-2 text-sm font-medium ${
+          currentPath === "/videos"
+            ? "text-yellow-600"
+            : "text-gray-600 hover:text-yellow-600"
+        }`}
+      >
+        Videos
       </a>
     </div>
   </div>

@@ -1,0 +1,99 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("blog", ({ data }) => {
+  return data.draft !== true && data.hasVideo === true;
+});
+
+const videosByCategory = posts.reduce((acc, post) => {
+  const category = post.data.category || "Other";
+  if (!acc[category]) {
+    acc[category] = [];
+  }
+  acc[category].push(post);
+  return acc;
+}, {});
+---
+
+<BaseLayout
+  title="Video Recipes"
+  description="Watch Filipino cooking video recipes and tutorials"
+>
+  <main class="bg-gray-900 min-h-screen pt-24 pb-12">
+    <div class="container mx-auto max-w-7xl px-4">
+      <section class="relative aspect-video mb-12 rounded-lg overflow-hidden">
+        <img
+          src="/images/sindi-kalan.jpg"
+          alt="Featured video"
+          class="w-full h-full object-cover"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50"
+        >
+          <div class="absolute bottom-0 left-0 p-8">
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+              Filipino Cooking Videos
+            </h1>
+            <p class="text-lg text-gray-200 max-w-2xl">
+              Watch and learn how to cook authentic Filipino dishes with our
+              step-by-step video recipes.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {
+        Object.entries(videosByCategory).map(([category, videos]) => (
+          <section class="mb-12">
+            <h2 class="text-2xl font-bold text-white mb-6">{category}</h2>
+            <div class="relative">
+              <div class="flex space-x-4 overflow-x-auto pb-6 scrollbar-hide">
+                {videos.map((post) => (
+                  <a href={`/blog/${post.slug}`} class="flex-none w-80 group">
+                    <div class="relative aspect-video rounded-md overflow-hidden">
+                      <img
+                        src={post.data.image}
+                        alt={post.data.title}
+                        class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors">
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                          <svg
+                            class="w-16 h-16 text-white"
+                            fill="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path d="M8 5v14l11-7z" />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mt-2">
+                      <h3 class="text-lg font-medium text-white group-hover:text-yellow-400 transition-colors">
+                        {post.data.title}
+                      </h3>
+                      <p class="text-sm text-gray-400 line-clamp-2 mt-1">
+                        {post.data.description}
+                      </p>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </section>
+        ))
+      }
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+</style>
