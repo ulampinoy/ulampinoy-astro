@@ -1,0 +1,131 @@
+---
+import { getCollection } from "astro:content";
+
+interface Props {
+  posts: CollectionEntry<"blog">[];
+}
+
+const { posts } = Astro.props;
+---
+
+<div class="relative overflow-hidden py-12 bg-black">
+  <div class="container mx-auto max-w-6xl px-4">
+    <div class="flex items-center justify-between mb-8">
+      <h2 class="text-2xl font-bold text-white">Featured Posts</h2>
+      <div class="flex gap-2">
+        <button
+          id="prevBtn"
+          class="p-2 rounded-full bg-gray-100 hover:bg-yellow-100 transition-colors"
+          aria-label="Previous slides"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 19l-7-7 7-7"></path>
+          </svg>
+        </button>
+        <button
+          id="nextBtn"
+          class="p-2 rounded-full bg-gray-100 hover:bg-yellow-100 transition-colors"
+          aria-label="Next slides"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="relative">
+      <div
+        id="carousel"
+        class="flex gap-6 transition-transform duration-300 ease-out"
+      >
+        {
+          posts.map((post) => (
+            <div class="w-[calc((100%-72px)/4)] flex-shrink-0">
+              <a
+                href={`/blog/${post.slug}`}
+                class="group block h-full bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+              >
+                <div class="aspect-[3/4] overflow-hidden">
+                  <img
+                    src={post.data.image}
+                    alt={post.data.title}
+                    class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div class="p-4">
+                  <p class="text-sm text-yellow-600 mb-1">
+                    {post.data.whetter}
+                  </p>
+                  <h3 class="text-lg font-bold group-hover:text-yellow-600 transition-colors line-clamp-2">
+                    {post.data.title}
+                  </h3>
+                  <p class="text-sm text-gray-600 mt-2 line-clamp-3">
+                    {post.data.description}
+                  </p>
+                </div>
+              </a>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const carousel = document.getElementById("carousel");
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+  let currentIndex = 0;
+  const totalSlides = carousel.children.length;
+  const slidesToShow = 4;
+  const maxIndex = Math.max(0, totalSlides - slidesToShow);
+
+  function updateSlidePosition() {
+    const slideWidth = carousel.children[0].offsetWidth + 24; // width + gap
+    carousel.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+
+    // Update button states
+    prevBtn.disabled = currentIndex === 0;
+    nextBtn.disabled = currentIndex >= maxIndex;
+
+    // Update button opacity
+    prevBtn.style.opacity = currentIndex === 0 ? "0.5" : "1";
+    nextBtn.style.opacity = currentIndex >= maxIndex ? "0.5" : "1";
+  }
+
+  prevBtn.addEventListener("click", () => {
+    currentIndex = Math.max(currentIndex - 1, 0);
+    updateSlidePosition();
+  });
+
+  nextBtn.addEventListener("click", () => {
+    currentIndex = Math.min(currentIndex + 1, maxIndex);
+    updateSlidePosition();
+  });
+
+  // Update on resize
+  window.addEventListener("resize", updateSlidePosition);
+
+  // Initial position update
+  updateSlidePosition();
+</script>

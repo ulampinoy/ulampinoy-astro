@@ -1,0 +1,167 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import FeaturedCarousel from "../components/FeaturedCarousel.astro";
+
+const posts = await getCollection("blog", ({ data }) => {
+  return data.draft !== true; // This will include posts where draft is false or undefined
+});
+
+const sortedPosts = posts.sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+
+// Get featured posts (limit to 7)
+const featuredPosts = posts.filter((post) => post.data.featured).slice(0, 7);
+
+const featuredPost = sortedPosts[0];
+const secondaryPosts = sortedPosts.slice(1, 5);
+const remainingPosts = sortedPosts.slice(5);
+---
+
+<BaseLayout
+  title="UlamPinoy"
+  description="Filipino home cooking, recipes and video recipes"
+>
+  <main>
+    <section class="bg-white py-12">
+      <div class="container mx-auto max-w-6xl px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Featured Story - Takes 2 columns */}
+          <div class="md:col-span-2 lg:col-span-2 flex flex-col h-full">
+            <a
+              href={`/blog/${featuredPost.slug}`}
+              class="group flex-1 flex flex-col"
+            >
+              <div class="relative flex-1 overflow-hidden">
+                <img
+                  src={featuredPost.data.image}
+                  alt={featuredPost.data.title}
+                  class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"
+                >
+                  <div class="absolute bottom-0 p-6 w-full">
+                    <p
+                      class="text-sm text-yellow-400 mb-2 font-medium tracking-wide uppercase"
+                    >
+                      {featuredPost.data.whetter}
+                    </p>
+                    <h1
+                      class="text-3xl lg:text-4xl font-bold text-white group-hover:text-yellow-400 transition-colors"
+                    >
+                      {featuredPost.data.title}
+                    </h1>
+                    <p class="text-lg text-white/90 mt-3 line-clamp-3">
+                      {featuredPost.data.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          {/* Right Column with Two Stacked Posts */}
+          <div class="lg:col-span-1 space-y-6">
+            {
+              secondaryPosts.slice(0, 2).map((post) => (
+                <a href={`/blog/${post.slug}`} class="group block">
+                  <div class="aspect-[16/9] overflow-hidden">
+                    <img
+                      src={post.data.image}
+                      alt={post.data.title}
+                      class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <div class="mt-3">
+                    <h2 class="text-lg font-bold group-hover:text-yellow-600 transition-colors">
+                      {post.data.title}
+                    </h2>
+                    <p class="text-sm text-gray-600 mt-2 line-clamp-2">
+                      {post.data.description}
+                    </p>
+                  </div>
+                </a>
+              ))
+            }
+          </div>
+
+          {/* Remaining Secondary Stories */}
+          <div class="md:col-span-2 lg:col-span-3">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {
+                secondaryPosts.slice(1).map((post) => (
+                  <a href={`/blog/${post.slug}`} class="group">
+                    <div class="aspect-[4/3] overflow-hidden">
+                      <img
+                        src={post.data.image}
+                        alt={post.data.title}
+                        class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    <div class="mt-4">
+                      <h2 class="text-lg font-bold group-hover:text-yellow-600 transition-colors">
+                        {post.data.title}
+                      </h2>
+                      <p class="text-sm text-gray-600 mt-2 line-clamp-2">
+                        {post.data.description}
+                      </p>
+                    </div>
+                  </a>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Latest Stories Section */}
+    <section class="bg-gray-50 py-12">
+      <div class="container mx-auto max-w-6xl px-4">
+        <div class="flex justify-between items-center mb-8">
+          <h2 class="text-2xl font-bold">Latest Stories</h2>
+          <a
+            href="/articles"
+            class="text-yellow-600 hover:text-yellow-700 font-medium"
+          >
+            See all articles →
+          </a>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {
+            remainingPosts.slice(0, 9).map((post) => (
+              <a href={`/blog/${post.slug}`} class="group">
+                <div class="aspect-[16/9] overflow-hidden">
+                  <img
+                    src={post.data.image}
+                    alt={post.data.title}
+                    class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div class="mt-4">
+                  <h3 class="text-lg font-bold group-hover:text-yellow-600 transition-colors">
+                    {post.data.title}
+                  </h3>
+                  <p class="text-sm text-gray-600 mt-2 line-clamp-2">
+                    {post.data.description}
+                  </p>
+                </div>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    {/* Featured Posts Carousel */}
+    {
+      featuredPosts.length > 0 && (
+        <section class="py-12">
+          <FeaturedCarousel posts={featuredPosts} />
+        </section>
+      )
+    }
+  </main>
+</BaseLayout>

@@ -1,0 +1,49 @@
+---
+const { currentPath } = Astro.props;
+---
+
+<nav
+  class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b"
+>
+  <div class="container mx-auto max-w-6xl px-4">
+    <div class="flex flex-wrap items-center justify-between h-16">
+      <div class="flex items-center space-x-8">
+        <a
+          href="/"
+          class="text-2xl font-bold tracking-tighter hover:text-yellow-600 transition-colors"
+        >
+          ULAMPINOY
+        </a>
+        <a
+          href="/articles"
+          class={`text-sm font-medium ${currentPath === "/articles" ? "text-yellow-600" : "text-gray-600 hover:text-yellow-600"}`}
+        >
+          Articles
+        </a>
+      </div>
+
+      <div class="w-full md:w-auto mt-2 md:mt-0">
+        <form
+          role="search"
+          action="/search"
+          method="GET"
+          class="flex justify-center"
+        >
+          <input
+            type="search"
+            name="q"
+            placeholder="Search..."
+            required
+            class="border border-gray-300 rounded-l px-3 py-1 focus:outline-none focus:border-yellow-600 w-64"
+          />
+          <button
+            type="submit"
+            class="bg-gray-200 border border-gray-300 border-l-0 rounded-r px-3 py-1 hover:bg-gray-300 transition-colors"
+          >
+            Search
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</nav>

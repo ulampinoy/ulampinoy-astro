@@ -1,0 +1,19 @@
+---
+import Layout from "./Layout.astro";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  post: CollectionEntry<"blog">;
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<Layout title={post.data.title} description={post.data.description}>
+  <article class="container mx-auto px-4 py-8 prose prose-lg">
+    <h1>{post.data.title}</h1>
+    <time>{post.data.date.toLocaleDateString()}</time>
+    <Content />
+  </article>
+</Layout>

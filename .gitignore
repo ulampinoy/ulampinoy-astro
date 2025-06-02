@@ -1,0 +1,30 @@
+# Node modules
+node_modules/
+
+# Build output
+dist/
+.astro/
+.cache/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE & Editor directories
+.vscode/
+.idea/
+
+# MacOS files
+.DS_Store
+
+# Compressed archives
+*.tgz
+*.zip

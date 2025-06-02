@@ -1,0 +1,127 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+// Set number of posts per page
+const perPage = 12;
+
+// Enable prerendering so that Astro builds these pages at compile time
+export const prerender = true;
+
+export async function getStaticPaths() {
+  // Set number of posts per page (ensure perPage is defined here as well)
+  const perPageLocal = 12;
+  // Get all non-draft blog posts
+  const posts = await getCollection("blog", ({ data }) => data.draft !== true);
+  const totalPosts = posts.length;
+  const totalPages = Math.ceil(totalPosts / perPageLocal);
+  // Generate a path (as a string) for every page
+  return Array.from({ length: totalPages }, (_, i) => ({
+    params: { page: (i + 1).toString() },
+  }));
+}
+
+const { page } = Astro.params;
+const currentPage = parseInt(page, 10);
+
+// Get all non-draft posts and sort by date descending
+const allPosts = await getCollection("blog", ({ data }) => data.draft !== true);
+const sortedPosts = allPosts.sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+const totalPosts = sortedPosts.length;
+const totalPages = Math.ceil(totalPosts / perPage);
+
+// Calculate which posts to show on this page
+const startIndex = (currentPage - 1) * perPage;
+const postsPage = sortedPosts.slice(startIndex, startIndex + perPage);
+
+function formatDate(date) {
+  return new Date(date).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
+---
+
+<BaseLayout
+  title={`Articles - Page ${currentPage}`}
+  description="Browse all UlamPinoy articles and recipes"
+>
+  <main class="pt-24 pb-12">
+    <div class="container mx-auto max-w-6xl px-4">
+      <h1 class="text-4xl font-bold mb-8">All Articles - Page {currentPage}</h1>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {
+          postsPage.map((post) => (
+            <a href={`/blog/${post.slug}`} class="group" key={post.slug}>
+              <div class="aspect-[16/9] overflow-hidden">
+                <img
+                  src={post.data.image}
+                  alt={post.data.title}
+                  class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <div class="mt-4">
+                <p class="text-sm text-yellow-600 mb-1">{post.data.whetter}</p>
+                <h2 class="text-xl font-bold group-hover:text-yellow-600 transition-colors">
+                  {post.data.title}
+                </h2>
+                <p class="text-sm text-gray-600 mt-2 line-clamp-2">
+                  {post.data.description}
+                </p>
+                <time class="text-sm text-gray-500 mt-2 block">
+                  {formatDate(post.data.date)}
+                </time>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+
+      {/* Pagination Controls */}
+      <div class="flex justify-center mt-8">
+        {
+          currentPage > 1 && (
+            <a
+              href={`/articles/${currentPage - 1}`}
+              class="px-4 py-2 mx-1 bg-gray-100 rounded-md hover:bg-gray-200"
+            >
+              Previous
+            </a>
+          )
+        }
+
+        {
+          Array.from({ length: totalPages }, (_, i) => i + 1).map(
+            (pageNumber) => (
+              <a
+                href={`/articles/${pageNumber}`}
+                class={`px-4 py-2 mx-1 rounded-md ${
+                  currentPage === pageNumber
+                    ? "bg-yellow-500 text-white"
+                    : "bg-gray-100 hover:bg-gray-200"
+                }`}
+                key={pageNumber}
+              >
+                {pageNumber}
+              </a>
+            )
+          )
+        }
+
+        {
+          currentPage < totalPages && (
+            <a
+              href={`/articles/${currentPage + 1}`}
+              class="px-4 py-2 mx-1 bg-gray-100 rounded-md hover:bg-gray-200"
+            >
+              Next
+            </a>
+          )
+        }
+      </div>
+    </div>
+  </main>
+</BaseLayout>
