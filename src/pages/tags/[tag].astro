@@ -1,23 +1,24 @@
 ---
-import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("blog");
-  const allTags = [...new Set(posts.map((post) => post.data.tags).flat())];
+  const posts = await getCollection("blog", ({ data }) => {
+    return data.draft !== true;
+  });
 
-  return allTags.map((tag) => ({
-    params: { tag },
-    props: { tag },
+  const tags = [...new Set(posts.flatMap((post) => post.data.tags || []))];
+
+  return tags.map((tag) => ({
+    params: { tag: tag.toLowerCase() },
+    props: {
+      tag,
+      posts: posts.filter((post) => post.data.tags?.includes(tag)),
+    },
   }));
 }
 
-const { tag } = Astro.props;
-
-const posts = await getCollection(
-  "blog",
-  (post) => post.data.tags && post.data.tags.includes(tag)
-);
+const { tag, posts } = Astro.props;
 
 function formatDate(dateStr: Date) {
   return new Date(dateStr).toLocaleDateString("en-US", {
@@ -29,18 +30,21 @@ function formatDate(dateStr: Date) {
 ---
 
 <BaseLayout
-  title={`Articles tagged with ${tag}`}
-  description={`All articles tagged with ${tag}`}
+  title={`${tag} Recipes`}
+  description={`Browse our collection of ${tag.toLowerCase()} Filipino recipes`}
 >
   <main class="pt-24 pb-12">
     <div class="container mx-auto max-w-6xl px-4">
-      <h1 class="text-4xl font-bold mb-8">Articles tagged with {tag}</h1>
+      <header class="mb-12">
+        <h1 class="text-4xl font-bold mb-4 capitalize">{tag} Recipes</h1>
+        <p class="text-gray-600">{posts.length} recipes with this tag</p>
+      </header>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {
           posts.map((post) => (
             <a href={`/blog/${post.slug}`} class="group">
-              <div class="aspect-[16/9] overflow-hidden">
+              <div class="aspect-[16/9] overflow-hidden rounded-lg">
                 <img
                   src={post.data.image}
                   alt={post.data.title}

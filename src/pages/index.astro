@@ -25,7 +25,7 @@ const remainingPosts = sortedPosts.slice(5);
 >
   <main>
     <section class="bg-white py-12">
-      <div class="container mx-auto max-w-6xl px-4">
+      <div class="container mx-auto max-w-6xl px-4 py-6">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Featured Story - Takes 2 columns */}
           <div class="md:col-span-2 lg:col-span-2 flex flex-col h-full">
@@ -158,7 +158,7 @@ const remainingPosts = sortedPosts.slice(5);
     {/* Featured Posts Carousel */}
     {
       featuredPosts.length > 0 && (
-        <section class="py-12">
+        <section>
           <FeaturedCarousel posts={featuredPosts} />
         </section>
       )

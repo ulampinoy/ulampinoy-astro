@@ -1,0 +1,108 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="relative">
+  <div class="absolute inset-0">
+    <img
+      src="/images/sindi-kalan.jpg"
+      alt="Kitchen stove flame"
+      class="w-full h-full object-cover"
+    />
+    <div class="absolute inset-0 bg-black/70"></div>
+  </div>
+
+  <div class="relative container mx-auto max-w-6xl px-4 py-24">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-white">
+      {/* About Section */}
+      <div>
+        <h3 class="text-2xl font-bold mb-6 text-yellow-400">
+          Mabuhay! Welcome to Ulampinoy 👋🏼
+        </h3>
+        <p class="text-gray-300 mb-6">
+          Discover authentic Filipino recipes and cooking techniques. From
+          traditional dishes to modern interpretations, we're here to help you
+          explore the rich flavors of Filipino cuisine.
+        </p>
+        <a
+          href="/about"
+          class="text-yellow-400 hover:text-yellow-300 inline-flex items-center"
+        >
+          Learn more
+          <svg
+            class="w-4 h-4 ml-2"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+
+      {/* Quick Links */}
+      <div>
+        <h3 class="text-2xl font-bold mb-6 text-yellow-400">Quick Links</h3>
+        <ul class="space-y-4">
+          <li>
+            <a
+              href="/articles"
+              class="text-gray-300 hover:text-yellow-400 transition-colors"
+            >
+              All Recipes
+            </a>
+          </li>
+          <li>
+            <a
+              href="/tags"
+              class="text-gray-300 hover:text-yellow-400 transition-colors"
+            >
+              Recipe Categories
+            </a>
+          </li>
+          <li>
+            <a
+              href="/featured"
+              class="text-gray-300 hover:text-yellow-400 transition-colors"
+            >
+              Featured Dishes
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      {/* Newsletter Signup */}
+      <div>
+        <h3 class="text-2xl font-bold mb-6 text-yellow-400">Stay Updated</h3>
+        <p class="text-gray-300 mb-6">
+          Subscribe to get the latest recipes and cooking tips straight to your
+          inbox.
+        </p>
+        <form class="space-y-4">
+          <input
+            type="email"
+            placeholder="Enter your email"
+            class="w-full px-4 py-2 bg-black/50 border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:border-yellow-400"
+            required
+          />
+          <button
+            type="submit"
+            class="w-full bg-yellow-500 hover:bg-yellow-400 text-black font-bold py-2 px-4 rounded-md transition-colors"
+          >
+            Subscribe
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="mt-16 pt-8 border-t border-gray-700">
+      <p class="text-center text-gray-400">
+        © {currentYear} UlamPinoy. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
