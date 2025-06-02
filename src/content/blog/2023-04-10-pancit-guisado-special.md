@@ -7,7 +7,7 @@ sidenote: " Pancit bihon noodles are made from rice flour, which gives them a di
 image: /images/pancit-guisado-espesyal.jpg
 sideImage: /images/pancit-bihon-noodles.jpg
 sideImageCaption: ": Bihon noodles are a unique and versatile ingredient that adds a distinct flavor and texture to Filipino cuisine."
-tags: [] # Empty array instead of null
+tags: [noodle, vegetables] # Empty array instead of null
 related: [] # Add empty array if no related posts
 author: "UlamPinoy"
 draft: false

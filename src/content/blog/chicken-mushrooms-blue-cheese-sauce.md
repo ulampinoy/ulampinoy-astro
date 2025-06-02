@@ -2,18 +2,17 @@
 title: "Chicken Mushrooms in Blue Cheese Sauce"
 date: 2019-12-19
 description: "Upscale the usual pan-fried chicken fillets by making some blue cheese sauce with mushrooms."
-image: "/images/chicken-mushroom-blue-cheesee.jpg"
-sideNote: The bacterium Brevibacterium linens is responsible for the smell of many blue cheeses, as well as foot odour and other human body odors. [via Wikipedia]
+image: "/images/chicken-mushroom-blue-cheese.jpg"
+sideNote: "The bacterium Brevibacterium linens is responsible for the smell of many blue cheeses, as well as foot odour and other human body odors – via Wikipedia"
 sideImage: "/images/blue-cheese-wedge.jpg"
 hasVideo: true
 videoUrl: "https://www.youtube.com/watch?v=https://www.youtube.com/watch?v=mm2Nw-uj_3s"
-ctaText: Watch the video
 author: "UlamPinoy"
 draft: false
 featured: false
 category: "Main Dishes"
 whetter: "Lutong Bahay"
-tags: ["chicken", "stew", "main dish"]
+tags: ["chicken", "cheese", "main dish"]
 ---
 
 In this episode, let's upscale the usual pan-fried chicken fillets by making some blue cheese sauce with mushrooms.
@@ -35,7 +34,7 @@ The creamy gravy sauce gives the chicken additional depth and moisture while the
 Filleted (and deboned) **chicken thighs** are the preferred cuts for better texture and it's juicier than the chicken breast.
 
 In the video we used bottle-preserved mushrooms but **fresh whole mushrooms** are the best if you can source it, because it offers some pleasant earthy, nutty flavors to the dish.
-![Button mushrooms in a tray](/static/images/button-mushrooms-tray.jpg)
+![Button mushrooms in a tray](/images/button-mushrooms-tray.jpg)
 
 ## Procedure
 
@@ -44,7 +43,7 @@ In the video we used bottle-preserved mushrooms but **fresh whole mushrooms** ar
 3. **Sauté** the chopped garlic and sliced onions. Add mushrooms. Sauté for another minute or two. Add blue cheese. Pour in the heavy cream. Stir well while bring it to a mild simmer.
 4. **Drop the fried chicken fillets into the sauce.** Stir thouroghly to cover the chicken with the gravy sauce. Season with salt and pepper to taste. Garnish with parsley and serve.
 
-![Chicken and Mushroom in Blue Cheese Gravy Sauce](/static/images/chicken-mushroom-blue-cheese.jpg)
+![Chicken and Mushroom in Blue Cheese Gravy Sauce](/images/chicken-mushroom-blue-cheese.jpg)
 
 ### Endnotes
 

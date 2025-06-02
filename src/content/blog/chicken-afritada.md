@@ -30,7 +30,7 @@ Easy to make one-pot chicken dish with vegetables. You can make a large batch an
 - Patis (fish sauce)
 - Salt and black pepper to taste
 
-![Cut into bite-size piece](/images/vegetable-cut-chopping-board.jpg
+![Cut into bite-size piece](/images/vegetable-cut-chopping-board.jpg)
 
 ### Procedure
 
