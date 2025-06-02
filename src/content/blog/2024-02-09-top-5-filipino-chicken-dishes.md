@@ -13,7 +13,7 @@ author: "UlamPinoy"
 draft: false
 ---
 
-Here are five popular Filipino chicken dishes that we cook in the Ulam Pinoy kitchen:
+Craving something delicious and comforting? You're in for a treat! Here are five popular Filipino chicken dishes that we love to cook in the Ulam Pinoy kitchen. Each one brings a unique flavor and a taste of home—perfect for sharing with family and friends!
 
 ![Chicken Tinola served on a bowl](/images/chicken-adobo-potato-bowl.jpg)
 **Chicken Adobo** is a classic Filipino dish that is made with chicken that is simmered in soy sauce, vinegar, loads of garlic, black pepper and bay leaves (laurel). It is usually served with rice and often considered as the most iconic dish of the Philippines.
