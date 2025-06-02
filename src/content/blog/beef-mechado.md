@@ -11,6 +11,8 @@ author: "UlamPinoy"
 draft: false
 featured: false
 category: "Main Dishes"
+spotlight: true
+spotlightOrder: 3
 ---
 
 author: "UlamPinoy"

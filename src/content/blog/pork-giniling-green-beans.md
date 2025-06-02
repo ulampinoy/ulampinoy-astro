@@ -2,7 +2,7 @@
 title: "Pork Giniling with Green Beans"
 date: 2023-03-27
 description: "Pork giniling is a popular Filipino dish made with ground pork, tomatoes, and a variety of vegetables, we use green beans in this episode."
-image: "/images/pork-giniling-rice.jpg"
+image: /images/pork-giniling-rice.jpg
 hasVideo: true
 videoUrl: "https://www.youtube.com/watch?v=DMkHwJU3o4g"
 category: "Main Dishes"
@@ -10,6 +10,8 @@ featured: false
 draft: false
 tags: ["recipe", "pork", "picadillo", "green beans"]
 sideNote: "Green beans are rich in nutrients yet low in calories. They are a good source of fiber, vitamin C, vitamin K, vitamin A, folate, and potassium. The fiber content in green beans may help regulate blood sugar levels, making them a good choice for people with diabetes The antioxidants in green beans, such as carotenoids and flavonoids, may help reduce the risk of chronic diseases such as heart disease and cancer."
+spotlight: true
+spotlightOrder: 1
 ---
 
 Pork giniling is a popular Filipino dish made with ground pork, tomatoes, and a variety of vegetables. Here's a simple recipe to cook pork giniling:

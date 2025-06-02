@@ -5,12 +5,14 @@ description: "Beef, mushroom and broccoli stir fry"
 image: "/images/beef-mushroom-broccoli-01.jpg"
 hasVideo: true
 videoUrl: "https://www.youtube.com/watch?v=0PAzB0PqG80"
-tags: ["beef", "stew", "main dish", "vegetable", "stir-fry"]
+tags: ["beef", "main dish", "vegetable", "stir-fry"]
 author: "UlamPinoy"
 draft: false
 featured: false
 category: "Main Dishes"
 whetter: "Lutong Bahay"
+spotlight: true
+spotlightOrder: 2
 ---
 
 Pinoy noodles sauteéd with vegetable, pork belly and soy sauce
@@ -28,7 +30,7 @@ Pinoy noodles sauteéd with vegetable, pork belly and soy sauce
 - salt and pepper
 - quail eggs for garnish
 
-![Beef mushroom broccoli](/static/images/beef-mushroom-broccoli-02.jpg?nf_resize=fit&w=960)
+![Beef, mushroom, and broccoli stir fry on a plate](/images/beef-mushroom-broccoli-02.jpg)
 
 ### Video
 

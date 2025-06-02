@@ -11,6 +11,8 @@ featured: false
 category: "Main Dishes"
 whetter: "Lutong Bahay"
 tags: ["beef", "stew", "main dish"]
+spotlight: true
+spotlightOrder: 4
 ---
 
 Slow cooked beef stew with vegetables

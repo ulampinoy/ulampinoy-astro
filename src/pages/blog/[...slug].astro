@@ -23,7 +23,7 @@ function formatDate(dateStr: Date) {
 ---
 
 <BaseLayout title={post.data.title} description={post.data.description}>
-  <article class="pt-16">
+  <article class="pt-16 prose-invert">
     <div class="relative h-[70vh]">
       <img
         src={post.data.image}
@@ -34,7 +34,7 @@ function formatDate(dateStr: Date) {
         class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"
       >
         <div
-          class="container mx-auto max-w-6xl px-4 h-full flex flex-col justify-end pb-16"
+          class="container mx-auto max-w-3xl px-4 h-full flex flex-col justify-end pb-16"
         >
           <div>
             {
@@ -53,8 +53,6 @@ function formatDate(dateStr: Date) {
               {post.data.description}
             </p>
             <div class="flex items-center text-white/80 text-sm space-x-4">
-              <span>{post.data.author}</span>
-              <span>•</span>
               <time datetime={post.data.date.toISOString()}>
                 {formatDate(post.data.date)}
               </time>
@@ -69,7 +67,11 @@ function formatDate(dateStr: Date) {
         <div
           class="prose-img:mx-auto md:prose-img:-mx-16 prose-img:max-w-[calc(100%+4rem)] md:prose-img:max-w-[calc(100%+8rem)] prose-img:w-auto"
         >
-          <Content />
+          <div
+            class="[&>p:first-of-type]:first-letter:float-left [&>p:first-of-type]:first-letter:text-7xl [&>p:first-of-type]:first-letter:pr-3 [&>p:first-of-type]:first-letter:font-bold [&>p:first-of-type]:first-letter:text-yellow-500"
+          >
+            <Content />
+          </div>
         </div>
       </div>
 

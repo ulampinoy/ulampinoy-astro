@@ -23,7 +23,7 @@ function formatDate(dateStr: Date) {
 ---
 
 <BaseLayout title={post.data.title} description={post.data.description}>
-  <article class="pt-16">
+  <article class="prose prose-invert mx-auto">
     <div class="relative h-[70vh]">
       <img
         src={post.data.image}
@@ -65,8 +65,14 @@ function formatDate(dateStr: Date) {
     </div>
 
     <div class="container mx-auto px-4 py-12">
-      <div class="prose prose-lg max-w-none">
-        <Content />
+      <div
+        class="prose prose-invert max-w-none [&>p:first-of-type]:text-article-intro [&>p:first-of-type]:mb-8"
+      >
+        <div
+          class="[&>p:first-of-type]:first-letter:float-left [&>p:first-of-type]:first-letter:text-7xl [&>p:first-of-type]:first-letter:pr-3 [&>p:first-of-type]:first-letter:font-bold [&>p:first-of-type]:first-letter:text-yellow-500"
+        >
+          <Content />
+        </div>
       </div>
 
       {

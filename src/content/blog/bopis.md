@@ -10,7 +10,7 @@ tags: ["offal", "spicy", "appetizer", "pulutan"]
 author: "UlamPinoy"
 draft: false
 featured: false
-category: "Appetizers"
+category: "Main Dishes"
 ---
 
 Pork innards braised in vinegar and spices

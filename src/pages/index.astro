@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 import FeaturedCarousel from "../components/FeaturedCarousel.astro";
+import PopularIngredients from "../components/PopularIngredients.astro";
 
 const posts = await getCollection("blog", ({ data }) => {
   return data.draft !== true; // This will include posts where draft is false or undefined
@@ -26,14 +27,14 @@ const remainingPosts = sortedPosts.slice(5);
   <main>
     <section class="bg-white py-12">
       <div class="container mx-auto max-w-6xl px-4 py-6">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Featured Story - Takes 2 columns */}
           <div class="md:col-span-2 lg:col-span-2 flex flex-col h-full">
             <a
               href={`/blog/${featuredPost.slug}`}
               class="group flex-1 flex flex-col"
             >
-              <div class="relative flex-1 overflow-hidden">
+              <div class="relative flex-1 overflow-hidden rounded-lg">
                 <img
                   src={featuredPost.data.image}
                   alt={featuredPost.data.title}
@@ -67,7 +68,7 @@ const remainingPosts = sortedPosts.slice(5);
             {
               secondaryPosts.slice(0, 2).map((post) => (
                 <a href={`/blog/${post.slug}`} class="group block">
-                  <div class="aspect-[16/9] overflow-hidden">
+                  <div class="aspect-[16/9] overflow-hidden rounded-lg">
                     <img
                       src={post.data.image}
                       alt={post.data.title}
@@ -89,11 +90,11 @@ const remainingPosts = sortedPosts.slice(5);
 
           {/* Remaining Secondary Stories */}
           <div class="md:col-span-2 lg:col-span-3">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
               {
                 secondaryPosts.slice(1).map((post) => (
                   <a href={`/blog/${post.slug}`} class="group">
-                    <div class="aspect-[4/3] overflow-hidden">
+                    <div class="aspect-[4/3] overflow-hidden rounded-lg">
                       <img
                         src={post.data.image}
                         alt={post.data.title}
@@ -133,7 +134,7 @@ const remainingPosts = sortedPosts.slice(5);
           {
             remainingPosts.slice(0, 9).map((post) => (
               <a href={`/blog/${post.slug}`} class="group">
-                <div class="aspect-[16/9] overflow-hidden">
+                <div class="aspect-[16/9] overflow-hidden rounded-lg">
                   <img
                     src={post.data.image}
                     alt={post.data.title}
@@ -163,5 +164,7 @@ const remainingPosts = sortedPosts.slice(5);
         </section>
       )
     }
+
+    <PopularIngredients />
   </main>
 </BaseLayout>

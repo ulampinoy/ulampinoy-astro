@@ -1,0 +1,154 @@
+---
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("blog");
+
+// Define ingredient icons first
+const ingredientIcons = {
+  chicken: "🍗",
+  pork: "🐖",
+  beef: "🥩",
+  seafood: "🦐",
+  fish: "🐟",
+  vegetables: "🥬",
+  rice: "🍚",
+  noodles: "🍜",
+  eggs: "🥚",
+  shrimp: "🦐",
+} as const;
+
+// Get all tags and count their occurrences, but only for valid ingredients
+const tagCount = posts.reduce(
+  (acc, post) => {
+    post.data.tags?.forEach((tag) => {
+      if (tag in ingredientIcons) {
+        // Only count tags that have icons
+        acc[tag] = (acc[tag] || 0) + 1;
+      }
+    });
+    return acc;
+  },
+  {} as Record<string, number>
+);
+
+// Sort tags by count and get top 10
+const popularIngredients = Object.entries(tagCount)
+  .sort(([, a], [, b]) => b - a)
+  .slice(0, 10)
+  .map(([tag, count]) => ({ tag, count }));
+---
+
+<section class="py-12 bg-gray-900">
+  <div class="container mx-auto max-w-7xl px-4">
+    <div class="flex items-center justify-between mb-8">
+      <h2 class="text-2xl md:text-3xl font-bold text-white">
+        Most Popular Ingredients
+      </h2>
+      <div class="flex gap-2">
+        <button
+          id="prev-ingredient"
+          class="w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center group"
+          aria-label="Previous ingredients"
+        >
+          <svg
+            class="w-6 h-6 text-gray-400 group-hover:text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 19l-7-7 7-7"></path>
+          </svg>
+        </button>
+        <button
+          id="next-ingredient"
+          class="w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center group"
+          aria-label="Next ingredients"
+        >
+          <svg
+            class="w-6 h-6 text-gray-400 group-hover:text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="relative overflow-hidden">
+      <div
+        id="ingredients-track"
+        class="flex gap-4 transition-transform duration-300 ease-out"
+      >
+        {
+          popularIngredients.map(({ tag, count }) => (
+            <a href={`/tags/${tag}`} class="flex-shrink-0 w-[160px] group">
+              <div class="rounded-lg p-6 flex flex-col items-center text-center transition-transform hover:-translate-y-1">
+                <div class="w-40 h-40 bg-yellow-500 rounded-full flex items-center justify-center text-8xl mb-4">
+                  {ingredientIcons[tag] || "🥘"}
+                </div>
+                <h3 class="text-white font-medium capitalize group-hover:text-yellow-400 mb-1">
+                  {tag}
+                </h3>
+                <p class="text-gray-400 text-sm">
+                  {count} {count === 1 ? "recipe" : "recipes"}
+                </p>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const track = document.getElementById("ingredients-track");
+  const prevBtn = document.getElementById("prev-ingredient");
+  const nextBtn = document.getElementById("next-ingredient");
+
+  if (track && prevBtn && nextBtn) {
+    const itemWidth = 176; // 160px width + 16px gap
+    const visibleItems = Math.floor(track.clientWidth / itemWidth);
+    let currentIndex = 0;
+
+    const updateButtons = () => {
+      prevBtn.disabled = currentIndex === 0;
+      nextBtn.disabled = currentIndex >= track.children.length - visibleItems;
+
+      prevBtn.style.opacity = prevBtn.disabled ? "0.5" : "1";
+      nextBtn.style.opacity = nextBtn.disabled ? "0.5" : "1";
+    };
+
+    const scroll = (direction: 1 | -1) => {
+      currentIndex = Math.max(
+        0,
+        Math.min(currentIndex + direction, track.children.length - visibleItems)
+      );
+      track.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+      updateButtons();
+    };
+
+    prevBtn.addEventListener("click", () => scroll(-1));
+    nextBtn.addEventListener("click", () => scroll(1));
+
+    // Initialize button states
+    updateButtons();
+
+    // Update on resize
+    window.addEventListener("resize", () => {
+      currentIndex = 0;
+      track.style.transform = "translateX(0)";
+      updateButtons();
+    });
+  }
+</script>

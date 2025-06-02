@@ -18,6 +18,8 @@ const blog = defineCollection({
     hasVideo: z.boolean().optional(),
     videoUrl: z.string().optional(),
     category: z.string().optional(),
+    spotlight: z.boolean().optional(),
+    spotlightOrder: z.number().optional(),
   }),
 });
 

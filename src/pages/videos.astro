@@ -1,19 +1,29 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
+import VideoSpotlight from "../components/VideoSpotlight.astro";
 
+// Get all video posts
 const posts = await getCollection("blog", ({ data }) => {
   return data.draft !== true && data.hasVideo === true;
 });
 
-const videosByCategory = posts.reduce((acc, post) => {
-  const category = post.data.category || "Other";
-  if (!acc[category]) {
-    acc[category] = [];
-  }
-  acc[category].push(post);
-  return acc;
-}, {});
+// Get spotlight videos
+const spotlightVideos = posts
+  .filter((post) => post.data.spotlight === true)
+  .slice(0, 4);
+
+// Group remaining videos by category
+const videosByCategory = posts
+  .filter((post) => !post.data.spotlight)
+  .reduce((acc, post) => {
+    const category = post.data.category || "Other";
+    if (!acc[category]) {
+      acc[category] = [];
+    }
+    acc[category].push(post);
+    return acc;
+  }, {});
 ---
 
 <BaseLayout
@@ -22,31 +32,60 @@ const videosByCategory = posts.reduce((acc, post) => {
 >
   <main class="bg-gray-900 min-h-screen pt-24 pb-12">
     <div class="container mx-auto max-w-7xl px-4">
-      <section class="relative aspect-video mb-12 rounded-lg overflow-hidden">
-        <img
-          src="/images/sindi-kalan.jpg"
-          alt="Featured video"
-          class="w-full h-full object-cover"
-        />
-        <div
-          class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50"
-        >
-          <div class="absolute bottom-0 left-0 p-8">
-            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
-              Filipino Cooking Videos
-            </h1>
-            <p class="text-lg text-gray-200 max-w-2xl">
-              Watch and learn how to cook authentic Filipino dishes with our
-              step-by-step video recipes.
-            </p>
-          </div>
-        </div>
+      <section
+        class="relative aspect-video mb-12 rounded-lg md:overflow-hidden"
+      >
+        <VideoSpotlight posts={spotlightVideos} />
       </section>
 
       {
         Object.entries(videosByCategory).map(([category, videos]) => (
           <section class="mb-12">
-            <h2 class="text-2xl font-bold text-white mb-6">{category}</h2>
+            <div class="flex items-center justify-between mb-6">
+              <h2 class="text-2xl font-bold text-white">{category}</h2>
+              {videos.length > 4 && (
+                <div class="flex gap-2">
+                  <button
+                    class="w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center group"
+                    data-scroll-left
+                    aria-label="Previous videos"
+                  >
+                    <svg
+                      class="w-6 h-6 text-gray-400 group-hover:text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 19l-7-7 7-7"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    class="w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center group"
+                    data-scroll-right
+                    aria-label="Next videos"
+                  >
+                    <svg
+                      class="w-6 h-6 text-gray-400 group-hover:text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              )}
+            </div>
             <div class="relative">
               <div class="flex space-x-4 overflow-x-auto pb-6 scrollbar-hide">
                 {videos.map((post) => (
@@ -86,6 +125,27 @@ const videosByCategory = posts.reduce((acc, post) => {
       }
     </div>
   </main>
+
+  <script>
+    const scrollContainers = document.querySelectorAll(
+      "[data-scroll-container]"
+    );
+
+    scrollContainers.forEach((container) => {
+      const section = container.closest("section");
+      const leftBtn = section?.querySelector("[data-scroll-left]");
+      const rightBtn = section?.querySelector("[data-scroll-right]");
+      const scrollAmount = container.clientWidth;
+
+      leftBtn?.addEventListener("click", () => {
+        container.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+      });
+
+      rightBtn?.addEventListener("click", () => {
+        container.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      });
+    });
+  </script>
 </BaseLayout>
 
 <style>
