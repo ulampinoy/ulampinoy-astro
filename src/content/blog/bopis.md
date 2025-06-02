@@ -11,6 +11,8 @@ author: "UlamPinoy"
 draft: false
 featured: false
 category: "Main Dishes"
+spotlight: true
+spotlightOrder: 7
 ---
 
 Pork innards braised in vinegar and spices

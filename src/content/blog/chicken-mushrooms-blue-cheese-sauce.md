@@ -6,7 +6,7 @@ image: "/images/chicken-mushroom-blue-cheese.jpg"
 sideNote: "The bacterium Brevibacterium linens is responsible for the smell of many blue cheeses, as well as foot odour and other human body odors – via Wikipedia"
 sideImage: "/images/blue-cheese-wedge.jpg"
 hasVideo: true
-videoUrl: "https://www.youtube.com/watch?v=https://www.youtube.com/watch?v=mm2Nw-uj_3s"
+videoUrl: "https://www.youtube.com/watch?v=mm2Nw-uj_3s"
 author: "UlamPinoy"
 draft: false
 featured: false

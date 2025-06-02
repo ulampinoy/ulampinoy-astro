@@ -3,7 +3,7 @@ title: "Chicken Sotanghon"
 date: 2012-11-28
 description: "Vermicelli chicken noodle soup"
 hasVideo: true
-videoUrl: "https://www.youtube.com/watch?v=https://www.youtube.com/watch?v=W-5lRLncO6c"
+videoUrl: "https://www.youtube.com/watch?v=W-5lRLncO6c"
 image: "/images/chicken-sotanghon.jpg"
 author: "UlamPinoy"
 draft: false
@@ -11,6 +11,8 @@ featured: false
 category: "Stews & Soups"
 whetter: "Lutong Bahay"
 tags: ["chicken", "noodle", "soup"]
+spotlight: true
+spotlightOrder: 2
 ---
 
 Got colds or just feeling cold? Here is a delicious way to get well and stay warm!

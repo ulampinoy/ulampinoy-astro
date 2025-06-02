@@ -3,7 +3,7 @@ title: "Chicken Sopas"
 date: 2013-11-08
 description: "Chicken and elbow macaroni soup with carrots, cabbage and sausage"
 hasVideo: true
-videoUrl: "https://www.youtube.com/watch?v=https://www.youtube.com/watch?v=csJWdebdrxU"
+videoUrl: "https://www.youtube.com/watch?v=csJWdebdrxU"
 image: "/images/chicken-sopas.jpg"
 author: "UlamPinoy"
 draft: false

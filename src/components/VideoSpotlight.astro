@@ -1,19 +1,21 @@
 ---
 const { posts } = Astro.props;
 
-function getYouTubeId(url: string) {
-  return url.split("v=")[1];
-}
+// Filter for only video spotlight posts
+const spotlightPosts = posts
+  .filter(post => post.data.spotlight === true && post.data.hasVideo === true)
+  .sort((a, b) => (a.data.spotlightOrder || 0) - (b.data.spotlightOrder || 0))
+  .slice(0, 4);
 ---
 
-<div class="relative bg-gray-900">
-  <div class="relative h-[600px] overflow-hidden">
-    {
-      posts.map((post, index) => (
-        <div
-          class="absolute inset-0 w-full transition-transform duration-500 ease-out cursor-pointer group"
+<div class="relative bg-zinc-900">
+  {spotlightPosts.length > 0 && (
+    <div class="relative h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden">
+      {spotlightPosts.map((post, index) => (
+        <a
+          href={`/videos/${post.slug.split('/').pop()}`}
+          class="absolute inset-0 w-full h-full transition-transform duration-700 ease-out cursor-pointer group"
           id={`slide-${index}`}
-          data-video-id={getYouTubeId(post.data.videoUrl)}
           data-slide-index={index}
         >
           <div class="relative h-full">
@@ -22,29 +24,27 @@ function getYouTubeId(url: string) {
               alt={post.data.title}
               class="w-full h-full object-cover"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50">
-              <div class="absolute bottom-0 left-0 right-0 p-8">
-                <div class="flex items-start space-x-8">
+           <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent">
+              <div class="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                <div class="flex items-start space-x-6">
                   {/* Play Button */}
                   <div class="flex-shrink-0">
-                    <div class="w-20 h-20 rounded-full bg-yellow-500 flex items-center justify-center group-hover:bg-yellow-400 transition-colors">
-                      <svg
-                        class="w-10 h-10 text-black ml-1"
-                        fill="currentColor"
+                    <div class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-yellow-500 flex items-center justify-center group-hover:bg-yellow-400 transition-colors">
+                      <svg 
+                        class="w-8 h-8 md:w-10 md:h-10 text-black ml-1" 
+                        fill="currentColor" 
                         viewBox="0 0 24 24"
                       >
                         <path d="M8 5v14l11-7z" />
                       </svg>
                     </div>
                   </div>
+                  {/* Title and Description */}
                   <div class="flex-1">
-                    <p class="text-yellow-400 text-lg mb-2">
-                      {post.data.whetter}
-                    </p>
-                    <h2 class="text-4xl font-bold text-white mb-4 group-hover:text-yellow-400 transition-colors">
+                    <h2 class="text-xl md:text-4xl font-bold text-white group-hover:text-yellow-400 transition-colors">
                       {post.data.title}
                     </h2>
-                    <p class="text-gray-200 text-lg mb-0 line-clamp-2">
+                    <p class="text-zinc-300 line-clamp-2 mt-2">
                       {post.data.description}
                     </p>
                   </div>
@@ -52,61 +52,38 @@ function getYouTubeId(url: string) {
               </div>
             </div>
           </div>
-        </div>
-      ))
-    }
-  </div>
+        </a>
+      ))}
+    </div>
 
-  <button
-    class="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 z-10"
-    id="prev-btn"
-  >
-    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="M15 19l-7-7 7-7"></path>
-    </svg>
-  </button>
-  <button
-    class="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 z-10"
-    id="next-btn"
-  >
-    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="M9 5l7 7-7 7"></path>
-    </svg>
-  </button>
-</div>
-
-<div
-  id="videoModal"
-  class="fixed inset-0 bg-black/90 z-50 hidden items-center justify-center"
->
-  <div class="relative w-full max-w-6xl mx-auto aspect-video">
-    <div id="youtubePlayer"></div>
+    <!-- Navigation Arrows -->
     <button
-      id="closeModal"
-      class="absolute -top-12 right-0 text-white hover:text-yellow-400"
+      class="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 z-10"
+      id="prev-btn"
     >
-      <svg
-        class="w-8 h-8"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path
           stroke-linecap="round"
           stroke-linejoin="round"
           stroke-width="2"
-          d="M6 18L18 6M6 6l12 12"></path>
+          d="M15 19l-7-7 7-7"
+        />
       </svg>
     </button>
-  </div>
+    <button
+      class="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 z-10"
+      id="next-btn"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M9 5l7 7-7 7"
+        />
+      </svg>
+    </button>
+  )}
 </div>
 
 <script>
@@ -114,58 +91,13 @@ function getYouTubeId(url: string) {
   const slides = document.querySelectorAll('[id^="slide-"]');
   const prevBtn = document.getElementById("prev-btn");
   const nextBtn = document.getElementById("next-btn");
-  const modal = document.getElementById("videoModal");
-  const closeModal = document.getElementById("closeModal");
-  let player;
-
-  // Load YouTube API
-  const tag = document.createElement("script");
-  tag.src = "https://www.youtube.com/iframe_api";
-  const firstScriptTag = document.getElementsByTagName("script")[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-  window.onYouTubeIframeAPIReady = function () {
-    player = new YT.Player("youtubePlayer", {
-      height: "100%",
-      width: "100%",
-      playerVars: {
-        autoplay: 1,
-        controls: 1,
-        rel: 0,
-      },
-    });
-  };
 
   function updateSlides() {
     slides.forEach((slide, index) => {
-      (slide as HTMLElement).style.transform =
-        `translateX(${(index - currentSlide) * 100}%)`;
+      (slide as HTMLElement).style.transform = `translateX(${(index - currentSlide) * 100}%)`;
       (slide as HTMLElement).style.zIndex = index === currentSlide ? "1" : "0";
     });
   }
-
-  // Slide click handler
-  slides.forEach((slide) => {
-    slide.addEventListener("click", (e) => {
-      const slideIndex = parseInt(
-        (e.currentTarget as HTMLElement).dataset.slideIndex
-      );
-      if (slideIndex === currentSlide) {
-        const videoId = (slides[currentSlide] as HTMLElement).dataset.videoId;
-        player.loadVideoById(videoId);
-        modal.classList.remove("hidden");
-        modal.classList.add("flex");
-        clearInterval(autoAdvance);
-      }
-    });
-  });
-
-  closeModal.addEventListener("click", () => {
-    modal.classList.add("hidden");
-    modal.classList.remove("flex");
-    player.stopVideo();
-    autoAdvance = startAutoAdvance();
-  });
 
   prevBtn?.addEventListener("click", (e) => {
     e.stopPropagation();
@@ -183,7 +115,7 @@ function getYouTubeId(url: string) {
     return setInterval(() => {
       currentSlide = (currentSlide + 1) % slides.length;
       updateSlides();
-    }, 5000);
+    }, 8000); // Change slides every 8 seconds
   }
 
   // Initialize

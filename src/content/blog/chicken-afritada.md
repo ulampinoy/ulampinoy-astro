@@ -5,12 +5,14 @@ description: "Tomato-based chicken stew with carrots, bell pepper, and potatoes.
 image: "/images/chicken-afritada-pot.jpg"
 whetter: One pot chicken goodness
 hasVideo: true
-videoUrl: "https://www.youtube.com/watch?v=https://www.youtube.com/watch?v=YKF7N-6_PuI"
+videoUrl: "https://www.youtube.com/watch?v=YKF7N-6_PuI"
 author: "UlamPinoy"
 draft: false
 featured: false
 category: "Main Dishes"
 tags: ["beef", "stew", "main dish"]
+spotlight: false
+spotlightOrder: 3
 ---
 
 Easy to make one-pot chicken dish with vegetables. You can make a large batch and save some for your _baon_ to work. It is a complete _ulam_ where you have the _sarsa_ for the rice and the main deal - chicken and vegetable.

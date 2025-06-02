@@ -1,0 +1,62 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+const { frontmatter } = Astro.props;
+
+// Extract video ID from the YouTube URL
+const videoId = frontmatter.videoUrl.split("v=")[1];
+const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+---
+
+<BaseLayout title={frontmatter.title} description={frontmatter.description}>
+  <div class="bg-zinc-900 text-white min-h-screen flex flex-col">
+    {/* Video Section */}
+    <div class="relative h-0 w-full" style="padding-bottom: 56.25%;">
+      <iframe
+        class="absolute top-0 left-0 w-full h-full"
+        src={embedUrl}
+        title={frontmatter.title}
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+    </div>
+
+    {/* Content Section */}
+    <div class="container mx-auto py-8 px-4">
+      <article class="prose prose-invert mx-auto max-w-6xl">
+        <div class="prose prose-invert prose-lg mx-auto">
+          <div
+            class="prose-img:mx-auto md:prose-img:-mx-16 prose-img:max-w-[calc(100%+4rem)] md:prose-img:max-w-[calc(100%+8rem)] prose-img:w-auto"
+          >
+            <h1
+              class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 pt-4 lg:pt-6"
+            >
+              {frontmatter.title}
+            </h1>
+            <div class="text-xl text-white/90 mb-4">
+              <p>{frontmatter.description}</p>
+              {/* Add any additional content here */}
+            </div>
+            <slot />
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</BaseLayout>
+<style>
+  :global(.prose :where(img)) {
+    @apply rounded-lg shadow-lg;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+
+  @media (min-width: 768px) {
+    :global(.prose :where(img)) {
+      width: 120%;
+      margin-left: -10%;
+      margin-right: -10%;
+    }
+  }
+</style>

@@ -6,14 +6,15 @@ image: "/images/lechon-manok.hero.jpg"
 sideNote: Slow cooker are amazing for cooking meat while preserving most of its juices and rendering a better texture and flavor.
 sideImage: "/images/lechon-manok-crock-pot-aside.jpg"
 hasVideo: true
-videoUrl: "https://www.youtube.com/watch?v=https://www.youtube.com/watch?v=JTCgcSs6JS8"
-ctaText: Watch the video recipe
+videoUrl: "https://www.youtube.com/watch?v=JTCgcSs6JS8"
 author: "UlamPinoy"
 draft: false
 featured: false
 category: "Main Dishes"
 whetter: "Crockpot Chicken"
 tags: ["chicken", "roast"]
+spotlight: true
+spotlightOrder: 4
 ---
 
 In this episode we cooked our own take of Lechon Manok. Rubbed with herbs and spices, then left seated in a Crock-Pot®, slow-cooking for 3.5 hours at high temp. Finished it in the oven at grill mode to get that golden brown cripy skin!s
