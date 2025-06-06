@@ -1,5 +1,5 @@
 ---
-title: "Cripsy Pata"
+title: "Crispy Pata"
 date: 2025-06-06
 description: "Warning: This golden, crakling masterpiece of pork knuckle recipe is dangerously addictive!"
 whetter: "Irresistible Crunch"

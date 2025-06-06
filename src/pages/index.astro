@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 import FeaturedCarousel from "../components/FeaturedCarousel.astro";
 import PopularIngredients from "../components/PopularIngredients.astro";
+import ../
 
 const posts = await getCollection("blog", ({ data }) => {
   return data.draft !== true; // This will include posts where draft is false or undefined
