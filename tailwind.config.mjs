@@ -8,6 +8,9 @@ module.exports = {
       sans: ["ui-sans-serif", "system-ui", "noto-sans"],
     },
     extend: {
+      colors: {
+        "regal-blue": "#243c5a",
+      },
       fontSize: {
         "article-intro": ["1.25rem", "1.75rem"], // 20px with 28px line height
       },
