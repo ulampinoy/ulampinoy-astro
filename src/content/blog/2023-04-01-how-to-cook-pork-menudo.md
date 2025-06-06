@@ -1,15 +1,15 @@
 ---
-title: " Pork Menudo"
+title: "Pork Menudo"
 date: 2023-04-01
-description: " Hearty and flavorful pork dish that is enjoyed throughout the Philippines. It is often served at special occasions and is a staple on many Filipino family tables."
-whetter: " Menudo"
-sidenote: " Casquería is a term used in Spanish cuisine to describe a variety of organ meats that are typically eaten as a delicacy or specialty food. These meats can include things like liver, tripe, beef tongue, kidneys, brain, and other offal. In Spain, it is a specialized store selling just these."
+description: "Hearty and flavorful pork dish that is enjoyed throughout the Philippines. It is often served at special occasions and is a staple on many Filipino family tables."
+whetter: "Menudo"
+sidenote: "Casquería is a term used in Spanish cuisine to describe a variety of organ meats that are typically eaten as a delicacy or specialty food. These meats can include things like liver, tripe, beef tongue, kidneys, brain, and other offal. In Spain, it is a specialized store selling just these."
 sideImage: /images/casqueria-meatshop.jpg
 image: /images/pork-menudo-dish.jpg
 tags: [] # Empty array instead of null
-related: [] # Add empty array if no related posts
 author: "UlamPinoy"
 draft: false
+related: ["pork-adobo", "chicken-afritada"]
 ---
 
 Pork Menudo is a popular Filipino dish that is typically made with pork meat, liver, potatoes, carrots, and bell peppers in a tomato-based sauce. It is often served as a main course for lunch or dinner and is commonly enjoyed with steamed rice.

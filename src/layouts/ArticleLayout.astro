@@ -2,16 +2,36 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-export async function getStaticPaths() {
-  const posts = await getCollection("blog");
-  return posts.map((post) => ({
-    params: { slug: post.slug },
-    props: { post },
-  }));
-}
-
 const { post } = Astro.props;
 const { Content } = await post.render();
+
+// Get all posts for related section
+const allPosts = await getCollection("blog", ({ data }) => !data.draft);
+
+// Enhanced related posts logic
+let relatedPosts = [];
+if (post.data.related && post.data.related.length > 0) {
+  // First get explicitly related posts
+  relatedPosts = allPosts.filter(
+    (p) =>
+      post.data.related.includes(p.slug) ||
+      post.data.related.includes(p.data.title)
+  );
+
+  // If we have less than 3 related posts, add posts with matching tags
+  if (relatedPosts.length < 3 && post.data.tags) {
+    const additionalPosts = allPosts
+      .filter(
+        (p) =>
+          !relatedPosts.includes(p) && // Not already included
+          p.slug !== post.slug && // Not the current post
+          p.data.tags?.some((tag) => post.data.tags.includes(tag)) // Has matching tags
+      )
+      .slice(0, 3 - relatedPosts.length);
+
+    relatedPosts = [...relatedPosts, ...additionalPosts];
+  }
+}
 
 function formatDate(dateStr: Date) {
   return new Date(dateStr).toLocaleDateString("en-US", {
@@ -77,14 +97,45 @@ function formatDate(dateStr: Date) {
 
       {
         post.data.tags && post.data.tags.length > 0 && (
-          <div class="mt-12 pt-8 border-t">
+          <div class="mt-12 pt-8 border-t border-zinc-800">
             <div class="flex flex-wrap gap-2">
               {post.data.tags.map((tag) => (
                 <a
                   href={`/tags/${tag}`}
-                  class="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-700 hover:bg-gray-200 transition-colors"
+                  class="px-3 py-1 bg-zinc-800 rounded-full text-sm text-white/80 hover:bg-zinc-700 transition-colors"
                 >
                   {tag}
+                </a>
+              ))}
+            </div>
+          </div>
+        )
+      }
+
+      {/* Related Posts Section */}
+      {
+        relatedPosts.length > 0 && (
+          <div class="mt-16 pt-12 border-t border-zinc-800">
+            <h2 class="text-2xl font-bold mb-8 text-white">Related Posts</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {relatedPosts.map((related) => (
+                <a
+                  href={`/${related.data.hasVideo ? "videos" : "blog"}/${related.slug}`}
+                  class="group block"
+                >
+                  <div class="aspect-video overflow-hidden rounded-lg mb-4">
+                    <img
+                      src={related.data.image}
+                      alt={related.data.title}
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <h3 class="text-lg font-semibold text-white group-hover:text-yellow-500 transition-colors">
+                    {related.data.title}
+                  </h3>
+                  <p class="mt-1 text-zinc-400 line-clamp-2">
+                    {related.data.description}
+                  </p>
                 </a>
               ))}
             </div>

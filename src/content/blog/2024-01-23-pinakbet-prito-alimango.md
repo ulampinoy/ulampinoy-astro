@@ -1,9 +1,9 @@
 ---
-title: " Folksy Pinakbet Recipe"
+title: "Folksy Pinakbet Recipe"
 date: 2024-01-23
-description: " Let's talk a little about Pinakbet – the unassuming yet bold in flavors Filipino vegetable dish and we'll share how to cook Pinakbet."
-whetter: " Savory Vegetables"
-sidenote: " Ampalaya (Momordica charantia) has many distinct names in various places in the world — bitter melon, goya, bitter apple, bitter gourd, bitter squash, balsam-pear, karavila are among its many other names"
+description: "Let's talk a little about Pinakbet – the unassuming yet bold in flavors Filipino vegetable dish and we'll share how to cook Pinakbet."
+whetter: "Savory Vegetables"
+sidenote: "Ampalaya (Momordica charantia) has many distinct names in various places in the world — bitter melon, goya, bitter apple, bitter gourd, bitter squash, balsam-pear, karavila are among its many other names"
 image: /images/pinakbet-wok-table.jpg
 sideImage: /images/ampalaya-market.jpg
 sideImageCaption: "Ampalaya are very nutritious "
