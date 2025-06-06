@@ -67,7 +67,7 @@ const remainingPosts = sortedPosts.slice(5);
           <div class="lg:col-span-1 space-y-6">
             {
               secondaryPosts.slice(0, 2).map((post) => (
-                <a href={`/blog/${post.slug}`} class="group block mb-4">
+                <a href={`/blog/${post.slug}`} class="group block pb-2">
                   <div class="aspect-[16/9] overflow-hidden rounded-lg">
                     <img
                       src={post.data.image}
@@ -96,7 +96,7 @@ const remainingPosts = sortedPosts.slice(5);
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
               {
                 secondaryPosts.slice(2).map((post) => (
-                  <a href={`/blog/${post.slug}`} class="group">
+                  <a href={`/blog/${post.slug}`} class="group pb-2">
                     <div class="aspect-[4/3] overflow-hidden rounded-lg">
                       <img
                         src={post.data.image}
@@ -148,7 +148,7 @@ const remainingPosts = sortedPosts.slice(5);
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           {
             remainingPosts.slice(0, 9).map((post) => (
-              <a href={`/blog/${post.slug}`} class="group">
+              <a href={`/blog/${post.slug}`} class="group pb-2">
                 <div class="aspect-[16/9] overflow-hidden rounded-lg">
                   <img
                     src={post.data.image}
