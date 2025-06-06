@@ -23,7 +23,7 @@ function formatDate(dateStr: Date) {
 ---
 
 <BaseLayout title={post.data.title} description={post.data.description}>
-  <article class="pt-16 prose-invert">
+  <article class="pt-16 prose-invert noto-sans">
     <div class="relative h-[70vh]">
       <img
         src={post.data.image}
@@ -45,7 +45,7 @@ function formatDate(dateStr: Date) {
               )
             }
             <h1
-              class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4"
+              class="savate-heavy text-4xl md:text-6xl lg:text-8xl font-bold text-white mb-4"
             >
               {post.data.title}
             </h1>
@@ -65,10 +65,10 @@ function formatDate(dateStr: Date) {
     <div class="container mx-auto px-4 py-12">
       <div class="prose prose-lg mx-auto">
         <div
-          class="prose-img:mx-auto md:prose-img:-mx-16 prose-img:max-w-[calc(100%+4rem)] md:prose-img:max-w-[calc(100%+8rem)] prose-img:w-auto"
+          class="prose-img:mx-auto md:prose-img:-mx-16 prose-img:max-w-[calc(100%+4rem)] md:prose-img:max-w-[calc(100%+8rem)] prose-img:w-auto prose-h2:font-[savate] prose-h3:font-[savate]"
         >
           <div
-            class="[&>p:first-of-type]:first-letter:float-left [&>p:first-of-type]:first-letter:text-7xl [&>p:first-of-type]:first-letter:pr-3 [&>p:first-of-type]:first-letter:font-bold [&>p:first-of-type]:first-letter:text-yellow-500"
+            class="[&>p:first-of-type]:first-letter:float-left [&>p:first-of-type]:first-letter:text-7xl [&>p:first-of-type]:first-letter:pr-3 [&>p:first-of-type]:first-letter:font-bold [&>p:first-of-type]:first-letter:text-yellow-500 [&>p:first-of-type]:first-letter:font-[savate]"
           >
             <Content />
           </div>

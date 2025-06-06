@@ -4,6 +4,9 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
+    fontFamily: {
+      sans: ["ui-sans-serif", "system-ui", "noto-sans"],
+    },
     extend: {
       fontSize: {
         "article-intro": ["1.25rem", "1.75rem"], // 20px with 28px line height
