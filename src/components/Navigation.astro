@@ -10,7 +10,7 @@ const { currentPath } = Astro.props;
       {/* Logo */}
       <a
         href="/"
-        class="savate-heavy text-2xl tracking-wider hover:text-yellow-600 transition-colors"
+        class="savate-heavy text-2xl tracking-wider hover:text-black text-amber-500 transition-colors"
       >
         ULAMPINOY
       </a>
@@ -41,31 +41,31 @@ const { currentPath } = Astro.props;
           href="/articles"
           class={`text-sm font-medium ${
             currentPath === "/articles"
-              ? "text-yellow-600"
-              : "text-gray-600 hover:text-yellow-600"
+              ? "text-amber-500"
+              : "text-gray-700 hover:text-amber-500"
           }`}
         >
           Articles
         </a>
         <a
-          href="/tags"
-          class={`text-sm font-medium ${
-            currentPath === "/tags"
-              ? "text-yellow-600"
-              : "text-gray-600 hover:text-yellow-600"
-          }`}
-        >
-          Tags
-        </a>
-        <a
           href="/videos"
           class={`text-sm font-medium ${
             currentPath === "/videos"
-              ? "text-yellow-600"
-              : "text-gray-600 hover:text-yellow-600"
+              ? "text-amber-500"
+              : "text-gray-700 hover:text-amber-500"
           }`}
         >
           Videos
+        </a>
+        <a
+          href="/tags"
+          class={`text-sm font-medium ${
+            currentPath === "/tags"
+              ? "text-amber-500"
+              : "text-gray-700 hover:text-amber-500"
+          }`}
+        >
+          Tags
         </a>
       </div>
     </div>
@@ -76,8 +76,8 @@ const { currentPath } = Astro.props;
         href="/articles"
         class={`block px-4 py-2 text-sm font-medium ${
           currentPath === "/articles"
-            ? "text-yellow-600"
-            : "text-gray-600 hover:text-yellow-600"
+            ? "text-amber-500"
+            : "text-gray-700 hover:text-amber-500"
         }`}
       >
         Articles
@@ -86,8 +86,8 @@ const { currentPath } = Astro.props;
         href="/tags"
         class={`block px-4 py-2 text-sm font-medium ${
           currentPath === "/tags"
-            ? "text-yellow-600"
-            : "text-gray-600 hover:text-yellow-600"
+            ? "text-amber-500"
+            : "text-gray-700 hover:text-amber-500"
         }`}
       >
         Tags
@@ -96,8 +96,8 @@ const { currentPath } = Astro.props;
         href="/videos"
         class={`block px-4 py-2 text-sm font-medium ${
           currentPath === "/videos"
-            ? "text-yellow-600"
-            : "text-gray-600 hover:text-yellow-600"
+            ? "text-amber-500"
+            : "text-gray-700 hover:text-amber-500"
         }`}
       >
         Videos

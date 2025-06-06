@@ -35,7 +35,7 @@ const sortedTags = Object.values(tagCounts).sort((a, b) =>
     <div class="container mx-auto max-w-6xl px-4">
       <header class="mb-12">
         <h1 class="text-4xl md:text-5xl savate-bold mb-4">Tags</h1>
-        <p class="text-gray-600">
+        <p class="text-gray-700">
           Browse our collection of Filipino food and recipes by tags
         </p>
       </header>
@@ -57,7 +57,7 @@ const sortedTags = Object.values(tagCounts).sort((a, b) =>
                 <h2 class="text-2xl md:text-3xl savate-bold text-white mb-2 capitalize">
                   {tag.name}
                 </h2>
-                <p class="text-yellow-400 text-sm">
+                <p class="text-amber-400 text-sm">
                   {tag.count} {tag.count === 1 ? "Recipe" : "Recipes"}
                 </p>
               </div>

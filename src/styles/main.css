@@ -42,3 +42,24 @@
   font-style: normal;
   font-variation-settings: "wdth" 100;
 }
+
+:root {
+  --kanbas: rgb(253, 246, 239);
+  --bughaw: rgb(34, 16, 114);
+  --pula: #a70000;
+  --kape: rgb(43, 15, 15);
+  --dilaw: rgb(255, 175, 55);
+  --puti: white;
+  --itim: #010101;
+  --karbon: #303030;
+  --uling: #404040;
+  --abo: #606060;
+  --pilak: #e0e0e0;
+  --usok: #909090;
+  --ulap: #d0d0d0;
+  --headlineFont: "Ubuntu", sans-serif;
+  --bodyFont: "Ubuntu", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    Arial, sans-serif;
+  --sysFont: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+    sans-serif;
+}

@@ -72,13 +72,11 @@ const { posts } = Astro.props;
                   />
                 </div>
                 <div class="p-4">
-                  <p class="text-sm text-yellow-600 mb-1">
-                    {post.data.whetter}
-                  </p>
-                  <h3 class="savate-bold text-2xl group-hover:text-yellow-600 transition-colors line-clamp-2">
+                  <p class="text-sm text-amber-500 mb-1">{post.data.whetter}</p>
+                  <h3 class="savate-bold text-2xl group-hover:text-amber-500 transition-colors line-clamp-2">
                     {post.data.title}
                   </h3>
-                  <p class="text-sm text-gray-600 mt-2 line-clamp-3">
+                  <p class="text-sm text-gray-700 mt-2 line-clamp-3">
                     {post.data.description}
                   </p>
                 </div>
