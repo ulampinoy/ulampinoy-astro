@@ -120,11 +120,20 @@ const remainingPosts = sortedPosts.slice(5);
       </div>
     </section>
 
-    {/* Latest Stories Section */}
+    {/* Featured Posts Carousel */}
+    {
+      featuredPosts.length > 0 && (
+        <section>
+          <FeaturedCarousel posts={featuredPosts} />
+        </section>
+      )
+    }
+
+    {/* More Articles Section */}
     <section class="bg-gray-50 py-12">
       <div class="container mx-auto max-w-6xl px-4">
         <div class="flex justify-between items-center mb-8">
-          <h2 class="text-2xl font-bold">Latest Stories</h2>
+          <h2 class="text-2xl font-bold">More Articles</h2>
           <a
             href="/articles"
             class="text-yellow-600 hover:text-yellow-700 font-medium"
@@ -157,15 +166,6 @@ const remainingPosts = sortedPosts.slice(5);
         </div>
       </div>
     </section>
-
-    {/* Featured Posts Carousel */}
-    {
-      featuredPosts.length > 0 && (
-        <section>
-          <FeaturedCarousel posts={featuredPosts} />
-        </section>
-      )
-    }
 
     <PopularIngredients />
   </main>
