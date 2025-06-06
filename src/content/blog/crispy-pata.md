@@ -9,7 +9,6 @@ tags: ["pork", "deep-fried", "occasion", "appetizer"]
 related: ["how-to-cook-pork-adobo"]
 author: UlamPinoy
 draft: false
-featured: true
 ---
 
 There's something magical about the sound of perfectly crispy skin crackling as you bite into tender, succulent pork. In the Philippines, few dishes command as much respect and excitement around the dinner table as Crispy Pata—a whole pork leg that's been transformed into golden, crunchy perfection through the art of deep frying.
