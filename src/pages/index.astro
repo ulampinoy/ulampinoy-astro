@@ -54,9 +54,7 @@ const remainingPosts = sortedPosts.slice(5);
                     >
                       {featuredPost.data.title}
                     </h1>
-                    <p
-                      class="hidden md:block text-lg text-white/90 mt-3 line-clamp-3"
-                    >
+                    <p class="text-white/90 mt-3 line-clamp-3">
                       {featuredPost.data.description}
                     </p>
                   </div>
@@ -69,7 +67,7 @@ const remainingPosts = sortedPosts.slice(5);
           <div class="lg:col-span-1 space-y-6">
             {
               secondaryPosts.slice(0, 2).map((post) => (
-                <a href={`/blog/${post.slug}`} class="group block">
+                <a href={`/blog/${post.slug}`} class="group block mb-4">
                   <div class="aspect-[16/9] overflow-hidden rounded-lg">
                     <img
                       src={post.data.image}
