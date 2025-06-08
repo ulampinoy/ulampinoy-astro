@@ -1,6 +1,6 @@
 ---
-import { getCollection } from "astro:content";
 import VideoLayout from "../../layouts/VideoLayout.astro";
+import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
   const videoPosts = await getCollection(

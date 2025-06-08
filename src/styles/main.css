@@ -1,3 +1,8 @@
+body {
+  font-family: "Noto Sans", system-ui, -apple-system, BlinkMacSystemFont,
+    "Open Sans", sans-serif;
+}
+
 .savate-regular {
   font-family: "Savate", sans-serif;
   font-optical-sizing: auto;

@@ -68,7 +68,7 @@ function formatDate(dateStr: Date) {
           class="prose-img:mx-auto md:prose-img:-mx-16 prose-img:max-w-[calc(100%+4rem)] md:prose-img:max-w-[calc(100%+8rem)] max-w-[90ch]"
         >
           <div
-            class="[&>p:first-of-type]:first-letter:float-left [&>p:first-of-type]:first-letter:text-7xl [&>p:first-of-type]:first-letter:pr-3 [&>p:first-of-type]:first-letter:font-bold [&>p:first-of-type]:first-letter:text-amber-500 [&>p:first-of-type]:first-letter:font-[savate]"
+            class="[&>p:first-of-type]:first-letter:float-left [&>p:first-of-type]:first-letter:text-8xl [&>p:first-of-type]:first-letter:pr-3 [&>p:first-of-type]:first-letter:font-bold [&>p:first-of-type]:first-letter:text-amber-500 [&>p:first-of-type]:first-letter:font-[savate]"
           >
             <Content />
           </div>
@@ -113,5 +113,8 @@ function formatDate(dateStr: Date) {
 
   :global(.prose p) {
     @apply max-w-[90ch] mx-auto;
+  }
+  :global(.prose h3) {
+    @apply uppercase tracking-wide text-xl font-bold;
   }
 </style>
