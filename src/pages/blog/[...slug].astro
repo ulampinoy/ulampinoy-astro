@@ -52,7 +52,7 @@ function formatDate(dateStr: Date) {
             <p class="text-2xl text-white/90 mb-4">
               {post.data.description}
             </p>
-            <div class="flex items-center text-white/80 text-sm space-x-4">
+            <div class="flex items-center text-white/60 text-sm space-x-4">
               <time datetime={post.data.date.toISOString()}>
                 {formatDate(post.data.date)}
               </time>
@@ -65,7 +65,7 @@ function formatDate(dateStr: Date) {
     <div class="container mx-auto px-4 py-12">
       <div class="prose prose-lg mx-auto">
         <div
-          class="prose-img:mx-auto md:prose-img:-mx-16 prose-img:max-w-[calc(100%+4rem)] md:prose-img:max-w-[calc(100%+8rem)] prose-img:w-auto prose-h2:font-[savate] prose-h3:font-[savate] noto-sans"
+          class="prose-img:mx-auto md:prose-img:-mx-16 prose-img:max-w-[calc(100%+4rem)] md:prose-img:max-w-[calc(100%+8rem)] prose-img:w-auto prose-h2:font-[savate] prose-h3:font-[savate] prose-h2:text-5xl prose-h3:text-3xl prose-h2:leading-tight noto-sans"
         >
           <div
             class="[&>p:first-of-type]:first-letter:float-left [&>p:first-of-type]:first-letter:text-7xl [&>p:first-of-type]:first-letter:pr-3 [&>p:first-of-type]:first-letter:font-bold [&>p:first-of-type]:first-letter:text-yellow-500 [&>p:first-of-type]:first-letter:font-[savate]"

@@ -51,7 +51,9 @@ function formatDate(dateStr: Date) {
                 />
               </div>
               <div class="mt-4">
-                <p class="text-sm text-amber-500 mb-1">{post.data.whetter}</p>
+                <p class="text-xs tracking-wide text-amber-500 mb-1 uppercase">
+                  {post.data.whetter}
+                </p>
                 <h2 class="text-2xl md:text-3xl savate-bold group-hover:text-amber-500 transition-colors">
                   {post.data.title}
                 </h2>
@@ -84,7 +86,7 @@ function formatDate(dateStr: Date) {
                 href={`/articles/${pageNumber}`}
                 class={`px-4 py-2 mx-1 rounded-md ${
                   currentPage === pageNumber
-                    ? "bg-yellow-500 text-white"
+                    ? "bg-amber-500 text-white"
                     : "bg-gray-100 hover:bg-gray-200"
                 }`}
               >

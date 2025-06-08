@@ -64,7 +64,7 @@ function formatDate(date) {
                 />
               </div>
               <div class="mt-4">
-                <p class="text-sm text-amber-500 mb-1 uppercase">
+                <p class="text-xs tracking-wider text-amber-500 mb-1 uppercase">
                   {post.data.whetter}
                 </p>
                 <h2 class="text-2xl md:text-3xl savate-bold group-hover:text-amber-500 transition-colors">
@@ -73,9 +73,6 @@ function formatDate(date) {
                 <p class="text-sm text-gray-700 mt-2 line-clamp-2">
                   {post.data.description}
                 </p>
-                <time class="text-sm text-gray-500 mt-2 block">
-                  {formatDate(post.data.date)}
-                </time>
               </div>
             </a>
           ))
@@ -102,7 +99,7 @@ function formatDate(date) {
                 href={`/articles/${pageNumber}`}
                 class={`px-4 py-2 mx-1 rounded-md ${
                   currentPage === pageNumber
-                    ? "bg-yellow-500 text-white"
+                    ? "bg-amber-500 text-white"
                     : "bg-gray-100 hover:bg-gray-200"
                 }`}
                 key={pageNumber}
