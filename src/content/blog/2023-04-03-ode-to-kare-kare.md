@@ -10,6 +10,8 @@ tags: [] # Empty array instead of null
 related: [] # Add empty array if no related posts
 author: "UlamPinoy"
 draft: false
+featured: false
+promoted: true
 ---
 
 This is poem is dedicated to the Filipino diaspora...
