@@ -1,0 +1,50 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const glossaryItems = await getCollection("glossary");
+const sortedItems = glossaryItems.sort((a, b) =>
+  a.data.title.localeCompare(b.data.title)
+);
+---
+
+<BaseLayout
+  title="Glossary"
+  description="A comprehensive guide to Filipino cooking ingredients and terms"
+>
+  <div class="container mx-auto max-w-6xl px-4 py-16 mt-16">
+    <h1 class="savate-heavy text-4xl mb-8">Glossary</h1>
+    <p class="text-lg text-gray-700 mb-12">
+      A comprehensive guide to Filipino cooking ingredients and terms
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {
+        sortedItems.map((item) => (
+          <a
+            href={`/glossary/${item.slug}`}
+            class="group block p-6 bg-white rounded-lg shadow hover:shadow-md transition-shadow"
+          >
+            <div class="flex items-center">
+              {item.data.image && (
+                <img
+                  src={item.data.image}
+                  alt={item.data.title}
+                  class="w-16 h-16 object-cover rounded-full mr-4"
+                />
+              )}
+              <div class="flex-1">
+                <h2 class="savate-bold text-xl group-hover:text-amber-500 transition-colors">
+                  {item.data.title}
+                </h2>
+                <p class="text-gray-600 mt-2 line-clamp-2">
+                  {item.data.description}
+                </p>
+              </div>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</BaseLayout>

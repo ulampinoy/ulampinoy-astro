@@ -8,6 +8,7 @@ author: "UlamPinoy"
 draft: false
 tags: [] # Empty array instead of null
 related: [] # Add empty array if no related posts
+featured: true
 ---
 
 _Churros_ sprinkled with sugar and hot chocolate dip at the local _churrería._ It was both delightful to eat and watch how it's made.

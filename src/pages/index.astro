@@ -5,15 +5,27 @@ import FeaturedCarousel from "../components/FeaturedCarousel.astro";
 import PopularIngredients from "../components/PopularIngredients.astro";
 
 const posts = await getCollection("blog", ({ data }) => {
-  return data.draft !== true; // This will include posts where draft is false or undefined
+  return data.draft !== true;
+});
+
+const glossaryItems = await getCollection("glossary");
+
+// Combine posts and glossary items into one array
+const allItems = [...posts, ...glossaryItems];
+
+// Sort by date (newest first)
+const sortedItems = allItems.sort((a, b) => {
+  const dateA = a.collection === "blog" ? new Date(a.data.date) : new Date();
+  const dateB = b.collection === "blog" ? new Date(b.data.date) : new Date();
+  return dateB.getTime() - dateA.getTime();
 });
 
 const sortedPosts = posts.sort(
   (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
 );
 
-// Get featured posts (limit to 7)
-const featuredPosts = posts.filter((post) => post.data.featured).slice(0, 7);
+// Get all featured posts
+const featuredPosts = posts.filter((post) => post.data.featured);
 
 const promotedPost = posts.find((post) => post.data.promoted);
 const featuredPost = promotedPost || sortedPosts[0];
@@ -64,32 +76,44 @@ const remainingPosts = sortedPosts.slice(6);
             </a>
           </div>
 
-          {/* Right Column with Latest Posts */}
+          {/* Right Column with What's New */}
           <div class="lg:col-span-1">
+            <h3 class="text-lg font-semibold mb-4">What's New</h3>
             <div class="grid grid-cols-1 gap-4">
               {
-                sortedPosts.slice(0, 4).map((post) => (
+                sortedItems.slice(0, 4).map((item) => (
                   <a
-                    href={`/blog/${post.slug}`}
+                    href={
+                      item.collection === "blog"
+                        ? `/blog/${item.slug}`
+                        : `/glossary/${item.slug}`
+                    }
                     class="group grid grid-cols-2 gap-4 pb-2"
                   >
                     <div class="aspect-[4/3] overflow-hidden rounded-lg">
                       <img
-                        src={post.data.image}
-                        alt={post.data.title}
+                        src={item.data.image || "/images/default-glossary.jpg"}
+                        alt={item.data.title}
                         class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                       />
                     </div>
                     <div>
-                      <p class="text-xs font-medium tracking-wider text-amber-500 mb-1 uppercase">
-                        {post.data.whetter}
-                      </p>
+                      {item.collection === "blog" && (
+                        <p class="text-xs font-medium tracking-wider text-amber-500 mb-1 uppercase">
+                          {item.data.whetter}
+                        </p>
+                      )}
                       <h2 class="savate-bold text-xl group-hover:text-amber-500 transition-colors">
-                        {post.data.title}
+                        {item.data.title}
                       </h2>
                       <p class="text-sm text-gray-700 mt-2 line-clamp-2">
-                        {post.data.description}
+                        {item.data.description}
                       </p>
+                      {item.collection === "glossary" && item.data.category && (
+                        <p class="text-xs text-gray-500 mt-1">
+                          Category: {item.data.category}
+                        </p>
+                      )}
                     </div>
                   </a>
                 ))

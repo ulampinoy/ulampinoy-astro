@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 
 interface Props {
   posts: CollectionEntry<"blog">[];
@@ -52,80 +52,153 @@ const { posts } = Astro.props;
       </div>
     </div>
 
-    <div class="relative">
-      <div
-        id="carousel"
-        class="flex flex-row gap-6 transition-transform duration-300 ease-out"
-      >
-        {
-          posts.map((post) => (
-            <div class="md:w-[calc((100%-72px)/4)] w-1/2 flex-shrink-0">
-              <a
-                href={`/blog/${post.slug}`}
-                class="group block h-full bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
-              >
-                <div class="aspect-[3/4] overflow-hidden">
-                  <img
-                    src={post.data.image}
-                    alt={post.data.title}
-                    class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <div class="p-4">
-                  <p class="text-xs font-medium tracking-wider text-amber-500 mb-1 uppercase">
-                    {post.data.whetter}
-                  </p>
-                  <h3 class="savate-bold text-2xl group-hover:text-amber-500 transition-colors line-clamp-2">
-                    {post.data.title}
-                  </h3>
-                  <p class="text-sm text-gray-700 mt-2 line-clamp-3">
-                    {post.data.description}
-                  </p>
-                </div>
-              </a>
-            </div>
-          ))
-        }
+    <div class="relative w-full px-4 md:px-8">
+      <div class="relative overflow-hidden">
+        <div
+          id="carousel"
+          class="flex transition-transform duration-300 ease-out"
+          style="gap: 1rem;"
+        >
+          {
+            posts.map((post) => (
+              <div class="flex-shrink-0 w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)]">
+                <a
+                  href={`/blog/${post.slug}`}
+                  class="group block h-full bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+                >
+                  <div class="aspect-[3/4] overflow-hidden">
+                    <img
+                      src={post.data.image}
+                      alt={post.data.title}
+                      class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <div class="p-4">
+                    <p class="text-xs font-medium tracking-wider text-amber-500 mb-1 uppercase">
+                      {post.data.whetter}
+                    </p>
+                    <h3 class="savate-bold text-2xl group-hover:text-amber-500 transition-colors line-clamp-2">
+                      {post.data.title}
+                    </h3>
+                    <p class="text-sm text-gray-700 mt-2 line-clamp-3">
+                      {post.data.description}
+                    </p>
+                  </div>
+                </a>
+              </div>
+            ))
+          }
+        </div>
       </div>
     </div>
   </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Get elements
+      const carousel = document.getElementById("carousel");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+
+      // Early return if elements not found
+      if (!carousel || !prevBtn || !nextBtn) return;
+
+      // Type assertions after null check
+      const carouselEl = carousel as HTMLElement;
+      const prevBtnEl = prevBtn as HTMLButtonElement;
+      const nextBtnEl = nextBtn as HTMLButtonElement;
+
+      // State
+      let currentIndex = 0;
+      let isDesktop = window.innerWidth >= 768;
+      const totalSlides = carouselEl.children.length;
+
+      // Calculate max index based on viewport
+      const getMaxIndex = () => {
+        const slidesToShow = isDesktop ? 4 : 2;
+        return Math.max(0, totalSlides - slidesToShow);
+      };
+
+      let maxIndex = getMaxIndex();
+
+      // Update carousel position and button states
+      const updateCarousel = () => {
+        // Update responsive states
+        isDesktop = window.innerWidth >= 768;
+        maxIndex = getMaxIndex();
+        currentIndex = Math.min(currentIndex, maxIndex);
+
+        // Calculate the width of each card including gap
+        const card = carouselEl.children[0] as HTMLElement;
+        if (!card) return;
+
+        // Get the computed gap value (1rem = 16px)
+        const gap = 16; // 1rem gap
+
+        // Get the container's padding (8 * 16 = 128px on desktop)
+        const containerPadding = window.innerWidth >= 768 ? 64 : 32; // 4rem on desktop, 2rem on mobile
+
+        // Calculate card width based on viewport
+        let cardWidth;
+        if (window.innerWidth >= 768) {
+          // On desktop: (viewport - padding - (3 gaps)) / 4
+          cardWidth = (window.innerWidth - containerPadding - (3 * gap)) / 4;
+          // Add gap for proper sliding (except for the last card)
+          cardWidth += gap;
+        } else {
+          // On mobile: (viewport - padding - (1 gap)) / 2
+          cardWidth = (window.innerWidth - containerPadding - gap) / 2;
+          // Add gap for proper sliding (except for the last card)
+          cardWidth += gap;
+        }
+
+        // Move the carousel
+        carouselEl.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+
+        // Update button states
+        prevBtnEl.disabled = currentIndex === 0;
+        nextBtnEl.disabled = currentIndex >= maxIndex;
+        prevBtnEl.style.opacity = currentIndex === 0 ? "0.5" : "1";
+        nextBtnEl.style.opacity = currentIndex >= maxIndex ? "0.5" : "1";
+      };
+
+      // Navigation functions
+      const goToPrev = () => {
+        if (currentIndex > 0) {
+          currentIndex--;
+          updateCarousel();
+        }
+      };
+
+      const goToNext = () => {
+        if (currentIndex < maxIndex) {
+          currentIndex++;
+          updateCarousel();
+        }
+      };
+
+      // Add event listeners
+      prevBtnEl.addEventListener("click", goToPrev);
+      nextBtnEl.addEventListener("click", goToNext);
+
+      // Handle window resize with debounce
+      let resizeTimer: ReturnType<typeof setTimeout>;
+      const handleResize = () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(updateCarousel, 250);
+      };
+
+      window.addEventListener("resize", handleResize);
+
+      // Initial update
+      updateCarousel();
+
+      // Cleanup function
+      return () => {
+        window.removeEventListener("resize", handleResize);
+        prevBtnEl.removeEventListener("click", goToPrev);
+        nextBtnEl.removeEventListener("click", goToNext);
+      };
+    });
+  </script>
 </div>
-
-<script>
-  const carousel = document.getElementById("carousel");
-  const prevBtn = document.getElementById("prevBtn");
-  const nextBtn = document.getElementById("nextBtn");
-  let currentIndex = 0;
-  const totalSlides = carousel.children.length;
-  const slidesToShow = 4;
-  const maxIndex = Math.max(0, totalSlides - slidesToShow);
-
-  function updateSlidePosition() {
-    const slideWidth = carousel.children[0].offsetWidth + 24; // width + gap
-    carousel.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-
-    // Update button states
-    prevBtn.disabled = currentIndex === 0;
-    nextBtn.disabled = currentIndex >= maxIndex;
-
-    // Update button opacity
-    prevBtn.style.opacity = currentIndex === 0 ? "0.5" : "1";
-    nextBtn.style.opacity = currentIndex >= maxIndex ? "0.5" : "1";
-  }
-
-  prevBtn.addEventListener("click", () => {
-    currentIndex = Math.max(currentIndex - 1, 0);
-    updateSlidePosition();
-  });
-
-  nextBtn.addEventListener("click", () => {
-    currentIndex = Math.min(currentIndex + 1, maxIndex);
-    updateSlidePosition();
-  });
-
-  // Update on resize
-  window.addEventListener("resize", updateSlidePosition);
-
-  // Initial position update
-  updateSlidePosition();
-</script>

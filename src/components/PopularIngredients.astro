@@ -112,43 +112,61 @@ const popularIngredients = Object.entries(tagCount)
 </section>
 
 <script>
-  const track = document.getElementById("ingredients-track");
-  const prevBtn = document.getElementById("prev-ingredient");
-  const nextBtn = document.getElementById("next-ingredient");
+  document.addEventListener('DOMContentLoaded', () => {
+    const track = document.getElementById("ingredients-track") as HTMLElement;
+    const prevBtn = document.getElementById("prev-ingredient") as HTMLButtonElement;
+    const nextBtn = document.getElementById("next-ingredient") as HTMLButtonElement;
 
-  if (track && prevBtn && nextBtn) {
-    const itemWidth = 176; // 160px width + 16px gap
-    const visibleItems = Math.floor(track.clientWidth / itemWidth);
+    if (!track || !prevBtn || !nextBtn) return;
+
+    // Calculate item width including gap (160px + 16px)
+    const itemWidth = 176;
+    let visibleItems = Math.max(1, Math.floor(track.clientWidth / itemWidth));
     let currentIndex = 0;
 
     const updateButtons = () => {
-      prevBtn.disabled = currentIndex === 0;
-      nextBtn.disabled = currentIndex >= track.children.length - visibleItems;
+      if (!track || !prevBtn || !nextBtn) return;
+      
+      const maxIndex = Math.max(0, track.children.length - visibleItems);
+      prevBtn.disabled = currentIndex <= 0;
+      nextBtn.disabled = currentIndex >= maxIndex;
 
       prevBtn.style.opacity = prevBtn.disabled ? "0.5" : "1";
       nextBtn.style.opacity = nextBtn.disabled ? "0.5" : "1";
     };
 
-    const scroll = (direction: 1 | -1) => {
-      currentIndex = Math.max(
-        0,
-        Math.min(currentIndex + direction, track.children.length - visibleItems)
-      );
+    const scroll = (direction: number) => {
+      const maxIndex = Math.max(0, track.children.length - visibleItems);
+      currentIndex = Math.max(0, Math.min(currentIndex + direction, maxIndex));
       track.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
       updateButtons();
     };
 
+    // Add event listeners
     prevBtn.addEventListener("click", () => scroll(-1));
     nextBtn.addEventListener("click", () => scroll(1));
 
-    // Initialize button states
-    updateButtons();
+    // Handle window resize with debounce
+    let resizeTimer: number;
+    const handleResize = () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(() => {
+        visibleItems = Math.max(1, Math.floor(track.clientWidth / itemWidth));
+        updateButtons();
+      }, 100);
+    };
 
-    // Update on resize
-    window.addEventListener("resize", () => {
-      currentIndex = 0;
-      track.style.transform = "translateX(0)";
-      updateButtons();
-    });
-  }
+    // Initialize
+    updateButtons();
+    
+    // Add window resize listener
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup function
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      prevBtn.removeEventListener("click", () => scroll(-1));
+      nextBtn.removeEventListener("click", () => scroll(1));
+    };
+  });
 </script>
