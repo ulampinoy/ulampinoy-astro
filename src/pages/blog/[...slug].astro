@@ -34,7 +34,7 @@ function formatDate(dateStr: Date) {
         class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"
       >
         <div
-          class="container mx-auto max-w-3xl px-4 h-full flex flex-col justify-end pb-16"
+          class="container mx-auto max-w-[90ch] px-4 h-full flex flex-col justify-end pb-16"
         >
           <div>
             {
@@ -63,9 +63,9 @@ function formatDate(dateStr: Date) {
     </div>
 
     <div class="container mx-auto px-4 py-12">
-      <div class="prose prose-lg mx-auto">
+      <div class="prose prose-xl mx-auto">
         <div
-          class="prose-img:mx-auto md:prose-img:-mx-16 prose-img:max-w-[calc(100%+4rem)] md:prose-img:max-w-[calc(100%+8rem)]"
+          class="prose-img:mx-auto md:prose-img:-mx-16 prose-img:max-w-[calc(100%+4rem)] md:prose-img:max-w-[calc(100%+8rem)] max-w-[90ch]"
         >
           <div
             class="[&>p:first-of-type]:first-letter:float-left [&>p:first-of-type]:first-letter:text-7xl [&>p:first-of-type]:first-letter:pr-3 [&>p:first-of-type]:first-letter:font-bold [&>p:first-of-type]:first-letter:text-amber-500 [&>p:first-of-type]:first-letter:font-[savate]"
@@ -112,6 +112,6 @@ function formatDate(dateStr: Date) {
   }
 
   :global(.prose p) {
-    @apply max-w-[65ch] mx-auto;
+    @apply max-w-[90ch] mx-auto;
   }
 </style>
