@@ -1,6 +1,6 @@
 ---
-import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
 
 const postsPerPage = 12;
 const allPosts = await getCollection("blog", ({ data }) => data.draft !== true);
@@ -37,9 +37,9 @@ function formatDate(dateStr: Date) {
 >
   <main class="pt-24 pb-12">
     <div class="container mx-auto max-w-6xl px-4">
-      <h1 class="text-4xl md:text-5xl savate-bold mb-8">All Articles</h1>
+      <h1 class="text-4xl md:text-5xl savate-bold mb-8">Articles</h1>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 noto-sans">
         {
           posts.map((post) => (
             <a href={`/blog/${post.slug}`} class="group">
@@ -67,7 +67,7 @@ function formatDate(dateStr: Date) {
       </div>
 
       {/* Pagination */}
-      <div class="flex justify-center mt-8">
+      <div class="flex justify-center mt-8 noto-sans">
         {
           currentPage > 1 && (
             <a
