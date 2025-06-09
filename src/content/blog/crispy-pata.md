@@ -17,7 +17,7 @@ There's something magical about the sound of perfectly crispy skin crackling as 
 
 ## A Dish Born from Filipino Ingenuity
 
-Crispy Pata emerged during the 1950s in Camiling, Tarlac, credited to Rodolfo Ongpauco who wanted to create something special for his restaurant.[1] What started as a creative way to utilize the entire pig—a practice deeply rooted in Filipino culture where "nose to tail" eating is both economical and respectful—has become one of the most beloved dishes in Philippine cuisine.[2]
+Crispy Pata emerged during the 1950s in Camiling, Tarlac, credited to Rodolfo Ongpauco who wanted to create something special for his restaurant.[^1] What started as a creative way to utilize the entire pig—a practice deeply rooted in Filipino culture where "nose to tail" eating is both economical and respectful—has become one of the most beloved dishes in Philippine cuisine.[^2]
 
 This dish represents the Filipino philosophy of maximizing every part of an ingredient while creating something extraordinary from humble beginnings. The pork leg, often overlooked in Western cuisine, becomes the star of the show through patience, technique, and the Filipino mastery of deep frying.
 
@@ -89,15 +89,12 @@ Crispy Pata is best served immediately while the skin is at its crispiest. Tradi
 
 This isn't just a meal—it's an experience that brings people together, encouraging conversation and creating memories around shared plates and satisfied smiles. Whether it's a special occasion or a weekend family gathering, Crispy Pata transforms an ordinary meal into a celebration of Filipino culinary heritage.
 
-_Ready to try this iconic dish? Remember, the key to perfect Crispy Pata lies in patience and not rushing the process. The reward is worth every minute of preparation!_
+Ready to try this iconic dish? Remember, the key to perfect Crispy Pata lies in patience and not rushing the process. The reward is worth every minute of preparation!
 
 ![Crispy pata served on plate](/images/crispy-pata.jpg)
 _Perfect Crispy Pata with its signature golden-brown crispy skin and tender meat_
 
 ---
 
-## References
-
-[1] Alejandro, Reynaldo G. _The Food of the Philippines: Authentic Recipes from the Pearl of the Orient_. Singapore: Periplus Editions, 1998.
-
-[2] Fernandez, Doreen G. _Palayok: Philippine Food through Time, on Site, in the Pot_. Manila: Bookmark, 2000.
+[^1]: Alejandro, Reynaldo G. _The Food of the Philippines: Authentic Recipes from the Pearl of the Orient_. Singapore: Periplus Editions, 1998.
+[^2]: Fernandez, Doreen G. _Palayok: Philippine Food through Time, on Site, in the Pot_. Manila: Bookmark, 2000.

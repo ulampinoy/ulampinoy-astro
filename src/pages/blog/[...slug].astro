@@ -69,9 +69,7 @@ function formatDate(dateStr: Date) {
       <div
         class="prose prose-sm sm:prose-base md:prose-lg lg:prose-xl mx-auto max-w-4xl"
       >
-        <div
-          class="[&_img]:mx-auto [&_img]:w-full [&_img]:max-w-full [&_img]:rounded-lg"
-        >
+        <div class="[&_img]:mx-auto [&_img]:w-full [&_img]:max-w-full">
           <div
             class="[&>p:first-of-type]:first-letter:float-left [&>p:first-of-type]:first-letter:text-8xl [&>p:first-of-type]:first-letter:pr-3 [&>p:first-of-type]:first-letter:font-bold [&>p:first-of-type]:first-letter:text-amber-500 [&>p:first-of-type]:first-letter:font-[savate] [&>p]:w-[80%] [&>p]:mx-auto [&>p:has(>img)]:w-full"
           >
@@ -79,35 +77,34 @@ function formatDate(dateStr: Date) {
           </div>
         </div>
       </div>
-      <div class="container mx-auto max-w-6xl px-4">
-        {
-          post.data.tags && post.data.tags.length > 0 && (
-            <div class="mt-12 pt-8 border-t ">
-              <div class="flex flex-wrap gap-2">
-                {post.data.tags.map((tag) => (
-                  <a
-                    href={`/tags/${tag}`}
-                    class="px-3 py-1 bg-gray-100 rounded-sm hover:rounded-lg transition-all text-sm text-gray-700 hover:bg-gray-200 transition-colors"
-                  >
-                    {tag}
-                  </a>
-                ))}
-              </div>
+    </div>
+    <div class="container mx-auto max-w-6xl px-4">
+      {
+        post.data.tags && post.data.tags.length > 0 && (
+          <div class="mt-12 pt-8 border-t ">
+            <div class="flex flex-wrap gap-2">
+              {post.data.tags.map((tag) => (
+                <a
+                  href={`/tags/${tag}`}
+                  class="px-3 py-1 bg-gray-100 rounded-sm hover:rounded-lg transition-all text-sm text-gray-700 hover:bg-gray-200 transition-colors"
+                >
+                  {tag}
+                </a>
+              ))}
             </div>
-          )
-        }
-      </div>
+          </div>
+        )
+      }
     </div>
   </article>
 </BaseLayout>
 
 <style>
   :global(.prose img) {
-    @apply my-8;
+    @apply pt-4;
     width: 100%;
     max-width: 100%;
     height: auto;
-    border-radius: 0.125rem;
     display: block;
   }
 
@@ -137,5 +134,47 @@ function formatDate(dateStr: Date) {
       margin-left: -4rem;
       margin-right: -4rem;
     }
+  }
+
+  :global(.prose iframe) {
+    @apply w-full aspect-video my-6 md:my-8;
+  }
+  :global(.prose a) {
+    @apply text-amber-400 hover:text-amber-300 transition-colors;
+  }
+
+  :global(.prose a[href^="#"]) {
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    margin: 0 2px;
+    padding: 0 4px;
+    font-size: 0.8em;
+    line-height: 1;
+    vertical-align: super;
+    color: #f59e0b;
+    background-color: rgba(245, 158, 11, 0.1);
+    border-radius: 2px;
+    transition: all 0.2s ease;
+  }
+
+  :global(.prose a[href^="#"]:hover) {
+    background-color: rgba(245, 158, 11, 0.2);
+  }
+  :global(.prose p),
+  :global(.prose ul),
+  :global(.prose ol),
+  :global(.prose h2),
+  :global(.prose h3) {
+    @apply w-[100%] md:w-[80%] mx-auto my-4;
+  }
+
+  :global(.prose h3),
+  :global(.prose h2) {
+    @apply mt-8 md:mt-12;
+  }
+
+  :global(.prose ol > li > p) {
+    @apply mx-0 w-full;
   }
 </style>
