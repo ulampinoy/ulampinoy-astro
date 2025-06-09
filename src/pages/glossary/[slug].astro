@@ -25,7 +25,7 @@ const formatDate = (dateString: string) => {
 ---
 
 <BaseLayout title={item.data.title} description={item.data.description}>
-  <article class="pt-16">
+  <article class="pt-32">
     {/* Hero Image Section - Full Bleed */}
     <div class="relative w-screen left-1/2 right-1/2 -mx-[50vw] -mt-16">
       <div class="relative h-[40vh] sm:h-[50vh] md:h-[60vh] w-screen">
@@ -40,7 +40,7 @@ const formatDate = (dateString: string) => {
         </div>
       </div>
       <div class="absolute inset-0 flex items-end">
-        <div class="container mx-auto max-w-[90ch] px-4 w-full pb-16">
+        <div class="container mx-auto max-w-3xl px-4 w-full pb-8 md:pb-16">
           <div>
             {
               item.data.category && (
@@ -84,7 +84,7 @@ const formatDate = (dateString: string) => {
           class="[&_img]:mx-auto [&_img]:w-full [&_img]:max-w-full [&_img]:rounded-lg"
         >
           <div
-            class="[&>p:first-of-type]:first-letter:float-left [&>p:first-of-type]:first-letter:text-8xl [&>p:first-of-type]:first-letter:pr-3 [&>p:first-of-type]:first-letter:font-bold [&>p:first-of-type]:first-letter:text-amber-500 [&>p:first-of-type]:first-letter:font-[savate] [&>p]:w-[80%] [&>p]:mx-auto [&>p:has(>img)]:w-full"
+            class="[&>p:first-of-type]:first-letter:float-left [&>p:first-of-type]:first-letter:text-6xl md:[&>p:first-of-type]:first-letter:text-8xl [&>p:first-of-type]:first-letter:pr-2 [&>p:first-of-type]:first-letter:font-bold [&>p:first-of-type]:first-letter:text-amber-500 [&>p:first-of-type]:first-letter:font-[savate] [&>p]:w-[80%] [&>p]:mx-auto [&>p:has(>img)]:w-full"
           >
             <Content />
           </div>
