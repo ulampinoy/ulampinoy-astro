@@ -34,7 +34,7 @@ const currentPath = Astro.url.pathname;
       <Navigation currentPath={currentPath} />
       {
         showBackLink && currentPath !== "/" && (
-          <div class="mb-8">
+          <div class="px-4 py-12">
             <a
               href="/"
               class="inline-flex items-center text-amber-500 hover:text-amber-600 transition-colors"
