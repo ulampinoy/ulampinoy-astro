@@ -32,6 +32,7 @@ const glossary = defineCollection({
     tags: z.array(z.string()).default([]),
     date: z.date().optional(),
     author: z.string().optional(),
+    draft: z.boolean().default(false),
   }),
 });
 

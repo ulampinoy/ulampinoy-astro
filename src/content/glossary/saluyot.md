@@ -4,6 +4,7 @@ description: A nutritious leafy vegetable known for its slimy texture when cooke
 date: 2025-06-10
 category: Ingredients
 image: /images/saluyot-leaves.jpg
+draft: true
 tags:
   - ingredients
   - vegetables

@@ -2,8 +2,11 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 
-const glossaryItems = await getCollection("glossary");
-const sortedItems = glossaryItems.sort((a, b) =>
+const allGlossaryItems = await getCollection("glossary");
+const publishedGlossaryItems = allGlossaryItems.filter(
+  (item) => !item.data.draft
+);
+const sortedItems = publishedGlossaryItems.sort((a, b) =>
   a.data.title.localeCompare(b.data.title)
 );
 ---

@@ -93,7 +93,7 @@ const popularIngredients = Object.entries(tagCount)
           popularIngredients.map(({ tag, count }) => (
             <a href={`/tags/${tag}`} class="flex-shrink-0 w-[160px] group">
               <div class="rounded-lg p-6 flex flex-col items-center text-center transition-transform hover:-translate-y-1">
-                <div class="w-40 h-40 bg-amber-500 rounded-sm hover:rounded-lg transition-all flex items-center justify-center text-8xl mb-4">
+                <div class="w-40 h-40 bg-amber-500 rounded-full hover:rounded-3xl transition-all flex items-center justify-center text-8xl mb-4">
                   {ingredientIcons[tag] || "🥘"}
                 </div>
                 <h3 class="text-white font-medium capitalize group-hover:text-amber-400 mb-1">
