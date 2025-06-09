@@ -30,11 +30,11 @@ const sortedItems = glossaryItems.sort((a, b) =>
                 <img
                   src={item.data.image}
                   alt={item.data.title}
-                  class="w-16 h-16 object-cover rounded-full mr-4"
+                  class="aspect-square w-24 h-24 object-cover rounded-full mr-4"
                 />
               )}
               <div class="flex-1">
-                <h2 class="savate-bold text-xl group-hover:text-amber-500 transition-colors">
+                <h2 class="savate-bold text-2xl group-hover:text-amber-500 transition-colors">
                   {item.data.title}
                 </h2>
                 <p class="text-gray-600 mt-2 line-clamp-2">

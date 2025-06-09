@@ -9,12 +9,27 @@ tags:
   - flowers
   - traditional
 ---
-Also known as banana heart or banana flower. It is the large, cone-shaped flower that grows at the end of a bunch of bananas. 
 
-Banana heart can be found in most Asian markets or specialty stores that carry Southeast Asian ingredients. It can also be purchased canned or frozen, although fresh banana heart is preferred for its superior taste and texture.
+Puso ng saging (banana heart) is the flower bud of the banana plant that's used as a vegetable in Filipino cooking. It has a mild flavor and a slightly crunchy texture.
 
-**Nutritional value:** Banana heart is rich in vitamins and minerals, such as vitamin C, vitamin A, potassium, calcium, and iron. It is also high in dietary fiber and low in calories, making it a healthy food choice.
+### Uses in Filipino Cooking
 
-**Culinary uses:** Banana heart is a common ingredient in many Southeast Asian and Indian dishes, where it is often used in salads, curries, and soups. It has a slightly bitter taste and a firm texture, which makes it a good meat substitute in vegetarian and vegan dishes.
+- Used in soups like sinigang
+- Added to sautéed dishes
+- Used in salads
+- Added to stir-fries
+- Used in vegetable medleys
 
-**Health benefits:** Banana heart is believed to have several health benefits, such as regulating blood sugar levels, improving digestion, reducing cholesterol levels, and promoting kidney health.
+### Nutritional Benefits
+
+- Rich in fiber
+- Contains vitamins and minerals
+- Low in calories
+- Good source of antioxidants
+
+### Storage Tips
+
+- Store in the refrigerator
+- Use within a few days
+- Clean before use
+- Remove outer layers before cooking

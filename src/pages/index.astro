@@ -29,8 +29,8 @@ const featuredPosts = posts.filter((post) => post.data.featured);
 
 const promotedPost = posts.find((post) => post.data.promoted);
 const featuredPost = promotedPost || sortedPosts[0];
-const secondaryPosts = sortedPosts.slice(1, 7);
-const remainingPosts = sortedPosts.slice(6);
+const secondaryPosts = sortedPosts.slice(0, 6);
+const remainingPosts = sortedPosts.slice(7);
 ---
 
 <BaseLayout
@@ -125,7 +125,7 @@ const remainingPosts = sortedPosts.slice(6);
           <div class="md:col-span-2 lg:col-span-3">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
               {
-                secondaryPosts.slice(3).map((post) => (
+                secondaryPosts.slice(0).map((post) => (
                   <a href={`/blog/${post.slug}`} class="group pb-2">
                     <div class="aspect-[4/3] overflow-hidden rounded-lg">
                       <img
