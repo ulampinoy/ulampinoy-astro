@@ -2,52 +2,61 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const pageTitle = "About UlamPinoy | The Filipino Family Kitchen Chronicles";
-const pageDescription = "Meet the family behind UlamPinoy, sharing authentic Filipino recipes and kitchen stories from our home in Spain to yours.";
+const pageDescription =
+  "Meet the family behind UlamPinoy, sharing authentic Filipino recipes and kitchen stories from our home in Spain to yours.";
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
-  <main class="bg-white pt-24 pb-16">
+  <main class="bg-white pt-16 pb-16">
     {/* Hero Section */}
     <section class="bg-gradient-to-br from-amber-50 to-white py-16 md:py-24">
       <div class="container mx-auto px-4 max-w-5xl">
         <div class="text-center mb-12">
-          <h1 class="savate-heavy text-4xl md:text-5xl lg:text-6xl text-amber-600 mb-6">
+          <h1
+            class="savate-heavy text-4xl md:text-5xl lg:text-6xl text-amber-600 mb-6"
+          >
             Kumusta Kaibigan! 👋
           </h1>
           <p class="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto">
-            We're a Filipino family living in Spain, cooking our way through homesickness one recipe at a time.
+            We're a Filipino family living in Spain, cooking our way through
+            homesickness one recipe at a time.
           </p>
         </div>
-        
+
         <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
           <div class="md:flex">
-            <div class="md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
-              <p class="text-amber-600 font-medium mb-4">OUR STORY</p>
-              <h2 class="savate-bold text-3xl md:text-4xl text-gray-900 mb-6">
-                From Our Kitchen to Yours
+            <div class="md:w-1/2 p-6 md:p-12 flex flex-col justify-center">
+              <h2 class="savate-bold text-3xl md:text-4xl text-gray-900 mb-4">
+                Our Epic Journey
               </h2>
               <p class="text-gray-600 mb-6">
-                Ulampinoy started as our digital recipe diary and somehow evolved into a
-                full-blown family cooking empire (well, maybe not empire, but we do have
-                matching aprons now).
+                Ulampinoy started as our digital recipe diary and somehow
+                evolved into a full-blown family project where we cook together,
+                learn from each other, and share our culinary adventures one
+                recipe at a time.
               </p>
-              <div class="flex space-x-4">
-                <a 
-                  href="#our-story" 
-                  class="px-6 py-3 bg-amber-500 text-white rounded-full font-medium hover:bg-amber-600 transition-colors"
+              <div class="flex gap-4">
+                <a
+                  href="/"
+                  class="w-full px-6 py-3 bg-amber-500 text-white rounded-full font-medium hover:bg-amber-600 transition-colors"
                 >
-                  Our Journey
+                  What's New?
                 </a>
-                <a 
-                  href="/recipes" 
-                  class="px-6 py-3 border-2 border-amber-500 text-amber-600 rounded-full font-medium hover:bg-amber-50 transition-colors"
+                <a
+                  href="/videos"
+                  class="w-full px-6 py-3 border-2 border-amber-500 text-amber-600 rounded-full font-medium hover:bg-amber-50 transition-colors"
                 >
-                  Browse Recipes
+                  Watch Videos
                 </a>
               </div>
             </div>
-            <div class="md:w-1/2 h-64 md:h-auto bg-gradient-to-br from-amber-100 to-amber-200 flex items-center justify-center">
-              <span class="text-6xl">🍛</span>
+            <div class="md:w-1/2 h-64 md:h-auto bg-gray-100 overflow-hidden">
+              <img
+                src="/images/eggplant-stove.jpg"
+                alt="Fresh eggplants on a stove in a Filipino kitchen"
+                class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
             </div>
           </div>
         </div>
@@ -58,7 +67,9 @@ const pageDescription = "Meet the family behind UlamPinoy, sharing authentic Fil
     <section id="our-story" class="py-16 bg-white">
       <div class="container mx-auto px-4 max-w-4xl">
         <div class="text-center mb-12">
-          <span class="text-amber-500 text-lg font-medium">📖 OUR ORIGIN STORY</span>
+          <span class="text-amber-500 tracking-wider font-medium"
+            >ORIGIN STORY</span
+          >
           <h2 class="savate-bold text-3xl md:text-4xl text-gray-900 mt-2">
             The Manila-Madrid Connection
           </h2>
@@ -67,47 +78,56 @@ const pageDescription = "Meet the family behind UlamPinoy, sharing authentic Fil
 
         <div class="prose prose-lg max-w-none text-gray-600">
           <p>
-            Once upon a time, we migrated to Spain and realized that decent Filipino food was rarer than parking spaces in
-            Madrid. Like millions of Filipinos around the world, we're part of the beautiful
-            diaspora that carries our culture, traditions, and most importantly, our recipes
-            wherever we go.
+            Once upon a time, we migrated to Spain and realized that decent
+            Filipino food was rarer than parking spaces in Madrid. Like millions
+            of Filipinos around the world, we're part of the beautiful diaspora
+            that carries our culture, traditions, and most importantly, our
+            recipes wherever we go.
           </p>
-          
-          <p>
-            There's something beautifully full-circle about the
-            Manila-Madrid connection – centuries of shared history through colonial ties and
-            cultural exchange, and now here we are, modern Filipinos in Spain sharing our
-            heritage through kitchen stories and YouTube videos.
-          </p>
-
-          <div class="bg-amber-50 p-6 rounded-lg border-l-4 border-amber-400 my-8">
-            <p class="text-amber-800 italic">
-              "When our kids grow up and can't tell adobo from adobe, they'll have 60+ videos
-              to save their culinary souls."
-            </p>
+          <div class="m-w-full">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d47842858.82403228!2d28.054299243485257!3d18.351996414516027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e4!4m5!1s0x3397c8d26026386d%3A0x5fed23daac9278d0!2sManila%2C%20Philippines!3m2!1d14.609053699999999!2d121.0222565!4m5!1s0xd422997800a3c81%3A0xc436dec1618c2269!2sMadrid%2C%20Spain!3m2!1d40.4167279!2d-3.7032905!5e0!3m2!1sen!2ses!4v1749459830317!5m2!1sen!2ses"
+              width="100%"
+              height="480"
+              style="border:0;"
+              allowfullscreen="false"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
-
           <p>
-            So we did what any sensible Filipino family would do: we started cooking everything ourselves and
-            documenting it obsessively. What began as a simple food journal quickly
-            transformed into our <a href="https://www.youtube.com/user/ulampinoy/featured" class="text-amber-600 hover:text-amber-800 font-medium">YouTube cooking channel</a> – a family project
-            that serves as both entertainment and insurance policy.
+            There's something beautifully full-circle about the Manila-Madrid
+            connection – centuries of shared history through colonial ties and
+            cultural exchange, and now here we are, modern Filipinos in Spain
+            sharing our heritage through kitchen stories and YouTube videos. So
+            we did what any sensible Filipino family would do: we started
+            cooking everything ourselves
+          </p>
+          <p>
+            So we did what any sensible Filipino family would do: we started
+            cooking everything ourselves and documenting it obsessively. What
+            began as a simple food journal quickly transformed into our <a
+              href="https://www.youtube.com/user/ulampinoy/featured"
+              class="text-amber-600 hover:text-amber-800 font-medium"
+              >YouTube cooking channel</a
+            > – a family project that serves as journal and a way to bond.
           </p>
 
           <p>
-            Every recipe comes with stories, memories, and the
-            occasional kitchen disaster (which we may or may not include in the final cut).
-            You can find all our <a href="/videos" class="text-amber-600 hover:text-amber-800 font-medium">video recipes</a> organized by category, or if
-            you're scratching your head wondering what "gata" or "patis" means, our handy
-            <a href="/glossary" class="text-amber-600 hover:text-amber-800 font-medium">glossary</a> has got your back with translations and explanations of
-            Filipino cooking terms.
+            Every recipe comes with stories, memories, and the occasional
+            kitchen disaster (which we may or may not include in the final cut).
+            You can find all our <a
+              href="/videos"
+              class="text-amber-600 hover:text-amber-800 font-medium"
+              >video recipes</a
+            > organized by category, or if you're scratching your head wondering
+            what "gata" or "patis" means, our handy
+            <a
+              href="/glossary"
+              class="text-amber-600 hover:text-amber-800 font-medium"
+              >glossary</a
+            > has got your back with translations and explanations of Filipino cooking
+            terms.
           </p>
-        </div>
-
-        <div class="mt-12 bg-gradient-to-r from-amber-500 to-amber-600 text-white p-8 rounded-2xl text-center">
-          <p class="text-2xl md:text-3xl font-bold mb-2">61,463+ Subscribers</p>
-          <p class="text-amber-100">and over 9.9 million video views and counting!</p>
-          <p class="mt-4 text-amber-100">Apparently, we're not the only ones who miss home cooking!</p>
         </div>
       </div>
     </section>
@@ -116,7 +136,9 @@ const pageDescription = "Meet the family behind UlamPinoy, sharing authentic Fil
     <section class="py-16 bg-gray-50">
       <div class="container mx-auto px-4 max-w-4xl">
         <div class="text-center mb-12">
-          <span class="text-amber-500 text-lg font-medium">🎯 OUR MISSION</span>
+          <span class="text-amber-500 tracking-wide font-medium"
+            >OUR MISSION</span
+          >
           <h2 class="savate-bold text-3xl md:text-4xl text-gray-900 mt-2">
             More Than Just Recipes
           </h2>
@@ -125,17 +147,21 @@ const pageDescription = "Meet the family behind UlamPinoy, sharing authentic Fil
 
         <div class="prose prose-lg max-w-none text-gray-600">
           <p>
-            We're building the ultimate Filipino family cookbook, one video at a time. Our
-            goal is simple: create a collection of tried-and-tested recipes with our own
-            family twist, presented in a way that won't put you to sleep (unlike your
-            typical cooking show).
+            We're building the ultimate Filipino family cookbook, one video at a
+            time. Our goal is simple: create a collection of tried-and-tested
+            recipes with our own family twist, presented in a way that won't put
+            you to sleep (unlike your typical cooking show).
           </p>
-          
+
           <p>
-            Beyond recipes, we share discoveries, lessons learned,
-            random kitchen wisdom, and whatever else catches our fancy in our <a href="/articles" class="text-amber-600 hover:text-amber-800 font-medium">articles
-            section</a>. Think of us as your Filipino cooking uncles and titas who
-            happen to live in Spain and know way too much about proper rice-to-water ratios.
+            Beyond recipes, we share discoveries, lessons learned, random
+            kitchen wisdom, and whatever else catches our fancy in our <a
+              href="/articles"
+              class="text-amber-600 hover:text-amber-800 font-medium"
+              >articles section</a
+            >. Think of us as your Filipino cooking uncles and titas who happen
+            to live in Spain and know way too much about proper rice-to-water
+            ratios.
           </p>
         </div>
       </div>
@@ -145,11 +171,16 @@ const pageDescription = "Meet the family behind UlamPinoy, sharing authentic Fil
     <section class="py-16 bg-white">
       <div class="container mx-auto px-4 max-w-4xl">
         <div class="text-center mb-12">
-          <span class="text-amber-500 text-lg font-medium">🛠️ THE TECH STACK</span>
+          <span class="text-amber-500 tracking-wide font-medium"
+            >UNDER THE HOOD</span
+          >
           <h2 class="savate-bold text-3xl md:text-4xl text-gray-900 mt-2">
             Behind the Scenes
           </h2>
-          <p class="text-gray-600 mt-4">This website is lovingly crafted and occasionally cursed at, built with:</p>
+          <p class="text-gray-600 mt-4">
+            How we use web tech to craft and ship this website with love and
+            umami
+          </p>
           <div class="w-24 h-1 bg-amber-400 mx-auto mt-4"></div>
         </div>
 
@@ -161,43 +192,63 @@ const pageDescription = "Meet the family behind UlamPinoy, sharing authentic Fil
                 <span class="text-amber-500 mr-3 mt-1">•</span>
                 <div>
                   <h4 class="font-medium text-gray-900">AstroJS</h4>
-                  <p class="text-gray-600 text-sm">Because we upgraded from Eleventy and now our build times are faster than cooking minute rice</p>
+                  <p class="text-gray-600 text-sm">
+                    Because we upgraded from Eleventy and now our build times
+                    are faster than cooking minute rice
+                  </p>
                 </div>
               </li>
               <li class="flex items-start">
                 <span class="text-amber-500 mr-3 mt-1">•</span>
                 <div>
                   <h4 class="font-medium text-gray-900">Netlify</h4>
-                  <p class="text-gray-600 text-sm">Our deployment heroes who keep us online (salamat!)</p>
+                  <p class="text-gray-600 text-sm">
+                    Our deployment heroes who keep us online (salamat!)
+                  </p>
                 </div>
               </li>
               <li class="flex items-start">
                 <span class="text-amber-500 mr-3 mt-1">•</span>
                 <div>
                   <h4 class="font-medium text-gray-900">GitHub</h4>
-                  <p class="text-gray-600 text-sm">Where our code lives and where we backup our digital kitchen secrets</p>
+                  <p class="text-gray-600 text-sm">
+                    Where our code lives and where we backup our digital kitchen
+                    secrets
+                  </p>
                 </div>
               </li>
               <li class="flex items-start">
                 <span class="text-amber-500 mr-3 mt-1">•</span>
                 <div>
                   <h4 class="font-medium text-gray-900">Google Fonts</h4>
-                  <p class="text-gray-600 text-sm">Making our text look prettier than our food photography</p>
+                  <p class="text-gray-600 text-sm">
+                    Making our text look prettier than our food photography
+                  </p>
                 </div>
               </li>
             </ul>
           </div>
-          
+
           <div class="bg-amber-50 p-6 rounded-xl border-l-4 border-amber-400">
-            <h3 class="text-xl font-bold text-gray-900 mb-4">Special Thanks</h3>
-            <p class="text-gray-700 mb-4">
-              Special shoutout to our friends at Netlify for their generous hosting. Without them,
-              this site would be as inaccessible as finding good balut in Barcelona.
-            </p>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">
+              What's in a Name?
+            </h3>
             <p class="text-gray-700">
-              Also, big thanks to our taste testers (a.k.a. our long-suffering family members) 
-              who bravely eat everything we cook, no matter how experimental.
+              If you're wondering about the name <strong>"Ulampinoy,"</strong> it's
+              a portmanteau of "ulam" (Filipino for viand/main dish) and "Pinoy"
+              (colloquial term for Filipino). Yes, we're that creative with our naming
+              conventions.
             </p>
+            <div class="mt-8">
+              <h3 class="text-xl font-bold text-gray-900 mb-4">
+                Ulam PInoy YouTube Channel Stats
+              </h3>
+              <p>
+                <strong>66.4K+ subscribers</strong> and over 11,321,995 video views
+                from our 131 videos and counting!
+              </p>
+              <p>Apparently, we're not the only ones who miss home cooking!</p>
+            </div>
           </div>
         </div>
       </div>
@@ -206,32 +257,26 @@ const pageDescription = "Meet the family behind UlamPinoy, sharing authentic Fil
     {/* CTA Section */}
     <section class="py-16 bg-amber-600 text-white">
       <div class="container mx-auto px-4 max-w-4xl text-center">
-        <h2 class="savate-bold text-3xl md:text-4xl mb-6">Let's Cook Together!</h2>
+        <h2 class="savate-bold text-3xl md:text-4xl mb-6">
+          Let's Cook Together!
+        </h2>
         <p class="text-xl mb-8 max-w-2xl mx-auto text-amber-100">
           Have a recipe request? Want to argue about the proper way to cook
           adobo? Just want to say hi? We'd love to hear from you!
         </p>
         <div class="flex flex-col sm:flex-row justify-center gap-4">
-          <a 
-            href="/contact" 
+          <a
+            href="/contact"
             class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-amber-700 bg-white hover:bg-gray-100 transition-colors"
           >
             Get in Touch
           </a>
-          <a 
-            href="/videos" 
+          <a
+            href="/videos"
             class="inline-flex items-center justify-center px-6 py-3 border-2 border-white text-base font-medium rounded-full text-white hover:bg-white hover:bg-opacity-10 transition-colors"
           >
             Watch Our Videos
           </a>
-        </div>
-        
-        <div class="mt-12 pt-8 border-t border-amber-500">
-          <p class="text-amber-200 text-sm italic">
-            *P.S. - If you're wondering about the name "Ulampinoy," it's a portmanteau of
-            "ulam" (Filipino for viand/main dish) and "Pinoy" (colloquial term for
-            Filipino). Yes, we're that creative with our naming conventions.
-          </p>
         </div>
       </div>
     </section>
