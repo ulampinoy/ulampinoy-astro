@@ -27,7 +27,7 @@ const formatDate = (dateString: string) => {
 <BaseLayout title={item.data.title} description={item.data.description}>
   <article class="pt-16">
     {/* Hero Image Section */}
-    <div class="relative h-[50vh] md:h-[60vh]">
+    <div class="relative h-[40vh] sm:h-[50vh] md:h-[60vh]">
       <img
         src={item.data.image || "/images/default-glossary.jpg"}
         alt={item.data.title}
@@ -37,7 +37,7 @@ const formatDate = (dateString: string) => {
         class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"
       >
         <div
-          class="container mx-auto max-w-[90ch] px-4 h-full w-full flex flex-col justify-end pb-16"
+          class="container mx-auto max-w-[90ch] px-8 h-full w-full flex flex-col justify-end pb-16"
         >
           <div>
             {
@@ -74,10 +74,10 @@ const formatDate = (dateString: string) => {
     </div>
 
     {/* Content Section */}
-    <div class="container mx-auto px-4 py-12">
-      <div class="prose prose-xl mx-auto">
+    <div class="container mx-auto px-4 sm:px-6 py-8 sm:py-12">
+      <div class="prose prose-sm sm:prose-base md:prose-lg lg:prose-xl mx-auto">
         <div
-          class="prose-img:mx-auto md:prose-img:-mx-16 prose-img:max-w-[calc(100%+4rem)] md:prose-img:max-w-[calc(100%+8rem)] max-w-[90ch]"
+          class="prose-img:mx-auto prose-img:max-w-full md:prose-img:-mx-8 lg:prose-img:-mx-16 prose-img:rounded-lg md:prose-img:max-w-[calc(100%+4rem)] lg:prose-img:max-w-[calc(100%+8rem)] max-w-[90ch]"
         >
           <div
             class="[&>p:first-of-type]:first-letter:float-left [&>p:first-of-type]:first-letter:text-8xl [&>p:first-of-type]:first-letter:pr-3 [&>p:first-of-type]:first-letter:font-bold [&>p:first-of-type]:first-letter:text-amber-500 [&>p:first-of-type]:first-letter:font-[savate]"
@@ -94,7 +94,7 @@ const formatDate = (dateString: string) => {
                 {item.data.tags.map((tag) => (
                   <a
                     href={`/tags/${tag}`}
-                    class="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-700 hover:bg-gray-200 transition-colors"
+                    class="px-3 py-1 bg-gray-100 rounded-sm hover:rounded-lg transition-all text-sm text-gray-700 hover:bg-gray-200 transition-colors"
                   >
                     {tag}
                   </a>
@@ -108,10 +108,10 @@ const formatDate = (dateString: string) => {
 
     <style>
       :global(.prose img) {
-        @apply md:w-auto md:rounded-lg;
+        @apply w-full h-auto rounded-lg my-4 md:my-6;
       }
       :global(.prose iframe) {
-        @apply w-full aspect-video rounded-lg my-8;
+        @apply w-full aspect-video rounded-lg my-6 md:my-8;
       }
       :global(.prose a) {
         @apply text-amber-400 hover:text-amber-300 transition-colors;

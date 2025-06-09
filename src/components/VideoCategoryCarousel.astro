@@ -38,7 +38,7 @@ const { posts, category } = Astro.props;
 
     {/* Navigation Buttons */}
     <button
-      class="absolute left-0 top-1/2 -translate-y-1/2 bg-black/50 p-3 rounded-full text-white hover:bg-black/70 transition-colors z-10"
+      class="absolute left-0 top-1/2 -translate-y-1/2 bg-black/50 p-3 rounded-sm hover:rounded-lg transition-all text-white hover:bg-black/70 transition-colors z-10"
       id={`prev-${category}`}
     >
       <svg
@@ -55,7 +55,7 @@ const { posts, category } = Astro.props;
       </svg>
     </button>
     <button
-      class="absolute right-0 top-1/2 -translate-y-1/2 bg-black/50 p-3 rounded-full text-white hover:bg-black/70 transition-colors z-10"
+      class="absolute right-0 top-1/2 -translate-y-1/2 bg-black/50 p-3 rounded-sm hover:rounded-lg transition-all text-white hover:bg-black/70 transition-colors z-10"
       id={`next-${category}`}
     >
       <svg

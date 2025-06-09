@@ -43,7 +43,7 @@ function formatDate(dateStr: Date) {
         {
           posts.map((post) => (
             <a href={`/blog/${post.slug}`} class="group">
-              <div class="aspect-[16/9] overflow-hidden rounded-lg">
+              <div class="aspect-[16/9] overflow-hidden rounded-sm hover:rounded-lg transition-all">
                 <img
                   src={post.data.image}
                   alt={post.data.title}

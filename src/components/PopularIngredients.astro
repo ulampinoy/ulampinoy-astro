@@ -93,7 +93,7 @@ const popularIngredients = Object.entries(tagCount)
           popularIngredients.map(({ tag, count }) => (
             <a href={`/tags/${tag}`} class="flex-shrink-0 w-[160px] group">
               <div class="rounded-lg p-6 flex flex-col items-center text-center transition-transform hover:-translate-y-1">
-                <div class="w-40 h-40 bg-amber-500 rounded-full flex items-center justify-center text-8xl mb-4">
+                <div class="w-40 h-40 bg-amber-500 rounded-sm hover:rounded-lg transition-all flex items-center justify-center text-8xl mb-4">
                   {ingredientIcons[tag] || "🥘"}
                 </div>
                 <h3 class="text-white font-medium capitalize group-hover:text-amber-400 mb-1">
@@ -112,10 +112,14 @@ const popularIngredients = Object.entries(tagCount)
 </section>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener("DOMContentLoaded", () => {
     const track = document.getElementById("ingredients-track") as HTMLElement;
-    const prevBtn = document.getElementById("prev-ingredient") as HTMLButtonElement;
-    const nextBtn = document.getElementById("next-ingredient") as HTMLButtonElement;
+    const prevBtn = document.getElementById(
+      "prev-ingredient"
+    ) as HTMLButtonElement;
+    const nextBtn = document.getElementById(
+      "next-ingredient"
+    ) as HTMLButtonElement;
 
     if (!track || !prevBtn || !nextBtn) return;
 
@@ -126,7 +130,7 @@ const popularIngredients = Object.entries(tagCount)
 
     const updateButtons = () => {
       if (!track || !prevBtn || !nextBtn) return;
-      
+
       const maxIndex = Math.max(0, track.children.length - visibleItems);
       prevBtn.disabled = currentIndex <= 0;
       nextBtn.disabled = currentIndex >= maxIndex;
@@ -158,7 +162,7 @@ const popularIngredients = Object.entries(tagCount)
 
     // Initialize
     updateButtons();
-    
+
     // Add window resize listener
     window.addEventListener("resize", handleResize);
 

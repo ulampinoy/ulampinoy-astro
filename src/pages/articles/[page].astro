@@ -51,7 +51,9 @@ function formatDate(date) {
 >
   <main class="pt-24 pb-12 noto-sans">
     <div class="container mx-auto max-w-6xl px-4">
-      <h1 class="text-4xl font-bold mb-8">All Articles - Page {currentPage}</h1>
+      <h1 class="text-2xl font-semibold capitalize tracking-tight mb-8">
+        Articles - Page {currentPage}
+      </h1>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         {
           postsPage.map((post) => (

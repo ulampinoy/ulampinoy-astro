@@ -15,7 +15,7 @@ const { posts } = Astro.props;
       <div class="flex gap-2">
         <button
           id="prevBtn"
-          class="p-2 rounded-full bg-gray-100 hover:bg-yellow-100 transition-colors"
+          class="p-2 rounded-full hover:rounded-lg transition-all bg-gray-100 hover:bg-yellow-100"
           aria-label="Previous slides"
         >
           <svg
@@ -33,7 +33,7 @@ const { posts } = Astro.props;
         </button>
         <button
           id="nextBtn"
-          class="p-2 rounded-full bg-gray-100 hover:bg-yellow-100 transition-colors"
+          class="p-2 rounded-full hover:rounded-lg transition-all bg-gray-100 hover:bg-yellow-100"
           aria-label="Next slides"
         >
           <svg
@@ -64,7 +64,7 @@ const { posts } = Astro.props;
               <div class="flex-shrink-0 w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)]">
                 <a
                   href={`/blog/${post.slug}`}
-                  class="group block h-full bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+                  class="group block h-full bg-white rounded-sm hover:rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
                 >
                   <div class="aspect-[3/4] overflow-hidden">
                     <img
@@ -142,7 +142,7 @@ const { posts } = Astro.props;
         let cardWidth;
         if (window.innerWidth >= 768) {
           // On desktop: (viewport - padding - (3 gaps)) / 4
-          cardWidth = (window.innerWidth - containerPadding - (3 * gap)) / 4;
+          cardWidth = (window.innerWidth - containerPadding - 3 * gap) / 4;
           // Add gap for proper sliding (except for the last card)
           cardWidth += gap;
         } else {

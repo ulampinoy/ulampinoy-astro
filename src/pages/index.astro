@@ -38,16 +38,20 @@ const remainingPosts = sortedPosts.slice(7);
   description="Filipino home cooking, recipes and video recipes"
 >
   <main>
-    <section class="bg-white py-16">
-      <div class="container mx-auto max-w-6xl px-4 py-6">
+    <section class="bg-white py-8 md:py-16">
+      <div class="w-full max-w-6xl mx-auto px-4 py-6">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Featured Story - Takes 2 columns */}
-          <div class="md:col-span-2 lg:col-span-2 flex flex-col h-full">
+          <div
+            class="md:col-span-2 lg:col-span-2 flex flex-col h-full -mx-4 md:mx-0"
+          >
             <a
               href={`/blog/${featuredPost.slug}`}
               class="group flex-1 flex flex-col"
             >
-              <div class="relative flex-1 overflow-hidden rounded-lg">
+              <div
+                class="relative flex-1 overflow-hidden md:rounded-sm hover:md:rounded-lg transition-all"
+              >
                 <img
                   src={featuredPost.data.image}
                   alt={featuredPost.data.title}
@@ -56,20 +60,26 @@ const remainingPosts = sortedPosts.slice(7);
                 <div
                   class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"
                 >
-                  <div class="absolute bottom-0 p-6 md:p-10 w-full">
-                    <p
-                      class="text-sm text-amber-400 mb-2 font-medium tracking-wide uppercase"
-                    >
-                      {featuredPost.data.whetter}
-                    </p>
-                    <h1
-                      class="savate-bold text-4xl lg:text-6xl font-bold text-white group-hover:text-amber-400 transition-colors"
-                    >
-                      {featuredPost.data.title}
-                    </h1>
-                    <p class="text-lg text-white/90 mt-3 line-clamp-3">
-                      {featuredPost.data.description}
-                    </p>
+                  <div
+                    class="absolute bottom-0 w-full px-4 md:px-10 pb-6 md:pb-10"
+                  >
+                    <div class="max-w-6xl mx-auto">
+                      <p
+                        class="text-sm text-amber-400 mb-2 font-medium tracking-wide uppercase"
+                      >
+                        {featuredPost.data.whetter}
+                      </p>
+                      <h1
+                        class="savate-bold text-3xl sm:text-4xl lg:text-6xl font-bold text-white group-hover:text-amber-400 transition-colors"
+                      >
+                        {featuredPost.data.title}
+                      </h1>
+                      <p
+                        class="text-base sm:text-lg text-white/90 mt-3 line-clamp-3"
+                      >
+                        {featuredPost.data.description}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -90,7 +100,7 @@ const remainingPosts = sortedPosts.slice(7);
                     }
                     class="group grid grid-cols-2 gap-4 pb-2"
                   >
-                    <div class="aspect-[4/3] overflow-hidden rounded-lg">
+                    <div class="aspect-[4/3] overflow-hidden rounded-sm hover:rounded-lg transition-all">
                       <img
                         src={item.data.image || "/images/default-glossary.jpg"}
                         alt={item.data.title}
@@ -127,7 +137,7 @@ const remainingPosts = sortedPosts.slice(7);
               {
                 secondaryPosts.slice(0).map((post) => (
                   <a href={`/blog/${post.slug}`} class="group pb-2">
-                    <div class="aspect-[4/3] overflow-hidden rounded-lg">
+                    <div class="aspect-[4/3] overflow-hidden rounded-sm hover:rounded-lg transition-all">
                       <img
                         src={post.data.image}
                         alt={post.data.title}
@@ -179,7 +189,7 @@ const remainingPosts = sortedPosts.slice(7);
           {
             remainingPosts.slice(1, 7).map((post) => (
               <a href={`/blog/${post.slug}`} class="group pb-2">
-                <div class="aspect-[16/9] overflow-hidden rounded-lg">
+                <div class="aspect-[16/9] overflow-hidden rounded-sm hover:rounded-lg transition-all">
                   <img
                     src={post.data.image}
                     alt={post.data.title}
