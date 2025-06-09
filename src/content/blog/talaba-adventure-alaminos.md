@@ -21,7 +21,7 @@ Mang Ernesto, weathered by decades working these waters, presented an aluminum b
 
 Each shell told stories of specific waters. _"Cada lugar may sariling lasa, eh,"_ he explained, selecting a specimen that caught the tropical light. _"Itong galing sa malalim na tubig, makikita mo yung kulay? Yan yung minerals na galing sa dagat natin dito sa Pangasinan."_ (Each place has its own flavor. This one from deep water, you can see the color? Those are the minerals from our sea here in Pangasinan.)
 
-The first talaba revealed itself under his experienced hands, glossy interior gleaming like mother-of-pearl. _"Tingnan mo, ganito ang tamang hawak,"_ he instructed. _"Dapat respeto sa shell. Pag pinilit mo, mabasag ang talaba, mawawala ang sarsa."_ (Look, this is the right way to hold it. You must respect the shell. If you force it, the shell will break and you'll lose the liquor.)
+The first talaba revealed itself under his experienced hands, glossy interior gleaming like mother-of-pearl. _"Tingnan mo, ganito ang tamang hawak,"_ he instructed. _"Dapat respeto sa shell. Pag pinilit mo, mabasag ang talaba, mawawala ang katas."_ (Look, this is the right way to hold it. You must respect the shell. If you force it, the shell will break and you'll lose the juice.)
 
 ![Fresh talaba](/images/talaba-open.jpg)
 

@@ -23,19 +23,22 @@ function formatDate(dateStr: Date) {
 ---
 
 <BaseLayout title={post.data.title} description={post.data.description}>
-  <article class="pt-16 prose-invert">
-    <div class="relative h-[70vh]">
-      <img
-        src={post.data.image}
-        alt={post.data.title}
-        class="w-full h-full object-cover"
-      />
-      <div
-        class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"
-      >
+  <article class="prose-invert">
+    {/* Hero Image Section - Full Bleed */}
+    <div class="relative w-screen left-1/2 right-1/2 -mx-[50vw]">
+      <div class="relative h-[80vh] w-screen">
+        <img
+          src={post.data.image}
+          alt={post.data.title}
+          class="w-full h-full object-cover"
+        />
         <div
-          class="container mx-auto max-w-[90ch] px-4 h-full w-full flex flex-col justify-end pb-16"
+          class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"
         >
+        </div>
+      </div>
+      <div class="absolute inset-0 flex items-end pb-8 md:pb-16">
+        <div class="container mx-auto md:max-w-3xl px-4 w-full">
           <div>
             {
               post.data.whetter && (
@@ -45,7 +48,7 @@ function formatDate(dateStr: Date) {
               )
             }
             <h1
-              class="savate-heavy text-5xl md:text-6xl lg:text-7xl text-white mb-4"
+              class="savate-heavy text-5xl md:text-6xl lg:text-7xl text-white mb-4 leading-tight"
             >
               {post.data.title}
             </h1>
@@ -62,13 +65,15 @@ function formatDate(dateStr: Date) {
       </div>
     </div>
 
-    <div class="container mx-auto px-4 py-12">
-      <div class="prose prose-xl mx-auto">
+    <div class="container mx-auto px-4 sm:px-6 py-8 sm:py-12">
+      <div
+        class="prose prose-sm sm:prose-base md:prose-lg lg:prose-xl mx-auto max-w-4xl"
+      >
         <div
-          class="prose-img:mx-auto md:prose-img:-mx-16 prose-img:max-w-[calc(100%+4rem)] md:prose-img:max-w-[calc(100%+8rem)] max-w-[90ch]"
+          class="[&_img]:mx-auto [&_img]:w-full [&_img]:max-w-full [&_img]:rounded-lg"
         >
           <div
-            class="[&>p:first-of-type]:first-letter:float-left [&>p:first-of-type]:first-letter:text-8xl [&>p:first-of-type]:first-letter:pr-3 [&>p:first-of-type]:first-letter:font-bold [&>p:first-of-type]:first-letter:text-amber-500 [&>p:first-of-type]:first-letter:font-[savate]"
+            class="[&>p:first-of-type]:first-letter:float-left [&>p:first-of-type]:first-letter:text-8xl [&>p:first-of-type]:first-letter:pr-3 [&>p:first-of-type]:first-letter:font-bold [&>p:first-of-type]:first-letter:text-amber-500 [&>p:first-of-type]:first-letter:font-[savate] [&>p]:w-[80%] [&>p]:mx-auto [&>p:has(>img)]:w-full"
           >
             <Content />
           </div>
@@ -98,24 +103,39 @@ function formatDate(dateStr: Date) {
 
 <style>
   :global(.prose img) {
-    @apply md:w-auto md:rounded-sm;
-    margin-left: calc(-2rem);
-    margin-right: calc(-2rem);
-    max-width: calc(100% + 4rem);
-  }
-
-  @media (min-width: 768px) {
-    :global(.prose img) {
-      margin-left: calc(-8rem);
-      margin-right: calc(-8rem);
-      max-width: calc(100% + 16rem);
-    }
+    @apply my-8;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.125rem;
+    display: block;
   }
 
   :global(.prose p) {
-    @apply max-w-[90ch] mx-auto;
+    @apply w-[90%] md:w-[80%] mx-auto my-4;
   }
+
+  :global(.prose p:has(> img)) {
+    width: 100%;
+  }
+
+  :global(.prose h2) {
+    @apply mt-12 mb-6 text-2xl md:text-3xl font-bold;
+  }
+
   :global(.prose h3) {
-    @apply uppercase tracking-wide text-xl font-bold;
+    @apply mt-8 mb-4 text-xl md:text-2xl font-bold uppercase tracking-wide;
+  }
+
+  :global(.prose li) {
+    @apply my-2;
+  }
+
+  @media (min-width: 768px) {
+    :global(.prose p:has(> img)) {
+      width: calc(100% + 8rem);
+      margin-left: -4rem;
+      margin-right: -4rem;
+    }
   }
 </style>

@@ -45,7 +45,7 @@ const sortedTags = Object.values(tagCounts).sort((a, b) =>
           sortedTags.map((tag) => (
             <a
               href={`/tags/${tag.name.toLowerCase()}`}
-              class="group block relative aspect-[16/9] overflow-hidden rounded-lg"
+              class="group block relative aspect-[16/7] overflow-hidden rounded-sm hover:rounded-lg"
             >
               <img
                 src={tag.image}

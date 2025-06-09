@@ -26,19 +26,21 @@ const formatDate = (dateString: string) => {
 
 <BaseLayout title={item.data.title} description={item.data.description}>
   <article class="pt-16">
-    {/* Hero Image Section */}
-    <div class="relative h-[40vh] sm:h-[50vh] md:h-[60vh]">
-      <img
-        src={item.data.image || "/images/default-glossary.jpg"}
-        alt={item.data.title}
-        class="w-full h-full object-cover"
-      />
-      <div
-        class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"
-      >
+    {/* Hero Image Section - Full Bleed */}
+    <div class="relative w-screen left-1/2 right-1/2 -mx-[50vw] -mt-16">
+      <div class="relative h-[40vh] sm:h-[50vh] md:h-[60vh] w-screen">
+        <img
+          src={item.data.image || "/images/default-glossary.jpg"}
+          alt={item.data.title}
+          class="w-full h-full object-cover"
+        />
         <div
-          class="container mx-auto max-w-[90ch] px-8 h-full w-full flex flex-col justify-end pb-16"
+          class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"
         >
+        </div>
+      </div>
+      <div class="absolute inset-0 flex items-end">
+        <div class="container mx-auto max-w-[90ch] px-4 w-full pb-16">
           <div>
             {
               item.data.category && (
@@ -117,6 +119,17 @@ const formatDate = (dateString: string) => {
       }
       :global(.prose a) {
         @apply text-amber-400 hover:text-amber-300 transition-colors;
+      }
+
+      :global(.prose p),
+      :global(.prose ul),
+      :global(.prose ol),
+      :global(.prose h3) {
+        @apply w-[100%] md:w-[80%] mx-auto mt-4;
+      }
+
+      :global(.prose h3) {
+        @apply mt-8 md:mt-12;
       }
     </style>
   </article>

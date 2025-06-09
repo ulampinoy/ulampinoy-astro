@@ -30,7 +30,7 @@ const currentPath = Astro.url.pathname;
   </head>
   <body>
     <slot />
-    <div class="container mx-auto max-w-6xl px-4">
+    <div class="container mx-auto max-w-6xl p-8">
       <Navigation currentPath={currentPath} />
       {
         showBackLink && currentPath !== "/" && (
