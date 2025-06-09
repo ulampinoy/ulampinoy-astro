@@ -5,9 +5,24 @@ import FeaturedCarousel from "../components/FeaturedCarousel.astro";
 import PopularIngredients from "../components/PopularIngredients.astro";
 
 // Get all blog posts that are not drafts
-const posts = await getCollection("blog", ({ data }) => {
+const posts = (await getCollection("blog", ({ data }) => {
   return data.draft !== true;
-});
+})) as Array<{
+  id: string;
+  slug: string;
+  collection: string;
+  data: {
+    title: string;
+    description: string;
+    date: Date;
+    draft?: boolean;
+    hasVideo?: boolean;
+    image?: string;
+    whetter?: string;
+    featured?: boolean;
+    promoted?: boolean;
+  };
+}>;
 
 const glossaryItems = await getCollection("glossary");
 
@@ -89,7 +104,7 @@ const remainingPosts = sortedItems.filter((item: any) => {
   description="Filipino home cooking, recipes and video recipes"
 >
   <main>
-    <section class="bg-white py-8 md:py-16">
+    <section class="bg-white py-8 md:pt-16">
       <div class="w-full max-w-6xl mx-auto px-4 py-6">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Featured Story - Takes 2 columns */}
@@ -146,36 +161,38 @@ const remainingPosts = sortedItems.filter((item: any) => {
                   .filter((item) => !item.data.draft) // Filter out draft items
                   .slice(0, 4)
                   .map((item) => (
-                  <a
-                    href={
-                      item.collection === "blog"
-                        ? `/blog/${item.slug}`
-                        : `/glossary/${item.slug}`
-                    }
-                    class="group grid grid-cols-2 gap-4 pb-2"
-                  >
-                    <div class="aspect-[4/3] overflow-hidden rounded-sm hover:rounded-lg transition-all">
-                      <img
-                        src={item.data.image || "/images/default-glossary.jpg"}
-                        alt={item.data.title}
-                        class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
-                    <div>
-                      {item.collection === "blog" && (
-                        <p class="text-xs font-medium tracking-wider text-amber-500 mb-1 uppercase">
-                          {item.data.whetter}
+                    <a
+                      href={
+                        item.collection === "blog"
+                          ? `/blog/${item.slug}`
+                          : `/glossary/${item.slug}`
+                      }
+                      class="group grid grid-cols-2 gap-4 pb-2"
+                    >
+                      <div class="aspect-[4/3] overflow-hidden rounded-sm hover:rounded-lg transition-all">
+                        <img
+                          src={
+                            item.data.image || "/images/default-glossary.jpg"
+                          }
+                          alt={item.data.title}
+                          class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
+                      <div>
+                        {item.collection === "blog" && (
+                          <p class="text-xs font-medium tracking-wider text-amber-500 mb-1 uppercase">
+                            {item.data.whetter}
+                          </p>
+                        )}
+                        <h2 class="savate-bold text-xl group-hover:text-amber-500 transition-colors line-clamp-1">
+                          {item.data.title}
+                        </h2>
+                        <p class="text-sm text-gray-700 mt-2 line-clamp-3">
+                          {item.data.description}
                         </p>
-                      )}
-                      <h2 class="savate-bold text-xl group-hover:text-amber-500 transition-colors line-clamp-1">
-                        {item.data.title}
-                      </h2>
-                      <p class="text-sm text-gray-700 mt-2 line-clamp-3">
-                        {item.data.description}
-                      </p>
-                    </div>
-                  </a>
-                ))
+                      </div>
+                    </a>
+                  ))
               }
             </div>
           </div>
@@ -209,6 +226,59 @@ const remainingPosts = sortedItems.filter((item: any) => {
               }
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Latest Videos Section */}
+    <section class="py-12 bg-gradient-to-br from-amber-50 to-white">
+      <div class="container mx-auto max-w-6xl px-4">
+        <div class="flex justify-between items-center mb-8">
+          <h2 class="text-2xl font-bold">Latest Videos</h2>
+          <a
+            href="/videos"
+            class="text-amber-500 hover:text-yellow-700 font-medium"
+          >
+            View all videos →
+          </a>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {
+            posts
+              .filter((post) => post.data.hasVideo && !post.data.draft)
+              .sort(
+                (a, b) =>
+                  new Date(b.data.date).getTime() -
+                  new Date(a.data.date).getTime()
+              )
+              .slice(0, 4)
+              .map((post) => (
+                <a href={`/blog/${post.slug}`} class="group">
+                  <div class="aspect-video overflow-hidden rounded-sm hover:rounded-lg transition-all mb-3 relative">
+                    <img
+                      src={post.data.image}
+                      alt={post.data.title}
+                      class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                    />
+                    {/* Play button overlay */}
+                    <div class="absolute bottom-2 left-2 z-10">
+                      <div class="bg-black/70 rounded-full p-2 group-hover:bg-amber-500 transition-colors">
+                        <svg
+                          class="w-5 h-5 text-white"
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <h3 class="savate-bold text-lg group-hover:text-amber-500 transition-colors line-clamp-2">
+                    {post.data.title}
+                  </h3>
+                </a>
+              ))
+          }
         </div>
       </div>
     </section>
