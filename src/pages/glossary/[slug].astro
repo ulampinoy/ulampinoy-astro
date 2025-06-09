@@ -75,12 +75,14 @@ const formatDate = (dateString: string) => {
 
     {/* Content Section */}
     <div class="container mx-auto px-4 sm:px-6 py-8 sm:py-12">
-      <div class="prose prose-sm sm:prose-base md:prose-lg lg:prose-xl mx-auto">
+      <div
+        class="prose prose-sm sm:prose-base md:prose-lg lg:prose-xl mx-auto max-w-4xl"
+      >
         <div
-          class="prose-img:mx-auto prose-img:max-w-full md:prose-img:-mx-8 lg:prose-img:-mx-16 prose-img:rounded-lg md:prose-img:max-w-[calc(100%+4rem)] lg:prose-img:max-w-[calc(100%+8rem)] max-w-[90ch]"
+          class="[&_img]:mx-auto [&_img]:w-full [&_img]:max-w-full [&_img]:rounded-lg"
         >
           <div
-            class="[&>p:first-of-type]:first-letter:float-left [&>p:first-of-type]:first-letter:text-8xl [&>p:first-of-type]:first-letter:pr-3 [&>p:first-of-type]:first-letter:font-bold [&>p:first-of-type]:first-letter:text-amber-500 [&>p:first-of-type]:first-letter:font-[savate]"
+            class="[&>p:first-of-type]:first-letter:float-left [&>p:first-of-type]:first-letter:text-8xl [&>p:first-of-type]:first-letter:pr-3 [&>p:first-of-type]:first-letter:font-bold [&>p:first-of-type]:first-letter:text-amber-500 [&>p:first-of-type]:first-letter:font-[savate] [&>p]:w-[80%] [&>p]:mx-auto [&>p:has(>img)]:w-full"
           >
             <Content />
           </div>
