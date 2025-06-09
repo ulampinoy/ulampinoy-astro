@@ -1,6 +1,7 @@
 ---
 title: Alamang
 description: Tiny shrimp commonly used in Filipino cuisine
+date: 2025-05-10
 category: Ingredients
 image: /images/alamang-hilabos.jpg
 tags:

@@ -1,6 +1,7 @@
 ---
 title: Adobo
 description: A traditional Filipino dish cooked with vinegar, garlic, and soy sauce
+date: 2025-05-11
 category: Dishes
 image: /images/adobo-01.jpg
 tags:

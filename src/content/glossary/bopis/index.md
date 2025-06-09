@@ -1,6 +1,7 @@
 ---
 title: Bopis
 description: A Filipino dish made from pork offal, particularly the liver and lungs
+date: 2025-05-05
 category: Dishes
 image: /images/bopis-wok-cooking.jpg
 tags:

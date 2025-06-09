@@ -1,6 +1,7 @@
 ---
 title: Calamansi
 description: A small citrus fruit native to the Philippines, often used in cooking and beverages
+date: 2025-06-08
 category: Ingredients
 image: /images/calamansi.jpg
 tags:

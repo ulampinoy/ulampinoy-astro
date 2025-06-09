@@ -6,9 +6,10 @@ import "../styles/main.css";
 interface Props {
   title: string;
   description: string;
+  showBackLink?: boolean;
 }
 
-const { title, description } = Astro.props;
+const { title, description, showBackLink = true } = Astro.props;
 const currentPath = Astro.url.pathname;
 ---
 
@@ -32,17 +33,19 @@ const currentPath = Astro.url.pathname;
     <div class="container mx-auto max-w-6xl px-4">
       <Navigation currentPath={currentPath} />
       {
-        currentPath !== "/" && (
+        showBackLink && currentPath !== "/" && (
           <div class="mb-8">
             <a
               href="/"
               class="inline-flex items-center text-amber-500 hover:text-amber-600 transition-colors"
+              aria-label="Go back to home"
             >
               <svg
                 class="w-5 h-5 mr-2"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
+                aria-hidden="true"
               >
                 <path
                   stroke-linecap="round"

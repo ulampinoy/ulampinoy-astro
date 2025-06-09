@@ -1,6 +1,7 @@
 ---
 title: Galapong
 description: Rice flour made from glutinous rice, commonly used in Filipino desserts
+date: 2025-06-07
 category: Ingredients
 image: /images/bilo-bilo-bowl.jpg
 tags:

@@ -1,6 +1,7 @@
 ---
 title: Paksiw
 description: A Filipino cooking method using vinegar, ginger, and garlic, typically for fish
+date: 2025-04-01
 category: Cooking Method
 image: /images/paksiw-salmonete.jpg
 tags:

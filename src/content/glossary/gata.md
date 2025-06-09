@@ -2,6 +2,7 @@
 title: Gata
 description: Coconut milk or cream used as a base liquid in Filipino cooking
 category: Ingredients
+date: 2025-06-02
 image: /images/coconut-milk-can.jpg
 tags:
   - ingredients

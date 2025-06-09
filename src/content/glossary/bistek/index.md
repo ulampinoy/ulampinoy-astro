@@ -1,6 +1,7 @@
 ---
 title: Bistek
 description: A Filipino beef dish marinated in soy sauce, calamansi, and garlic
+date: 2025-05-06
 category: Dishes
 image: /images/bistek-tagalog-bowl.jpg
 tags:

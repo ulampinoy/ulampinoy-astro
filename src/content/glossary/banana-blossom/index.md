@@ -1,6 +1,7 @@
 ---
 title: Banana Blossom
 description: The flower of the banana plant, used as a vegetable in Filipino cooking
+date: 2025-06-04
 category: Ingredients
 image: /images/banana-heart-market.jpg
 tags:

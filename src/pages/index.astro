@@ -4,33 +4,84 @@ import { getCollection } from "astro:content";
 import FeaturedCarousel from "../components/FeaturedCarousel.astro";
 import PopularIngredients from "../components/PopularIngredients.astro";
 
+// Get all blog posts that are not drafts
 const posts = await getCollection("blog", ({ data }) => {
   return data.draft !== true;
 });
 
 const glossaryItems = await getCollection("glossary");
 
+// Log the posts for debugging
+import { writeFileSync } from "fs";
+const debugOutput = [];
+
+debugOutput.push("All blog posts:");
+posts.forEach((post) => {
+  debugOutput.push(`- ${post.data.date} - ${post.slug} - ${post.data.title}`);
+});
+
 // Combine posts and glossary items into one array
 const allItems = [...posts, ...glossaryItems];
 
-// Sort by date (newest first)
-const sortedItems = allItems.sort((a, b) => {
-  const dateA = a.collection === "blog" ? new Date(a.data.date) : new Date();
-  const dateB = b.collection === "blog" ? new Date(b.data.date) : new Date();
-  return dateB.getTime() - dateA.getTime();
+// Helper function to get date from item
+const getItemDate = (item: any) => {
+  if (item.data.date) return new Date(item.data.date);
+  // For items without date, use file creation time or current date as fallback
+  return new Date();
+};
+
+// Sort all items by date, regardless of type (newest first)
+const sortedItems = [...allItems].sort((a, b) => {
+  return getItemDate(b).getTime() - getItemDate(a).getTime();
 });
 
-const sortedPosts = posts.sort(
-  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+// Log the sorted items for debugging
+debugOutput.push("\nAll sorted items:");
+sortedItems.forEach((item) => {
+  debugOutput.push(
+    `- ${getItemDate(item).toISOString().split("T")[0]} - ${item.collection} - ${item.slug} - ${item.data.title}`
+  );
+});
+
+// Write to debug file
+writeFileSync("debug-posts.log", debugOutput.join("\n"));
+
+// Get all featured posts (only those with featured: true)
+let featuredPosts = posts.filter((post) => post.data.featured === true);
+
+// Get the new post if it exists
+const newPost = sortedItems.find(
+  (item: any) =>
+    item.collection === "blog" && item.slug === "talaba-adventure-alaminos"
 );
 
-// Get all featured posts
-const featuredPosts = posts.filter((post) => post.data.featured);
+// Only add new post to featured if it's explicitly marked as featured
+if (
+  newPost &&
+  newPost.data.featured === true &&
+  !featuredPosts.some((post: any) => post.slug === "talaba-adventure-alaminos")
+) {
+  featuredPosts = [newPost, ...featuredPosts];
+}
 
+// Get promoted post or first post as featured
 const promotedPost = posts.find((post) => post.data.promoted);
-const featuredPost = promotedPost || sortedPosts[0];
-const secondaryPosts = sortedPosts.slice(0, 6);
-const remainingPosts = sortedPosts.slice(7);
+const featuredPost =
+  promotedPost || sortedItems.find((item: any) => item.collection === "blog");
+
+// Get secondary posts (top 6 items that are blog posts)
+const secondaryPosts = sortedItems
+  .filter((item: any) => item.collection === "blog")
+  .slice(0, 4);
+
+// Get remaining posts for "More Articles" section (exclude posts already shown in What's New)
+const remainingPosts = sortedItems.filter((item: any) => {
+  // Only include blog posts that aren't in the secondaryPosts
+  return (
+    item.collection === "blog" &&
+    !secondaryPosts.some((post) => post.slug === item.slug)
+  );
+});
 ---
 
 <BaseLayout
@@ -113,17 +164,12 @@ const remainingPosts = sortedPosts.slice(7);
                           {item.data.whetter}
                         </p>
                       )}
-                      <h2 class="savate-bold text-xl group-hover:text-amber-500 transition-colors">
+                      <h2 class="savate-bold text-xl group-hover:text-amber-500 transition-colors line-clamp-1">
                         {item.data.title}
                       </h2>
-                      <p class="text-sm text-gray-700 mt-2 line-clamp-2">
+                      <p class="text-sm text-gray-700 mt-2 line-clamp-3">
                         {item.data.description}
                       </p>
-                      {item.collection === "glossary" && item.data.category && (
-                        <p class="text-xs text-gray-500 mt-1">
-                          Category: {item.data.category}
-                        </p>
-                      )}
                     </div>
                   </a>
                 ))
@@ -135,7 +181,7 @@ const remainingPosts = sortedPosts.slice(7);
           <div class="md:col-span-2 lg:col-span-3">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
               {
-                secondaryPosts.slice(0).map((post) => (
+                secondaryPosts.slice(1).map((post) => (
                   <a href={`/blog/${post.slug}`} class="group pb-2">
                     <div class="aspect-[4/3] overflow-hidden rounded-sm hover:rounded-lg transition-all">
                       <img

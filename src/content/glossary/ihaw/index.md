@@ -2,6 +2,7 @@
 title: Ihaw
 description: A Filipino cooking method of grilling food over charcoal or fire
 category: Cooking Method
+date: 2025-05-04
 image: /images/fish-grilling-charcoal.jpg
 tags:
   - cooking

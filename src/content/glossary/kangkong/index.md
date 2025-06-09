@@ -2,6 +2,7 @@
 title: Kangkong
 description: Water spinach, a common leafy vegetable in Filipino cooking
 category: Ingredients
+date: 2025-05-02
 image: /images/steamed-kangkong-bagoong-alamang.jpg
 tags:
   - ingredients

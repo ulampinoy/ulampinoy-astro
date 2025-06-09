@@ -1,6 +1,7 @@
 ---
 title: Sampaloc
 description: Tamarind fruit used as a souring agent in Filipino cooking
+date: 2025-06-02
 category: Ingredients
 image: /images/sampaloc-in-strainer.jpg
 tags:

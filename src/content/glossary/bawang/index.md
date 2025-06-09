@@ -1,6 +1,7 @@
 ---
 title: Bawang
 description: Aromatic garlic used as a base flavor in Filipino cooking
+date: 2025-05-07
 category: Ingredients
 image: /images/garlic-head.jpg
 tags:

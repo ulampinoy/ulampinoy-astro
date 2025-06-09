@@ -2,6 +2,7 @@
 title: Kanin
 description: The Tagalog term for cooked rice, a staple in Filipino cuisine
 category: Ingredients
+date: 2025-05-01
 image: /images/kanin-cups.jpg
 tags:
   - ingredients
