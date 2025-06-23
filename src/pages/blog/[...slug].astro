@@ -26,6 +26,9 @@ function formatDate(dateStr: Date) {
   title={post.data.title} 
   description={post.data.description}
   backgroundImage={post.data.image}
+  author={post.data.author || 'UlamPinoy'}
+  publishedTime={post.data.date.toISOString()}
+  modifiedTime={new Date().toISOString()}
 >
   <article class="prose-invert pt-16">
     {/* Hero Image Section - Full Bleed */}
