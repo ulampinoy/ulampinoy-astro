@@ -70,11 +70,21 @@ function formatDate(dateStr: Date) {
 
     <div class="container mx-auto px-4 sm:px-6 py-8 sm:py-12 -mt-8 sm:-mt-12 relative z-10 bg-white dark:bg-gray-900 rounded-t-2xl shadow-lg">
       <div
-        class="prose prose-sm sm:prose-base md:prose-lg lg:prose-xl mx-auto max-w-4xl pt-8"
+        class="prose prose-sm sm:prose-base md:prose-lg lg:prose-xl mx-auto max-w-4xl pt-8
+               prose-headings:text-gray-900 dark:prose-headings:text-gray-100
+               prose-p:text-gray-700 dark:prose-p:text-gray-300
+               prose-strong:text-gray-900 dark:prose-strong:text-white
+               prose-a:text-amber-600 dark:prose-a:text-amber-400
+               prose-a:no-underline hover:prose-a:underline
+               prose-blockquote:text-gray-600 dark:prose-blockquote:text-gray-300
+               prose-blockquote:border-l-amber-500 dark:prose-blockquote:border-l-amber-400
+               prose-code:bg-gray-100 dark:prose-code:bg-gray-800
+               prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded
+               dark:prose-invert"
       >
-        <div class="[&_img]:mx-auto [&_img]:w-full [&_img]:max-w-full">
+        <div class="[&_img]:mx-auto [&_img]:w-full [&_img]:max-w-full [&_img]:rounded-lg [&_img]:shadow-lg">
           <div
-            class="[&>p:first-of-type]:first-letter:float-left [&>p:first-of-type]:first-letter:text-8xl [&>p:first-of-type]:first-letter:pr-3 [&>p:first-of-type]:first-letter:font-bold [&>p:first-of-type]:first-letter:text-amber-500 [&>p:first-of-type]:first-letter:font-[savate] [&>p]:w-[80%] [&>p]:mx-auto [&>p:has(>img)]:w-full"
+            class="[&>p:first-of-type]:first-letter:float-left [&>p:first-of-type]:first-letter:text-8xl [&>p:first-of-type]:first-letter:pr-3 [&>p:first-of-type]:first-letter:font-bold [&>p:first-of-type]:first-letter:text-amber-500 [&>p:first-of-type]:first-letter:font-[savate] [&>p]:w-[90%] sm:[&>p]:w-[80%] [&>p]:mx-auto [&>p:has(>img)]:w-full"
           >
             <Content />
           </div>
@@ -104,20 +114,28 @@ function formatDate(dateStr: Date) {
 
 <style>
   :global(.prose img) {
-    @apply pt-4;
+    @apply pt-6;
     width: 100%;
     max-width: 100%;
     height: auto;
     display: block;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+
+  :global(.dark .prose img) {
+    @apply border border-gray-800;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
   }
 
   :global(.prose) {
     @apply text-base sm:text-lg leading-relaxed;
     font-family: "Noto Sans", sans-serif;
+    color: inherit;
   }
 
   :global(.prose p) {
-    @apply w-[90%] md:w-[80%] mx-auto my-5;
+    @apply mb-6 text-gray-700 dark:text-gray-300;
     line-height: 1.8;
     font-size: 1.125rem;
   }
@@ -128,47 +146,37 @@ function formatDate(dateStr: Date) {
     }
   }
 
-  :global(.prose p:has(> img)) {
-    width: 100%;
-  }
-
   :global(.prose h2) {
-    @apply mt-12 mb-6 text-2xl sm:text-3xl md:text-4xl font-bold leading-tight;
+    @apply mt-12 mb-6 text-2xl sm:text-3xl md:text-4xl font-bold leading-tight text-gray-900 dark:text-white;
     font-family: "Savate", serif;
     line-height: 1.3;
   }
 
   :global(.prose h3) {
-    @apply mt-10 mb-5 text-xl sm:text-2xl font-bold uppercase tracking-wide;
+    @apply mt-10 mb-5 text-xl sm:text-2xl font-bold uppercase tracking-wide text-gray-800 dark:text-gray-100;
     font-family: "Savate", serif;
     line-height: 1.4;
   }
 
-  :global(.prose li) {
-    @apply my-3;
-    line-height: 1.8;
-  }
-
   :global(.prose ul),
   :global(.prose ol) {
-    @apply pl-6;
+    @apply pl-6 text-gray-700 dark:text-gray-300;
   }
 
   :global(.prose ul > li) {
-    @apply pl-2;
+    @apply pl-2 mb-2;
+    position: relative;
+  }
+
+  :global(.prose ul > li::before) {
+    content: '•';
+    @apply text-amber-500 dark:text-amber-400 mr-2;
   }
 
   :global(.prose ol > li) {
-    @apply pl-2;
+    @apply pl-2 mb-2;
   }
 
-  @media (min-width: 768px) {
-    :global(.prose p:has(> img)) {
-      width: calc(100% + 8rem);
-      margin-left: -4rem;
-      margin-right: -4rem;
-    }
-  }
 
   :global(.prose iframe) {
     @apply w-full aspect-video my-6 md:my-8;
