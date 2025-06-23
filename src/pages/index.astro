@@ -49,7 +49,7 @@ type GlossaryItemData = {
 type ContentEntry = {
   id: string;
   slug: string;
-  collection: 'blog' | 'glossary';
+  collection: "blog" | "glossary";
   data: BlogPostData | GlossaryItemData;
   render: () => Promise<{ Content: any }>;
   body: string;
@@ -64,32 +64,38 @@ type BaseItem = ContentEntry & {
 };
 
 // Type guard to check if an item is a blog post
-function isBlogPost(item: BaseItem): item is BaseItem & { collection: 'blog'; data: BlogPostData } {
-  return item.collection === 'blog';
+function isBlogPost(
+  item: BaseItem
+): item is BaseItem & { collection: "blog"; data: BlogPostData } {
+  return item.collection === "blog";
 }
 
 // Type guard to check if an item is a glossary item
-function isGlossaryItem(item: BaseItem): item is BaseItem & { collection: 'glossary'; data: GlossaryItemData } {
-  return item.collection === 'glossary';
+function isGlossaryItem(
+  item: BaseItem
+): item is BaseItem & { collection: "glossary"; data: GlossaryItemData } {
+  return item.collection === "glossary";
 }
 
 // Get all blog posts that are not drafts
-const posts = (await getCollection("blog", ({ data }) => {
-  return data.draft !== true;
-})).map(post => {
+const posts = (
+  await getCollection("blog", ({ data }) => {
+    return data.draft !== true;
+  })
+).map((post) => {
   // Ensure date is a Date object
   const postDate = parseDate(post.data.date);
-  
+
   // Create a properly typed post object
   const typedPost: ContentEntry = {
     ...post,
-    collection: 'blog' as const,
+    collection: "blog" as const,
     data: {
       ...post.data,
       date: postDate,
       // Ensure all required properties have default values
-      title: post.data.title || '',
-      description: post.data.description || '',
+      title: post.data.title || "",
+      description: post.data.description || "",
       tags: post.data.tags || [],
       related: post.data.related || [],
       // Add any other required properties with defaults
@@ -97,25 +103,25 @@ const posts = (await getCollection("blog", ({ data }) => {
       hasVideo: post.data.hasVideo ?? false,
       featured: post.data.featured ?? false,
       promoted: post.data.promoted ?? false,
-      whetter: post.data.whetter || ''
+      whetter: post.data.whetter || "",
     } as BlogPostData,
     // Ensure required methods exist
-    render: post.render || (async () => ({ Content: '' })),
-    body: post.body || '',
-    compiledContent: (post as any).compiledContent || (async () => '')
+    render: post.render || (async () => ({ Content: "" })),
+    body: post.body || "",
+    compiledContent: (post as any).compiledContent || (async () => ""),
   };
-  
+
   return typedPost;
 });
 
 // Get all glossary items
-const glossaryItems = (await getCollection("glossary")).map(item => ({
+const glossaryItems = (await getCollection("glossary")).map((item) => ({
   ...item,
-  collection: 'glossary' as const,
+  collection: "glossary" as const,
   data: {
     ...item.data,
     date: item.data.date || new Date(),
-  }
+  },
 }));
 
 // Log the posts for debugging
@@ -174,48 +180,54 @@ if (
 }
 
 // Get promoted post or first post as featured
-const promotedPost = posts.find((post) => isBlogPost(post) && post.data.promoted);
+const promotedPost = posts.find(
+  (post) => isBlogPost(post) && post.data.promoted
+);
 const firstBlogPost = sortedItems.find((item) => item.collection === "blog");
 
 // Create a safe fallback post in case no posts are found
 const fallbackPost: BaseItem = {
-  id: 'fallback',
-  slug: 'fallback',
-  collection: 'blog',
+  id: "fallback",
+  slug: "fallback",
+  collection: "blog",
   data: {
-    title: 'No posts found',
-    description: 'Please check back later for new content.',
+    title: "No posts found",
+    description: "Please check back later for new content.",
     date: new Date(),
     draft: false,
     tags: [],
-    related: []
+    related: [],
   },
-  render: async () => ({ Content: '' }),
-  body: ''
+  render: async () => ({ Content: "" }),
+  body: "",
 };
 
-const featuredPost = (promotedPost || firstBlogPost || fallbackPost) as BaseItem;
+const featuredPost = (promotedPost ||
+  firstBlogPost ||
+  fallbackPost) as BaseItem;
 
 // Get secondary posts (top 6 items that are blog posts)
 const secondaryPosts = sortedItems
-  .filter((item): item is BaseItem & { collection: 'blog'; data: BlogPostData } => 
-    isBlogPost(item)
+  .filter(
+    (item): item is BaseItem & { collection: "blog"; data: BlogPostData } =>
+      isBlogPost(item)
   )
   .slice(0, 4);
 
 // Get remaining posts for "More Articles" section (exclude posts already shown in What's New)
 const remainingPosts = sortedItems
-  .filter((item): item is ContentEntry & { collection: 'blog'; data: BlogPostData } => 
-    item.collection === "blog" &&
-    !secondaryPosts.some((post) => post.slug === item.slug)
+  .filter(
+    (item): item is ContentEntry & { collection: "blog"; data: BlogPostData } =>
+      item.collection === "blog" &&
+      !secondaryPosts.some((post) => post.slug === item.slug)
   )
-  .map(item => ({
+  .map((item) => ({
     ...item,
     data: {
       ...item.data,
       // Ensure all required properties are present
-      title: item.data.title || '',
-      description: item.data.description || '',
+      title: item.data.title || "",
+      description: item.data.description || "",
       date: parseDate(item.data.date),
       tags: item.data.tags || [],
       related: item.data.related || [],
@@ -224,8 +236,8 @@ const remainingPosts = sortedItems
       hasVideo: item.data.hasVideo ?? false,
       featured: item.data.featured ?? false,
       promoted: item.data.promoted ?? false,
-      whetter: item.data.whetter || ''
-    }
+      whetter: item.data.whetter || "",
+    },
   }));
 ---
 
@@ -260,13 +272,16 @@ const remainingPosts = sortedItems
                     class="absolute bottom-0 w-full px-4 md:px-10 pb-6 md:pb-10"
                   >
                     <div class="max-w-6xl mx-auto">
-                      {isBlogPost(featuredPost) && featuredPost.data.whetter && (
-                        <p class="text-sm text-amber-400 mb-2 font-medium tracking-wide uppercase">
-                          {featuredPost.data.whetter}
-                        </p>
-                      )}
+                      {
+                        isBlogPost(featuredPost) &&
+                          featuredPost.data.whetter && (
+                            <p class="text-sm text-amber-400 mb-2 font-medium tracking-wide uppercase">
+                              {featuredPost.data.whetter}
+                            </p>
+                          )
+                      }
                       <h1
-                        class="savate-bold text-3xl sm:text-4xl lg:text-6xl font-bold text-white group-hover:text-amber-400 transition-colors"
+                        class="savate-bold text-3xl md:text-4xl font-bold text-white group-hover:text-amber-400 transition-colors"
                       >
                         {featuredPost.data.title}
                       </h1>
