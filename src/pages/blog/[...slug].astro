@@ -22,7 +22,11 @@ function formatDate(dateStr: Date) {
 }
 ---
 
-<BaseLayout title={post.data.title} description={post.data.description}>
+<BaseLayout 
+  title={post.data.title} 
+  description={post.data.description}
+  backgroundImage={post.data.image}
+>
   <article class="prose-invert pt-16">
     {/* Hero Image Section - Full Bleed */}
     <div class="relative w-screen left-1/2 right-1/2 -mx-[50vw]">

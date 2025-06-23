@@ -5,8 +5,7 @@ description: "A reading of Rizal’s tinola scene and a heritage recipe inspired
 whetter: "Tinola sa Noli"
 sidenote: "Tinola, a ginger-infused chicken stew, has graced Filipino tables for centuries. In Rizal’s Noli Me Tangere, it becomes more than nourishment — it is a subtle messenger of status and sentiment."
 image: /images/tinola-tiago-hero.jpg
-tags:
-  ["filipino-food", "noli-me-tangere", "rizal", "tinola", "heritage-cuisine"]
+tags: ["chicken", "tinola"]
 related: []
 author: UlamPinoy
 draft: false
