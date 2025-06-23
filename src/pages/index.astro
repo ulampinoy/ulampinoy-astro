@@ -4,27 +4,119 @@ import { getCollection } from "astro:content";
 import FeaturedCarousel from "../components/FeaturedCarousel.astro";
 import PopularIngredients from "../components/PopularIngredients.astro";
 
+// Define types for blog post data
+type BlogPostData = {
+  title: string;
+  description: string;
+  date: Date | string; // Handle both Date and string dates
+  draft?: boolean;
+  hasVideo?: boolean;
+  image?: string;
+  whetter?: string;
+  featured?: boolean;
+  promoted?: boolean;
+  tags?: string[];
+  related?: string[];
+  author?: string;
+  category?: string;
+  // Add any other properties that might be present in your blog posts
+  [key: string]: any; // This allows for additional properties
+};
+
+// Function to safely parse dates
+function parseDate(date: Date | string | undefined): Date {
+  if (!date) return new Date();
+  if (date instanceof Date) return date;
+  return new Date(date);
+}
+
+// Define types for glossary item data
+type GlossaryItemData = {
+  title: string;
+  description: string;
+  date?: Date;
+  draft?: boolean;
+  tags?: string[];
+  image?: string;
+  author?: string;
+  category?: string;
+};
+
+// Import Astro's types
+/// <reference types="astro/client" />
+
+// Define a simplified type for our content entries
+type ContentEntry = {
+  id: string;
+  slug: string;
+  collection: 'blog' | 'glossary';
+  data: BlogPostData | GlossaryItemData;
+  render: () => Promise<{ Content: any }>;
+  body: string;
+  compiledContent?: () => Promise<string>;
+  filePath?: string;
+};
+
+// Define the base item type that can be either a blog post or glossary item
+type BaseItem = ContentEntry & {
+  data: BlogPostData | GlossaryItemData;
+  // Add any additional properties specific to BaseItem
+};
+
+// Type guard to check if an item is a blog post
+function isBlogPost(item: BaseItem): item is BaseItem & { collection: 'blog'; data: BlogPostData } {
+  return item.collection === 'blog';
+}
+
+// Type guard to check if an item is a glossary item
+function isGlossaryItem(item: BaseItem): item is BaseItem & { collection: 'glossary'; data: GlossaryItemData } {
+  return item.collection === 'glossary';
+}
+
 // Get all blog posts that are not drafts
 const posts = (await getCollection("blog", ({ data }) => {
   return data.draft !== true;
-})) as Array<{
-  id: string;
-  slug: string;
-  collection: string;
-  data: {
-    title: string;
-    description: string;
-    date: Date;
-    draft?: boolean;
-    hasVideo?: boolean;
-    image?: string;
-    whetter?: string;
-    featured?: boolean;
-    promoted?: boolean;
+})).map(post => {
+  // Ensure date is a Date object
+  const postDate = parseDate(post.data.date);
+  
+  // Create a properly typed post object
+  const typedPost: ContentEntry = {
+    ...post,
+    collection: 'blog' as const,
+    data: {
+      ...post.data,
+      date: postDate,
+      // Ensure all required properties have default values
+      title: post.data.title || '',
+      description: post.data.description || '',
+      tags: post.data.tags || [],
+      related: post.data.related || [],
+      // Add any other required properties with defaults
+      draft: post.data.draft ?? false,
+      hasVideo: post.data.hasVideo ?? false,
+      featured: post.data.featured ?? false,
+      promoted: post.data.promoted ?? false,
+      whetter: post.data.whetter || ''
+    } as BlogPostData,
+    // Ensure required methods exist
+    render: post.render || (async () => ({ Content: '' })),
+    body: post.body || '',
+    compiledContent: (post as any).compiledContent || (async () => '')
   };
-}>;
+  
+  return typedPost;
+});
 
-const glossaryItems = await getCollection("glossary");
+// Get all glossary items
+const glossaryItems = (await getCollection("glossary")).map(item => ({
+  ...item,
+  collection: 'glossary' as const,
+  data: {
+    ...item.data,
+    date: item.data.date || new Date(),
+  }
+}));
 
 // Log the posts for debugging
 import { writeFileSync } from "fs";
@@ -35,19 +127,20 @@ posts.forEach((post) => {
   debugOutput.push(`- ${post.data.date} - ${post.slug} - ${post.data.title}`);
 });
 
-// Combine posts and glossary items into one array
-const allItems = [...posts, ...glossaryItems];
+// Combine posts and glossary items into one array with proper typing
+const allItems: BaseItem[] = [...posts, ...glossaryItems];
 
 // Helper function to get date from item
 const getItemDate = (item: any) => {
   if (item.data.date) return new Date(item.data.date);
-  // For items without date, use file creation time or current date as fallback
   return new Date();
 };
 
-// Sort all items by date, regardless of type (newest first)
-const sortedItems = [...allItems].sort((a, b) => {
-  return getItemDate(b).getTime() - getItemDate(a).getTime();
+// Sort items by date (newest first)
+const sortedItems = [...posts, ...glossaryItems].sort((a, b) => {
+  const dateA = parseDate(a.data.date);
+  const dateB = parseDate(b.data.date);
+  return dateB.getTime() - dateA.getTime();
 });
 
 // Log the sorted items for debugging
@@ -66,37 +159,74 @@ let featuredPosts = posts.filter((post) => post.data.featured === true);
 
 // Get the new post if it exists
 const newPost = sortedItems.find(
-  (item: any) =>
+  (item) =>
     item.collection === "blog" && item.slug === "talaba-adventure-alaminos"
-);
+) as BaseItem | undefined;
 
 // Only add new post to featured if it's explicitly marked as featured
 if (
   newPost &&
+  isBlogPost(newPost) &&
   newPost.data.featured === true &&
-  !featuredPosts.some((post: any) => post.slug === "talaba-adventure-alaminos")
+  !featuredPosts.some((post) => post.slug === "talaba-adventure-alaminos")
 ) {
   featuredPosts = [newPost, ...featuredPosts];
 }
 
 // Get promoted post or first post as featured
-const promotedPost = posts.find((post) => post.data.promoted);
-const featuredPost =
-  promotedPost || sortedItems.find((item: any) => item.collection === "blog");
+const promotedPost = posts.find((post) => isBlogPost(post) && post.data.promoted);
+const firstBlogPost = sortedItems.find((item) => item.collection === "blog");
+
+// Create a safe fallback post in case no posts are found
+const fallbackPost: BaseItem = {
+  id: 'fallback',
+  slug: 'fallback',
+  collection: 'blog',
+  data: {
+    title: 'No posts found',
+    description: 'Please check back later for new content.',
+    date: new Date(),
+    draft: false,
+    tags: [],
+    related: []
+  },
+  render: async () => ({ Content: '' }),
+  body: ''
+};
+
+const featuredPost = (promotedPost || firstBlogPost || fallbackPost) as BaseItem;
 
 // Get secondary posts (top 6 items that are blog posts)
 const secondaryPosts = sortedItems
-  .filter((item: any) => item.collection === "blog")
+  .filter((item): item is BaseItem & { collection: 'blog'; data: BlogPostData } => 
+    isBlogPost(item)
+  )
   .slice(0, 4);
 
 // Get remaining posts for "More Articles" section (exclude posts already shown in What's New)
-const remainingPosts = sortedItems.filter((item: any) => {
-  // Only include blog posts that aren't in the secondaryPosts
-  return (
+const remainingPosts = sortedItems
+  .filter((item): item is ContentEntry & { collection: 'blog'; data: BlogPostData } => 
     item.collection === "blog" &&
     !secondaryPosts.some((post) => post.slug === item.slug)
-  );
-});
+  )
+  .map(item => ({
+    ...item,
+    data: {
+      ...item.data,
+      // Ensure all required properties are present
+      title: item.data.title || '',
+      description: item.data.description || '',
+      date: parseDate(item.data.date),
+      tags: item.data.tags || [],
+      related: item.data.related || [],
+      // Ensure other optional properties have defaults
+      draft: item.data.draft ?? false,
+      hasVideo: item.data.hasVideo ?? false,
+      featured: item.data.featured ?? false,
+      promoted: item.data.promoted ?? false,
+      whetter: item.data.whetter || ''
+    }
+  }));
 ---
 
 <BaseLayout
@@ -130,11 +260,11 @@ const remainingPosts = sortedItems.filter((item: any) => {
                     class="absolute bottom-0 w-full px-4 md:px-10 pb-6 md:pb-10"
                   >
                     <div class="max-w-6xl mx-auto">
-                      <p
-                        class="text-sm text-amber-400 mb-2 font-medium tracking-wide uppercase"
-                      >
-                        {featuredPost.data.whetter}
-                      </p>
+                      {isBlogPost(featuredPost) && featuredPost.data.whetter && (
+                        <p class="text-sm text-amber-400 mb-2 font-medium tracking-wide uppercase">
+                          {featuredPost.data.whetter}
+                        </p>
+                      )}
                       <h1
                         class="savate-bold text-3xl sm:text-4xl lg:text-6xl font-bold text-white group-hover:text-amber-400 transition-colors"
                       >
@@ -179,7 +309,7 @@ const remainingPosts = sortedItems.filter((item: any) => {
                         />
                       </div>
                       <div>
-                        {item.collection === "blog" && (
+                        {isBlogPost(item) && item.data.whetter && (
                           <p class="text-xs font-medium tracking-wider text-amber-500 mb-1 uppercase">
                             {item.data.whetter}
                           </p>
