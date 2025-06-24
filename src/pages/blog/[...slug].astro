@@ -32,8 +32,8 @@ function formatDate(dateStr: Date) {
 >
   <article class="prose-invert pt-16">
     {/* Hero Image Section - Full Bleed */}
-    <div class="relative w-screen left-1/2 right-1/2 -mx-[50vw]">
-      <div class="relative h-[80vh] w-screen">
+    <div class="relative w-screen left-1/2 right-1/2 -mx-[50vw] -mt-16">
+      <div class="relative h-[40vh] sm:h-[50vh] md:h-[60vh] w-screen">
         <img
           src={post.data.image}
           alt={post.data.title}
@@ -44,9 +44,9 @@ function formatDate(dateStr: Date) {
         >
         </div>
       </div>
-      <div class="absolute inset-0 flex items-end pb-8 md:pb-16">
-        <div class="w-full px-4">
-          <div class="container mx-auto max-w-3xl">
+      <div class="absolute inset-0 flex items-end">
+        <div class="container mx-auto max-w-3xl px-4 w-full pb-8 md:pb-16">
+          <div>
             {
               post.data.whetter && (
                 <p class="text-amber-400 text-sm font-medium tracking-wide uppercase mb-4 inline-block">
@@ -55,17 +55,25 @@ function formatDate(dateStr: Date) {
               )
             }
             <h1
-              class="savate-heavy text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white mb-4 leading-tight break-words"
+              class="savate-heavy text-4xl md:text-5xl lg:text-6xl text-white mb-4"
             >
               {post.data.title}
             </h1>
-            <p class="text-lg sm:text-xl md:text-2xl text-white/80 mb-4">
+            <p class="text-xl md:text-2xl text-white/90 mb-6">
               {post.data.description}
             </p>
             <div class="flex items-center text-white/60 text-sm space-x-4">
               <time datetime={post.data.date.toISOString()}>
                 {formatDate(post.data.date)}
               </time>
+              {
+                post.data.author && (
+                  <span class="flex items-center">
+                    <span class="mx-2">•</span>
+                    <span>By {post.data.author}</span>
+                  </span>
+                )
+              }
             </div>
           </div>
         </div>
