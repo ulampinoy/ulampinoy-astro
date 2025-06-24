@@ -5,8 +5,17 @@
 <div class="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md">
   <h2 class="text-2xl font-bold mb-6 text-gray-800">Send Us a Message</h2>
 
-  <form name="contact" method="POST" data-netlify="true" class="space-y-6">
+  <form 
+    name="contact" 
+    method="POST" 
+    data-netlify="true" 
+    class="space-y-6"
+    netlify-honeypot="bot-field"
+  >
     <input type="hidden" name="form-name" value="contact" />
+    <p class="hidden">
+      <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+    </p>
 
     <div>
       <label for="name" class="block text-sm font-medium text-gray-700"
@@ -61,6 +70,7 @@
     </div>
 
     <div class="pt-2">
+      <div data-netlify-recaptcha="true"></div>
       <button
         type="submit"
         class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-amber-500 hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 transition-colors"
@@ -68,9 +78,16 @@
         Send Message
       </button>
     </div>
+    <p class="text-sm text-gray-500">
+      Your information is secure and will only be used to respond to your inquiry.
+    </p>
   </form>
 
-  <p class="mt-4 text-sm text-gray-500">
-    We'll get back to you as soon as possible.
-  </p>
+  <div id="form-success" class="hidden mt-4 p-4 bg-green-50 text-green-700 rounded-md">
+    <p>Thank you for your message! We'll get back to you soon.</p>
+  </div>
+  
+  <div id="form-error" class="hidden mt-4 p-4 bg-red-50 text-red-700 rounded-md">
+    <p>There was an error sending your message. Please try again later.</p>
+  </div>
 </div>
