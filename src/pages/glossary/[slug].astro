@@ -44,7 +44,7 @@ const formatDate = (dateString: string) => {
           <div>
             {
               item.data.category && (
-                <p class="text-amber-400 text-sm font-medium tracking-wide uppercase mb-4 inline-block">
+                <p class="text-amber-600 text-sm font-medium tracking-wide uppercase mb-4 inline-block">
                   {item.data.category}
                 </p>
               )
@@ -54,13 +54,13 @@ const formatDate = (dateString: string) => {
             >
               {item.data.title}
             </h1>
-            <p class="text-xl md:text-2xl text-white/90 mb-6">
+            <p class="text-xl md:text-2xl text-white/95 mb-6">
               {item.data.description}
             </p>
             <div class="flex items-center text-white/60 text-sm space-x-4">
-              <span
-                >{formatDate(item.data.date || new Date().toISOString())}</span
-              >
+              <span>
+                {formatDate(item.data.date ? new Date(item.data.date).toISOString() : new Date().toISOString())}
+              </span>
               {
                 item.data.author && (
                   <span class="flex items-center">
@@ -98,7 +98,7 @@ const formatDate = (dateString: string) => {
                 {item.data.tags.map((tag) => (
                   <a
                     href={`/tags/${tag}`}
-                    class="px-3 py-1 bg-gray-100 rounded-sm hover:rounded-lg transition-all text-sm text-gray-700 hover:bg-gray-200 transition-colors"
+                    class="px-3 py-1 bg-gray-100 rounded-sm hover:rounded-lg text-sm text-gray-700 hover:bg-amber-50 hover:text-amber-800 transition-colors border border-gray-200"
                   >
                     {tag}
                   </a>

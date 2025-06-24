@@ -52,14 +52,14 @@ const { Content } = await post.render();
         <div class="container mx-auto max-w-3xl px-4 w-full pb-8 md:pb-16">
           <div>
             {post.data.whetter && (
-              <p class="text-amber-400 text-sm font-medium tracking-wide uppercase mb-4 inline-block">
+              <p class="text-amber-600 text-sm font-medium tracking-wide uppercase mb-4 inline-block">
                 {post.data.whetter}
               </p>
             )}
             <h1 class="savate-heavy text-4xl md:text-5xl lg:text-6xl text-white mb-4">
               {post.data.title}
             </h1>
-            <p class="text-xl md:text-2xl text-white/90 mb-6">
+            <p class="text-xl md:text-2xl text-white/95 mb-6">
               {post.data.description}
             </p>
             <div class="flex items-center text-white/60 text-sm space-x-4">
@@ -229,7 +229,7 @@ const { Content } = await post.render();
         @apply ml-1 text-amber-500 no-underline;
       }
       :global(.prose a) {
-        @apply text-amber-400 hover:text-amber-300 transition-colors;
+        @apply text-amber-600 hover:text-amber-500 transition-colors underline underline-offset-4 decoration-amber-400/50 hover:decoration-amber-500/70;
       }
 
       :global(.prose a[href^="#"]) {
