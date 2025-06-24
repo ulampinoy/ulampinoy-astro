@@ -41,7 +41,9 @@ const formatDate = (dateString: string | Date) => {
           alt={post.data.title}
           class="w-full h-full object-cover"
         />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent">
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"
+        >
         </div>
       </div>
       <div class="absolute inset-0 flex items-end">
@@ -54,7 +56,9 @@ const formatDate = (dateString: string | Date) => {
                 </p>
               )
             }
-            <h1 class="savate-heavy text-4xl md:text-5xl lg:text-6xl text-white mb-4">
+            <h1
+              class="savate-heavy text-4xl md:text-5xl lg:text-6xl text-white mb-4"
+            >
               {post.data.title}
             </h1>
             <p class="text-xl md:text-2xl text-white/90 mb-6">
@@ -78,9 +82,15 @@ const formatDate = (dateString: string | Date) => {
 
     {/* Content Section */}
     <div class="container mx-auto px-4 sm:px-6 py-8 sm:py-12">
-      <div class="prose prose-sm sm:prose-base md:prose-lg lg:prose-xl mx-auto max-w-4xl">
-        <div class="[&_img]:mx-auto [&_img]:w-full [&_img]:max-w-full [&_img]:rounded-lg">
-          <div class="[&>p:first-of-type]:first-letter:float-left [&>p:first-of-type]:first-letter:text-6xl md:[&>p:first-of-type]:first-letter:text-8xl [&>p:first-of-type]:first-letter:pr-2 [&>p:first-of-type]:first-letter:font-bold [&>p:first-of-type]:first-letter:text-amber-500 [&>p:first-of-type]:first-letter:font-[savate] [&>p]:w-[80%] [&>p]:mx-auto [&>p:has(>img)]:w-full">
+      <div
+        class="prose prose-sm sm:prose-base md:prose-lg lg:prose-xl mx-auto max-w-4xl"
+      >
+        <div
+          class="[&_img]:mx-auto [&_img]:w-full [&_img]:max-w-full [&_img]:rounded-lg"
+        >
+          <div
+            class="[&>p:first-of-type]:first-letter:float-left [&>p:first-of-type]:first-letter:text-6xl md:[&>p:first-of-type]:first-letter:text-8xl [&>p:first-of-type]:first-letter:pr-2 [&>p:first-of-type]:first-letter:font-bold [&>p:first-of-type]:first-letter:text-amber-500 [&>p:first-of-type]:first-letter:font-[savate] [&>p]:w-[80%] [&>p]:mx-auto [&>p:has(>img)]:w-full"
+          >
             <Content />
           </div>
         </div>
