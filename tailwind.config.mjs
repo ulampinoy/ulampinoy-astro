@@ -5,8 +5,9 @@ module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     fontFamily: {
-      sans: ["ui-sans-serif", "system-ui", "noto-sans"],
-      serif: ["ui-serif", "Georgia", "Cambria", "Times New Roman", "Times", "serif"],
+      sans: ["Noto Sans", "ui-sans-serif", "system-ui", "sans-serif"],
+      serif: ["Noto Serif", "ui-serif", "Georgia", "serif"],
+      'Noto_Sans_Tagalog': ["Noto Sans Tagalog", "sans-serif"],
     },
     extend: {
       colors: {

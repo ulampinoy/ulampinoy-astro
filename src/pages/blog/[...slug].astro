@@ -151,6 +151,12 @@ const { Content } = await post.render();
         line-height: 1.8;
         font-size: 1.125rem;
       }
+      
+      :global(.prose > div > div > p:first-of-type) {
+        @apply text-[1.5rem] leading-[1.6] text-gray-800 dark:text-gray-200 mb-8;
+        font-size: 24px;
+        line-height: 1.6;
+      }
 
       @media (max-width: 640px) {
         :global(.prose p) {
@@ -192,7 +198,19 @@ const { Content } = await post.render();
       }
 
       :global(.prose blockquote) {
-        @apply font-['ui-serif'] text-gray-700 dark:text-gray-300 text-xl italic border-l-4 border-amber-400 pl-6 py-2 my-6;
+        @apply font-serif text-gray-700 dark:text-gray-300 text-xl italic border-l-4 border-amber-400 pl-6 py-2 my-6 relative;
+      }
+      
+      :global(.prose blockquote::before) {
+        content: '';
+      }
+      
+      :global(.prose blockquote p:first-of-type) {
+        margin-top: 0;
+      }
+      
+      :global(.prose blockquote p:last-of-type) {
+        margin-bottom: 0;
       }
 
       :global(.prose iframe) {

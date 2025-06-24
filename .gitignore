@@ -28,3 +28,5 @@ pnpm-debug.log*
 # Compressed archives
 *.tgz
 *.zip
+# Local Netlify folder
+.netlify

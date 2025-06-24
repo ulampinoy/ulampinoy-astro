@@ -10,9 +10,18 @@ const { currentPath } = Astro.props;
       {/* Logo */}
       <a
         href="/"
-        class="savate-heavy text-2xl tracking-wider hover:text-black text-amber-500 transition-colors"
+        class="savate-heavy text-2xl tracking-wider text-amber-500 transition-colors group relative"
       >
-        ULAMPINOY
+        <span
+          class="inline-block group-hover:opacity-0 group-hover:invisible transition-all duration-200"
+        >
+          ULAMPINOY
+        </span>
+        <span
+          class="font-['Noto_Sans_Tagalog'] absolute left-0 top-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200"
+        >
+          ᜂᜎᜋ᜔ᜉᜒᜈᜓᜌ᜔
+        </span>
       </a>
 
       {/* Mobile menu button */}
