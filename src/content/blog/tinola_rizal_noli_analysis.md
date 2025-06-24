@@ -25,8 +25,7 @@ But while Ibarra receives the **liver and gizzard**—considered choice cuts—*
 The term _gulái_ signals regional influences, tracing back to Southeast Asia’s rich stew traditions.[^4]
 
 ![Period illustration of a colonial Filipino dinner](/images/tinola-tiago.jpg)
-
----
+<small>19th century ilustrado family dining in Spanish colonial style. The formal setting and attentive servants highlight the era's social hierarchies, while dishes like tinola preserved indigenous flavors within European customs.</small>
 
 ## Historical & Culinary Context
 
