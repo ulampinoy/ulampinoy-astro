@@ -32,15 +32,25 @@ const formatDate = (dateString: string | Date) => {
   publishedTime={post.data.date.toISOString()}
   modifiedTime={new Date().toISOString()}
 >
+<<<<<<< HEAD
   <article class="pt-32">
+=======
+  <article class="prose-invert">
+>>>>>>> 7c3f27dd8713eadb6c0ca9b30519046453a1fdd7
     {/* Hero Image Section - Full Bleed */}
+<<<<<<< HEAD
     <div class="relative w-screen left-1/2 right-1/2 -mx-[50vw] -mt-16">
       <div class="relative h-[40vh] sm:h-[50vh] md:h-[60vh] w-screen">
+=======
+    <div class="relative w-full overflow-hidden">
+      <div class="relative h-[80vh] w-screen max-w-none -ml-[calc(50vw-50%)] -mr-[calc(50vw-50%)]">
+>>>>>>> 602e2611b409c2d9d2b6d7835e42fc93321567a9
         <img
           src={post.data.image}
           alt={post.data.title}
           class="w-full h-full object-cover"
         />
+<<<<<<< HEAD
         <div
           class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"
         >
@@ -74,22 +84,67 @@ const formatDate = (dateString: string | Date) => {
                   </span>
                 )
               }
+=======
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent">
+          <div class="absolute inset-0 flex items-end pb-8 md:pb-16">
+            <div class="w-full px-4">
+              <div class="container mx-auto max-w-3xl">
+                {
+                  post.data.whetter && (
+                    <p class="text-amber-400 text-sm font-medium tracking-wide uppercase mb-4 inline-block">
+                      {post.data.whetter}
+                    </p>
+                  )
+                }
+                <h1 class="savate-heavy text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white mb-4 leading-tight break-words">
+                  {post.data.title}
+                </h1>
+                <p class="text-lg sm:text-xl md:text-2xl text-white/80 mb-4">
+                  {post.data.description}
+                </p>
+                <div class="flex items-center text-white/60 text-sm space-x-4">
+                  <time datetime={post.data.date.toISOString()}>
+                    {formatDate(post.data.date)}
+                  </time>
+                </div>
+              </div>
+>>>>>>> 602e2611b409c2d9d2b6d7835e42fc93321567a9
             </div>
           </div>
         </div>
       </div>
     </div>
 
+<<<<<<< HEAD
     {/* Content Section */}
     <div class="container mx-auto px-4 sm:px-6 py-8 sm:py-12">
+=======
+    <div class="container mx-auto px-4 sm:px-6 py-8 sm:py-12 -mt-8 sm:-mt-12 relative z-10 bg-white dark:bg-gray-900 rounded-t-2xl shadow-lg">
+>>>>>>> 7c3f27dd8713eadb6c0ca9b30519046453a1fdd7
       <div
-        class="prose prose-sm sm:prose-base md:prose-lg lg:prose-xl mx-auto max-w-4xl"
+        class="prose prose-sm sm:prose-base md:prose-lg lg:prose-xl mx-auto max-w-4xl pt-8
+               prose-headings:text-gray-900 dark:prose-headings:text-gray-100
+               prose-p:text-gray-700 dark:prose-p:text-gray-300
+               prose-strong:text-gray-900 dark:prose-strong:text-white
+               prose-a:text-amber-600 dark:prose-a:text-amber-400
+               prose-a:no-underline hover:prose-a:underline
+               prose-blockquote:text-gray-600 dark:prose-blockquote:text-gray-300
+               prose-blockquote:border-l-amber-500 dark:prose-blockquote:border-l-amber-400
+               prose-code:bg-gray-100 dark:prose-code:bg-gray-800
+               prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded
+               dark:prose-invert"
       >
+<<<<<<< HEAD
         <div
           class="[&_img]:mx-auto [&_img]:w-full [&_img]:max-w-full [&_img]:rounded-lg"
         >
           <div
             class="[&>p:first-of-type]:first-letter:float-left [&>p:first-of-type]:first-letter:text-6xl md:[&>p:first-of-type]:first-letter:text-8xl [&>p:first-of-type]:first-letter:pr-2 [&>p:first-of-type]:first-letter:font-bold [&>p:first-of-type]:first-letter:text-amber-500 [&>p:first-of-type]:first-letter:font-[savate] [&>p]:w-[80%] [&>p]:mx-auto [&>p:has(>img)]:w-full"
+=======
+        <div class="[&_img]:mx-auto [&_img]:w-full [&_img]:max-w-full [&_img]:rounded-lg [&_img]:shadow-lg">
+          <div
+            class="[&>p:first-of-type]:first-letter:float-left [&>p:first-of-type]:first-letter:text-8xl [&>p:first-of-type]:first-letter:pr-3 [&>p:first-of-type]:first-letter:font-bold [&>p:first-of-type]:first-letter:text-amber-500 [&>p:first-of-type]:first-letter:font-[savate] [&>p]:w-[90%] sm:[&>p]:w-[80%] [&>p]:mx-auto [&>p:has(>img)]:w-full"
+>>>>>>> 7c3f27dd8713eadb6c0ca9b30519046453a1fdd7
           >
             <Content />
           </div>
@@ -125,16 +180,24 @@ const formatDate = (dateString: string | Date) => {
     height: auto;
     display: block;
     border-radius: 0.5rem;
+<<<<<<< HEAD
     box-shadow:
       0 10px 15px -3px rgba(0, 0, 0, 0.1),
       0 4px 6px -2px rgba(0, 0, 0, 0.05);
+=======
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+>>>>>>> 7c3f27dd8713eadb6c0ca9b30519046453a1fdd7
   }
 
   :global(.dark .prose img) {
     @apply border border-gray-800;
+<<<<<<< HEAD
     box-shadow:
       0 4px 6px -1px rgba(0, 0, 0, 0.2),
       0 2px 4px -1px rgba(0, 0, 0, 0.1);
+=======
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+>>>>>>> 7c3f27dd8713eadb6c0ca9b30519046453a1fdd7
   }
 
   :global(.prose) {
@@ -175,6 +238,7 @@ const formatDate = (dateString: string | Date) => {
   :global(.prose ul > li) {
     @apply pl-2 mb-2;
     position: relative;
+<<<<<<< HEAD
   }
 
   :global(.prose ul > li::before) {
@@ -184,7 +248,19 @@ const formatDate = (dateString: string | Date) => {
 
   :global(.prose ol > li) {
     @apply pl-2 mb-2;
+=======
+>>>>>>> 7c3f27dd8713eadb6c0ca9b30519046453a1fdd7
   }
+
+  :global(.prose ul > li::before) {
+    content: '•';
+    @apply text-amber-500 dark:text-amber-400 mr-2;
+  }
+
+  :global(.prose ol > li) {
+    @apply pl-2 mb-2;
+  }
+
 
   :global(.prose iframe) {
     @apply w-full aspect-video my-6 md:my-8;
