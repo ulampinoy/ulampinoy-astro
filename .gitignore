@@ -30,3 +30,4 @@ pnpm-debug.log*
 *.zip
 # Local Netlify folder
 .netlify
+debug-posts.log
