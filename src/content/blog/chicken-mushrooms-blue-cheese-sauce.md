@@ -17,7 +17,7 @@ tags: ["chicken", "cheese", "main dish"]
 
 In this episode, let's upscale the usual pan-fried chicken fillets by making some blue cheese sauce with mushrooms.
 
-The creamy gravy sauce gives the chicken additional depth and moisture while the blue cheese give a nice sharp contrast to it. The mushrooms add in another type of texture to the bite and _umami_ boost!
+The creamy gravy sauce gives the chicken additional depth and moisture while the blue cheese give a nice sharp contrast to it. The mushrooms add in another type of texture to the bite and [_umami_](/glossary/umami) boost!
 
 ## Ingredients
 
