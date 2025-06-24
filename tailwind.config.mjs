@@ -6,6 +6,7 @@ module.exports = {
   theme: {
     fontFamily: {
       sans: ["ui-sans-serif", "system-ui", "noto-sans"],
+      serif: ["ui-serif", "Georgia", "Cambria", "Times New Roman", "Times", "serif"],
     },
     extend: {
       colors: {

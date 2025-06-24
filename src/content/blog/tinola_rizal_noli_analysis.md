@@ -36,7 +36,7 @@ The term _gulái_ signals regional influences, tracing back to Southeast Asia’
 
 ![Chicken tinola in palayok](/images/tinola-palayok.jpg)
 
-## 🥄 Heritage Tinola Recipe
+## Heritage Tinola Recipe
 
 **Ingredients (serves 4)**
 
