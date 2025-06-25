@@ -1,31 +1,36 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { getCollection } from "astro:content";
+import { getCollection, getEntry } from "astro:content";
 import type { CollectionEntry } from "astro:content";
+
+// Import the client-side script
+import '../../scripts/glossary-links';
+
+// Get the current post from props
+const { post } = Astro.props as { post: CollectionEntry<'blog'> };
+
+// Get the Content component
+const { Content } = await post.render();
+
+// Author information is not used in this template
+
+// Format date for display
+const formatDate = (dateString: string | Date) => {
+  const date = typeof dateString === "string" ? new Date(dateString) : dateString;
+  return date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric"
+  });
+};
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
-  return posts.map((post: CollectionEntry<"blog">) => ({
+  return posts.map((post) => ({
     params: { slug: post.slug },
     props: { post },
   }));
 }
-
-const { post } = Astro.props as { post: CollectionEntry<"blog"> };
-
-// Format date for display
-const formatDate = (dateString: string | Date) => {
-  const date =
-    typeof dateString === "string" ? new Date(dateString) : dateString;
-  const options: Intl.DateTimeFormatOptions = {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  };
-  return date.toLocaleDateString("en-US", options);
-};
-
-const { Content } = await post.render();
 ---
 
 <BaseLayout
@@ -113,7 +118,20 @@ const { Content } = await post.render();
           <div
             class="[&>p:first-of-type]:first-letter:float-left [&>p:first-of-type]:first-letter:text-6xl md:[&>p:first-of-type]:first-letter:text-8xl [&>p:first-of-type]:first-letter:pr-2 [&>p:first-of-type]:first-letter:font-bold [&>p:first-of-type]:first-letter:text-amber-500 [&>p:first-of-type]:first-letter:font-[savate] [&>p]:w-[80%] [&>p]:mx-auto [&>p:has(>img)]:w-full"
           >
-            <Content />
+            <div class="prose max-w-none">
+              <Content />
+            </div>
+            
+            <!-- Add a script to initialize glossary links -->
+            <script>
+              // Re-run the glossary linker when the page is fully loaded
+              document.addEventListener('DOMContentLoaded', () => {
+                // Use a type-safe approach to access the global function
+                if ('linkGlossaryTerms' in window && typeof window.linkGlossaryTerms === 'function') {
+                  window.linkGlossaryTerms();
+                }
+              });
+            </script>
           </div>
         </div>
       </div>
