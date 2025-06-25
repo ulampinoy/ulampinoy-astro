@@ -141,46 +141,48 @@ const formatDate = (dateString: string) => {
     </div>
 
     {/* Related Articles Section */}
-    {relatedArticles.length > 0 ? (
-      <div class="container mx-auto px-4 sm:px-6 py-8 sm:py-12">
-        <div class="max-w-4xl mx-auto">
-          <h2 class="text-2xl md:text-3xl mb-8 text-gray-900 dark:text-white">
-            <strong>{item.data.title}</strong> in Articles
-          </h2>
-          <div class="space-y-6">
-            {relatedArticles.map((post: CollectionEntry<"blog">) => (
-              <a
-                href={`/blog/${post.slug}`}
-                class="group flex flex-col sm:flex-row overflow-hidden rounded-lg border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow duration-300"
-              >
-                <div class="w-full sm:w-48 flex-shrink-0">
-                  <img
-                    src={post.data.image || "/images/default-blog.jpg"}
-                    alt={post.data.title}
-                    class="w-full h-48 sm:h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <div class="p-6 flex-1 flex flex-col">
-                  <h3 class="text-xl font-semibold text-gray-900 dark:text-white group-hover:text-amber-500 transition-colors">
-                    {post.data.title}
-                  </h3>
-                  <p class="mt-2 text-gray-600 dark:text-gray-300 line-clamp-2">
-                    {post.data.description}
-                  </p>
-                  <div class="mt-auto pt-4 text-sm text-gray-500 dark:text-gray-400">
-                    {new Date(post.data.date).toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    })}
+    {
+      relatedArticles.length > 0 ? (
+        <div class="container mx-auto px-4 sm:px-6 py-8 sm:py-12">
+          <div class="max-w-4xl mx-auto">
+            <h2 class="text-2xl md:text-3xl mb-8 text-gray-900 dark:text-white">
+              <strong>{item.data.title}</strong> in Articles
+            </h2>
+            <div class="space-y-6">
+              {relatedArticles.map((post: CollectionEntry<"blog">) => (
+                <a
+                  href={`/blog/${post.slug}`}
+                  class="group flex flex-col sm:flex-row overflow-hidden rounded-lg border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow duration-300"
+                >
+                  <div class="w-full sm:w-48 flex-shrink-0">
+                    <img
+                      src={post.data.image || "/images/default-blog.jpg"}
+                      alt={post.data.title}
+                      class="w-full h-48 sm:h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
                   </div>
-                </div>
-              </a>
-            ))}
+                  <div class="p-6 flex-1 flex flex-col">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white group-hover:text-amber-500 transition-colors">
+                      {post.data.title}
+                    </h3>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300 line-clamp-2">
+                      {post.data.description}
+                    </p>
+                    <div class="mt-auto pt-4 text-sm text-gray-500 dark:text-gray-400">
+                      {new Date(post.data.date).toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      })}
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
-    ) : null}
+      ) : null
+    }
 
     <style>
       :global(.prose img) {
