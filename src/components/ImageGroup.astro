@@ -1,0 +1,51 @@
+---
+interface ImageProps {
+  src: string;
+  alt?: string;
+  title?: string;
+  [key: string]: any;
+}
+
+interface AstroChild {
+  type: string | Function;
+  props: ImageProps & { [key: string]: any };
+  [key: string]: any;
+}
+
+const { children } = Astro.props as { children: AstroChild[] };
+
+const images = children
+  .filter((child: AstroChild) => child.type === 'img')
+  .map((img: AstroChild) => ({
+    src: img.props.src,
+    alt: img.props.alt || '',
+    caption: img.props.title || ''
+  }));
+
+// Add data-group attribute to each image
+const enhancedChildren = children.map((child: AstroChild) => {
+  if (child.type === 'img') {
+    return {
+      ...child,
+      props: {
+        ...child.props,
+        'data-group': JSON.stringify(images),
+        'isInGroup': true
+      }
+    };
+  }
+  return child;
+});
+---
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
+  {enhancedChildren}
+</div>
+
+<!-- Client-side script to handle lightbox -->
+<script>
+  export default {
+    client: 'visible',
+    props: ['children']
+  };
+</script>

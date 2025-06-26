@@ -1,0 +1,58 @@
+---
+import { useState } from 'react';
+
+interface ImageProps {
+  src: string;
+  alt?: string;
+  caption?: string;
+  className?: string;
+  isInGroup?: boolean;
+  'data-group'?: string;
+}
+
+const { src, alt = '', caption, className = '', isInGroup = false } = Astro.props as ImageProps;
+const [isOpen, setIsOpen] = useState(false);
+
+// Extract the image group data if it exists
+const groupData = (Astro.props as any)['data-group'];
+const images = groupData ? JSON.parse(groupData) : [{ src, alt, caption }];
+const currentIndex = groupData ? images.findIndex((img: any) => img.src === src) : 0;
+
+// Handle click to open lightbox
+const handleClick = (e: Event) => {
+  e.preventDefault();
+  // Set the current index for the lightbox
+  window.dispatchEvent(new CustomEvent('openLightbox', { 
+    detail: { 
+      images,
+      index: currentIndex
+    } 
+  }));
+};
+---
+
+<figure class={`relative group ${className}`}>
+  <div class="overflow-hidden rounded-lg">
+    <img
+      src={src}
+      alt={alt}
+      class={`w-full h-auto transition-transform duration-300 cursor-zoom-in hover:scale-105 ${isInGroup ? 'aspect-video object-cover' : ''}`}
+      data-onclick="lightbox"
+      onclick={handleClick}
+      loading="lazy"
+    />
+  </div>
+  {caption && (
+    <figcaption class="mt-2 text-sm text-gray-500 dark:text-gray-400 text-center">
+      {caption}
+    </figcaption>
+  )}
+</figure>
+
+{/* Client-side interactivity */}
+<script>
+  export default {
+    client: 'visible',
+    props: ['src', 'alt', 'caption', 'className', 'isInGroup', 'data-group']
+  };
+</script>

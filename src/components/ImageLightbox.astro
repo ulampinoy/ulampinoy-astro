@@ -1,0 +1,80 @@
+---
+// This component is a lightbox for displaying images in a modal
+// It handles both single images and groups of images
+
+// Import React and Lightbox components
+import { useState } from 'react';
+import Lightbox from 'yet-another-react-lightbox';
+import 'yet-another-react-lightbox/styles.css';
+
+// Define TypeScript interfaces for type safety
+interface Image {
+  src: string;
+  alt?: string;
+  caption?: string;
+}
+
+interface LightboxProps {
+  images: Image[];
+  initialIndex?: number;
+}
+
+// Get props from Astro
+const { images, initialIndex = 0 } = Astro.props as LightboxProps;
+
+// State for the lightbox
+const [open, setOpen] = useState(false);
+const [index, setIndex] = useState(initialIndex);
+
+// Create slides from images
+const slides = images.map(img => ({
+  src: img.src,
+  alt: img.alt || '',
+  description: img.caption || ''
+}));
+
+// Custom Caption component
+const Caption = ({ description }: { description: string }) => (
+  <div class="p-4 text-center text-sm text-white bg-black/50">
+    {description}
+  </div>
+);
+---
+
+<!-- Lightbox component -->
+<Lightbox
+  open={open}
+  close={() => setOpen(false)}
+  index={index}
+  slides={slides}
+  render={{ slide: ({ slide }) => {
+    // Type assertion to access custom properties
+    const customSlide = slide as any;
+    return (
+      <div class="relative">
+        <img 
+          src={slide.src} 
+          alt={slide.alt}
+          class="max-h-[80vh] max-w-full mx-auto object-contain"
+        />
+        {customSlide.description && <Caption description={customSlide.description} />}
+      </div>
+    );
+  }}}
+  controller={{ closeOnPullDown: true, closeOnBackdropClick: true }}
+  carousel={{ finite: slides.length <= 1 }}
+  styles={{
+    container: { backgroundColor: 'rgba(0, 0, 0, 0.9)' },
+    icon: { color: 'white' },
+  }}
+  on={{ view: ({ index }) => setIndex(index) }}
+/>
+
+<!-- Client-side script -->
+<script>
+  // Make the component interactive on the client
+  export default {
+    client: 'visible',
+    props: ['images', 'initialIndex']
+  };
+</script>
