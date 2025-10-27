@@ -1,0 +1,7 @@
+User-agent: *
+Description: A food blog specializing in Filipino cuisine, featuring recipes, articles, and a glossary of culinary terms.
+Sitemap: /sitemap-index.xml
+
+Allow: /
+Disallow: /search
+Disallow: /api/
