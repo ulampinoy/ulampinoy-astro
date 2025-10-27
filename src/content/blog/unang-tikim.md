@@ -4,7 +4,7 @@ date: 2025-06-26
 description: "Exploring the Filipino custom of offering the first serving of freshly cooked ulam to neighbors, and what it reveals about community, empathy, and heritage."
 whetter: "Pakikipagkapuwa-pinggan"
 sidenote: "Before the family eats, one portion of freshly cooked food is often sent next door — a warm and quiet act of community that defines the Filipino soul."
-image: /images/unang-tikim-cook.jpg
+image: /.netlify/images?url=/images/unang-tikim-cook.jpg
 tags: ["ulam", "tradition", "community"]
 related: []
 author: UlamPinoy
@@ -29,7 +29,7 @@ From the eyes of a visitor, this openness is striking. French expat Richard, who
 
 Historically, communal eating and neighborly sharing trace back to pre-colonial village life, where bonds were formed not just through rituals, but over rice and stews shared under nipa roofs.[^3] The spirit of _bayanihan_ was not just for times of disaster — it was built daily, one bowl at a time.
 
-![A moment before sharing: A home cook sets aside the first serving of pancit for a neighbor — a gesture of quiet generosity deeply rooted in Filipino tradition.](/images/unang-tikim-cook.jpg)
+![A moment before sharing: A home cook sets aside the first serving of pancit for a neighbor — a gesture of quiet generosity deeply rooted in Filipino tradition.](/.netlify/images?url=/images/unang-tikim-cook.jpg)
 
 <small>A moment before sharing — Nanay sets aside the first serving of pancit _para sa kapitbahay_. This quiet gesture of generosity is at the heart of many Filipino communities.</small>
 

@@ -2,7 +2,7 @@
 title: "Chicharon Bituka"
 date: 2012-06-20
 description: "Deep-fried pork intestines - a popular Filipino beer food"
-image: "/images/chicharon-bituka.jpg"
+image: "/.netlify/images?url=/images/chicharon-bituka.jpg"
 hasVideo: true
 videoUrl: "https://www.youtube.com/watch?v=K5HgpS7yU_k"
 whetter: "Perfect Beer Match"
@@ -30,7 +30,7 @@ Crispy and crunchy cracklings made from pork intestines. Classic pulutan or appe
 - 1 clove garlic, crushed
 - dash of salt and pepper
 
-![Crispy and crunchy cracklings with spiced vinegar dip](/images/chicharon-bituka.jpg
+![Crispy and crunchy cracklings with spiced vinegar dip](/.netlify/images?url=/images/chicharon-bituka.jpg
 
 ### Video
 

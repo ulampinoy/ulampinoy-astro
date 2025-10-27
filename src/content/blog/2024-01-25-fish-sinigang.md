@@ -3,9 +3,9 @@ title: "Fish Sinigang"
 date: 2024-01-25
 description: "Refreshingly comforting fish dish that satisfies, livens and nourishes your spirit"
 whetter: "Delicious Acidity"
-sideImage: "/images/fish-grocery.jpg"
+sideImage: "/.netlify/images?url=/images/fish-grocery.jpg"
 sideImageCaption: "Fish is a must have to your weekly protein intake"
-image: "/images/fish-sinigang-bowl.jpg"
+image: "/.netlify/images?url=/images/fish-sinigang-bowl.jpg"
 tags: ["fish", "seafoods", "sinigang"]
 related: ["tinola-tulya", "squid-adobo", "chicken-adobo-potato"]
 author: "UlamPinoy"
@@ -16,7 +16,7 @@ Fish Sinigang is one of the dish you look forward to when you have too much land
 
 Sinigang is the most intuitive way of cooking seafoods, fish included. Like many seafoods dishes where there is the recurring aspect of acidity, like lemon, to bring out the flavors of the sea and tame these strong flavors. Acidity is a default to Sinigang, removed the sour factor and you will have **Nilaga** – another comforting Filipino dish. That's a topic for another article...
 
-![Cooking Pinakbet in a wok](/images/fish-corvina.jpg)
+![Cooking Pinakbet in a wok](/.netlify/images?url=/images/fish-corvina.jpg)
 
 Sinigang is also the most intuitive way of cooking seafoods, fish included. Like many seafoods dishes where there is the recurring aspect of acidity, like lemon, to bring out the flavors of the sea and tame these strong flavors. Acidity is a default to Sinigang, removed the sour factor and you will have to call it Nilaga – another comforting Filipino dish. That's a topic for another article...
 
@@ -39,7 +39,7 @@ Let's cook our Ulam Pinoy version of Fish Sinigang...
 - Patis (fermented fish sauce)
 - Water or even better **_hugas bigas_**
 
-![Sinigang base ingredients in a pot](/images/sinigang-base-pot.jpg)
+![Sinigang base ingredients in a pot](/.netlify/images?url=/images/sinigang-base-pot.jpg)
 
 ### Procedure
 
@@ -47,7 +47,7 @@ Let's cook our Ulam Pinoy version of Fish Sinigang...
 2. Add the vegetables: radish and okra. Cover and cook the vegetable half way through.
 3. Add the Sinigang Powder Mix, season to taste and put in the fish cuts. Put the pot lid back and simmer for 8 minutes. Add the spinach leaves and finish cooking for another 2 minutes. Ready to serve!
 
-![Sinigang na Isda served in a serving dish](/images/sinigang-served.jpg)
+![Sinigang na Isda served in a serving dish](/.netlify/images?url=/images/sinigang-served.jpg)
 
 Enjoy Fish Sinigang with rice and make a patis and chili dip close!
 

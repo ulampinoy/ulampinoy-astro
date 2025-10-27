@@ -4,8 +4,8 @@ date: 2023-04-01
 description: "Hearty and flavorful pork dish that is enjoyed throughout the Philippines. It is often served at special occasions and is a staple on many Filipino family tables."
 whetter: "Menudo"
 sidenote: "Casquería is a term used in Spanish cuisine to describe a variety of organ meats that are typically eaten as a delicacy or specialty food. These meats can include things like liver, tripe, beef tongue, kidneys, brain, and other offal. In Spain, it is a specialized store selling just these."
-sideImage: /images/casqueria-meatshop.jpg
-image: /images/pork-menudo-dish.jpg
+sideImage: /.netlify/images?url=/images/casqueria-meatshop.jpg
+image: /.netlify/images?url=/images/pork-menudo-dish.jpg
 tags: [] # Empty array instead of null
 author: "UlamPinoy"
 draft: false
@@ -46,4 +46,4 @@ Here's a recipe for cooking Filipino style Pork Menudo:
 
 Serve hot with rice or with _pandesal_. Enjoy your delicious Filipino style Pork Menudo!
 
-![Pork menudo with rice](/images/menudo-plate.jpg)
+![Pork menudo with rice](/.netlify/images?url=/images/menudo-plate.jpg)

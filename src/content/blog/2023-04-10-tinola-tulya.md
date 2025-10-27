@@ -4,8 +4,8 @@ date: 2023-04-11
 description: " Delectable soup is made with fresh clams cooked in a ginger-based broth, which gives it a unique flavor that is both savory and refreshing."
 whetter: "Clam Super Soup"
 sidenote: " The use of ginger in Tinolang Tulya not only adds a delicious flavor to the dish but also provides several health benefits. It contains compounds called gingerols and shogaols which have anti-inflammatory and antioxidant properties. These properties can help reduce inflammation in the body and boost the immune system."
-image: /images/clam-tinola-bowl.jpg
-sideImage: /images/ginger-market.jpg
+image: /.netlify/images?url=/images/clam-tinola-bowl.jpg
+sideImage: /.netlify/images?url=/images/ginger-market.jpg
 sideImageCaption: ": Ginger is also known to help with digestion, relieve nausea and vomiting, and may even have anti-cancer properties."
 tags: [] # Empty array instead of null
 related: [] # Add empty array if no related posts
@@ -19,7 +19,7 @@ Tinolang Tulya has been a staple dish in the Philippines for generations, especi
 
 Aside from its flavorful taste, Tinolang Tulya is also popular among Filipinos for its comforting properties. This soup is often served during cold weather or when someone is feeling under the weather. The clams are rich in protein and other essential nutrients, while ginger is known for its anti-inflammatory and digestive properties. The combination of these ingredients creates a soup that not only satisfies your taste buds but also nourishes your body.
 
-![Clams soaked in water to eliminate sands](/images/clams-soaked-water.jpg)
+![Clams soaked in water to eliminate sands](/.netlify/images?url=/images/clams-soaked-water.jpg)
 Now, let's cook Tinolang Tulya:
 
 ### Ingredients:
@@ -34,7 +34,7 @@ Now, let's cook Tinolang Tulya:
 - 1 bunch of spinach or chili leaves or cilantro
 - Salt and pepper to taste
 
-![Clams soaked in water to eliminate sands](/images/aromatics-giniger-onions-garlic.jpg)
+![Clams soaked in water to eliminate sands](/.netlify/images?url=/images/aromatics-giniger-onions-garlic.jpg)
 
 ### Instructions:
 
@@ -47,6 +47,6 @@ Now, let's cook Tinolang Tulya:
 
 Serve hot with steamed rice and enjoy the delicious taste of the sea!
 
-![Tulya Tinola served hot in a bowl](/images/tulya-tinola-bowl.jpg)
+![Tulya Tinola served hot in a bowl](/.netlify/images?url=/images/tulya-tinola-bowl.jpg)
 
 Remember, the key to a delicious Tinolang Tulya is using fresh ingredients. Happy cooking!

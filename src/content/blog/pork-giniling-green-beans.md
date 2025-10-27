@@ -2,7 +2,7 @@
 title: "Pork Giniling with Green Beans"
 date: 2023-03-27
 description: "Pork giniling is a popular Filipino dish made with ground pork, tomatoes, and a variety of vegetables, we use green beans in this episode."
-image: /images/pork-giniling-rice.jpg
+image: /.netlify/images?url=/images/pork-giniling-rice.jpg
 hasVideo: true
 videoUrl: "https://www.youtube.com/watch?v=DMkHwJU3o4g"
 category: "Main Dishes"
@@ -33,7 +33,7 @@ Pork giniling is a popular Filipino dish made with ground pork, tomatoes, and a 
 - 2 tbsp cooking oil
 - Salt and pepper to taste
 
-![Pork giniling ingredients](/images/pork-giniling-green-beans-ingredients.jpg)
+![Pork giniling ingredients](/.netlify/images?url=/images/pork-giniling-green-beans-ingredients.jpg)
 
 ### Instructions:
 
@@ -47,8 +47,8 @@ Pork giniling is a popular Filipino dish made with ground pork, tomatoes, and a 
 
 5. Cover the pan and let the pork giniling simmer for about 20-30 minutes or until the vegetables are cooked and the sauce thickens.
 
-![Pork giniling serve with rice](/images/pork-giniling-rice.jpg)
+![Pork giniling serve with rice](/.netlify/images?url=/images/pork-giniling-rice.jpg)
 
 Enjoy your delicious pork giniling! Serve hot with steamed rice.
 
-![Pork Giniling serve in a bowl](/images/pork-giniling-green-beans-bowl.jpg)
+![Pork Giniling serve in a bowl](/.netlify/images?url=/images/pork-giniling-green-beans-bowl.jpg)

@@ -46,7 +46,7 @@ function formatDate(dateStr: Date) {
   <article class="prose prose-invert mx-auto">
     <div class="relative h-[70vh]">
       <img
-        src={post.data.image}
+        src={`/.netlify/images?url=${post.data.image}`}
         alt={post.data.title}
         class="w-full h-full object-cover"
       />
@@ -125,7 +125,7 @@ function formatDate(dateStr: Date) {
                 >
                   <div class="aspect-video overflow-hidden rounded-lg mb-4">
                     <img
-                      src={related.data.image}
+                      src={`/.netlify/images?url=${related.data.image}`}
                       alt={related.data.title}
                       class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />

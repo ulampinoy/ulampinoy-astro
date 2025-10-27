@@ -2,7 +2,7 @@
 title: "Beef Mechado"
 date: 2012-11-28
 description: "Hearty beef stew slowly cooked in tomatoes, potatoes and vegetables"
-image: "/images/beef-mechado.jpg"
+image: "/.netlify/images?url=/images/beef-mechado.jpg"
 hasVideo: true
 videoUrl: "https://www.youtube.com/watch?v=YMd408JUZRw"
 whetter: "Lutong Bahay"

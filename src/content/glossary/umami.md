@@ -2,7 +2,7 @@
 title: Umami
 description: The fifth basic taste, often described as savory or meaty, that enhances the flavor of food.
 category: flavor
-image: /images/umami.jpg
+image: /.netlify/images?url=/images/umami.jpg
 wikipedia: https://en.wikipedia.org/wiki/Umami
 date: 2024-06-24
 tags:

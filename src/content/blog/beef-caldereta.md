@@ -4,7 +4,7 @@ date: 2013-12-26T24:04:44.000Z
 description: "Tender beef stew in gravy sauce made of tomato sauce and liver spread"
 hasVideo: true
 videoUrl: "https://www.youtube.com/watch?v=BotTbCKuGJA"
-image: "/images/beef-caldereta.jpg"
+image: "/.netlify/images?url=/images/beef-caldereta.jpg"
 whetter: "Espesyal sa handaan"
 tags: ["beef", "stew", "special occasion", "main dish"]
 author: "UlamPinoy"
