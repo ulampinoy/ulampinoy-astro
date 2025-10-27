@@ -4,7 +4,7 @@ date: 2013-11-08
 description: "Chicken and elbow macaroni soup with carrots, cabbage and sausage"
 hasVideo: true
 videoUrl: "https://www.youtube.com/watch?v=csJWdebdrxU"
-image: "/images/chicken-sopas.jpg"
+image: "/.netlify/images?url=/images/chicken-sopas.jpg"
 author: "UlamPinoy"
 draft: false
 featured: false
@@ -20,7 +20,7 @@ Chicken and elbow macaroni soup cooked in milk as base with carrots, cabbage and
 - Chicken
 - Elbow macaroni
 
-![Chicken Sopas served hot](/images/chicken-sopas-bowl.jpg)
+![Chicken Sopas served hot](/.netlify/images?url=/images/chicken-sopas-bowl.jpg)
 
 ### Video
 

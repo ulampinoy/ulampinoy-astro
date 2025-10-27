@@ -106,7 +106,7 @@ for (const item of sortedItems) {
                   >
                     {item.data.image && (
                       <img
-                        src={item.data.image}
+                        src={`/.netlify/images?url=${item.data.image}`}
                         alt={item.data.title}
                         class="w-16 h-16 object-cover rounded-md mr-4 flex-shrink-0"
                         loading="lazy"

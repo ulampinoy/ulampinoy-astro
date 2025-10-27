@@ -3,7 +3,7 @@ title: Saluyot
 description: A nutritious leafy vegetable known for its slimy texture when cooked, commonly used in Filipino dishes
 date: 2025-06-10
 category: Ingredients
-image: /images/saluyot-leaves.jpg
+image: /.netlify/images?url=/images/saluyot-leaves.jpg
 draft: true
 tags:
   - ingredients

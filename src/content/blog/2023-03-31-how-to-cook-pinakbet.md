@@ -4,8 +4,8 @@ date: 2023-03-31
 description: " Pinakbet is a tradional vegetable stew originated from the Ilocos region made with a variety of local vegetables such as bitter melon or ampalaya, along with some pork or shrimp, and flavored with bagoong"
 whetter: " Mangan tayon, kakabsat!"
 sidenote: " Ampalaya, also known as bitter melon or bitter gourd, is a vegetable that is a good source of vitamins and minerals, including vitamin C, potassium, and iron. It has a bitter taste due to the presence of a compound called momordicin, which is also responsible for its medicinal properties."
-sideImage: /images/ampalaya-vine-fruit.jpg
-image: /images/pinakbet-wok.jpg
+sideImage: /.netlify/images?url=/images/ampalaya-vine-fruit.jpg
+image: /.netlify/images?url=/images/pinakbet-wok.jpg
 tags: [] # Empty array instead of null
 related: [] # Add empty array if no related posts
 author: "UlamPinoy"
@@ -30,7 +30,7 @@ Here's a recipe on how to cook Ilokano Pinakbet:
 - salt and pepper to taste
 - cooking oil
 
-![Ingedients for Pinakbet](/images/ingredients-pinakbet.jpg)
+![Ingedients for Pinakbet](/.netlify/images?url=/images/ingredients-pinakbet.jpg)
 
 ### Instructions:
 
@@ -39,10 +39,10 @@ Here's a recipe on how to cook Ilokano Pinakbet:
 3. Add the mixed vegetables and cook for a few minutes until slightly tender.
 4. Pour in the water and fish sauce(bagoong). Cover and let simmer for about 10-15 minutes until the vegetables are fully cooked. Season with salt and pepper to taste.
 
-![Pinakbet cooked in a pot](/images/cooking-pot-pinakbet.jpg)
+![Pinakbet cooked in a pot](/.netlify/images?url=/images/cooking-pot-pinakbet.jpg)
 
 That's it! Enjoy your delicious Ilokano pinakbet. Don't be afraid to experiment with different vegetable combinations to find your perfect flavor.
 
-![Pinakbet served in a bowl](/images/pinakbet-served-bowl.jpg)
+![Pinakbet served in a bowl](/.netlify/images?url=/images/pinakbet-served-bowl.jpg)
 
 Serve the Pinakbet with hot steamed rice and even better with some fried or grilled fish. _Mangan tayon, kabagis!_

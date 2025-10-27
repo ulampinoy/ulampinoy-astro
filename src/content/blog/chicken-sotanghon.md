@@ -4,7 +4,7 @@ date: 2012-11-28
 description: "Vermicelli chicken noodle soup"
 hasVideo: true
 videoUrl: "https://www.youtube.com/watch?v=W-5lRLncO6c"
-image: "/images/chicken-sotanghon.jpg"
+image: "/.netlify/images?url=/images/chicken-sotanghon.jpg"
 author: "UlamPinoy"
 draft: false
 featured: false
@@ -34,7 +34,7 @@ Got colds or just feeling cold? Here is a delicious way to get well and stay war
 - green onions &toasted garlic
 - chili oil
 
-![Also known as glass noodles](/images/vermecelli-noodles.jpg)
+![Also known as glass noodles](/.netlify/images?url=/images/vermecelli-noodles.jpg)
 
 ### Video
 

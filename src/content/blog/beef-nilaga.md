@@ -2,7 +2,7 @@
 title: "Beef Nilaga"
 date: 2011-10-09
 description: "Beef stew with vegetables"
-image: "/images/beef-nilaga.jpg"
+image: "/.netlify/images?url=/images/beef-nilaga.jpg"
 hasVideo: true
 videoUrl: "https://www.youtube.com/watch?v=JYdn6-QMjqA"
 author: "UlamPinoy"

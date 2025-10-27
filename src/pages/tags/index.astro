@@ -48,7 +48,7 @@ const sortedTags = Object.values(tagCounts).sort((a, b) =>
               class="group block relative aspect-[16/7] overflow-hidden rounded-sm hover:rounded-lg"
             >
               <img
-                src={tag.image}
+                src={`/.netlify/images?url=${tag.image}`}
                 alt={tag.name}
                 class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               />

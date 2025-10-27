@@ -4,8 +4,8 @@ date: 2024-01-23
 description: "Let's talk a little about Pinakbet – the unassuming yet bold in flavors Filipino vegetable dish and we'll share how to cook Pinakbet."
 whetter: "Savory Vegetables"
 sidenote: "Ampalaya (Momordica charantia) has many distinct names in various places in the world — bitter melon, goya, bitter apple, bitter gourd, bitter squash, balsam-pear, karavila are among its many other names"
-image: /images/pinakbet-wok-table.jpg
-sideImage: /images/ampalaya-market.jpg
+image: /.netlify/images?url=/images/pinakbet-wok-table.jpg
+sideImage: /.netlify/images?url=/images/ampalaya-market.jpg
 sideImageCaption: "Ampalaya are very nutritious "
 tags: [] # Empty array instead of null
 related: [] # Add empty array if no related posts
@@ -19,7 +19,7 @@ Originated from the Ilocos region of the Philippines, it is the main vegetable d
 
 Pinakbet can be modest with just vegetables or can be extravagant with the addition of bagnet (Ilokano-style crispy pork belly) or topped with fish. What make's it distinct to other gulay is the main vegetable ingedients — Ampalaya. You omit putting bitter gourd on the dish, then you must call it another name!
 
-![Cooking Pinakbet in a wok](/images/pinakbet-wok.jpg)
+![Cooking Pinakbet in a wok](/.netlify/images?url=/images/pinakbet-wok.jpg)
 
 Let's cook our Ulam Pinoy version of Pinakbet...
 
@@ -37,7 +37,7 @@ Let's cook our Ulam Pinoy version of Pinakbet...
 - Pork belly strips
 - Bagoong (fermented fish sauce)
 
-![Pinakbet vegetable ingredients in a metallic bowl](/images/pinakbet-ingredients-bowl.jpg)
+![Pinakbet vegetable ingredients in a metallic bowl](/.netlify/images?url=/images/pinakbet-ingredients-bowl.jpg)
 
 ### Procedure
 
@@ -45,11 +45,11 @@ Let's cook our Ulam Pinoy version of Pinakbet...
 2. Add the vegetables: squash; string beans; orka; ampalaya and eggplant. _(The idea of the sequence is to put in first the vegetable that needs more cooking time)_
 3. Add water and simmer until the vegetables are cook to your liking. Ready to serve!
 
-![Pinakbet served in a serving dish](/images/pinakbet-bowl-02.jpg)
+![Pinakbet served in a serving dish](/.netlify/images?url=/images/pinakbet-bowl-02.jpg)
 
 Enjoy Pinakbet with your favorite fried fish, steamed crab or crispy pork belly! Today we have some crispy fried fish (locally known as _Lubina_ or sea bass).
 
-![Pinakbet served with rice and fried fish](/images/pinakbet-plate.jpg)
+![Pinakbet served with rice and fried fish](/.netlify/images?url=/images/pinakbet-plate.jpg)
 
 Try it today or if you have your own family version of Pinakbet, please share it to us in [Instagram](https://www.instagram.com/ulampinoy/) and tag us [@ulampinoy](https://www.instagram.com/ulampinoy/) so we can feature your version of Pinakbet in Ulam Pinoy 😉
 

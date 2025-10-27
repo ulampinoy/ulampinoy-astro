@@ -261,7 +261,7 @@ const remainingPosts = sortedItems
                 class="relative flex-1 overflow-hidden md:rounded-sm hover:md:rounded-lg transition-all"
               >
                 <img
-                  src={featuredPost.data.image}
+                  src={`/.netlify/images?url=${featuredPost.data.image}`}
                   alt={featuredPost.data.title}
                   class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                 />
@@ -316,9 +316,9 @@ const remainingPosts = sortedItems
                     >
                       <div class="aspect-[4/3] overflow-hidden rounded-sm hover:rounded-lg transition-all">
                         <img
-                          src={
+                          src={`/.netlify/images?url=${
                             item.data.image || "/images/default-glossary.jpg"
-                          }
+                          }`}
                           alt={item.data.title}
                           class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                         />
@@ -350,9 +350,9 @@ const remainingPosts = sortedItems
                   <a href={`/blog/${post.slug}`} class="group pb-2">
                     <div class="aspect-[4/3] overflow-hidden rounded-sm hover:rounded-lg transition-all">
                       <img
-                        src={post.data.image}
+                        src={`/.netlify/images?url=${post.data.image}`}
                         alt={post.data.title}
-                        class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                        class="w-full h-full object-cover transform group-hover:scale-1_05 transition-transform duration-300"
                       />
                     </div>
                     <div class="mt-4">
@@ -401,7 +401,7 @@ const remainingPosts = sortedItems
                 <a href={`/blog/${post.slug}`} class="group">
                   <div class="aspect-video overflow-hidden rounded-sm hover:rounded-lg transition-all mb-3 relative">
                     <img
-                      src={post.data.image}
+                      src={`/.netlify/images?url=${post.data.image}`}
                       alt={post.data.title}
                       class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                     />
@@ -455,7 +455,7 @@ const remainingPosts = sortedItems
               <a href={`/blog/${post.slug}`} class="group pb-2">
                 <div class="aspect-[16/9] overflow-hidden rounded-sm hover:rounded-lg transition-all">
                   <img
-                    src={post.data.image}
+                    src={`/.netlify/images?url=${post.data.image}`}
                     alt={post.data.title}
                     class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                   />

@@ -4,8 +4,8 @@ date: 2023-04-03
 description: " Take a moment and enjoy a nostalgic poem about our beloved Kare-kare, a traditional Filipino beef stew made with oxtail, tripe and savory peanut sauce with vegetables."
 whetter: " Kare-kare Care"
 sidenote: " Bagoong alamang is a fermented shrimp paste that is an essential ingredient in many Filipino dishes, including beef kare-kare. It is a salty and savory condiment that adds depth of flavor to the dish and serves as a perfect complement to the richness of the peanut sauce. The combination of the creamy peanut sauce and the salty, [umami](/glossary/umami)-rich bagoong alamang is what makes beef kare-kare such a beloved and unique dish in Filipino cuisine."
-sideImage: /images/kare-kare-palayok-bagoong.jpg
-image: /images/kare-kare-gulay-bagoong.jpg
+sideImage: /.netlify/images?url=/images/kare-kare-palayok-bagoong.jpg
+image: /.netlify/images?url=/images/kare-kare-gulay-bagoong.jpg
 tags: [] # Empty array instead of null
 related: [] # Add empty array if no related posts
 author: "UlamPinoy"
@@ -41,4 +41,4 @@ Kare-kare, my heart does sway\
 A taste of home, a taste of love\
 From my memories, to the stars above.
 
-![Pinakbet served in a bowl](/images/kare-kare-table.jpg)
+![Pinakbet served in a bowl](/.netlify/images?url=/images/kare-kare-table.jpg)

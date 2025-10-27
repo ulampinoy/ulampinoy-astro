@@ -4,7 +4,7 @@ date: 2025-06-06
 description: "Warning: This golden, crakling masterpiece of pork knuckle recipe is dangerously addictive!"
 whetter: "Irresistible Crunch"
 sidenote: "Did you know that pork leg contains natural collagen that breaks down during cooking into gelatin? This is why the meat becomes so tender and why the cooking liquid often turns slightly gelatinous when cooled—it's actually a sign of a quality cut and proper cooking."
-image: /images/crispy-pata.jpg
+image: /.netlify/images?url=/images/crispy-pata.jpg
 tags: ["pork", "deep-fried", "occasion", "appetizer"]
 related: ["how-to-cook-pork-adobo"]
 author: UlamPinoy
@@ -50,7 +50,7 @@ This dish represents the Filipino philosophy of maximizing every part of an ingr
 
 **Step 3: Prepare the Sawsawan:** Mix all dipping sauce ingredients in a bowl. Adjust seasoning to taste—some prefer it more tangy, others like it sweeter.
 
-![Ingedients for making crispy pata](/images/crispy-pata-ingredients.jpg)
+![Ingedients for making crispy pata](/.netlify/images?url=/images/crispy-pata-ingredients.jpg)
 
 ## Ingredient Alternatives and Substitutions
 
@@ -80,7 +80,7 @@ The high heat also renders the fat layer beneath the skin, creating a contrast b
 
 **The crackling sound** of perfectly cooked Crispy Pata should be audible when you bite into it. Filipino diners often judge the quality of the dish by this sound—the louder the crunch, the better the execution.
 
-![Crispy Pata as centerpiece dish in a local Filipino celebration](/images/crispy-pata-fiesta.jpg)
+![Crispy Pata as centerpiece dish in a local Filipino celebration](/.netlify/images?url=/images/crispy-pata-fiesta.jpg)
 _Crispy Pata brings families together - a true centerpiece for Filipino celebrations and gatherings_
 
 ## Serving and Enjoying Your Crispy Pata
@@ -91,7 +91,7 @@ This isn't just a meal—it's an experience that brings people together, encoura
 
 Ready to try this iconic dish? Remember, the key to perfect Crispy Pata lies in patience and not rushing the process. The reward is worth every minute of preparation!
 
-![Crispy pata served on plate](/images/crispy-pata.jpg)
+![Crispy pata served on plate](/.netlify/images?url=/images/crispy-pata.jpg)
 _Perfect Crispy Pata with its signature golden-brown crispy skin and tender meat_
 
 ---

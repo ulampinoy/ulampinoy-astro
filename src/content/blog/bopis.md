@@ -2,7 +2,7 @@
 title: "Bopis"
 date: 2012-05-15
 description: "Spicy chopped pork lungs and heart sautéed with chilies and vinegar"
-image: "/images/bopis-wok.jpg"
+image: "/.netlify/images?url=/images/bopis-wok.jpg"
 hasVideo: true
 videoUrl: "https://www.youtube.com/watch?v=GGZh0jgpS_k"
 whetter: "Pulutan Time!"
@@ -26,7 +26,7 @@ Pork innards braised in vinegar and spices
 - cooking oil
 - vinegar, salt and black pepper to taste
 
-![Bopis](/images/bopis-dish-02.jpg
+![Bopis](/.netlify/images?url=/images/bopis-dish-02.jpg
 
 Kain na at kanin pa more! 🍚
 

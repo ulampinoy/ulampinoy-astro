@@ -4,7 +4,7 @@ date: 2025-06-23
 description: "A reading of Rizal’s tinola scene and a heritage recipe inspired by 19th-century Filipino tables."
 whetter: "Tinola sa Noli"
 sidenote: "Tinola, a ginger-infused chicken stew, has graced Filipino tables for centuries. In Rizal’s Noli Me Tangere, it becomes more than nourishment — it is a subtle messenger of status and sentiment."
-image: /images/tinola-tiago-hero.jpg
+image: /.netlify/images?url=/images/tinola-tiago-hero.jpg
 tags: ["chicken", "tinola"]
 related: []
 author: UlamPinoy
@@ -24,7 +24,7 @@ But while Ibarra receives the **liver and gizzard**—considered choice cuts—*
 
 The term _gulái_ signals regional influences, tracing back to Southeast Asia’s rich stew traditions.[^4]
 
-![Period illustration of a colonial Filipino dinner](/images/tinola-tiago.jpg)
+![Period illustration of a colonial Filipino dinner](/.netlify/images?url=/images/tinola-tiago.jpg)
 <small>19th century ilustrado family dining in Spanish colonial style. The formal setting and attentive servants highlight the era's social hierarchies, while dishes like tinola preserved indigenous flavors within European customs.</small>
 
 ## Historical & Culinary Context
@@ -33,7 +33,7 @@ The term _gulái_ signals regional influences, tracing back to Southeast Asia’
 - **Portioning etiquette**: In Rizal’s era, serving particular cuts was a gesture steeped in meaning. Best cuts signaled favor; lesser ones suggested distance.
 - **Cultural parallels**: Rizal, observant and well-traveled, often used food to hint at relationships.
 
-![Chicken tinola in palayok](/images/tinola-palayok.jpg)
+![Chicken tinola in palayok](/.netlify/images?url=/images/tinola-palayok.jpg)
 
 ## Heritage Tinola Recipe
 
@@ -59,7 +59,7 @@ The term _gulái_ signals regional influences, tracing back to Southeast Asia’
 6. Add papaya or squash; cook until soft.
 7. Season to taste. Stir in greens just before serving.
 
-![Tinola with native chicken and papaya](/images/tinola-chicken-bowl.jpg)
+![Tinola with native chicken and papaya](/.netlify/images?url=/images/tinola-chicken-bowl.jpg)
 
 ---
 

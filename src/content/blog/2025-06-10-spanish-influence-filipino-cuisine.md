@@ -4,8 +4,8 @@ date: 2025-06-10
 description: "Explore the rich culinary exchange between Spanish and Filipino cuisines, from adobo to lechón, and discover how centuries of colonization created a unique fusion of flavors that continues to evolve today."
 whetter: "A Taste of History"
 sidenote: "The Manila-Acapulco Galleon Trade (1565-1815) was crucial in the exchange of ingredients between Asia, the Americas, and Europe, creating the foundation of what we now know as Filipino cuisine."
-sideImage: /images/spanish-filipino-fusion.jpg
-image: /images/filipino-spanish-dishes.jpg
+sideImage: /.netlify/images?url=/images/spanish-filipino-fusion.jpg
+image: /.netlify/images?url=/images/filipino-spanish-dishes.jpg
 tags:
   - history
   - culture

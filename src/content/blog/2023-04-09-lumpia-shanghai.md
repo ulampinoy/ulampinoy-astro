@@ -3,8 +3,8 @@ title: "Lumpia Shanghai"
 date: 2023-04-09
 description: "Crispy Filipino spring rolls filled with seasoned ground pork"
 whetter: "Party Food Favorite"
-image: "/images/lumpia-shanghai.jpg"
-sideImage: "/images/lumpia-wrapping.jpg"
+image: "/.netlify/images?url=/images/lumpia-shanghai.jpg"
+sideImage: "/.netlify/images?url=/images/lumpia-wrapping.jpg"
 sideImageCaption: "Wrapping lumpia requires patience and practice"
 author: "UlamPinoy"
 draft: false

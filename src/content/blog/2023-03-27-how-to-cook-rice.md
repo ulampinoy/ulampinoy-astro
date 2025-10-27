@@ -4,8 +4,8 @@ date: 2023-03-27
 description: " The Filipino way of cooking rice is a simple and straightforward but the resulting rice is fluffy, tender, and perfect for serving as a staple in many Filipino meals."
 whetter: " Rice is Life"
 sidenote: " Rice is believed to have been first cultivated in China around 6,000 years ago, in the Yangtze River valley. From there, rice cultivation spread to other parts of Asia, including India, Southeast Asia, and eventually the Philippines. Archaeological evidence suggests that rice was also cultivated in the Ganges River valley in India around 5,000 years ago. Over time, rice became a staple crop in many parts of Asia and has remained an important food source for millions of people around the world."
-sideImage: /images/rice-raw-pot.jpg
-image: /images/rice-tupperware.jpg
+sideImage: /.netlify/images?url=/images/rice-raw-pot.jpg
+image: /.netlify/images?url=/images/rice-tupperware.jpg
 tags: [] # Empty array instead of null
 related: [] # Add empty array if no related posts
 author: "UlamPinoy"
@@ -30,6 +30,6 @@ The resulting rice is fluffy, tender, and perfect for serving as a staple in man
 
 Serve hot with your favorite ulam!
 
-![Rice with Oven-cooked Sardines](/images/rice-and-oven-cooked-sardines-on-plate.jpg)
+![Rice with Oven-cooked Sardines](/.netlify/images?url=/images/rice-and-oven-cooked-sardines-on-plate.jpg)
 
-![Rice with Corned Beef](/images/homemade-corned-beef-with-rice-and-fried-egg.jpg)
+![Rice with Corned Beef](/.netlify/images?url=/images/homemade-corned-beef-with-rice-and-fried-egg.jpg)
