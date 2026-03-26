@@ -21,6 +21,7 @@
     "yet-another-react-lightbox": "^3.23.3"
   },
   "devDependencies": {
+    "@netlify/edge-functions": "^3.0.6",
     "@tailwindcss/line-clamp": "^0.4.4",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6"
