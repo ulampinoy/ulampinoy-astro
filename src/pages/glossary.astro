@@ -106,8 +106,10 @@ for (const item of sortedItems) {
                   >
                     {item.data.image && (
                       <img
-                        src={`/.netlify/images?url=${item.data.image}`}
+                        src={`/.netlify/images?url=${item.data.image}&w=128&fm=avif&q=80`}
                         alt={item.data.title}
+                        width={64}
+                        height={64}
                         class="w-16 h-16 object-cover rounded-md mr-4 flex-shrink-0"
                         loading="lazy"
                       />

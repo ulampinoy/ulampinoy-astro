@@ -18,8 +18,11 @@ const { posts, category } = Astro.props;
               <a href={`/videos/${post.slug}`} class="group block">
                 <div class="aspect-video overflow-hidden rounded-lg">
                   <img
-                    src={post.data.image}
+                    src={`/.netlify/images?url=${post.data.image}&w=400&fm=avif&q=80`}
                     alt={post.data.title}
+                    width={400}
+                    height={225}
+                    loading="lazy"
                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>

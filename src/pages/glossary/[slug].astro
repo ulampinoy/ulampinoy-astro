@@ -52,8 +52,13 @@ const formatDate = (dateString: string) => {
     <div class="relative w-screen left-1/2 right-1/2 -mx-[50vw] -mt-16">
       <div class="relative h-[40vh] sm:h-[50vh] md:h-[60vh] w-screen">
         <img
-          src={item.data.image || "/images/default-glossary.jpg"}
+          src={`/.netlify/images?url=${item.data.image || "/images/default-glossary.jpg"}&w=1200&fm=avif&q=80`}
+          srcset={`/.netlify/images?url=${item.data.image || "/images/default-glossary.jpg"}&w=400&fm=avif&q=80 400w, /.netlify/images?url=${item.data.image || "/images/default-glossary.jpg"}&w=800&fm=avif&q=80 800w, /.netlify/images?url=${item.data.image || "/images/default-glossary.jpg"}&w=1200&fm=avif&q=80 1200w`}
+          sizes="100vw"
           alt={item.data.title}
+          width={1200}
+          height={800}
+          fetchpriority="high"
           class="w-full h-full object-cover"
         />
         <div
@@ -156,8 +161,11 @@ const formatDate = (dateString: string) => {
                 >
                   <div class="w-full sm:w-48 flex-shrink-0">
                     <img
-                      src={post.data.image || "/images/default-blog.jpg"}
+                      src={`/.netlify/images?url=${post.data.image || "/images/default-blog.jpg"}&w=400&fm=avif&q=80`}
                       alt={post.data.title}
+                      width={192}
+                      height={192}
+                      loading="lazy"
                       class="w-full h-48 sm:h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>

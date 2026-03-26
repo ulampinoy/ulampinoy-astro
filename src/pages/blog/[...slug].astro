@@ -47,8 +47,13 @@ export async function getStaticPaths() {
       <div class="relative h-[44vh] sm:h-[50vh] md:h-[60vh] w-full">
         <div class="absolute inset-0 w-screen left-1/2 -translate-x-1/2">
           <img
-            src={post.data.image}
+            src={`/.netlify/images?url=${post.data.image}&w=1200&fm=avif&q=80`}
+            srcset={`/.netlify/images?url=${post.data.image}&w=400&fm=avif&q=80 400w, /.netlify/images?url=${post.data.image}&w=800&fm=avif&q=80 800w, /.netlify/images?url=${post.data.image}&w=1200&fm=avif&q=80 1200w`}
+            sizes="100vw"
             alt={post.data.title}
+            width={1200}
+            height={800}
+            fetchpriority="high"
             class="w-full h-full object-cover"
           />
           <div

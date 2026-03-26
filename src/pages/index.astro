@@ -261,8 +261,13 @@ const remainingPosts = sortedItems
                 class="relative flex-1 overflow-hidden md:rounded-sm hover:md:rounded-lg transition-all"
               >
                 <img
-                  src={`/.netlify/images?url=${featuredPost.data.image}`}
+                  src={`/.netlify/images?url=${featuredPost.data.image}&w=1200&fm=avif&q=80`}
+                  srcset={`/.netlify/images?url=${featuredPost.data.image}&w=400&fm=avif&q=80 400w, /.netlify/images?url=${featuredPost.data.image}&w=800&fm=avif&q=80 800w, /.netlify/images?url=${featuredPost.data.image}&w=1200&fm=avif&q=80 1200w`}
+                  sizes="(max-width: 768px) 100vw, 66vw"
                   alt={featuredPost.data.title}
+                  width={1200}
+                  height={800}
+                  fetchpriority="high"
                   class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                 />
                 <div
@@ -318,8 +323,11 @@ const remainingPosts = sortedItems
                         <img
                           src={`/.netlify/images?url=${
                             item.data.image || "/images/default-glossary.jpg"
-                          }`}
+                          }&w=400&fm=avif&q=80`}
                           alt={item.data.title}
+                          width={400}
+                          height={300}
+                          loading="lazy"
                           class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                         />
                       </div>
@@ -350,8 +358,13 @@ const remainingPosts = sortedItems
                   <a href={`/blog/${post.slug}`} class="group pb-2">
                     <div class="aspect-[4/3] overflow-hidden rounded-sm hover:rounded-lg transition-all">
                       <img
-                        src={`/.netlify/images?url=${post.data.image}`}
+                        src={`/.netlify/images?url=${post.data.image}&w=400&fm=avif&q=80`}
+                        srcset={`/.netlify/images?url=${post.data.image}&w=400&fm=avif&q=80 400w, /.netlify/images?url=${post.data.image}&w=800&fm=avif&q=80 800w`}
+                        sizes="(max-width: 768px) 100vw, 33vw"
                         alt={post.data.title}
+                        width={400}
+                        height={300}
+                        loading="lazy"
                         class="w-full h-full object-cover transform group-hover:scale-1_05 transition-transform duration-300"
                       />
                     </div>
@@ -401,8 +414,11 @@ const remainingPosts = sortedItems
                 <a href={`/blog/${post.slug}`} class="group">
                   <div class="aspect-video overflow-hidden rounded-sm hover:rounded-lg transition-all mb-3 relative">
                     <img
-                      src={`/.netlify/images?url=${post.data.image}`}
+                      src={`/.netlify/images?url=${post.data.image}&w=400&fm=avif&q=80`}
                       alt={post.data.title}
+                      width={400}
+                      height={225}
+                      loading="lazy"
                       class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                     />
                     {/* Play button overlay */}
@@ -455,8 +471,13 @@ const remainingPosts = sortedItems
               <a href={`/blog/${post.slug}`} class="group pb-2">
                 <div class="aspect-[16/9] overflow-hidden rounded-sm hover:rounded-lg transition-all">
                   <img
-                    src={`/.netlify/images?url=${post.data.image}`}
+                    src={`/.netlify/images?url=${post.data.image}&w=400&fm=avif&q=80`}
+                    srcset={`/.netlify/images?url=${post.data.image}&w=400&fm=avif&q=80 400w, /.netlify/images?url=${post.data.image}&w=800&fm=avif&q=80 800w`}
+                    sizes="(max-width: 768px) 100vw, 33vw"
                     alt={post.data.title}
+                    width={400}
+                    height={225}
+                    loading="lazy"
                     class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>

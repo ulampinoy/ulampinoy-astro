@@ -60,8 +60,13 @@ function formatDate(date) {
             <a href={`/blog/${post.slug}`} class="group" key={post.slug}>
               <div class="aspect-[16/9] overflow-hidden">
                 <img
-                  src={post.data.image}
+                  src={`/.netlify/images?url=${post.data.image}&w=400&fm=avif&q=80`}
+                  srcset={`/.netlify/images?url=${post.data.image}&w=400&fm=avif&q=80 400w, /.netlify/images?url=${post.data.image}&w=800&fm=avif&q=80 800w`}
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   alt={post.data.title}
+                  width={400}
+                  height={225}
+                  loading="lazy"
                   class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
