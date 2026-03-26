@@ -1,3 +1,31 @@
 [build]
   publish = "dist"
   command = "npm run build"
+
+# Cache static assets with hashed filenames for 1 year
+[[headers]]
+  for = "/_astro/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache Netlify Image CDN responses
+[[headers]]
+  for = "/.netlify/images"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# HTML pages: CDN caches and revalidates in background
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Netlify-CDN-Cache-Control = "public, max-age=0, stale-while-revalidate=86400"

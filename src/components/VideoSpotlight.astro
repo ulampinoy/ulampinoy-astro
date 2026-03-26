@@ -20,8 +20,14 @@ const spotlightPosts = posts
         >
           <div class="relative h-full">
             <img
-              src={post.data.image}
+              src={`/.netlify/images?url=${post.data.image}&w=1200&fm=avif&q=80`}
+              srcset={`/.netlify/images?url=${post.data.image}&w=400&fm=avif&q=80 400w, /.netlify/images?url=${post.data.image}&w=800&fm=avif&q=80 800w, /.netlify/images?url=${post.data.image}&w=1200&fm=avif&q=80 1200w`}
+              sizes="100vw"
               alt={post.data.title}
+              width={1200}
+              height={675}
+              loading={index === 0 ? "eager" : "lazy"}
+              fetchpriority={index === 0 ? "high" : undefined}
               class="w-full h-full object-cover"
             />
            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent">
