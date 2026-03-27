@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
+import { netlifyImage } from "../utils/image";
 
 const allGlossaryItems = await getCollection("glossary");
 const publishedGlossaryItems = allGlossaryItems.filter(
@@ -106,7 +107,7 @@ for (const item of sortedItems) {
                   >
                     {item.data.image && (
                       <img
-                        src={`/.netlify/images?url=${item.data.image}&w=128&fm=avif&q=80`}
+                        src={netlifyImage(item.data.image, 128)}
                         alt={item.data.title}
                         width={64}
                         height={64}

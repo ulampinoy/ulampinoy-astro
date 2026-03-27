@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getCollection, getEntry } from "astro:content";
 import type { CollectionEntry } from "astro:content";
+import { netlifyImage, netlifyImageSrcset } from "../../utils/image";
 
 // Import the client-side script
 import '../../scripts/glossary-links';
@@ -47,8 +48,8 @@ export async function getStaticPaths() {
       <div class="relative h-[44vh] sm:h-[50vh] md:h-[60vh] w-full">
         <div class="absolute inset-0 w-screen left-1/2 -translate-x-1/2">
           <img
-            src={`/.netlify/images?url=${post.data.image}&w=1200&fm=avif&q=80`}
-            srcset={`/.netlify/images?url=${post.data.image}&w=400&fm=avif&q=80 400w, /.netlify/images?url=${post.data.image}&w=800&fm=avif&q=80 800w, /.netlify/images?url=${post.data.image}&w=1200&fm=avif&q=80 1200w`}
+            src={netlifyImage(post.data.image, 1200)}
+            srcset={netlifyImageSrcset(post.data.image, [400, 800, 1200])}
             sizes="100vw"
             alt={post.data.title}
             width={1200}

@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { netlifyImage, netlifyImageSrcset } from "../utils/image";
 
 const { post } = Astro.props;
 const { Content } = await post.render();
@@ -46,8 +47,8 @@ function formatDate(dateStr: Date) {
   <article class="prose prose-invert mx-auto">
     <div class="relative h-[70vh]">
       <img
-        src={`/.netlify/images?url=${post.data.image}&w=1200&fm=avif&q=80`}
-        srcset={`/.netlify/images?url=${post.data.image}&w=400&fm=avif&q=80 400w, /.netlify/images?url=${post.data.image}&w=800&fm=avif&q=80 800w, /.netlify/images?url=${post.data.image}&w=1200&fm=avif&q=80 1200w`}
+        src={netlifyImage(post.data.image, 1200)}
+        srcset={netlifyImageSrcset(post.data.image, [400, 800, 1200])}
         sizes="100vw"
         alt={post.data.title}
         width={1200}
@@ -130,7 +131,7 @@ function formatDate(dateStr: Date) {
                 >
                   <div class="aspect-video overflow-hidden rounded-lg mb-4">
                     <img
-                      src={`/.netlify/images?url=${related.data.image}&w=400&fm=avif&q=80`}
+                      src={netlifyImage(related.data.image, 400)}
                       alt={related.data.title}
                       width={400}
                       height={225}

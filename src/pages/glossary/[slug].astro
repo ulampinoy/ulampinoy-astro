@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
+import { netlifyImage, netlifyImageSrcset } from "../../utils/image";
 
 // Get the current glossary term
 const { slug } = Astro.params;
@@ -52,8 +53,8 @@ const formatDate = (dateString: string) => {
     <div class="relative w-screen left-1/2 right-1/2 -mx-[50vw] -mt-16">
       <div class="relative h-[40vh] sm:h-[50vh] md:h-[60vh] w-screen">
         <img
-          src={`/.netlify/images?url=${item.data.image || "/images/default-glossary.jpg"}&w=1200&fm=avif&q=80`}
-          srcset={`/.netlify/images?url=${item.data.image || "/images/default-glossary.jpg"}&w=400&fm=avif&q=80 400w, /.netlify/images?url=${item.data.image || "/images/default-glossary.jpg"}&w=800&fm=avif&q=80 800w, /.netlify/images?url=${item.data.image || "/images/default-glossary.jpg"}&w=1200&fm=avif&q=80 1200w`}
+          src={netlifyImage(item.data.image || "/images/default-glossary.jpg", 1200)}
+          srcset={netlifyImageSrcset(item.data.image || "/images/default-glossary.jpg", [400, 800, 1200])}
           sizes="100vw"
           alt={item.data.title}
           width={1200}
@@ -161,7 +162,7 @@ const formatDate = (dateString: string) => {
                 >
                   <div class="w-full sm:w-48 flex-shrink-0">
                     <img
-                      src={`/.netlify/images?url=${post.data.image || "/images/default-blog.jpg"}&w=400&fm=avif&q=80`}
+                      src={netlifyImage(post.data.image || "/images/default-blog.jpg", 400)}
                       alt={post.data.title}
                       width={192}
                       height={192}
