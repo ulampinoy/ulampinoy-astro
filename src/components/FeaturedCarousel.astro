@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import { netlifyImage } from "../utils/image";
 
 interface Props {
   posts: CollectionEntry<"blog">[];
@@ -68,7 +69,7 @@ const { posts } = Astro.props;
                 >
                   <div class="aspect-[3/4] overflow-hidden">
                     <img
-                      src={`/.netlify/images?url=${post.data.image}&w=400&fm=avif&q=80`}
+                      src={netlifyImage(post.data.image, 400)}
                       alt={post.data.title}
                       width={400}
                       height={533}

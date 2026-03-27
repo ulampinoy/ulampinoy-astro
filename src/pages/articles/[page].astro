@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
+import { netlifyImage, netlifyImageSrcset } from "../../utils/image";
 
 // Set number of posts per page
 const perPage = 12;
@@ -60,8 +61,8 @@ function formatDate(date) {
             <a href={`/blog/${post.slug}`} class="group" key={post.slug}>
               <div class="aspect-[16/9] overflow-hidden">
                 <img
-                  src={`/.netlify/images?url=${post.data.image}&w=400&fm=avif&q=80`}
-                  srcset={`/.netlify/images?url=${post.data.image}&w=400&fm=avif&q=80 400w, /.netlify/images?url=${post.data.image}&w=800&fm=avif&q=80 800w`}
+                  src={netlifyImage(post.data.image, 400)}
+                  srcset={netlifyImageSrcset(post.data.image, [400, 800])}
                   sizes="(max-width: 768px) 100vw, 33vw"
                   alt={post.data.title}
                   width={400}

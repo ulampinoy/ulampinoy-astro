@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { netlifyImage, netlifyImageSrcset } from "../../utils/image";
 
 // Get all posts in the Main Dishes category
 const posts = await getCollection("blog", ({ data }) => {
@@ -26,8 +27,8 @@ const sortedPosts = posts.sort(
             >
               <div class="aspect-video overflow-hidden rounded-lg">
                 <img
-                  src={`/.netlify/images?url=${post.data.image}&w=400&fm=avif&q=80`}
-                  srcset={`/.netlify/images?url=${post.data.image}&w=400&fm=avif&q=80 400w, /.netlify/images?url=${post.data.image}&w=800&fm=avif&q=80 800w`}
+                  src={netlifyImage(post.data.image, 400)}
+                  srcset={netlifyImageSrcset(post.data.image, [400, 800])}
                   sizes="(max-width: 768px) 100vw, 33vw"
                   alt={post.data.title}
                   width={400}

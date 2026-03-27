@@ -1,4 +1,5 @@
 ---
+import { netlifyImage, netlifyImageSrcset } from "../utils/image";
 const { posts } = Astro.props;
 
 // Filter for only video spotlight posts
@@ -20,8 +21,8 @@ const spotlightPosts = posts
         >
           <div class="relative h-full">
             <img
-              src={`/.netlify/images?url=${post.data.image}&w=1200&fm=avif&q=80`}
-              srcset={`/.netlify/images?url=${post.data.image}&w=400&fm=avif&q=80 400w, /.netlify/images?url=${post.data.image}&w=800&fm=avif&q=80 800w, /.netlify/images?url=${post.data.image}&w=1200&fm=avif&q=80 1200w`}
+              src={netlifyImage(post.data.image, 1200)}
+              srcset={netlifyImageSrcset(post.data.image, [400, 800, 1200])}
               sizes="100vw"
               alt={post.data.title}
               width={1200}
