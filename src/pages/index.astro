@@ -66,14 +66,14 @@ type BaseItem = ContentEntry & {
 
 // Type guard to check if an item is a blog post
 function isBlogPost(
-  item: BaseItem
+  item: BaseItem,
 ): item is BaseItem & { collection: "blog"; data: BlogPostData } {
   return item.collection === "blog";
 }
 
 // Type guard to check if an item is a glossary item
 function isGlossaryItem(
-  item: BaseItem
+  item: BaseItem,
 ): item is BaseItem & { collection: "glossary"; data: GlossaryItemData } {
   return item.collection === "glossary";
 }
@@ -154,7 +154,7 @@ const sortedItems = [...posts, ...glossaryItems].sort((a, b) => {
 debugOutput.push("\nAll sorted items:");
 sortedItems.forEach((item) => {
   debugOutput.push(
-    `- ${getItemDate(item).toISOString().split("T")[0]} - ${item.collection} - ${item.slug} - ${item.data.title}`
+    `- ${getItemDate(item).toISOString().split("T")[0]} - ${item.collection} - ${item.slug} - ${item.data.title}`,
   );
 });
 
@@ -167,7 +167,7 @@ let featuredPosts = posts.filter((post) => post.data.featured === true);
 // Get the new post if it exists
 const newPost = sortedItems.find(
   (item) =>
-    item.collection === "blog" && item.slug === "talaba-adventure-alaminos"
+    item.collection === "blog" && item.slug === "talaba-adventure-alaminos",
 ) as BaseItem | undefined;
 
 // Only add new post to featured if it's explicitly marked as featured
@@ -182,7 +182,7 @@ if (
 
 // Get promoted post or first post as featured
 const promotedPost = posts.find(
-  (post) => isBlogPost(post) && post.data.promoted
+  (post) => isBlogPost(post) && post.data.promoted,
 );
 const firstBlogPost = sortedItems.find((item) => item.collection === "blog");
 
@@ -211,7 +211,7 @@ const featuredPost = (promotedPost ||
 const secondaryPosts = sortedItems
   .filter(
     (item): item is BaseItem & { collection: "blog"; data: BlogPostData } =>
-      isBlogPost(item)
+      isBlogPost(item),
   )
   .slice(0, 4);
 
@@ -220,7 +220,7 @@ const remainingPosts = sortedItems
   .filter(
     (item): item is ContentEntry & { collection: "blog"; data: BlogPostData } =>
       item.collection === "blog" &&
-      !secondaryPosts.some((post) => post.slug === item.slug)
+      !secondaryPosts.some((post) => post.slug === item.slug),
   )
   .map((item) => ({
     ...item,
@@ -263,7 +263,10 @@ const remainingPosts = sortedItems
               >
                 <img
                   src={netlifyImage(featuredPost.data.image, 1200)}
-                  srcset={netlifyImageSrcset(featuredPost.data.image, [400, 800, 1200])}
+                  srcset={netlifyImageSrcset(
+                    featuredPost.data.image,
+                    [400, 800, 1200],
+                  )}
                   sizes="(max-width: 768px) 100vw, 66vw"
                   alt={featuredPost.data.title}
                   width={1200}
@@ -310,7 +313,7 @@ const remainingPosts = sortedItems
               {
                 sortedItems
                   .filter((item) => !item.data.draft) // Filter out draft items
-                  .slice(0, 4)
+                  .slice(1, 5)
                   .map((item) => (
                     <a
                       href={
@@ -322,7 +325,10 @@ const remainingPosts = sortedItems
                     >
                       <div class="aspect-[4/3] overflow-hidden rounded-sm hover:rounded-lg transition-all">
                         <img
-                          src={netlifyImage(item.data.image || "/images/default-glossary.jpg", 400)}
+                          src={netlifyImage(
+                            item.data.image || "/images/default-glossary.jpg",
+                            400,
+                          )}
                           alt={item.data.title}
                           width={400}
                           height={300}
@@ -348,8 +354,6 @@ const remainingPosts = sortedItems
               }
             </div>
           </div>
-
-
         </div>
       </div>
     </section>
@@ -373,7 +377,7 @@ const remainingPosts = sortedItems
               .sort(
                 (a, b) =>
                   new Date(b.data.date).getTime() -
-                  new Date(a.data.date).getTime()
+                  new Date(a.data.date).getTime(),
               )
               .slice(0, 4)
               .map((post) => (
