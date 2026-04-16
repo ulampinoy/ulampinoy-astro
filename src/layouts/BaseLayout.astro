@@ -88,6 +88,15 @@ const currentPath = Astro.url.pathname;
         }
       })}
     </script>
+    {/* Google Analytics */}
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-8PQ5XM1KGS"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-8PQ5XM1KGS');
+    </script>
   </head>
   <body class="relative min-h-screen">
     {backgroundImage && (
