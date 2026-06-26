@@ -373,7 +373,12 @@ const remainingPosts = sortedItems
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {
             posts
-              .filter((post) => post.data.hasVideo && !post.data.draft)
+              .filter(
+                (post) =>
+                  post.data.hasVideo === true &&
+                  Boolean(post.data.videoUrl) &&
+                  !post.data.draft,
+              )
               .sort(
                 (a, b) =>
                   new Date(b.data.date).getTime() -
@@ -381,7 +386,7 @@ const remainingPosts = sortedItems
               )
               .slice(0, 4)
               .map((post) => (
-                <a href={`/blog/${post.slug}`} class="group">
+                <a href={`/videos/${post.slug.split("/").pop()}`} class="group">
                   <div class="aspect-video overflow-hidden rounded-sm hover:rounded-lg transition-all mb-3 relative">
                     <img
                       src={netlifyImage(post.data.image, 400)}
