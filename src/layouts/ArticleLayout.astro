@@ -1,10 +1,10 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { netlifyImage, netlifyImageSrcset } from "../utils/image";
 
 const { post } = Astro.props;
-const { Content } = await post.render();
+const { Content } = await render(post);
 
 // Get all posts for related section
 const allPosts = await getCollection("blog", ({ data }) => !data.draft);
@@ -15,7 +15,7 @@ if (post.data.related && post.data.related.length > 0) {
   // First get explicitly related posts
   relatedPosts = allPosts.filter(
     (p) =>
-      post.data.related.includes(p.slug) ||
+      post.data.related.includes(p.id) ||
       post.data.related.includes(p.data.title)
   );
 
@@ -25,7 +25,7 @@ if (post.data.related && post.data.related.length > 0) {
       .filter(
         (p) =>
           !relatedPosts.includes(p) && // Not already included
-          p.slug !== post.slug && // Not the current post
+          p.id !== post.id && // Not the current post
           p.data.tags?.some((tag) => post.data.tags.includes(tag)) // Has matching tags
       )
       .slice(0, 3 - relatedPosts.length);
@@ -126,7 +126,7 @@ function formatDate(dateStr: Date) {
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {relatedPosts.map((related) => (
                 <a
-                  href={`/${related.data.hasVideo ? "videos" : "blog"}/${related.slug}`}
+                  href={`/${related.data.hasVideo ? "videos" : "blog"}/${related.id}`}
                   class="group block"
                 >
                   <div class="aspect-video overflow-hidden rounded-lg mb-4">

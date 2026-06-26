@@ -102,7 +102,7 @@ for (const item of sortedItems) {
               <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
                 {items.map((item: GlossaryItem) => (
                   <a
-                    href={`/glossary/${item.slug}`}
+                    href={`/glossary/${item.id}`}
                     class="group flex items-start p-4 bg-white rounded-lg border border-gray-200 hover:border-amber-300 hover:shadow-md transition-all"
                   >
                     {item.data.image && (

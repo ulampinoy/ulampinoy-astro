@@ -58,7 +58,7 @@ function formatDate(date) {
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         {
           postsPage.map((post) => (
-            <a href={`/blog/${post.slug}`} class="group" key={post.slug}>
+            <a href={`/blog/${post.id}`} class="group" key={post.id}>
               <div class="aspect-[16/9] overflow-hidden">
                 <img
                   src={netlifyImage(post.data.image, 400)}

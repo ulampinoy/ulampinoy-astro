@@ -64,7 +64,7 @@ const { posts } = Astro.props;
             posts.map((post) => (
               <div class="flex-shrink-0 w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)]">
                 <a
-                  href={`/blog/${post.slug}`}
+                  href={`/blog/${post.id}`}
                   class="group block h-full bg-white rounded-sm hover:rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
                 >
                   <div class="aspect-[3/4] overflow-hidden">

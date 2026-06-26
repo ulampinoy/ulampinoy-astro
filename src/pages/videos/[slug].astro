@@ -1,6 +1,6 @@
 ---
 import VideoLayout from "../../layouts/VideoLayout.astro";
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
   const videoPosts = await getCollection(
@@ -10,14 +10,14 @@ export async function getStaticPaths() {
 
   return videoPosts.map((post) => ({
     params: {
-      slug: post.slug.split("/").pop(),
+      slug: post.id.split("/").pop(),
     },
     props: { post },
   }));
 }
 
 const { post } = Astro.props;
-const { Content } = await post.render();
+const { Content } = await render(post);
 ---
 
 <VideoLayout frontmatter={post.data}>

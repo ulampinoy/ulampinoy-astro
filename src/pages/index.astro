@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import FeaturedCarousel from "../components/FeaturedCarousel.astro";
 import PopularIngredients from "../components/PopularIngredients.astro";
 import { netlifyImage, netlifyImageSrcset } from "../utils/image";
@@ -90,6 +90,7 @@ const posts = (
   // Create a properly typed post object
   const typedPost: ContentEntry = {
     ...post,
+    slug: post.id,
     collection: "blog" as const,
     data: {
       ...post.data,
@@ -107,7 +108,7 @@ const posts = (
       whetter: post.data.whetter || "",
     } as BlogPostData,
     // Ensure required methods exist
-    render: post.render || (async () => ({ Content: "" })),
+    render: () => render(post),
     body: post.body || "",
     compiledContent: (post as any).compiledContent || (async () => ""),
   };
@@ -118,11 +119,14 @@ const posts = (
 // Get all glossary items
 const glossaryItems = (await getCollection("glossary")).map((item) => ({
   ...item,
+  slug: item.id,
   collection: "glossary" as const,
   data: {
     ...item.data,
     date: item.data.date || new Date(),
   },
+  render: () => render(item),
+  body: item.body || "",
 }));
 
 // Log the posts for debugging
@@ -131,7 +135,7 @@ const debugOutput = [];
 
 debugOutput.push("All blog posts:");
 posts.forEach((post) => {
-  debugOutput.push(`- ${post.data.date} - ${post.slug} - ${post.data.title}`);
+  debugOutput.push(`- ${post.data.date} - ${post.id} - ${post.data.title}`);
 });
 
 // Combine posts and glossary items into one array with proper typing
