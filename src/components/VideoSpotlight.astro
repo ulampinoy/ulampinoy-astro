@@ -14,7 +14,7 @@ const spotlightPosts = posts
     <div class="relative h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden">
       {spotlightPosts.map((post, index) => (
         <a
-          href={`/videos/${post.slug.split('/').pop()}`}
+          href={`/videos/${post.id.split('/').pop()}`}
           class="absolute inset-0 w-full h-full transition-transform duration-700 ease-out cursor-pointer group"
           id={`slide-${index}`}
           data-slide-index={index}

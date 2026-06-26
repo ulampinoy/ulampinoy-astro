@@ -16,7 +16,7 @@ const { posts, category } = Astro.props;
         {
           posts.map((post) => (
             <div class="w-[300px] flex-shrink-0 px-2">
-              <a href={`/videos/${post.slug}`} class="group block">
+              <a href={`/videos/${post.id}`} class="group block">
                 <div class="aspect-video overflow-hidden rounded-lg">
                   <img
                     src={netlifyImage(post.data.image, 400)}

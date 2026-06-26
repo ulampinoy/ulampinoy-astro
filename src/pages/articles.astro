@@ -43,7 +43,7 @@ function formatDate(dateStr: Date) {
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 noto-sans">
         {
           posts.map((post) => (
-            <a href={`/blog/${post.slug}`} class="group">
+            <a href={`/blog/${post.id}`} class="group">
               <div class="aspect-[16/9] overflow-hidden rounded-sm hover:rounded-lg transition-all">
                 <img
                   src={netlifyImage(post.data.image, 400)}

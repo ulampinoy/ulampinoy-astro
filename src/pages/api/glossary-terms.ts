@@ -7,7 +7,7 @@ export async function GET() {
     // Map to the format we need
     const terms = glossaryEntries.map(entry => ({
       term: entry.data.title,
-      slug: `/glossary/${entry.slug}`
+      slug: `/glossary/${entry.id}`
     }));
     
     return new Response(JSON.stringify(terms), {

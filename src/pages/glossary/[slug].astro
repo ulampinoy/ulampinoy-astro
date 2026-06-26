@@ -1,13 +1,13 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { netlifyImage, netlifyImageSrcset } from "../../utils/image";
 
 // Get the current glossary term
 const { slug } = Astro.params;
 const allGlossaryItems = await getCollection("glossary");
-const item = allGlossaryItems.find((term) => term.slug === slug);
+const item = allGlossaryItems.find((term) => term.id === slug);
 
 if (!item) {
   return Astro.redirect("/glossary/not-found");
@@ -27,12 +27,12 @@ const relatedArticles = allBlogPosts.filter((post) => {
   return content.includes(searchTerm);
 }) as CollectionEntry<"blog">[];
 
-const { Content } = await item.render();
+const { Content } = await render(item);
 
 export async function getStaticPaths() {
   const glossary = await getCollection("glossary");
   return glossary.map((item) => ({
-    params: { slug: item.slug },
+    params: { slug: item.id },
   }));
 }
 
@@ -157,7 +157,7 @@ const formatDate = (dateString: string) => {
             <div class="space-y-6">
               {relatedArticles.map((post: CollectionEntry<"blog">) => (
                 <a
-                  href={`/blog/${post.slug}`}
+                  href={`/blog/${post.id}`}
                   class="group flex flex-col sm:flex-row overflow-hidden rounded-lg border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow duration-300"
                 >
                   <div class="w-full sm:w-48 flex-shrink-0">

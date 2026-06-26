@@ -22,7 +22,7 @@ const sortedPosts = posts.sort(
         {
           sortedPosts.map((post) => (
             <a
-              href={`/${post.data.hasVideo ? "videos" : "blog"}/${post.slug}`}
+              href={`/${post.data.hasVideo ? "videos" : "blog"}/${post.id}`}
               class="group"
             >
               <div class="aspect-video overflow-hidden rounded-lg">
