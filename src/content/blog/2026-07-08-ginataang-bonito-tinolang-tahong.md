@@ -12,9 +12,9 @@ author: "UlamPinoy"
 draft: false
 ---
 
-Have you ever noticed how a simple meal can bring a family together? Today at lunch, two gifts from the sea met on our table—a rich, savory **ginataang bonito** and a light, warming **tinolang tahong**. Both were made from fresh ingredients, and both reminded us of a simple truth: good home cooking does not need to be complicated to be satisfying.
+Today at lunch, two gifts from the sea met on our table—a rich, savory **ginataang bonito** and a light, warming **tinolang tahong**. Both were made from fresh ingredients, and both reminded us of a simple truth: good home cooking does not need to be complicated to be satisfying.
 
-Consider how well these two dishes complement each other. One is thick and creamy, wrapped in coconut milk. The other is clear and hot, gentle on the stomach. They are quite different in character, yet they agree perfectly over a plate of steaming rice.
+Consider how well these two dishes complement each other. One is thick and creamy, simmered in coconut milk. The other is clear and hot, gentle on the stomach. They are quite different in character, yet they agree perfectly over a plate of steaming rice.
 
 ![Ginataang bonito and tinolang tahong side by side, fresh from the stove](/.netlify/images?url=/images/ginataang-bonito-tinola-tahong-cover.jpg)
 
@@ -37,11 +37,11 @@ Bonito is naturally full of flavor, so only a little seasoning is needed. We let
   </video>
 </div>
 
-### Ginataang Bonito
+## Ginataang Bonito
 
 A classic way of cooking fish in coconut milk—fragrant, rich, and made for plenty of rice.
 
-#### Ingredients
+### Ingredients
 
 - 1/2 kg bonito (or tuna), cut into steaks
 - 2 cups coconut milk (thick, first-press if available)
@@ -51,11 +51,11 @@ A classic way of cooking fish in coconut milk—fragrant, rich, and made for ple
 - 1 inch ginger, thinly sliced
 - 3–5 long green chilies (or bird's eye chili for more heat)
 - 2 tablespoons fish sauce (patis)
-- A little vinegar or calamansi (optional)
+- A little vinegar or calamansi
 - Salt and pepper, to taste
 - Oil for sautéing
 
-#### How to Cook
+### How to Cook
 
 1. Sauté the garlic, onion, and ginger in a little oil until fragrant and soft.
 2. Pour in the thinner coconut milk (or water) and bring to a gentle boil. Season with fish sauce.
@@ -65,13 +65,11 @@ A classic way of cooking fish in coconut milk—fragrant, rich, and made for ple
 
 ![Ginataang bonito with a thick, fragrant sauce](/.netlify/images?url=/images/ginataang-bonito-tuna.jpg)
 
-## The Tinolang Tahong
+## Tinolang Tahong
 
 While the coconut milk simmered, we prepared the **mussels** (tahong). They were freshly caught, so they needed only a good rinse and the removal of the "beard" before cooking. There is little fuss to tinolang tahong—ginger, garlic, onion, and a handful of chili leaves, and you are on your way to a bowl of warmth and comfort.
 
 The broth is at its best when kept simple, letting the natural sweetness of the mussels take center stage. One sip, and it is as if the sea itself has embraced you.
-
-### Tinolang Tahong
 
 Light, hot, and remarkably easy to make—perfect for days when you want a gentle, nourishing soup.
 
@@ -84,7 +82,7 @@ Light, hot, and remarkably easy to make—perfect for days when you want a gentl
 - 2 tablespoons fish sauce (patis)
 - 4 cups water (or rice-washing water)
 - 1 bunch chili leaves or moringa (malunggay), or spinach
-- 1–2 long green chilies (optional)
+- 1–2 long green chilies
 - Salt and pepper, to taste
 - Oil for sautéing
 
