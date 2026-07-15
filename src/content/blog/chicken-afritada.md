@@ -10,7 +10,7 @@ author: "UlamPinoy"
 draft: false
 featured: false
 category: "Main Dishes"
-tags: ["beef", "stew", "main dish"]
+tags: ["chicken", "stew", "main dish"]
 spotlight: false
 spotlightOrder: 3
 ---

@@ -5,7 +5,7 @@ description: "Beef, mushroom and broccoli stir fry"
 image: "/.netlify/images?url=/images/beef-mushroom-broccoli-01.jpg"
 hasVideo: true
 videoUrl: "https://www.youtube.com/watch?v=0PAzB0PqG80"
-tags: ["beef", "main dish", "vegetable", "stir-fry"]
+tags: ["beef", "main dish", "mushroom", "stir-fry"]
 author: "UlamPinoy"
 draft: false
 featured: false
