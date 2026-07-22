@@ -276,6 +276,8 @@ const remainingPosts = sortedItems
                   width={1200}
                   height={800}
                   fetchpriority="high"
+                  loading="eager"
+                  decoding="async"
                   class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                 />
                 <div
@@ -337,6 +339,7 @@ const remainingPosts = sortedItems
                           width={400}
                           height={300}
                           loading="lazy"
+                          decoding="async"
                           class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                         />
                       </div>
@@ -398,6 +401,7 @@ const remainingPosts = sortedItems
                       width={400}
                       height={225}
                       loading="lazy"
+                      decoding="async"
                       class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                     />
                     {/* Play button overlay */}
@@ -457,6 +461,7 @@ const remainingPosts = sortedItems
                     width={400}
                     height={225}
                     loading="lazy"
+                    decoding="async"
                     class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>

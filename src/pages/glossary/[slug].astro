@@ -60,6 +60,8 @@ const formatDate = (dateString: string) => {
           width={1200}
           height={800}
           fetchpriority="high"
+          loading="eager"
+          decoding="async"
           class="w-full h-full object-cover"
         />
         <div
@@ -167,6 +169,7 @@ const formatDate = (dateString: string) => {
                       width={192}
                       height={192}
                       loading="lazy"
+                      decoding="async"
                       class="w-full h-48 sm:h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>

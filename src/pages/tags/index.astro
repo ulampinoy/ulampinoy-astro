@@ -51,6 +51,10 @@ const sortedTags = Object.values(tagCounts).sort((a, b) =>
               <img
                 src={netlifyImage(tag.image, 400)}
                 alt={tag.name}
+                width={400}
+                height={175}
+                loading="lazy"
+                decoding="async"
                 class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
               />
               <div class="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors" />

@@ -1,19 +1,21 @@
 /**
- * Strips any existing /.netlify/images?url= prefix from an image path
- * so it can be re-wrapped without double-encoding.
+ * Strips any existing /.netlify/images?url= prefix and query string from an image path
+ * so it can be re-wrapped cleanly.
  */
 export function rawImagePath(src: string | undefined): string {
   if (!src) return "/images/default-blog.jpg";
-  // Remove leading /.netlify/images?url= (with optional query params after the inner path)
+  let path = src;
   const prefix = "/.netlify/images?url=";
-  if (src.startsWith(prefix)) {
-    // Extract just the inner path (everything after the prefix, up to the first & if present)
-    const rest = src.slice(prefix.length);
-    // The rest may be like /images/foo.jpg&w=400... but we only want the path
+  if (path.startsWith(prefix)) {
+    const rest = path.slice(prefix.length);
     const ampIdx = rest.indexOf("&");
-    return ampIdx >= 0 ? rest.slice(0, ampIdx) : rest;
+    path = ampIdx >= 0 ? rest.slice(0, ampIdx) : rest;
   }
-  return src;
+  const qIdx = path.indexOf("?");
+  if (qIdx >= 0) {
+    path = path.slice(0, qIdx);
+  }
+  return path;
 }
 
 /**
