@@ -1,22 +1,22 @@
 ---
 title: "5 Ulam Ideas: Easy Chicken Recipes"
 date: 2026-07-21
-description: "Five masarap na ulam manok to keep your week delicious—from golden lechon manok to a comforting bowl of arroz caldo. Watch our latest video and cook along!"
-whetter: "Masarap na Ulam Manok"
+description: "Five tasty chicken recipes — from golden lechon manok to a comforting bowl of arroz caldo. Watch our latest video and cook along!"
+whetter: "I love chicken"
 image: "/.netlify/images?url=/images/chicken-ulam-ideas-hero.png"
 sideImage: "/.netlify/images?url=/images/chicken-ulam-ideas-hero.png"
 sideImageCaption: "Five easy chicken dishes, all in one video—sanang-sana sa ihaw, gisa, at sabaw"
 hasVideo: true
 videoUrl: "https://www.youtube.com/watch?v=mL4CK8aDTjA"
 category: "Main Dishes"
-tags: ["chicken", "ulam", "manok", "lutong-bahay", "easy-recipes"]
+tags: ["chicken", "ulam", "lutong-bahay", "easy-recipes"]
 related: ["chicken-roast-crockpot", "chicken-afritada", "chicken-mushrooms-blue-cheese-sauce", "2024-02-09-top-5-filipino-chicken-dishes"]
 author: "UlamPinoy"
 draft: false
 featured: true
 ---
 
-Wondering what to cook this week? Chicken is one of the most reliable friends in any Filipino kitchen—affordable, versatile, and always a crowd-pleaser. In our latest video, we gathered **five easy chicken recipes** you can rotate through the week, from crispy roasted manok to a warm, soul-soothing bowl of rice porridge.
+Wondering what to cook this week? Chicken is one of the most reliable friends in any Filipino kitchen—affordable, versatile, and always a crowd-pleaser. In our latest video, we gathered **five easy chicken recipes** you can rotate through the week, from crispy roasted chicken to a warm, soul-soothing bowl of rice porridge.
 
 Whether you are feeding a hungry family or simply want a no-fuss ulam for a busy night, there is something here for you.
 
@@ -130,7 +130,7 @@ When you need something warm and gentle, nothing beats **arroz caldo**—a thick
 
 ## Which One Will You Cook First?
 
-Five dishes, endless combinations—that is the beauty of cooking with manok. Mix and match them across the week so your table never gets boring.
+Five dishes, endless combinations—that is the beauty of cooking with chicken. Mix and match them across the week so your table never gets boring.
 
 Have you tried any of these chicken ulam ideas? We would love to see your version! Tag us on [Instagram](https://www.instagram.com/ulampinoy/) at [@ulampinoy](https://www.instagram.com/ulampinoy/) and share your cooking with us.
 
