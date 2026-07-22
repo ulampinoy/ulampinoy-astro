@@ -29,6 +29,7 @@ const spotlightPosts = posts
               height={675}
               loading={index === 0 ? "eager" : "lazy"}
               fetchpriority={index === 0 ? "high" : undefined}
+              decoding="async"
               class="w-full h-full object-cover"
             />
            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent">

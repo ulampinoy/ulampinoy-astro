@@ -32,9 +32,8 @@ const currentPath = Astro.url.pathname;
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Sans+Tagalog:wght@400&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Savate:wght@200..900&display=swap" />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Sans+Tagalog:wght@400&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Savate:wght@200..900&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Sans+Tagalog:wght@400&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Savate:wght@200..900&display=swap" rel="stylesheet" /></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&family=Noto+Sans+Tagalog&family=Noto+Serif:wght@400;700&family=Savate:wght@700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&family=Noto+Sans+Tagalog&family=Noto+Serif:wght@400;700&family=Savate:wght@700;800&display=swap" rel="stylesheet" /></noscript>
     {backgroundImage && (
       <link rel="preload" as="image" href={netlifyImage(backgroundImage, 1200)} />
     )}
@@ -88,25 +87,50 @@ const currentPath = Astro.url.pathname;
         }
       })}
     </script>
-    {/* Google AdSense */}
-    <script is:inline async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9964697758880128"
-         crossorigin="anonymous"></script>
-
-    {/* Google Analytics */}
-    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-8PQ5XM1KGS"></script>
+    {/* Lazy-loaded Google AdSense and Analytics */}
     <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      (function() {
+        var thirdPartyLoaded = false;
+        function loadThirdParty() {
+          if (thirdPartyLoaded) return;
+          thirdPartyLoaded = true;
 
-      gtag('config', 'G-8PQ5XM1KGS');
+          // Google Analytics
+          var ga = document.createElement('script');
+          ga.async = true;
+          ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-8PQ5XM1KGS';
+          document.head.appendChild(ga);
+
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-8PQ5XM1KGS');
+
+          // Google AdSense
+          var ads = document.createElement('script');
+          ads.async = true;
+          ads.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9964697758880128';
+          ads.crossOrigin = 'anonymous';
+          document.head.appendChild(ads);
+        }
+
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(function() { setTimeout(loadThirdParty, 2500); });
+        } else {
+          window.addEventListener('load', function() { setTimeout(loadThirdParty, 2500); });
+        }
+
+        ['scroll', 'pointermove', 'touchstart', 'keydown'].forEach(function(evt) {
+          window.addEventListener(evt, loadThirdParty, { once: true, passive: true });
+        });
+      })();
     </script>
   </head>
   <body class="relative min-h-screen">
     {backgroundImage && (
       <div 
         class="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat opacity-10"
-        style={`background-image: url(${backgroundImage})`}
+        style={`background-image: url(${netlifyImage(backgroundImage, 1200)})`}
       >
         <div class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
       </div>

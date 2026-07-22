@@ -1,5 +1,6 @@
 ---
 import { useState } from 'react';
+import { netlifyImage, netlifyImageSrcset } from '../utils/image';
 
 interface ImageProps {
   src: string;
@@ -34,12 +35,17 @@ const handleClick = (e: Event) => {
 <figure class={`relative group ${className}`}>
   <div class="overflow-hidden rounded-lg">
     <img
-      src={src}
+      src={netlifyImage(src, 800)}
+      srcset={netlifyImageSrcset(src, [400, 800, 1200])}
+      sizes="(max-width: 768px) 100vw, 800px"
       alt={alt}
+      width={800}
+      height={500}
+      loading="lazy"
+      decoding="async"
       class={`w-full h-auto transition-transform duration-300 cursor-zoom-in hover:scale-105 ${isInGroup ? 'aspect-video object-cover' : ''}`}
       data-onclick="lightbox"
       onclick={handleClick}
-      loading="lazy"
     />
   </div>
   {caption && (

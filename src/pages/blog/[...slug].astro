@@ -55,6 +55,8 @@ export async function getStaticPaths() {
             width={1200}
             height={800}
             fetchpriority="high"
+            loading="eager"
+            decoding="async"
             class="w-full h-full object-cover"
           />
           <div
@@ -130,13 +132,16 @@ export async function getStaticPaths() {
             
             <!-- Add a script to initialize glossary links -->
             <script>
-              // Re-run the glossary linker when the page is fully loaded
-              document.addEventListener('DOMContentLoaded', () => {
-                // Use a type-safe approach to access the global function
+              const runGlossary = () => {
                 if ('linkGlossaryTerms' in window && typeof window.linkGlossaryTerms === 'function') {
                   window.linkGlossaryTerms();
                 }
-              });
+              };
+              if ('requestIdleCallback' in window) {
+                requestIdleCallback(runGlossary);
+              } else {
+                document.addEventListener('DOMContentLoaded', runGlossary);
+              }
             </script>
           </div>
         </div>
