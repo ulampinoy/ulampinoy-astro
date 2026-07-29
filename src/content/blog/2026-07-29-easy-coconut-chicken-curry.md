@@ -2,7 +2,7 @@
 title: "Easy Coconut Chicken Curry"
 date: 2026-07-29
 description: "Filipino-style chicken curry simmered in coconut milk with potatoes, carrots, and long green chilies. Watch our latest video and cook along!"
-whetter: "Creamy, warm, and full of gata"
+whetter: "Sarsa pa lang, ulam na"
 image: "/.netlify/images?url=/images/coconut-chicken-curry-pot-02.jpg"
 sideImage: "/.netlify/images?url=/images/coconut-chicken-curry-pot.jpg"
 sideImageCaption: "Chicken curry simmering in coconut milk—potatoes, carrots, and siling haba in every spoonful"
@@ -16,11 +16,11 @@ draft: false
 featured: true
 ---
 
-There are days when you want something warm, creamy, and generous with _sulam na may sarsa_ and **chicken curry** answers every time. Filipino-style curry is gentler than its Indian and Thai cousins: a modest spoonful of curry powder, plenty of coconut milk, and vegetables that soak up all that golden sauce. In our latest video, we cook it start to finish in one pan, the way we make it at home.
+There are days when you want something warm, creamy, and generous with _ulam na may sarsa_ and **chicken curry** answers every time. Filipino-style curry is gentler than its Indian and Thai cousins: a modest spoonful of curry powder, plenty of coconut milk, and vegetables that soak up all that golden sauce. In our latest video, we cook it start to finish in one pan, the way we make it at home.
 
 It is the kind of ulam that makes people ask for _rice pa more_.
 
-![Chicken curry simmering in coconut milk with potatoes, carrots, and long green chilies](/.netlify/images?url=/images/coconut-chicken-curry-pot.png)
+![Chicken curry simmering in coconut milk with potatoes, carrots, and long green chilies](/.netlify/images?url=/images/coconut-chicken-curry-pot.jpg)
 
 ## Watch the Video
 
@@ -34,6 +34,8 @@ It is the kind of ulam that makes people ask for _rice pa more_.
 ></iframe>
 
 If you enjoy the video, do not forget to [subscribe to our YouTube channel](https://www.youtube.com/@ulampinoy) so you never miss a new recipe.
+
+![Chicken curry ingredients](/.netlify/images?url=/images/chicken-curry-ingredients.jpg)
 
 ## Ingredients
 
@@ -59,6 +61,9 @@ If you enjoy the video, do not forget to [subscribe to our YouTube channel](http
 2. Heat the oil in a wide pan. Sauté the garlic, onion, and ginger until fragrant and soft.
 3. Add the chicken and brown it lightly on all sides. Splash in the fish sauce and let it sizzle for a minute—this is where the flavor starts.
 4. Stir in the curry powder and toast it briefly with the chicken so it blooms and coats every piece.
+
+![Chicken curry saute in wok](/.netlify/images?url=/images/chicken-curry-saute.jpg)
+
 5. Pour in the coconut milk and drop in the bay leaves. Bring it to a gentle simmer, never a hard boil, so the gata stays smooth and does not curdle. Cover and cook for about 20 minutes, until the chicken is tender.
 6. Add the potatoes and carrots. Simmer uncovered until they are fork-tender and the sauce has thickened, about 10 to 15 minutes more.
 7. Add the long green chilies and red chilies in the last few minutes. Taste and adjust with salt, pepper, or a little more patis.
@@ -73,6 +78,8 @@ If you enjoy the video, do not forget to [subscribe to our YouTube channel](http
 **Add the potatoes later, not sooner.** Put them in with the chicken and they turn to mush by the time the meat is tender. Give them their own window and they hold their shape while still drinking up the sauce.
 
 **Adjust the chilies to your table.** Siling haba brings aroma more than fire, so it is safe for the kids. If you want real heat, slit the red chilies open or add a few labuyo.
+
+![Chicken curry in coconut cream in wok](/.netlify/images?url=/images/chicken-curry-wok.jpg) 
 
 ## Make It Your Own
 
