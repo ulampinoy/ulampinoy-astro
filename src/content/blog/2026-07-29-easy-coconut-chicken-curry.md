@@ -3,8 +3,8 @@ title: "Easy Coconut Chicken Curry"
 date: 2026-07-29
 description: "Filipino-style chicken curry simmered in coconut milk with potatoes, carrots, and long green chilies. Watch our latest video and cook along!"
 whetter: "Creamy, warm, and full of gata"
-image: "/.netlify/images?url=/images/coconut-chicken-curry-pot.png"
-sideImage: "/.netlify/images?url=/images/coconut-chicken-curry-pot.png"
+image: "/.netlify/images?url=/images/coconut-chicken-curry-pot-02.jpg"
+sideImage: "/.netlify/images?url=/images/coconut-chicken-curry-pot.jpg"
 sideImageCaption: "Chicken curry simmering in coconut milk—potatoes, carrots, and siling haba in every spoonful"
 hasVideo: true
 videoUrl: "https://www.youtube.com/watch?v=OU1Y1MKAq9k"
@@ -16,9 +16,9 @@ draft: false
 featured: true
 ---
 
-There are nights when you want something warm, creamy, and generous with the _sarsa_—and **chicken curry** answers every time. Filipino-style curry is gentler than its Indian and Thai cousins: a modest spoonful of curry powder, plenty of coconut milk, and vegetables that soak up all that golden sauce. In our latest video, we cook it start to finish in one pan, the way we make it at home on an ordinary weeknight.
+There are days when you want something warm, creamy, and generous with _sulam na may sarsa_ and **chicken curry** answers every time. Filipino-style curry is gentler than its Indian and Thai cousins: a modest spoonful of curry powder, plenty of coconut milk, and vegetables that soak up all that golden sauce. In our latest video, we cook it start to finish in one pan, the way we make it at home.
 
-It is the kind of ulam that makes people ask for a second cup of rice. Fair warning.
+It is the kind of ulam that makes people ask for _rice pa more_.
 
 ![Chicken curry simmering in coconut milk with potatoes, carrots, and long green chilies](/.netlify/images?url=/images/coconut-chicken-curry-pot.png)
 
@@ -38,18 +38,19 @@ If you enjoy the video, do not forget to [subscribe to our YouTube channel](http
 ## Ingredients
 
 - 1 kg chicken, cut into serving pieces (thighs and drumsticks are best)
-- 2 cups coconut milk (gata)
+- 1 cups coconut milk (gata)
 - 2 medium potatoes, cut into chunks
-- 1 large carrot, cut into chunks
+- 1 medium carrot, cut into chunks
 - 1 medium onion, sliced
-- 5 cloves garlic, minced
-- 1 thumb-size ginger, julienned
+- 3 cloves garlic, minced
+- 1 thumb-size ginger, grated and julienned
 - 2 tablespoons curry powder
-- 3–5 long green chilies (siling haba)
+- 3 long green chilies (siling haba)
 - 2–3 red chilies, for heat and color
-- 2 bay leaves (laurel)
+- 2-3 bay leaves (laurel)
 - 2 tablespoons fish sauce (patis)
 - 2 tablespoons cooking oil
+- 1 tablespoon tomato paste (umami booster)
 - Salt and ground black pepper, to taste
 
 ## How to Cook
@@ -75,7 +76,7 @@ If you enjoy the video, do not forget to [subscribe to our YouTube channel](http
 
 ## Make It Your Own
 
-Some households stir in a splash of evaporated milk for extra richness, others add bell peppers for sweetness or a handful of green peas at the end. A little turmeric deepens the color if your curry powder is mild. There is no single correct version—only the one your family asks for again.
+Some households a handful of green peas at the end. A little turmeric deepens the color if your curry powder is mild. There is no single correct version—only the one your family asks for again.
 
 Have you cooked chicken curry this way? We would love to see your version! Tag us on [Instagram](https://www.instagram.com/ulampinoy/) at [@ulampinoy](https://www.instagram.com/ulampinoy/) and share your cooking with us.
 
