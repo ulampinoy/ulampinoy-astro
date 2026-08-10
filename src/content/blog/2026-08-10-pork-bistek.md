@@ -1,7 +1,7 @@
 ---
-title: "Pork Bistek with Sweet Caramelized Onions"
+title: "Pork Bistek Onion Overload"
 date: 2026-08-10
-description: "Pork chops braised in soy sauce, calamansi, and pepper, then piled high with sweet caramelized onion rings. Watch our latest video and cook along!"
+description: "Pork chops braised in soy sauce, calamansi, and pepper, then piled high with onion rings. Watch our latest video and cook along!"
 whetter: "Sibuyas pa lang, sold na"
 image: "/.netlify/images?url=/images/cover-pork-bistek.jpg"
 sideImage: "/.netlify/images?url=/images/cover-pork-bistek.jpg"
@@ -34,6 +34,8 @@ The real star here, though, is the onions. Not the quick blanched rings you toss
 ></iframe>
 
 If you enjoy the video, do not forget to [subscribe to our YouTube channel](https://www.youtube.com/@ulampinoy) so you never miss a new recipe.
+
+![Pork chops bone-in cuts are juicer](/.netlify/images?url=/images/pork-chops-in-bone.jpg)
 
 ## Ingredients
 
@@ -75,11 +77,13 @@ If you enjoy the video, do not forget to [subscribe to our YouTube channel](http
 
 **Sear, then braise—in that order.** The browning builds the flavor base and the braise makes it tender. Skip the sear and you get pale, one-note bistek.
 
+![Pork Bistek served in a bowl with onion rings and sauce](/.netlify/images?url=/images/pork-bistek-onions-bowl.jpg)
+
 ## Make It Your Own
 
 Pork belly (liempo) works if you like it richer, and thin-cut pork loin cooks faster for a weeknight. Some households add a splash of oyster sauce for body, or a couple of siling haba for a gentle heat that never overwhelms the citrus. Kung walang kalamansi, dayap or lemon will carry you through—just add it in stages and taste, since bottled juice can be much sharper.
 
-_Ang bistek ay hindi kailangang baka lagi._ Try it with pork once and it might just become the version your family asks for.
+Try it with pork once and it might just become the version your family asks for.
 
 Have you cooked bistek with pork? We would love to see your version! Tag us on [Instagram](https://www.instagram.com/ulampinoy/) at [@ulampinoy](https://www.instagram.com/ulampinoy/) and share your cooking with us.
 
