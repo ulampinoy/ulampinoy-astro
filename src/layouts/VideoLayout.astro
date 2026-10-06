@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
+import RecipeCard from "../components/RecipeCard.astro";
 const { frontmatter } = Astro.props;
 
 // Extract video ID from the YouTube URL
@@ -35,9 +36,19 @@ const embedUrl = `https://www.youtube.com/embed/${videoId}`;
             </h1>
             <div class="text-xl text-white/90 mb-4">
               <p>{frontmatter.description}</p>
-              {/* Add any additional content here */}
+              {
+                frontmatter.recipe && (
+                  <a
+                    href="#recipe"
+                    class="not-prose inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-amber-500 hover:bg-amber-600 text-white text-base font-semibold no-underline transition-colors"
+                  >
+                    Jump to Recipe ↓
+                  </a>
+                )
+              }
             </div>
             <slot />
+            {frontmatter.recipe && <RecipeCard post={frontmatter} variant="dark" />}
           </div>
         </div>
       </article>
