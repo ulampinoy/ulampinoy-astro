@@ -20,6 +20,6 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<VideoLayout frontmatter={post.data}>
+<VideoLayout frontmatter={post.data} slug={post.id}>
   <Content />
 </VideoLayout>

@@ -159,7 +159,7 @@ function formatDate(dateStr: Date) {
 </BaseLayout>
 
 <style>
-  :global(.prose :where(img)) {
+  :global(.prose :where(img:not(:where(.not-prose, .not-prose *)))) {
     @apply rounded-lg shadow-lg;
     width: 100%;
     margin-left: auto;
@@ -168,7 +168,7 @@ function formatDate(dateStr: Date) {
   }
 
   @media (min-width: 768px) {
-    :global(.prose :where(img)) {
+    :global(.prose :where(img:not(:where(.not-prose, .not-prose *)))) {
       width: 120%;
       margin-left: -10%;
       margin-right: -10%;

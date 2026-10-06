@@ -1,15 +1,18 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import { netlifyImage, rawImagePath } from "../utils/image";
+import { formatMinutes, plainText as plain, recipePdfPath } from "../utils/recipe";
 
 type PostData = CollectionEntry<"blog">["data"];
 
 interface Props {
   post: PostData;
+  /** Blog entry id, used to link the downloadable PDF */
+  slug?: string;
   variant?: "dark" | "light";
 }
 
-const { post, variant = "light" } = Astro.props;
+const { post, slug, variant = "light" } = Astro.props;
 const recipe = post.recipe!;
 
 const totalTime =
@@ -17,12 +20,7 @@ const totalTime =
     ? (recipe.prepTime ?? 0) + (recipe.cookTime ?? 0)
     : undefined;
 
-// "1 hr 15 mins" for display, "PT1H15M" for schema.org
-const formatMinutes = (mins: number) => {
-  const h = Math.floor(mins / 60);
-  const m = mins % 60;
-  return [h && `${h} hr`, m && `${m} mins`].filter(Boolean).join(" ");
-};
+// "PT1H15M" for schema.org
 const isoDuration = (mins?: number) =>
   mins === undefined ? undefined : `PT${Math.floor(mins / 60) ? `${Math.floor(mins / 60)}H` : ""}${mins % 60 ? `${mins % 60}M` : ""}`;
 
@@ -33,7 +31,6 @@ const inline = (text: string) =>
     .replace(/</g, "&lt;")
     .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
     .replace(/(^|\s)_(.+?)_(?=\s|[.,;:!?)]|$)/g, "$1<em>$2</em>");
-const plain = (text: string) => text.replace(/\*\*|(^|\s)_|_(?=\s|[.,;:!?)]|$)/g, "$1");
 
 const videoId = post.videoUrl?.split("v=")[1];
 
@@ -126,6 +123,17 @@ const c = {
         >
           Print Recipe
         </button>
+        {
+          slug && (
+            <a
+              href={recipePdfPath(slug)}
+              download
+              class="px-4 py-2 rounded-md border border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-white text-sm font-semibold transition-colors no-underline"
+            >
+              Download PDF
+            </a>
+          )
+        }
         {
           videoId && (
             <a

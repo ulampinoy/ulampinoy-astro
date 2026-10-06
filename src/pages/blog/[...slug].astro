@@ -132,7 +132,7 @@ export async function getStaticPaths() {
           }
         </style>
         <div
-          class="[&_img]:mx-auto [&_img]:w-full [&_img]:max-w-full [&_img]:rounded-lg"
+          class="[&_img:not(.not-prose_*)]:mx-auto [&_img:not(.not-prose_*)]:w-full [&_img:not(.not-prose_*)]:max-w-full [&_img:not(.not-prose_*)]:rounded-lg"
         >
           <div
             class="[&>p:first-of-type]:first-letter:float-left [&>p:first-of-type]:first-letter:text-6xl md:[&>p:first-of-type]:first-letter:text-8xl [&>p:first-of-type]:first-letter:pr-2 [&>p:first-of-type]:first-letter:font-bold [&>p:first-of-type]:first-letter:text-amber-500 [&>p:first-of-type]:first-letter:font-[savate] [&>p]:w-[80%] [&>p]:mx-auto [&>p:has(>img)]:w-full"
@@ -140,7 +140,7 @@ export async function getStaticPaths() {
             <div class="prose max-w-none">
               <Content />
             </div>
-            {post.data.recipe && <RecipeCard post={post.data} />}
+            {post.data.recipe && <RecipeCard post={post.data} slug={post.id} variant="dark" />}
             
             <!-- Add a script to initialize glossary links -->
             <script>
@@ -180,7 +180,7 @@ export async function getStaticPaths() {
     </div>
 
     <style>
-      :global(.prose img) {
+      :global(.prose img:not(:where(.not-prose, .not-prose *))) {
         @apply pt-6;
         width: 100%;
         max-width: 100%;
@@ -192,7 +192,7 @@ export async function getStaticPaths() {
           0 4px 6px -2px rgba(0, 0, 0, 0.05);
       }
 
-      :global(.dark .prose img) {
+      :global(.dark .prose img:not(:where(.not-prose, .not-prose *))) {
         @apply border border-gray-800;
         box-shadow:
           0 4px 6px -1px rgba(0, 0, 0, 0.2),
@@ -205,91 +205,91 @@ export async function getStaticPaths() {
         color: inherit;
       }
 
-      :global(.prose p) {
+      :global(.prose p:not(:where(.not-prose, .not-prose *))) {
         @apply mb-6 text-gray-700 dark:text-gray-300;
         line-height: 1.8;
         font-size: 1.125rem;
       }
 
-      :global(.prose > div > div > p:first-of-type) {
+      :global(.prose > div > div > p:first-of-type:not(:where(.not-prose, .not-prose *))) {
         @apply text-[1.4rem] leading-[1.6] text-gray-800 dark:text-gray-200 mb-8;
       }
 
       @media (max-width: 640px) {
-        :global(.prose p) {
+        :global(.prose p:not(:where(.not-prose, .not-prose *))) {
           @apply text-base leading-7;
         }
       }
 
-      :global(.prose h2) {
+      :global(.prose h2:not(:where(.not-prose, .not-prose *))) {
         @apply mt-12 mb-6 text-2xl sm:text-3xl md:text-4xl font-bold leading-tight text-gray-900 dark:text-white;
         font-family: "Savate", serif;
         line-height: 1.3;
       }
 
-      :global(.prose h3) {
+      :global(.prose h3:not(:where(.not-prose, .not-prose *))) {
         @apply mt-10 mb-5 text-xl sm:text-2xl font-bold uppercase tracking-wide text-gray-800 dark:text-gray-100;
         font-family: "Savate", serif;
         line-height: 1.4;
       }
 
-      :global(.prose ul) {
+      :global(.prose ul:not(:where(.not-prose, .not-prose *))) {
         @apply pl-6 text-gray-700 dark:text-gray-300 list-disc;
       }
 
-      :global(.prose ol) {
+      :global(.prose ol:not(:where(.not-prose, .not-prose *))) {
         @apply pl-6 text-gray-700 dark:text-gray-300;
       }
 
-      :global(.prose ul > li) {
+      :global(.prose ul > li:not(:where(.not-prose, .not-prose *))) {
         @apply pl-1 mb-2 ml-0 relative;
       }
 
-      :global(.prose ul > li::marker) {
+      :global(.prose ul > li:not(:where(.not-prose, .not-prose *))::marker) {
         color: #f59e0b; /* amber-500 */
         font-size: 1.2em;
       }
 
-      :global(.prose ol > li) {
+      :global(.prose ol > li:not(:where(.not-prose, .not-prose *))) {
         @apply pl-2 mb-2;
       }
 
-      :global(.prose blockquote) {
+      :global(.prose blockquote:not(:where(.not-prose, .not-prose *))) {
         @apply font-serif text-gray-700 dark:text-gray-300 text-xl italic border-l-4 border-amber-400 pl-6 py-2 my-6 relative;
       }
 
-      :global(.prose blockquote::before) {
+      :global(.prose blockquote:not(:where(.not-prose, .not-prose *))::before) {
         content: "";
       }
 
-      :global(.prose blockquote p:first-of-type) {
+      :global(.prose blockquote p:first-of-type:not(:where(.not-prose, .not-prose *))) {
         margin-top: 0;
       }
 
-      :global(.prose blockquote p:last-of-type) {
+      :global(.prose blockquote p:last-of-type:not(:where(.not-prose, .not-prose *))) {
         margin-bottom: 0;
       }
 
-      :global(.prose iframe) {
+      :global(.prose iframe:not(:where(.not-prose, .not-prose *))) {
         @apply w-full aspect-video my-6 md:my-8;
       }
 
-      :global(.prose .footnotes) {
+      :global(.prose .footnotes:not(:where(.not-prose, .not-prose *))) {
         @apply text-sm text-gray-500 dark:text-gray-400 mt-12 pt-6 border-t border-gray-100 dark:border-gray-800;
       }
 
-      :global(.prose .footnotes p) {
+      :global(.prose .footnotes p:not(:where(.not-prose, .not-prose *))) {
         @apply text-sm leading-relaxed;
       }
 
-      :global(.prose .footnote-backref) {
+      :global(.prose .footnote-backref:not(:where(.not-prose, .not-prose *))) {
         @apply ml-1 text-amber-500 no-underline;
       }
-      :global(.prose a) {
+      :global(.prose a:not(:where(.not-prose, .not-prose *))) {
         @apply text-amber-600 hover:text-amber-500 transition-colors underline underline-offset-4 decoration-amber-400/50 hover:decoration-amber-500/70;
       }
 
-      :global(.prose a[href^="#"]) {
+      :global(.prose a[href^="#"]:not(:where(.not-prose, .not-prose *))) {
         text-decoration: none;
         position: relative;
         display: inline-block;
@@ -304,23 +304,23 @@ export async function getStaticPaths() {
         transition: all 0.2s ease;
       }
 
-      :global(.prose a[href^="#"]:hover) {
+      :global(.prose a[href^="#"]:hover:not(:where(.not-prose, .not-prose *))) {
         background-color: rgba(245, 158, 11, 0.2);
       }
-      :global(.prose p),
-      :global(.prose ul),
-      :global(.prose ol),
-      :global(.prose h2),
-      :global(.prose h3) {
+      :global(.prose p:not(:where(.not-prose, .not-prose *))),
+      :global(.prose ul:not(:where(.not-prose, .not-prose *))),
+      :global(.prose ol:not(:where(.not-prose, .not-prose *))),
+      :global(.prose h2:not(:where(.not-prose, .not-prose *))),
+      :global(.prose h3:not(:where(.not-prose, .not-prose *))) {
         @apply w-[100%] md:w-[80%] mx-auto my-4;
       }
 
-      :global(.prose h3),
-      :global(.prose h2) {
+      :global(.prose h3:not(:where(.not-prose, .not-prose *))),
+      :global(.prose h2:not(:where(.not-prose, .not-prose *))) {
         @apply mt-8 md:mt-12;
       }
 
-      :global(.prose ol > li > p) {
+      :global(.prose ol > li > p:not(:where(.not-prose, .not-prose *))) {
         @apply mx-0 w-full;
       }
     </style>
