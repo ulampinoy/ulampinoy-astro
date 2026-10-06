@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getCollection, getEntry, render } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { netlifyImage, netlifyImageSrcset } from "../../utils/image";
+import RecipeCard from "../../components/RecipeCard.astro";
 
 // Import the client-side script
 import '../../scripts/glossary-links';
@@ -96,6 +97,16 @@ export async function getStaticPaths() {
                 )
               }
             </div>
+            {
+              post.data.recipe && (
+                <a
+                  href="#recipe"
+                  class="mt-6 inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-amber-500 hover:bg-amber-600 text-white font-semibold transition-colors"
+                >
+                  Jump to Recipe ↓
+                </a>
+              )
+            }
           </div>
         </div>
       </div>
@@ -129,6 +140,7 @@ export async function getStaticPaths() {
             <div class="prose max-w-none">
               <Content />
             </div>
+            {post.data.recipe && <RecipeCard post={post.data} />}
             
             <!-- Add a script to initialize glossary links -->
             <script>

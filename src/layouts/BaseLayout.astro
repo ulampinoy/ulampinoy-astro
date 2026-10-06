@@ -2,7 +2,7 @@
 import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/main.css";
-import { netlifyImage } from "../utils/image";
+import { netlifyImage, rawImagePath } from "../utils/image";
 
 interface Props {
   title: string;
@@ -46,7 +46,7 @@ const currentPath = Astro.url.pathname;
     <meta property="og:type" content="article" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    {backgroundImage && <meta property="og:image" content={new URL(backgroundImage, Astro.site).toString()} />}
+    {backgroundImage && <meta property="og:image" content={new URL(rawImagePath(backgroundImage), Astro.site).toString()} />}
     <meta property="og:url" content={Astro.url.href} />
     <meta property="og:site_name" content="UlamPinoy" />
     
@@ -59,7 +59,7 @@ const currentPath = Astro.url.pathname;
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    {backgroundImage && <meta name="twitter:image" content={new URL(backgroundImage, Astro.site).toString()} />}
+    {backgroundImage && <meta name="twitter:image" content={new URL(rawImagePath(backgroundImage), Astro.site).toString()} />}
     {author && <meta name="twitter:creator" content={author} />}
     
     {/* Additional Meta */}
@@ -67,8 +67,9 @@ const currentPath = Astro.url.pathname;
     <link rel="canonical" href={Astro.url.href} />
     
     {/* Structured Data */}
-    <script type="application/ld+json">
-      {JSON.stringify({
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
         "@context": "https://schema.org",
         "@type": "Article",
         "headline": title,
@@ -76,17 +77,16 @@ const currentPath = Astro.url.pathname;
         ...(author && { "author": { "@type": "Person", "name": author } }),
         ...(publishedTime && { "datePublished": publishedTime }),
         ...(modifiedTime && { "dateModified": modifiedTime }),
-        ...(backgroundImage && { "image": new URL(backgroundImage, Astro.site).toString() }),
+        ...(backgroundImage && { "image": new URL(rawImagePath(backgroundImage), Astro.site).toString() }),
         "publisher": {
           "@type": "Organization",
           "name": "UlamPinoy",
           "logo": {
             "@type": "ImageObject",
-            "url": new URL("/logo.png", Astro.site).toString()
+            "url": new URL("/images/logo.png", Astro.site).toString()
           }
         }
-      })}
-    </script>
+      })} />
     {/* Lazy-loaded Google AdSense and Analytics */}
     <script is:inline>
       (function() {

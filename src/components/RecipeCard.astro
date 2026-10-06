@@ -1,0 +1,324 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { netlifyImage, rawImagePath } from "../utils/image";
+
+type PostData = CollectionEntry<"blog">["data"];
+
+interface Props {
+  post: PostData;
+  variant?: "dark" | "light";
+}
+
+const { post, variant = "light" } = Astro.props;
+const recipe = post.recipe!;
+
+const totalTime =
+  recipe.prepTime || recipe.cookTime
+    ? (recipe.prepTime ?? 0) + (recipe.cookTime ?? 0)
+    : undefined;
+
+// "1 hr 15 mins" for display, "PT1H15M" for schema.org
+const formatMinutes = (mins: number) => {
+  const h = Math.floor(mins / 60);
+  const m = mins % 60;
+  return [h && `${h} hr`, m && `${m} mins`].filter(Boolean).join(" ");
+};
+const isoDuration = (mins?: number) =>
+  mins === undefined ? undefined : `PT${Math.floor(mins / 60) ? `${Math.floor(mins / 60)}H` : ""}${mins % 60 ? `${mins % 60}M` : ""}`;
+
+// Inline markdown-ish emphasis (**bold**, _italic_) for card text
+const inline = (text: string) =>
+  text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+    .replace(/(^|\s)_(.+?)_(?=\s|[.,;:!?)]|$)/g, "$1<em>$2</em>");
+const plain = (text: string) => text.replace(/\*\*|(^|\s)_|_(?=\s|[.,;:!?)]|$)/g, "$1");
+
+const videoId = post.videoUrl?.split("v=")[1];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  name: post.title,
+  description: recipe.summary ?? post.description,
+  author: { "@type": "Organization", name: post.author ?? "UlamPinoy" },
+  datePublished: post.date.toISOString(),
+  ...(post.image && { image: [new URL(rawImagePath(post.image), Astro.site).toString()] }),
+  ...(recipe.prepTime !== undefined && { prepTime: isoDuration(recipe.prepTime) }),
+  ...(recipe.cookTime !== undefined && { cookTime: isoDuration(recipe.cookTime) }),
+  ...(totalTime !== undefined && { totalTime: isoDuration(totalTime) }),
+  ...(recipe.servings && { recipeYield: `${recipe.servings} servings` }),
+  ...(recipe.course && { recipeCategory: recipe.course }),
+  ...(recipe.cuisine && { recipeCuisine: recipe.cuisine }),
+  ...(recipe.keywords.length && { keywords: recipe.keywords.join(", ") }),
+  recipeIngredient: recipe.ingredients.flatMap((g) => g.items.map(plain)),
+  recipeInstructions: recipe.instructions.map((g) =>
+    g.group
+      ? {
+          "@type": "HowToSection",
+          name: g.group,
+          itemListElement: g.steps.map((s) => ({ "@type": "HowToStep", text: plain(s) })),
+        }
+      : g.steps.map((s) => ({ "@type": "HowToStep", text: plain(s) }))
+  ).flat(),
+  ...(recipe.nutrition?.calories && {
+    nutrition: {
+      "@type": "NutritionInformation",
+      calories: recipe.nutrition.calories,
+      ...(recipe.nutrition.protein && { proteinContent: recipe.nutrition.protein }),
+      ...(recipe.nutrition.fat && { fatContent: recipe.nutrition.fat }),
+      ...(recipe.nutrition.carbohydrates && { carbohydrateContent: recipe.nutrition.carbohydrates }),
+    },
+  }),
+  ...(videoId && {
+    video: {
+      "@type": "VideoObject",
+      name: post.title,
+      description: post.description,
+      thumbnailUrl: `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`,
+      contentUrl: post.videoUrl,
+      embedUrl: `https://www.youtube.com/embed/${videoId}`,
+      uploadDate: post.date.toISOString(),
+    },
+  }),
+};
+
+const dark = variant === "dark";
+const c = {
+  card: dark ? "bg-zinc-800 border-zinc-700 text-white" : "bg-white border-gray-200 text-gray-900 dark:bg-zinc-900 dark:border-zinc-700 dark:text-white",
+  muted: dark ? "text-zinc-400" : "text-gray-500 dark:text-zinc-400",
+  body: dark ? "text-zinc-200" : "text-gray-700 dark:text-zinc-200",
+  divider: dark ? "border-zinc-700" : "border-gray-200 dark:border-zinc-700",
+  meta: dark ? "bg-zinc-900/60" : "bg-amber-50 dark:bg-zinc-800",
+};
+---
+
+<section
+  id="recipe"
+  class={`recipe-card not-prose scroll-mt-24 my-12 mx-auto max-w-3xl rounded-xl border-2 border-t-8 !border-t-amber-500 shadow-xl overflow-hidden ${c.card}`}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <div class="flex flex-col sm:flex-row gap-6 p-6 sm:p-8">
+    {
+      post.image && (
+        <img
+          src={netlifyImage(post.image, 400)}
+          alt={post.title}
+          width={200}
+          height={200}
+          loading="lazy"
+          decoding="async"
+          class="w-40 h-40 sm:w-48 sm:h-48 object-cover rounded-full mx-auto sm:mx-0 shrink-0 shadow-lg"
+        />
+      )
+    }
+    <div class="flex-1 text-center sm:text-left">
+      <h2 class="savate-heavy text-3xl md:text-4xl mb-2">{post.title}</h2>
+      <p class={`text-sm mb-4 ${c.muted}`}>By {post.author ?? "UlamPinoy"}</p>
+      {recipe.summary && <p class={`text-base leading-relaxed mb-4 ${c.body}`}>{recipe.summary}</p>}
+      <div class="flex flex-wrap gap-2 justify-center sm:justify-start recipe-actions">
+        <button
+          type="button"
+          data-recipe-print
+          class="px-4 py-2 rounded-md bg-amber-500 hover:bg-amber-600 text-white text-sm font-semibold transition-colors"
+        >
+          Print Recipe
+        </button>
+        {
+          videoId && (
+            <a
+              href={post.videoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="px-4 py-2 rounded-md border border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-white text-sm font-semibold transition-colors no-underline"
+            >
+              Watch on YouTube
+            </a>
+          )
+        }
+      </div>
+    </div>
+  </div>
+
+  <dl class={`grid grid-cols-2 sm:grid-cols-4 gap-px text-center border-y ${c.divider} ${c.meta}`}>
+    {
+      [
+        ["Prep", recipe.prepTime !== undefined ? formatMinutes(recipe.prepTime) : undefined],
+        ["Cook", recipe.cookTime !== undefined ? formatMinutes(recipe.cookTime) : undefined],
+        ["Total", totalTime !== undefined ? formatMinutes(totalTime) : undefined],
+        ["Servings", recipe.servings],
+      ]
+        .filter(([, v]) => v)
+        .map(([label, value]) => (
+          <div class="py-4 px-2">
+            <dt class={`text-xs uppercase tracking-wider font-semibold ${c.muted}`}>{label}</dt>
+            <dd class="mt-1 font-bold text-amber-500">{value}</dd>
+          </div>
+        ))
+    }
+  </dl>
+
+  {
+    (recipe.course || recipe.cuisine) && (
+      <p class={`px-6 sm:px-8 pt-4 text-sm ${c.muted}`}>
+        {recipe.course && <span><strong>Course:</strong> {recipe.course}</span>}
+        {recipe.course && recipe.cuisine && <span class="mx-2">•</span>}
+        {recipe.cuisine && <span><strong>Cuisine:</strong> {recipe.cuisine}</span>}
+      </p>
+    )
+  }
+
+  <div class="p-6 sm:p-8 space-y-10">
+    <div>
+      <h3 class="savate-heavy text-2xl mb-4 text-amber-500">Ingredients</h3>
+      {
+        recipe.ingredients.map((g) => (
+          <div class="mb-6 last:mb-0">
+            {g.group && <h4 class="font-bold uppercase tracking-wide text-sm mb-3">{g.group}</h4>}
+            <ul class="space-y-2">
+              {g.items.map((item) => (
+                <li>
+                  <label class={`flex items-start gap-3 cursor-pointer ${c.body}`}>
+                    <input
+                      type="checkbox"
+                      class="recipe-check mt-1.5 h-4 w-4 shrink-0 accent-amber-500"
+                    />
+                    <span set:html={inline(item)} />
+                  </label>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+
+    <label class={`recipe-actions hidden items-center gap-3 text-sm cursor-pointer ${c.muted}`} data-cook-mode-wrap>
+      <input type="checkbox" data-cook-mode class="h-4 w-4 accent-amber-500" />
+      <span><strong>Cook Mode</strong> — keep your screen awake while cooking</span>
+    </label>
+
+    <div>
+      <h3 class="savate-heavy text-2xl mb-4 text-amber-500">Instructions</h3>
+      {
+        recipe.instructions.map((g) => (
+          <div class="mb-6 last:mb-0">
+            {g.group && <h4 class="font-bold uppercase tracking-wide text-sm mb-3">{g.group}</h4>}
+            <ol class="space-y-4">
+              {g.steps.map((step, i) => (
+                <li class={`flex gap-4 ${c.body}`}>
+                  <span class="flex items-center justify-center w-7 h-7 shrink-0 rounded-full bg-amber-500 text-white text-sm font-bold">
+                    {i + 1}
+                  </span>
+                  <span class="leading-relaxed" set:html={inline(step)} />
+                </li>
+              ))}
+            </ol>
+          </div>
+        ))
+      }
+    </div>
+
+    {
+      recipe.notes.length > 0 && (
+        <div>
+          <h3 class="savate-heavy text-2xl mb-4 text-amber-500">Recipe Notes</h3>
+          <ol class={`list-decimal pl-6 space-y-3 ${c.body}`}>
+            {recipe.notes.map((note) => (
+              <li class="leading-relaxed pl-1" set:html={inline(note)} />
+            ))}
+          </ol>
+        </div>
+      )
+    }
+
+    {
+      recipe.nutrition && (
+        <div class={`border-t pt-6 ${c.divider}`}>
+          <h3 class="font-bold uppercase tracking-wide text-sm mb-3">Nutrition (per serving, estimated)</h3>
+          <p class={`text-sm ${c.muted}`}>
+            {[
+              recipe.nutrition.calories && `Calories: ${recipe.nutrition.calories}`,
+              recipe.nutrition.protein && `Protein: ${recipe.nutrition.protein}`,
+              recipe.nutrition.fat && `Fat: ${recipe.nutrition.fat}`,
+              recipe.nutrition.carbohydrates && `Carbohydrates: ${recipe.nutrition.carbohydrates}`,
+            ]
+              .filter(Boolean)
+              .join(" • ")}
+          </p>
+        </div>
+      )
+    }
+
+    {
+      recipe.keywords.length > 0 && (
+        <p class={`text-sm ${c.muted}`}>
+          <strong>Keywords:</strong> {recipe.keywords.join(", ")}
+        </p>
+      )
+    }
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>("[data-recipe-print]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      document.body.classList.add("printing-recipe");
+      window.print();
+    });
+  });
+  window.addEventListener("afterprint", () => document.body.classList.remove("printing-recipe"));
+
+  // Cook Mode: only offered where the Screen Wake Lock API exists
+  if ("wakeLock" in navigator) {
+    let lock: WakeLockSentinel | null = null;
+    document.querySelectorAll<HTMLElement>("[data-cook-mode-wrap]").forEach((wrap) => {
+      wrap.classList.replace("hidden", "flex");
+      const toggle = wrap.querySelector<HTMLInputElement>("[data-cook-mode]")!;
+      toggle.addEventListener("change", async () => {
+        try {
+          if (toggle.checked) {
+            lock = await navigator.wakeLock.request("screen");
+            lock.addEventListener("release", () => (toggle.checked = false));
+          } else {
+            await lock?.release();
+            lock = null;
+          }
+        } catch {
+          toggle.checked = false;
+        }
+      });
+    });
+  }
+</script>
+
+<style is:global>
+  .recipe-check:checked + span {
+    text-decoration: line-through;
+    opacity: 0.6;
+  }
+
+  @media print {
+    body.printing-recipe * {
+      visibility: hidden;
+    }
+    body.printing-recipe .recipe-card,
+    body.printing-recipe .recipe-card * {
+      visibility: visible;
+      color: #111 !important;
+      background: #fff !important;
+    }
+    body.printing-recipe .recipe-card {
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 100%;
+      margin: 0;
+      box-shadow: none;
+    }
+    body.printing-recipe .recipe-actions {
+      display: none !important;
+    }
+  }
+</style>
