@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 import RecipeCard from "../components/RecipeCard.astro";
-const { frontmatter } = Astro.props;
+const { frontmatter, slug } = Astro.props;
 
 // Extract video ID from the YouTube URL
 const videoId = frontmatter.videoUrl.split("v=")[1];
@@ -48,7 +48,7 @@ const embedUrl = `https://www.youtube.com/embed/${videoId}`;
               }
             </div>
             <slot />
-            {frontmatter.recipe && <RecipeCard post={frontmatter} variant="dark" />}
+            {frontmatter.recipe && <RecipeCard post={frontmatter} slug={slug} variant="dark" />}
           </div>
         </div>
       </article>
@@ -56,7 +56,7 @@ const embedUrl = `https://www.youtube.com/embed/${videoId}`;
   </div>
 </BaseLayout>
 <style>
-  :global(.prose :where(img)) {
+  :global(.prose :where(img:not(:where(.not-prose, .not-prose *)))) {
     @apply rounded-lg shadow-lg;
     width: 100%;
     margin-left: auto;
@@ -65,7 +65,7 @@ const embedUrl = `https://www.youtube.com/embed/${videoId}`;
   }
 
   @media (min-width: 768px) {
-    :global(.prose :where(img)) {
+    :global(.prose :where(img:not(:where(.not-prose, .not-prose *)))) {
       width: 120%;
       margin-left: -10%;
       margin-right: -10%;
