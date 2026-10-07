@@ -115,7 +115,7 @@ const formatDate = (dateString: string) => {
     <div class="container mx-auto px-4 sm:px-6 py-8 sm:py-12">
       <div class="max-w-4xl mx-auto">
         <div
-          class="prose prose-sm sm:prose-base md:prose-lg lg:prose-xl mx-auto"
+          class="prose prose-sm sm:prose-base md:prose-lg lg:prose-xl dark:prose-invert mx-auto"
         >
           <div
             class="[&_img]:mx-auto [&_img]:w-full [&_img]:max-w-full [&_img]:rounded-lg"
@@ -131,12 +131,12 @@ const formatDate = (dateString: string) => {
 
         {
           item.data.tags && item.data.tags.length > 0 && (
-            <div class="mt-12 pt-8 border-t">
+            <div class="mt-12 pt-8 border-t dark:border-zinc-700">
               <div class="flex flex-wrap gap-2">
                 {item.data.tags.map((tag) => (
                   <a
                     href={`/tags/${tag}`}
-                    class="px-3 py-1 bg-gray-100 rounded-sm hover:rounded-lg text-sm text-gray-700 hover:bg-amber-50 hover:text-amber-800 transition-colors border border-gray-200"
+                    class="px-3 py-1 bg-gray-100 dark:bg-zinc-800 rounded-sm hover:rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:bg-amber-50 dark:hover:bg-zinc-800 hover:text-amber-800 dark:hover:text-amber-300 transition-colors border border-gray-200 dark:border-zinc-700"
                   >
                     {tag}
                   </a>

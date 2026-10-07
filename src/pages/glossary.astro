@@ -43,15 +43,15 @@ for (const item of sortedItems) {
   description="A comprehensive guide to Filipino cooking ingredients and terms"
 >
   {/* Hero Section */}
-  <div class="bg-gradient-to-r from-amber-50 to-amber-100 py-16 md:py-24">
+  <div class="bg-gradient-to-r from-amber-50 dark:from-zinc-900 to-amber-100 dark:to-zinc-800 py-16 md:py-24">
     <div class="container mx-auto max-w-6xl px-4">
       <div class="max-w-3xl mx-auto text-center">
         <h1
-          class="savate-heavy text-4xl md:text-5xl lg:text-6xl text-gray-900 my-6"
+          class="savate-heavy text-4xl md:text-5xl lg:text-6xl text-gray-900 dark:text-white my-6"
         >
           Glossary of Filipino Ingredients
         </h1>
-        <p class="text-lg md:text-xl text-gray-700">
+        <p class="text-lg md:text-xl text-gray-700 dark:text-gray-300">
           Discover the essential ingredients used in Filipino cuisine, from
           common pantry staples to unique regional specialties.
         </p>
@@ -63,7 +63,7 @@ for (const item of sortedItems) {
   <div class="container mx-auto max-w-6xl px-4 py-12">
     {/* A-Z Index */}
     <div class="mb-12">
-      <h2 class="text-2xl font-bold mb-6 text-gray-800">Browse A-Z</h2>
+      <h2 class="text-2xl font-bold mb-6 text-gray-800 dark:text-gray-100">Browse A-Z</h2>
       <div class="flex flex-wrap gap-2 mb-8">
         {
           [...alphabet, "0-9", "#"].map((letter) => {
@@ -73,8 +73,8 @@ for (const item of sortedItems) {
                 href={`#letter-${letter}`}
                 class={`w-10 h-10 flex items-center justify-center rounded-full text-sm font-medium ${
                   hasItems
-                    ? "bg-amber-100 text-amber-800 hover:bg-amber-200"
-                    : "bg-gray-100 text-gray-400 cursor-not-allowed"
+                    ? "bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-300 hover:bg-amber-200 dark:hover:bg-amber-900/60"
+                    : "bg-gray-100 dark:bg-zinc-800 text-gray-400 cursor-not-allowed"
                 }`}
               >
                 {letter}
@@ -93,8 +93,8 @@ for (const item of sortedItems) {
 
           return (
             <div id={`letter-${letter}`} class="scroll-mt-20">
-              <h3 class="text-3xl font-bold mb-6 text-gray-800 border-b pb-2 flex items-center">
-                <span class="bg-amber-100 text-amber-800 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+              <h3 class="text-3xl font-bold mb-6 text-gray-800 dark:text-gray-100 border-b dark:border-zinc-700 pb-2 flex items-center">
+                <span class="bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-300 w-12 h-12 rounded-full flex items-center justify-center mr-4">
                   {letter}
                 </span>
               </h3>
@@ -103,7 +103,7 @@ for (const item of sortedItems) {
                 {items.map((item: GlossaryItem) => (
                   <a
                     href={`/glossary/${item.id}`}
-                    class="group flex items-start p-4 bg-white rounded-lg border border-gray-200 hover:border-amber-300 hover:shadow-md transition-all"
+                    class="group flex items-start p-4 bg-white dark:bg-zinc-900 rounded-lg border border-gray-200 dark:border-zinc-700 hover:border-amber-300 hover:shadow-md transition-all"
                   >
                     {item.data.image && (
                       <img
@@ -117,11 +117,11 @@ for (const item of sortedItems) {
                       />
                     )}
                     <div>
-                      <h4 class="font-semibold text-lg text-gray-900 group-hover:text-amber-600 transition-colors">
+                      <h4 class="font-semibold text-lg text-gray-900 dark:text-white group-hover:text-amber-600 transition-colors">
                         {item.data.title}
                       </h4>
                       {item.data.category && (
-                        <span class="inline-block mt-1 px-2 py-0.5 text-xs font-medium bg-amber-100 text-amber-800 rounded-full">
+                        <span class="inline-block mt-1 px-2 py-0.5 text-xs font-medium bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-300 rounded-full">
                           {item.data.category}
                         </span>
                       )}

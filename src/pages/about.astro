@@ -11,9 +11,9 @@ const pageDescription =
   description={pageDescription}
   showBackLink={false}
 >
-  <main class="bg-white pt-16">
+  <main class="bg-white dark:bg-zinc-900 pt-16">
     {/* Hero Section */}
-    <section class="bg-gradient-to-br from-amber-50 to-white py-8 md:py-16">
+    <section class="bg-gradient-to-br from-amber-50 dark:from-zinc-900 to-white dark:to-zinc-950 py-8 md:py-16">
       <div class="container mx-auto px-4 max-w-5xl">
         <div class="md:text-center mb-12">
           <h1
@@ -21,19 +21,19 @@ const pageDescription =
           >
             Kumusta Kaibigan! 👋
           </h1>
-          <p class="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto">
+          <p class="text-xl md:text-2xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
             We're a Filipino family living in Spain, cooking our way through
             homesickness one recipe at a time.
           </p>
         </div>
 
-        <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+        <div class="bg-white dark:bg-zinc-900 rounded-2xl shadow-xl overflow-hidden">
           <div class="md:flex">
             <div class="md:w-1/2 p-6 md:p-12 flex flex-col justify-center">
-              <h2 class="savate-bold text-3xl md:text-4xl text-gray-900 mb-4">
+              <h2 class="savate-bold text-3xl md:text-4xl text-gray-900 dark:text-white mb-4">
                 Our Epic Journey
               </h2>
-              <p class="text-gray-600 mb-6">
+              <p class="text-gray-600 dark:text-gray-400 mb-6">
                 Ulampinoy started as our digital recipe diary and somehow
                 evolved into a full-blown family project where we cook together,
                 learn from each other, and share our culinary adventures one
@@ -48,13 +48,13 @@ const pageDescription =
                 </a>
                 <a
                   href="/videos"
-                  class="w-full px-6 py-3 border-2 border-amber-500 text-amber-600 rounded-full font-medium hover:bg-amber-50 transition-colors items-center text-center"
+                  class="w-full px-6 py-3 border-2 border-amber-500 text-amber-600 rounded-full font-medium hover:bg-amber-50 dark:hover:bg-zinc-800 transition-colors items-center text-center"
                 >
                   Watch Videos
                 </a>
               </div>
             </div>
-            <div class="md:w-1/2 h-64 md:h-auto bg-gray-100 overflow-hidden">
+            <div class="md:w-1/2 h-64 md:h-auto bg-gray-100 dark:bg-zinc-800 overflow-hidden">
               <img
                 src="/.netlify/images?url=/images/eggplant-stove.jpg&w=800&fm=avif&q=80"
                 alt="Fresh eggplants on a stove in a Filipino kitchen"
@@ -71,19 +71,19 @@ const pageDescription =
     </section>
 
     {/* Origin Story */}
-    <section id="our-story" class="py-8 md:py-16 bg-white">
+    <section id="our-story" class="py-8 md:py-16 bg-white dark:bg-zinc-900">
       <div class="container mx-auto px-4 max-w-4xl">
         <div class="md:text-center mb-12">
           <span class="text-amber-500 tracking-wider font-medium"
             >ORIGIN STORY</span
           >
-          <h2 class="savate-bold text-3xl md:text-4xl text-gray-900 mt-2">
+          <h2 class="savate-bold text-3xl md:text-4xl text-gray-900 dark:text-white mt-2">
             The Manila-Madrid Connection
           </h2>
           <div class="w-24 h-1 bg-amber-400 md:mx-auto mt-4"></div>
         </div>
 
-        <div class="prose prose-lg max-w-none text-gray-600">
+        <div class="prose prose-lg dark:prose-invert max-w-none text-gray-600 dark:text-gray-400">
           <p>
             Once upon a time, we migrated to Spain and realized that decent
             Filipino food was rarer than parking spaces in Madrid. Like millions
@@ -114,7 +114,7 @@ const pageDescription =
             cooking everything ourselves and documenting it obsessively. What
             began as a simple food journal quickly transformed into our <a
               href="https://www.youtube.com/user/ulampinoy/featured"
-              class="text-amber-600 hover:text-amber-800 font-medium"
+              class="text-amber-600 hover:text-amber-800 dark:hover:text-amber-300 font-medium"
               >YouTube cooking channel</a
             > – a family project that serves as journal and a way to bond.
           </p>
@@ -124,13 +124,13 @@ const pageDescription =
             kitchen disaster (which we may or may not include in the final cut).
             You can find all our <a
               href="/videos"
-              class="text-amber-600 hover:text-amber-800 font-medium"
+              class="text-amber-600 hover:text-amber-800 dark:hover:text-amber-300 font-medium"
               >video recipes</a
             > organized by category, or if you're scratching your head wondering
             what "gata" or "patis" means, our handy
             <a
               href="/glossary"
-              class="text-amber-600 hover:text-amber-800 font-medium"
+              class="text-amber-600 hover:text-amber-800 dark:hover:text-amber-300 font-medium"
               >glossary</a
             > has got your back with translations and explanations of Filipino cooking
             terms.
@@ -140,19 +140,19 @@ const pageDescription =
     </section>
 
     {/* Mission Section */}
-    <section class="py-8 md:py-16 bg-gray-50">
+    <section class="py-8 md:py-16 bg-gray-50 dark:bg-zinc-950">
       <div class="container mx-auto px-4 max-w-4xl">
         <div class="md:text-center mb-12">
           <span class="text-amber-500 tracking-wide font-medium"
             >OUR MISSION</span
           >
-          <h2 class="savate-bold text-3xl md:text-4xl text-gray-900 mt-2">
+          <h2 class="savate-bold text-3xl md:text-4xl text-gray-900 dark:text-white mt-2">
             More Than Just Recipes
           </h2>
           <div class="w-24 h-1 bg-amber-400 md:mx-auto mt-4"></div>
         </div>
 
-        <div class="prose prose-lg max-w-none text-gray-600">
+        <div class="prose prose-lg dark:prose-invert max-w-none text-gray-600 dark:text-gray-400">
           <p>
             We're building the ultimate Filipino family cookbook, one video at a
             time. Our goal is simple: create a collection of tried-and-tested
@@ -164,7 +164,7 @@ const pageDescription =
             Beyond recipes, we share discoveries, lessons learned, random
             kitchen wisdom, and whatever else catches our fancy in our <a
               href="/articles"
-              class="text-amber-600 hover:text-amber-800 font-medium"
+              class="text-amber-600 hover:text-amber-800 dark:hover:text-amber-300 font-medium"
               >articles section</a
             >. Think of us as your Filipino cooking uncles and titas who happen
             to live in Spain and know way too much about proper rice-to-water
@@ -175,16 +175,16 @@ const pageDescription =
     </section>
 
     {/* Tech Stack Section */}
-    <section class="py-8 md:py-16 bg-white">
+    <section class="py-8 md:py-16 bg-white dark:bg-zinc-900">
       <div class="container mx-auto px-4 max-w-4xl">
         <div class="md:text-center mb-12">
           <span class="text-amber-500 tracking-wide font-medium"
             >UNDER THE HOOD</span
           >
-          <h2 class="savate-bold text-3xl md:text-4xl text-gray-900 mt-2">
+          <h2 class="savate-bold text-3xl md:text-4xl text-gray-900 dark:text-white mt-2">
             Behind the Scenes
           </h2>
-          <p class="text-gray-600 mt-4">
+          <p class="text-gray-600 dark:text-gray-400 mt-4">
             How we use web tech to craft and ship this website with love and
             umami
           </p>
@@ -192,14 +192,14 @@ const pageDescription =
         </div>
 
         <div class="grid md:grid-cols-2 gap-8">
-          <div class="bg-gray-50 p-6 rounded-xl">
-            <h3 class="text-xl font-bold text-gray-900 mb-4">Tech Stack</h3>
+          <div class="bg-gray-50 dark:bg-zinc-800 p-6 rounded-xl">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Tech Stack</h3>
             <ul class="space-y-3">
               <li class="flex items-start">
                 <span class="text-amber-500 mr-3 mt-1">•</span>
                 <div>
-                  <h4 class="font-medium text-gray-900">AstroJS</h4>
-                  <p class="text-gray-600 text-sm">
+                  <h4 class="font-medium text-gray-900 dark:text-white">AstroJS</h4>
+                  <p class="text-gray-600 dark:text-gray-400 text-sm">
                     Because we upgraded from Eleventy and now our build times
                     are faster than cooking minute rice
                   </p>
@@ -208,8 +208,8 @@ const pageDescription =
               <li class="flex items-start">
                 <span class="text-amber-500 mr-3 mt-1">•</span>
                 <div>
-                  <h4 class="font-medium text-gray-900">Netlify</h4>
-                  <p class="text-gray-600 text-sm">
+                  <h4 class="font-medium text-gray-900 dark:text-white">Netlify</h4>
+                  <p class="text-gray-600 dark:text-gray-400 text-sm">
                     Our deployment heroes who keep us online (salamat!)
                   </p>
                 </div>
@@ -217,8 +217,8 @@ const pageDescription =
               <li class="flex items-start">
                 <span class="text-amber-500 mr-3 mt-1">•</span>
                 <div>
-                  <h4 class="font-medium text-gray-900">GitHub</h4>
-                  <p class="text-gray-600 text-sm">
+                  <h4 class="font-medium text-gray-900 dark:text-white">GitHub</h4>
+                  <p class="text-gray-600 dark:text-gray-400 text-sm">
                     Where our code lives and where we backup our digital kitchen
                     secrets
                   </p>
@@ -227,8 +227,8 @@ const pageDescription =
               <li class="flex items-start">
                 <span class="text-amber-500 mr-3 mt-1">•</span>
                 <div>
-                  <h4 class="font-medium text-gray-900">Google Fonts</h4>
-                  <p class="text-gray-600 text-sm">
+                  <h4 class="font-medium text-gray-900 dark:text-white">Google Fonts</h4>
+                  <p class="text-gray-600 dark:text-gray-400 text-sm">
                     Making our text look prettier than our food photography
                   </p>
                 </div>
@@ -236,18 +236,18 @@ const pageDescription =
             </ul>
           </div>
 
-          <div class="bg-amber-50 p-6 rounded-xl border-l-4 border-amber-400">
-            <h3 class="text-xl font-bold text-gray-900 mb-4">
+          <div class="bg-amber-50 dark:bg-zinc-800 p-6 rounded-xl border-l-4 border-amber-400">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">
               What's in a Name?
             </h3>
-            <p class="text-gray-700">
+            <p class="text-gray-700 dark:text-gray-300">
               If you're wondering about the name <strong>"Ulampinoy,"</strong> it's
               a portmanteau of "ulam" (Filipino for viand/main dish) and "Pinoy"
               (colloquial term for Filipino). Yes, we're that creative with our naming
               conventions.
             </p>
             <div class="mt-8">
-              <h3 class="text-xl font-bold text-gray-900 mb-4">
+              <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">
                 UlamPinoy YouTube Stats
               </h3>
               <p>
