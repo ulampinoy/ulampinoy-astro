@@ -3,7 +3,7 @@ const { currentPath } = Astro.props;
 ---
 
 <nav
-  class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b noto-sans"
+  class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-zinc-950/90 backdrop-blur-sm border-b dark:border-zinc-800 noto-sans"
 >
   <div class="container mx-auto max-w-6xl px-4">
     <div class="flex items-center justify-between h-16">
@@ -27,7 +27,7 @@ const { currentPath } = Astro.props;
       {/* Mobile menu button */}
       <button
         id="mobile-menu-button"
-        class="md:hidden p-2 rounded-md hover:bg-gray-100 focus:outline-none"
+        class="md:hidden p-2 rounded-md hover:bg-gray-100 dark:hover:bg-zinc-800 focus:outline-none"
         aria-label="Toggle menu"
       >
         <svg
@@ -51,7 +51,7 @@ const { currentPath } = Astro.props;
           class={`text-sm font-medium ${
             currentPath.startsWith("/articles") || currentPath === "/articles"
               ? "text-amber-500"
-              : "text-gray-700 hover:text-amber-500"
+              : "text-gray-700 dark:text-gray-300 hover:text-amber-500"
           }`}
         >
           Articles
@@ -62,7 +62,7 @@ const { currentPath } = Astro.props;
           class={`text-sm font-medium ${
             currentPath.startsWith("/videos") || currentPath === "/videos"
               ? "text-amber-500"
-              : "text-gray-700 hover:text-amber-500"
+              : "text-gray-700 dark:text-gray-300 hover:text-amber-500"
           }`}
         >
           Videos
@@ -72,7 +72,7 @@ const { currentPath } = Astro.props;
           class={`text-sm font-medium ${
             currentPath === "/glossary"
               ? "text-amber-500"
-              : "text-gray-700 hover:text-amber-500"
+              : "text-gray-700 dark:text-gray-300 hover:text-amber-500"
           }`}
         >
           Glossary
@@ -82,7 +82,7 @@ const { currentPath } = Astro.props;
           class={`text-sm font-medium ${
             currentPath === "/tags"
               ? "text-amber-500"
-              : "text-gray-700 hover:text-amber-500"
+              : "text-gray-700 dark:text-gray-300 hover:text-amber-500"
           }`}
         >
           Tags
@@ -92,7 +92,7 @@ const { currentPath } = Astro.props;
           class={`text-sm font-medium ${
             currentPath === "/about"
               ? "text-amber-500"
-              : "text-gray-700 hover:text-amber-500"
+              : "text-gray-700 dark:text-gray-300 hover:text-amber-500"
           }`}
         >
           About Us
@@ -102,7 +102,7 @@ const { currentPath } = Astro.props;
           class={`text-sm font-medium ${
             currentPath === "/contact"
               ? "text-amber-500"
-              : "text-gray-700 hover:text-amber-500"
+              : "text-gray-700 dark:text-gray-300 hover:text-amber-500"
           }`}
         >
           Contact
@@ -117,7 +117,7 @@ const { currentPath } = Astro.props;
         class={`block px-4 py-2 text-sm font-medium ${
           currentPath.startsWith("/articles") || currentPath === "/articles"
             ? "text-amber-500"
-            : "text-gray-700 hover:text-amber-500"
+            : "text-gray-700 dark:text-gray-300 hover:text-amber-500"
         }`}
       >
         Articles
@@ -127,7 +127,7 @@ const { currentPath } = Astro.props;
         class={`block px-4 py-2 text-sm font-medium ${
           currentPath.startsWith("/videos") || currentPath === "/videos"
             ? "text-amber-500"
-            : "text-gray-700 hover:text-amber-500"
+            : "text-gray-700 dark:text-gray-300 hover:text-amber-500"
         }`}
       >
         Videos
@@ -137,7 +137,7 @@ const { currentPath } = Astro.props;
         class={`block px-4 py-2 text-sm font-medium ${
           currentPath === "/glossary"
             ? "text-amber-500"
-            : "text-gray-700 hover:text-amber-500"
+            : "text-gray-700 dark:text-gray-300 hover:text-amber-500"
         }`}
       >
         Glossary
@@ -147,7 +147,7 @@ const { currentPath } = Astro.props;
         class={`block px-4 py-2 text-sm font-medium ${
           currentPath === "/tags"
             ? "text-amber-500"
-            : "text-gray-700 hover:text-amber-500"
+            : "text-gray-700 dark:text-gray-300 hover:text-amber-500"
         }`}
       >
         Tags
@@ -157,7 +157,7 @@ const { currentPath } = Astro.props;
         class={`block px-4 py-2 text-sm font-medium ${
           currentPath === "/about"
             ? "text-amber-500"
-            : "text-gray-700 hover:text-amber-500"
+            : "text-gray-700 dark:text-gray-300 hover:text-amber-500"
         }`}
       >
         About Us
@@ -167,7 +167,7 @@ const { currentPath } = Astro.props;
         class={`block px-4 py-2 text-sm font-medium ${
           currentPath === "/contact"
             ? "text-amber-500"
-            : "text-gray-700 hover:text-amber-500"
+            : "text-gray-700 dark:text-gray-300 hover:text-amber-500"
         }`}
       >
         Contact

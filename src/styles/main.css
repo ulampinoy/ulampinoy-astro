@@ -1,4 +1,11 @@
+/* Follow the visitor's OS light/dark preference (Tailwind darkMode: "media") */
+:root {
+  color-scheme: light dark;
+}
+
 body {
+  background-color: #ffffff;
+  color: #111827;
   font-family: "Noto Sans", system-ui, -apple-system, BlinkMacSystemFont,
     "Open Sans", sans-serif;
 }
@@ -37,4 +44,11 @@ body {
   font-weight: 400;
   font-style: normal;
   font-variation-settings: "wdth" 100;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #09090b; /* zinc-950 */
+    color: #f3f4f6; /* gray-100 */
+  }
 }
