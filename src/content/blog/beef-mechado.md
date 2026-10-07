@@ -13,6 +13,21 @@ featured: false
 category: "Main Dishes"
 spotlight: true
 spotlightOrder: 3
+recipe:
+  course: "Main Dishes"
+  cuisine: "Filipino"
+  ingredients:
+    - items:
+        - "500 grams beef cuts (fatty chunks are better)"
+        - "3 ripe plump red tomatoes"
+        - "2-3 medium potatoes"
+        - "2 medium carrots"
+        - "1 small jar tomato sauce"
+        - "1 can button mushroom"
+        - "2-3 cloves garlic"
+        - "1 onion"
+        - "1 cup water"
+        - "salt & black pepper to taste"
 ---
 
 author: "UlamPinoy"
@@ -21,19 +36,6 @@ featured: false
 category: "Main Dishes"
 
 Hearty beef stew slowly cooked in tomatoes, potatoes and vegetables.
-
-### INGREDIENTS:
-
-- 500 grams beef cuts (fatty chunks are better)
-- 3 ripe plump red tomatoes
-- 2-3 medium potatoes
-- 2 medium carrots
-- 1 small jar tomato sauce
-- 1 can button mushroom
-- 2-3 cloves garlic
-- 1 onion
-- 1 cup water
-- salt & black pepper to taste
 
 ### Video
 

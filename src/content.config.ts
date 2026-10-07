@@ -4,6 +4,8 @@ import { z } from "astro/zod";
 
 // Structured recipe card data (rendered by RecipeCard and emitted as Recipe JSON-LD)
 const recipe = z.object({
+  name: z.string().optional(), // card title; defaults to the post title
+  image: z.string().optional(), // card photo; defaults to the post image
   prepTime: z.number().optional(), // minutes
   cookTime: z.number().optional(), // minutes
   servings: z.number().optional(),
@@ -11,18 +13,22 @@ const recipe = z.object({
   cuisine: z.string().optional(),
   keywords: z.array(z.string()).default([]),
   summary: z.string().optional(),
-  ingredients: z.array(
-    z.object({
-      group: z.string().optional(),
-      items: z.array(z.string()),
-    })
-  ),
-  instructions: z.array(
-    z.object({
-      group: z.string().optional(),
-      steps: z.array(z.string()),
-    })
-  ),
+  ingredients: z
+    .array(
+      z.object({
+        group: z.string().optional(),
+        items: z.array(z.string()),
+      })
+    )
+    .default([]),
+  instructions: z
+    .array(
+      z.object({
+        group: z.string().optional(),
+        steps: z.array(z.string()),
+      })
+    )
+    .default([]),
   notes: z.array(z.string()).default([]),
   nutrition: z
     .object({
@@ -59,7 +65,8 @@ const blog = defineCollection({
     spotlight: z.boolean().optional(),
     spotlightOrder: z.number().optional(),
     promoted: z.boolean().optional(),
-    recipe: recipe.optional(),
+    // A single recipe, or a list for posts that cover several dishes
+    recipe: z.union([recipe, z.array(recipe)]).optional(),
   }),
 });
 

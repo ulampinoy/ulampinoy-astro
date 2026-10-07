@@ -11,14 +11,16 @@ featured: false
 category: "Main Dishes"
 whetter: "Lutong Bahay"
 tags: ["soup", "pasta", "chicken"]
+recipe:
+  course: "Main Dishes"
+  cuisine: "Filipino"
+  ingredients:
+    - items:
+        - "Chicken"
+        - "Elbow macaroni"
 ---
 
 Chicken and elbow macaroni soup cooked in milk as base with carrots, cabbage and sausage. Perfect comfort food during the cold winter days!
-
-### INGREDIENTS:
-
-- Chicken
-- Elbow macaroni
 
 ![Chicken Sopas served hot](/.netlify/images?url=/images/chicken-sopas-bowl.jpg)
 

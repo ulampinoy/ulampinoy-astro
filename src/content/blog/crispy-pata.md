@@ -11,6 +11,30 @@ author: UlamPinoy
 draft: false
 promoted: false
 featured: false
+recipe:
+  cuisine: "Filipino"
+  ingredients:
+    - items:
+        - "2-3 lbs pork leg (pata), cleaned and hair removed"
+        - "6 cups water"
+        - "3 bay leaves"
+        - "1 tablespoon whole peppercorns"
+        - "1 medium onion, quartered"
+        - "6 cloves garlic, crushed"
+        - "2 tablespoons salt"
+        - "4-6 cups cooking oil for deep frying"
+    - group: "For the Dipping Sauce"
+      items:
+        - "1/2 cup soy sauce"
+        - "1/4 cup vinegar"
+        - "2 cloves garlic, minced"
+        - "1 red chili, chopped"
+        - "1 tablespoon brown sugar"
+  instructions:
+    - steps:
+        - "**The Boiling Process:** Place the pork leg in a large pot with water, bay leaves, peppercorns, onion, garlic, and salt. Bring to a boil, then reduce heat and simmer for 45-60 minutes until the meat is tender but not falling off the bone. Remove and let cool completely—preferably overnight in the refrigerator."
+        - "**The Deep Frying Magic:** Heat oil to 350°F (175°C) in a large, deep pot or wok. Carefully lower the pork leg into the oil. Fry for 15-20 minutes, turning occasionally, until the skin is golden brown and crispy. The oil will bubble vigorously—this is normal and part of achieving that perfect crackle."
+        - "**Prepare the Sawsawan:** Mix all dipping sauce ingredients in a bowl. Adjust seasoning to taste—some prefer it more tangy, others like it sweeter."
 ---
 
 There's something magical about the sound of perfectly crispy skin crackling as you bite into tender, succulent pork. In the Philippines, few dishes command as much respect and excitement around the dinner table as Crispy Pata—a whole pork leg that's been transformed into golden, crunchy perfection through the art of deep frying.
@@ -20,35 +44,6 @@ There's something magical about the sound of perfectly crispy skin crackling as 
 Crispy Pata emerged during the 1950s in Camiling, Tarlac, credited to Rodolfo Ongpauco who wanted to create something special for his restaurant.[^1] What started as a creative way to utilize the entire pig—a practice deeply rooted in Filipino culture where "nose to tail" eating is both economical and respectful—has become one of the most beloved dishes in Philippine cuisine.[^2]
 
 This dish represents the Filipino philosophy of maximizing every part of an ingredient while creating something extraordinary from humble beginnings. The pork leg, often overlooked in Western cuisine, becomes the star of the show through patience, technique, and the Filipino mastery of deep frying.
-
-## The Perfect Crispy Pata Recipe
-
-### Ingredients:
-
-- 2-3 lbs pork leg (pata), cleaned and hair removed
-- 6 cups water
-- 3 bay leaves
-- 1 tablespoon whole peppercorns
-- 1 medium onion, quartered
-- 6 cloves garlic, crushed
-- 2 tablespoons salt
-- 4-6 cups cooking oil for deep frying
-
-**For the Dipping Sauce:**
-
-- 1/2 cup soy sauce
-- 1/4 cup vinegar
-- 2 cloves garlic, minced
-- 1 red chili, chopped
-- 1 tablespoon brown sugar
-
-### Instructions:
-
-**Step 1: The Boiling Process:** Place the pork leg in a large pot with water, bay leaves, peppercorns, onion, garlic, and salt. Bring to a boil, then reduce heat and simmer for 45-60 minutes until the meat is tender but not falling off the bone. Remove and let cool completely—preferably overnight in the refrigerator.
-
-**Step 2: The Deep Frying Magic:** Heat oil to 350°F (175°C) in a large, deep pot or wok. Carefully lower the pork leg into the oil. Fry for 15-20 minutes, turning occasionally, until the skin is golden brown and crispy. The oil will bubble vigorously—this is normal and part of achieving that perfect crackle.
-
-**Step 3: Prepare the Sawsawan:** Mix all dipping sauce ingredients in a bowl. Adjust seasoning to taste—some prefer it more tangy, others like it sweeter.
 
 ![Ingedients for making crispy pata](/.netlify/images?url=/images/crispy-pata-ingredients.jpg)
 

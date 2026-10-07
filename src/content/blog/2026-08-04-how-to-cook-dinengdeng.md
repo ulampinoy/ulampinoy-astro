@@ -14,6 +14,32 @@ related: ["2023-03-31-how-to-cook-pinakbet", "2024-01-23-pinakbet-prito-alimango
 author: "UlamPinoy"
 draft: false
 featured: true
+recipe:
+  course: "Main Dishes"
+  cuisine: "Filipino"
+  ingredients:
+    - items:
+          - "1 whole grilled fish (we used sea bream, locally known as _dorada_—bangus, tilapia, or galunggong all work)"
+          - "1 bunch saluyot (jute leaves), leaves picked from the tough stems"
+          - "1 cup labong (bamboo shoots)—canned strips are perfectly fine"
+          - "8–10 pieces okra, trimmed"
+          - "1 pack shimeji mushrooms, bases trimmed and separated"
+          - "2–3 tablespoons bagoong isda (fermented fish sauce), to taste"
+          - "1 thumb-size ginger, sliced (optional)"
+          - "1 medium tomato, quartered (optional)"
+          - "3–4 cups water or rice washing (_hugas bigas_)"
+  instructions:
+    - steps:
+          - "Grill the fish first until the skin is browned and blistered. That smoky char is what gives dinengdeng its backbone, so do not skip it—an oven grill or a stovetop pan works if you have no coals."
+          - "Bring the water to a boil in a pot and drop in the ginger and tomato. Let them soften for a few minutes so the broth has some sweetness."
+          - "Season the broth with bagoong isda. Let it boil briefly to take off the raw edge, then taste—the bagoong is your salt, so build it up slowly."
+          - "Add the labong first and simmer for a few minutes. If you are using canned strips, rinse them well beforehand."
+          - "Add the okra and shimeji mushrooms. Simmer just until the okra turns a deeper green and the mushrooms go tender."
+          - "Slide in the grilled fish and let it warm through, spooning broth over the top. Keep the heat gentle so the fish stays in one piece."
+          - "Add the saluyot last and cook for only a minute or two. The leaves wilt fast and turn silky—overcooking them dulls both color and texture."
+          - "Taste one final time, adjust with a little more bagoong, and serve hot with plenty of rice."
+  notes:
+    - "Feel free to swap any of these based on what you have."
 ---
 
 The real secret to **dinengdeng** is not a special ingredient—it is a mindset. This Ilocano vegetable stew has always been about cooking with whatever is on hand, especially when the "traditional" vegetables are nowhere to be found. Walang sitaw o kabute? _Gamitin mo na lang ang meron ka_—minsan pa nga, mas magugulat ka sa resulta.
@@ -36,31 +62,6 @@ That is exactly how this pot came together—grilled fish, saluyot, labong, okra
 ></iframe>
 
 If you enjoy the video, do not forget to [subscribe to our YouTube channel](https://www.youtube.com/@ulampinoy) so you never miss a new recipe.
-
-## Ingredients
-
-Feel free to swap any of these based on what you have:
-
-- 1 whole grilled fish (we used sea bream, locally known as _dorada_—bangus, tilapia, or galunggong all work)
-- 1 bunch saluyot (jute leaves), leaves picked from the tough stems
-- 1 cup labong (bamboo shoots)—canned strips are perfectly fine
-- 8–10 pieces okra, trimmed
-- 1 pack shimeji mushrooms, bases trimmed and separated
-- 2–3 tablespoons bagoong isda (fermented fish sauce), to taste
-- 1 thumb-size ginger, sliced (optional)
-- 1 medium tomato, quartered (optional)
-- 3–4 cups water or rice washing (_hugas bigas_)
-
-## How to Cook
-
-1. Grill the fish first until the skin is browned and blistered. That smoky char is what gives dinengdeng its backbone, so do not skip it—an oven grill or a stovetop pan works if you have no coals.
-2. Bring the water to a boil in a pot and drop in the ginger and tomato. Let them soften for a few minutes so the broth has some sweetness.
-3. Season the broth with bagoong isda. Let it boil briefly to take off the raw edge, then taste—the bagoong is your salt, so build it up slowly.
-4. Add the labong first and simmer for a few minutes. If you are using canned strips, rinse them well beforehand.
-5. Add the okra and shimeji mushrooms. Simmer just until the okra turns a deeper green and the mushrooms go tender.
-6. Slide in the grilled fish and let it warm through, spooning broth over the top. Keep the heat gentle so the fish stays in one piece.
-7. Add the saluyot last and cook for only a minute or two. The leaves wilt fast and turn silky—overcooking them dulls both color and texture.
-8. Taste one final time, adjust with a little more bagoong, and serve hot with plenty of rice.
 
 ## Tips for a Better Dinengdeng
 

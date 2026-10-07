@@ -4,13 +4,19 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { PDFDocument, StandardFonts, rgb, type PDFFont, type PDFImage, type PDFPage } from "pdf-lib";
 import { rawImagePath } from "../../utils/image";
-import { formatMinutes, plainText } from "../../utils/recipe";
+import { formatMinutes, getRecipes, plainText, recipePdfName, type Recipe } from "../../utils/recipe";
 
 export const prerender = true;
 
 export const getStaticPaths = (async () => {
   const posts = await getCollection("blog", (p) => !!p.data.recipe && !p.data.draft);
-  return posts.map((post) => ({ params: { slug: post.id.split("/").pop() }, props: { post } }));
+  // One PDF per recipe card: "<slug>.pdf", then "<slug>-2.pdf", ...
+  return posts.flatMap((post) =>
+    getRecipes(post.data).map((recipe, i) => ({
+      params: { slug: recipePdfName(post.id, i) },
+      props: { post, recipe, slug: recipePdfName(post.id, i) },
+    }))
+  );
 }) satisfies GetStaticPaths;
 
 const AMBER = rgb(0.96, 0.62, 0.04);
@@ -38,12 +44,12 @@ async function loadHero(doc: PDFDocument, src?: string): Promise<PDFImage | unde
 }
 
 export const GET: APIRoute = async ({ props, site }) => {
-  const { post } = props as { post: CollectionEntry<"blog"> };
+  const { post, recipe, slug } = props as { post: CollectionEntry<"blog">; recipe: Recipe; slug: string };
   const data = post.data;
-  const recipe = data.recipe!;
+  const name = recipe.name ?? data.title;
 
   const doc = await PDFDocument.create();
-  doc.setTitle(`${data.title} — Recipe`);
+  doc.setTitle(`${name} — Recipe`);
   doc.setAuthor(data.author ?? "UlamPinoy");
   doc.setSubject(recipe.summary ?? data.description);
   doc.setKeywords(recipe.keywords);
@@ -112,14 +118,14 @@ export const GET: APIRoute = async ({ props, site }) => {
 
   // Header: amber top bar, hero image, title block
   page.drawRectangle({ x: 0, y: PAGE_H - 8, width: PAGE_W, height: 8, color: AMBER });
-  const hero = await loadHero(doc, data.image);
+  const hero = await loadHero(doc, recipe.image ?? data.image);
   const imgSize = 132;
   const textX = hero ? MARGIN + imgSize + 20 : MARGIN;
   const textW = PAGE_W - MARGIN - textX;
   const headerTop = y;
   if (hero) page.drawImage(hero, { x: MARGIN, y: headerTop - imgSize, width: imgSize, height: imgSize });
 
-  paragraph(data.title, { font: bold, size: 22, x: textX, width: textW, leading: 1.2 });
+  paragraph(name, { font: bold, size: 22, x: textX, width: textW, leading: 1.2 });
   y -= 4;
   paragraph(`By ${data.author ?? "UlamPinoy"}`, { size: 9.5, color: MUTED, x: textX, width: textW });
   y -= 6;
@@ -153,7 +159,7 @@ export const GET: APIRoute = async ({ props, site }) => {
   if (courseLine) paragraph(courseLine, { size: 9.5, color: MUTED });
 
   // Ingredients with tick boxes
-  sectionTitle("Ingredients");
+  if (recipe.ingredients.length) sectionTitle("Ingredients");
   for (const g of recipe.ingredients) {
     if (g.group) groupTitle(g.group);
     for (const item of g.items) {
@@ -167,7 +173,7 @@ export const GET: APIRoute = async ({ props, site }) => {
   }
 
   // Numbered instructions
-  sectionTitle("Instructions");
+  if (recipe.instructions.length) sectionTitle("Instructions");
   for (const g of recipe.instructions) {
     if (g.group) groupTitle(g.group);
     g.steps.forEach((step, i) => {
@@ -214,7 +220,7 @@ export const GET: APIRoute = async ({ props, site }) => {
   const url = new URL(`/blog/${post.id}`, site ?? "https://ulampinoy.com").toString();
   const pages = doc.getPages();
   pages.forEach((p, i) => {
-    p.drawText(clean(`${data.title}  •  ${url}`), { x: MARGIN, y: 24, size: 8, font: regular, color: MUTED });
+    p.drawText(clean(`${name}  •  ${url}`), { x: MARGIN, y: 24, size: 8, font: regular, color: MUTED });
     const label = `${i + 1} / ${pages.length}`;
     p.drawText(label, { x: PAGE_W - MARGIN - regular.widthOfTextAtSize(label, 8), y: 24, size: 8, font: regular, color: MUTED });
   });
@@ -223,7 +229,7 @@ export const GET: APIRoute = async ({ props, site }) => {
   return new Response(bytes, {
     headers: {
       "Content-Type": "application/pdf",
-      "Content-Disposition": `attachment; filename="${post.id.split("/").pop()}-recipe.pdf"`,
+      "Content-Disposition": `attachment; filename="${slug}-recipe.pdf"`,
     },
   });
 };

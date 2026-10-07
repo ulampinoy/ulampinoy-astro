@@ -14,6 +14,36 @@ related: ["chicken-afritada", "2024-02-09-top-5-filipino-chicken-dishes", "2026-
 author: "UlamPinoy"
 draft: false
 featured: true
+recipe:
+  course: "Main Dishes"
+  cuisine: "Filipino"
+  ingredients:
+    - items:
+          - "1 kg chicken, cut into serving pieces (thighs and drumsticks are best)"
+          - "1 cups coconut milk (gata)"
+          - "2 medium potatoes, cut into chunks"
+          - "1 medium carrot, cut into chunks"
+          - "1 medium onion, sliced"
+          - "3 cloves garlic, minced"
+          - "1 thumb-size ginger, grated and julienned"
+          - "2 tablespoons curry powder"
+          - "3 long green chilies (siling haba)"
+          - "2–3 red chilies, for heat and color"
+          - "2-3 bay leaves (laurel)"
+          - "2 tablespoons fish sauce (patis)"
+          - "2 tablespoons cooking oil"
+          - "1 tablespoon tomato paste (umami booster)"
+          - "Salt and ground black pepper, to taste"
+  instructions:
+    - steps:
+          - "Season the chicken pieces with salt and pepper and let them rest while you prepare the vegetables."
+          - "Heat the oil in a wide pan. Sauté the garlic, onion, and ginger until fragrant and soft."
+          - "Add the chicken and brown it lightly on all sides. Splash in the fish sauce and let it sizzle for a minute—this is where the flavor starts."
+          - "Stir in the curry powder and toast it briefly with the chicken so it blooms and coats every piece."
+          - "Pour in the coconut milk and drop in the bay leaves. Bring it to a gentle simmer, never a hard boil, so the gata stays smooth and does not curdle. Cover and cook for about 20 minutes, until the chicken is tender."
+          - "Add the potatoes and carrots. Simmer uncovered until they are fork-tender and the sauce has thickened, about 10 to 15 minutes more."
+          - "Add the long green chilies and red chilies in the last few minutes. Taste and adjust with salt, pepper, or a little more patis."
+          - "Serve hot with plenty of steaming rice."
 ---
 
 There are days when you want something warm, creamy, and generous with _ulam na may sarsa_ and **chicken curry** answers every time. Filipino-style curry is gentler than its Indian and Thai cousins: a modest spoonful of curry powder, plenty of coconut milk, and vegetables that soak up all that golden sauce. In our latest video, we cook it start to finish in one pan, the way we make it at home.
@@ -37,37 +67,7 @@ If you enjoy the video, do not forget to [subscribe to our YouTube channel](http
 
 ![Chicken curry ingredients](/.netlify/images?url=/images/chicken-curry-ingredients.jpg)
 
-## Ingredients
-
-- 1 kg chicken, cut into serving pieces (thighs and drumsticks are best)
-- 1 cups coconut milk (gata)
-- 2 medium potatoes, cut into chunks
-- 1 medium carrot, cut into chunks
-- 1 medium onion, sliced
-- 3 cloves garlic, minced
-- 1 thumb-size ginger, grated and julienned
-- 2 tablespoons curry powder
-- 3 long green chilies (siling haba)
-- 2–3 red chilies, for heat and color
-- 2-3 bay leaves (laurel)
-- 2 tablespoons fish sauce (patis)
-- 2 tablespoons cooking oil
-- 1 tablespoon tomato paste (umami booster)
-- Salt and ground black pepper, to taste
-
-## How to Cook
-
-1. Season the chicken pieces with salt and pepper and let them rest while you prepare the vegetables.
-2. Heat the oil in a wide pan. Sauté the garlic, onion, and ginger until fragrant and soft.
-3. Add the chicken and brown it lightly on all sides. Splash in the fish sauce and let it sizzle for a minute—this is where the flavor starts.
-4. Stir in the curry powder and toast it briefly with the chicken so it blooms and coats every piece.
-
 ![Chicken curry saute in wok](/.netlify/images?url=/images/chicken-curry-saute.jpg)
-
-5. Pour in the coconut milk and drop in the bay leaves. Bring it to a gentle simmer, never a hard boil, so the gata stays smooth and does not curdle. Cover and cook for about 20 minutes, until the chicken is tender.
-6. Add the potatoes and carrots. Simmer uncovered until they are fork-tender and the sauce has thickened, about 10 to 15 minutes more.
-7. Add the long green chilies and red chilies in the last few minutes. Taste and adjust with salt, pepper, or a little more patis.
-8. Serve hot with plenty of steaming rice.
 
 ## Tips for a Better Curry
 

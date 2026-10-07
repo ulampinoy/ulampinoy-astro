@@ -13,18 +13,20 @@ featured: false
 category: "Main Dishes"
 spotlight: true
 spotlightOrder: 7
+recipe:
+  course: "Main Dishes"
+  cuisine: "Filipino"
+  ingredients:
+    - items:
+        - "1/2 kg. lungs & 1/2 kg. liver, finely chopped (pork or beef)"
+        - "3 gloves garlic"
+        - "1 big onion"
+        - "1 cup radish, julienned"
+        - "cooking oil"
+        - "vinegar, salt and black pepper to taste"
 ---
 
 Pork innards braised in vinegar and spices
-
-### INGREDIENTS
-
-- 1/2 kg. lungs & 1/2 kg. liver, finely chopped (pork or beef)
-- 3 gloves garlic
-- 1 big onion
-- 1 cup radish, julienned
-- cooking oil
-- vinegar, salt and black pepper to taste
 
 ![Bopis](/.netlify/images?url=/images/bopis-dish-02.jpg
 

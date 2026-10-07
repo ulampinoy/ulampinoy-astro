@@ -13,35 +13,35 @@ featured: false
 category: "Main Dishes"
 whetter: "Lutong Bahay"
 tags: ["chicken", "cheese", "main dish"]
+recipe:
+  course: "Main Dishes"
+  ingredients:
+    - items:
+        - "Chicken fillets"
+        - "Salt and black pepper"
+        - "Aromatic herbs _(oregano, thyme, rosemary - this is optional)_"
+        - "Cooking oil for frying"
+        - "Garlic"
+        - "Onions"
+        - "Mushrooms _(button or assorted)_"
+        - "Blue cheese _(Roquefort)_"
+        - "Heavy cream"
+  instructions:
+    - steps:
+        - "**Dust the chicken fillets** with salt, crushed black pepper and herbs on both sides. Set aside."
+        - "Heat some oil in a skillet pan and **fry the chicken fillets.** Fry until both sides develop a light crust and golden brown in color. When finished frying, set aside the oil and leave just a small amount."
+        - "**Sauté** the chopped garlic and sliced onions. Add mushrooms. Sauté for another minute or two. Add blue cheese. Pour in the heavy cream. Stir well while bring it to a mild simmer."
+        - "**Drop the fried chicken fillets into the sauce.** Stir thouroghly to cover the chicken with the gravy sauce. Season with salt and pepper to taste. Garnish with parsley and serve."
+  notes:
+    - "Filleted (and deboned) **chicken thighs** are the preferred cuts for better texture and it's juicier than the chicken breast."
+    - "In the video we used bottle-preserved mushrooms but **fresh whole mushrooms** are the best if you can source it, because it offers some pleasant earthy, nutty flavors to the dish."
 ---
 
 In this episode, let's upscale the usual pan-fried chicken fillets by making some blue cheese sauce with mushrooms.
 
 The creamy gravy sauce gives the chicken additional depth and moisture while the blue cheese give a nice sharp contrast to it. The mushrooms add in another type of texture to the bite and [_umami_](/glossary/umami) boost!
 
-## Ingredients
-
-- Chicken fillets
-- Salt and black pepper
-- Aromatic herbs _(oregano, thyme, rosemary - this is optional)_
-- Cooking oil for frying
-- Garlic
-- Onions
-- Mushrooms _(button or assorted)_
-- Blue cheese _(Roquefort)_
-- Heavy cream
-
-Filleted (and deboned) **chicken thighs** are the preferred cuts for better texture and it's juicier than the chicken breast.
-
-In the video we used bottle-preserved mushrooms but **fresh whole mushrooms** are the best if you can source it, because it offers some pleasant earthy, nutty flavors to the dish.
 ![Button mushrooms in a tray](/.netlify/images?url=/images/button-mushrooms-tray.jpg)
-
-## Procedure
-
-1. **Dust the chicken fillets** with salt, crushed black pepper and herbs on both sides. Set aside.
-2. Heat some oil in a skillet pan and **fry the chicken fillets.** Fry until both sides develop a light crust and golden brown in color. When finished frying, set aside the oil and leave just a small amount.
-3. **Sauté** the chopped garlic and sliced onions. Add mushrooms. Sauté for another minute or two. Add blue cheese. Pour in the heavy cream. Stir well while bring it to a mild simmer.
-4. **Drop the fried chicken fillets into the sauce.** Stir thouroghly to cover the chicken with the gravy sauce. Season with salt and pepper to taste. Garnish with parsley and serve.
 
 ![Chicken and Mushroom in Blue Cheese Gravy Sauce](/.netlify/images?url=/images/chicken-mushroom-blue-cheese.jpg)
 
