@@ -1,7 +1,9 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 import RecipeCard from "../components/RecipeCard.astro";
+import { getRecipes } from "../utils/recipe";
 const { frontmatter, slug } = Astro.props;
+const recipes = getRecipes(frontmatter);
 
 // Extract video ID from the YouTube URL
 const videoId = frontmatter.videoUrl.split("v=")[1];
@@ -37,18 +39,18 @@ const embedUrl = `https://www.youtube.com/embed/${videoId}`;
             <div class="text-xl text-white/90 mb-4">
               <p>{frontmatter.description}</p>
               {
-                frontmatter.recipe && (
+                recipes.length > 0 && (
                   <a
                     href="#recipe"
                     class="not-prose inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-amber-500 hover:bg-amber-600 text-white text-base font-semibold no-underline transition-colors"
                   >
-                    Jump to Recipe ↓
+                    {recipes.length > 1 ? "Jump to Recipes ↓" : "Jump to Recipe ↓"}
                   </a>
                 )
               }
             </div>
             <slot />
-            {frontmatter.recipe && <RecipeCard post={frontmatter} slug={slug} variant="dark" />}
+            {recipes.map((recipe, i) => <RecipeCard post={frontmatter} recipe={recipe} index={i} slug={slug} variant="dark" />)}
           </div>
         </div>
       </article>

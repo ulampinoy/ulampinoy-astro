@@ -10,26 +10,26 @@ tags: [] # Empty array instead of null
 related: [] # Add empty array if no related posts
 author: "UlamPinoy"
 draft: false
+recipe:
+  cuisine: "Filipino"
+  ingredients:
+    - items:
+        - "Eggs, 🦆 duck eggs are prefered but 🐔 chicken eggs will do."
+        - "Salt, a lot of it"
+        - "Water"
+        - "Jar, big enough to contain everything"
+  instructions:
+    - steps:
+        - "Make the saline solution by boiling salt in water. Let it cool down."
+        - "Carefully put all the eggs in the jar and add in the cooled down boiled salted water. The eggs has the tendency to float so put something on top to push it down and stay submerge in the salty bath."
+        - "Cover the jar tight and set your alarm for 5 weeks."
 ---
 
 Many years back, we made _itlog na maalat_ and it was a success! _Naglangis_ means it cured well that when you open it into halves the yolk was fatty, oily. This time we are doing another attempt to remake homemade salted eggs. It's very simple to make and hopefully after 5 weeks we have those nice salted eggs.
 
 It can be an ulam itself, typically eaten with fresh tomatoes. We can add it as another dimension to the Siopao Asado which is a parallel experiment as we speak!
 
-## Things we need
-
-- Eggs, 🦆 duck eggs are prefered but 🐔 chicken eggs will do.
-- Salt, a lot of it
-- Water
-- Jar, big enough to contain everything
-
 ![Ingredients of making salted eggs](/images/itlog-maalat-ingrdients.jpg)
-
-## What We Did So Far
-
-1. Make the saline solution by boiling salt in water. Let it cool down.
-2. Carefully put all the eggs in the jar and add in the cooled down boiled salted water. The eggs has the tendency to float so put something on top to push it down and stay submerge in the salty bath.
-3. Cover the jar tight and set your alarm for 5 weeks.
 
 **Five weeks** is what we remember how long we soaked the eggs in our first attempt so we are doing just that in this experiment.
 

@@ -10,30 +10,30 @@ tags: [] # Empty array instead of null
 related: [] # Add empty array if no related posts
 author: "UlamPinoy"
 draft: false
+recipe:
+  cuisine: "Filipino"
+  ingredients:
+    - items:
+        - "2 lbs pork belly, cut into bite-sized pieces"
+        - "1/2 cup soy sauce"
+        - "1/2 cup vinegar"
+        - "1 cup water"
+        - "1 head garlic, minced"
+        - "1 teaspoon whole black peppercorns"
+        - "2 bay leaves"
+        - "2 tablespoons cooking oil"
+  instructions:
+    - steps:
+        - "In a large pot, heat the cooking oil over medium-high heat. Add the minced garlic and sauté until fragrant."
+        - "Add the pork belly pieces to the pot and cook until browned on all sides."
+        - "Pour in the soy sauce, vinegar, and water. Add the black peppercorns and bay leaves. Stir to combine."
+        - "Bring the mixture to a boil, then reduce the heat to low and cover the pot. Simmer for 45 minutes to 1 hour, stirring occasionally, until the pork is tender and the sauce has thickened."
+        - "Season to taste, you can add more soy sauce or vinegar to taste."
 ---
 
 Pork Adobo is a delicious and aromatic dish that truly captures the essence of traditional Filipino food. It features tender and juicy pork that has been marinated in a flavorful sauce made with soy sauce, vinegar, garlic, and other spices. The dish is also typically cooked with bay leaves, which adds a subtle earthy flavor to the dish. The result is a mouthwatering and savory pork dish that is typically served over a bed of steaming white rice.
 
-The combination of savory and sour flavors in the dish is what makes it truly unique and a favorite among many Filipinos and food enthusiasts alike. Here's a simple recipe that is easy to prepare for making Pork Adobo:
-
-### Ingredients:
-
-- 2 lbs pork belly, cut into bite-sized pieces
-- 1/2 cup soy sauce
-- 1/2 cup vinegar
-- 1 cup water
-- 1 head garlic, minced
-- 1 teaspoon whole black peppercorns
-- 2 bay leaves
-- 2 tablespoons cooking oil
-
-### Instructions:
-
-1. In a large pot, heat the cooking oil over medium-high heat. Add the minced garlic and sauté until fragrant.
-2. Add the pork belly pieces to the pot and cook until browned on all sides.
-3. Pour in the soy sauce, vinegar, and water. Add the black peppercorns and bay leaves. Stir to combine.
-4. Bring the mixture to a boil, then reduce the heat to low and cover the pot. Simmer for 45 minutes to 1 hour, stirring occasionally, until the pork is tender and the sauce has thickened.
-5. Season to taste, you can add more soy sauce or vinegar to taste.
+The combination of savory and sour flavors in the dish is what makes it truly unique and a favorite among many Filipinos and food enthusiasts alike.
 
 Serve the Pork Adobo hot with steamed rice. Kain tayo!
 

@@ -1,19 +1,23 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import { netlifyImage, rawImagePath } from "../utils/image";
-import { formatMinutes, plainText as plain, recipePdfPath } from "../utils/recipe";
+import { formatMinutes, plainText as plain, recipeAnchor, recipePdfPath, type Recipe } from "../utils/recipe";
 
 type PostData = CollectionEntry<"blog">["data"];
 
 interface Props {
   post: PostData;
+  recipe: Recipe;
+  /** Position of this card among the post's recipes */
+  index?: number;
   /** Blog entry id, used to link the downloadable PDF */
   slug?: string;
   variant?: "dark" | "light";
 }
 
-const { post, slug, variant = "light" } = Astro.props;
-const recipe = post.recipe!;
+const { post, recipe, index = 0, slug, variant = "light" } = Astro.props;
+const name = recipe.name ?? post.title;
+const image = recipe.image ?? post.image;
 
 const totalTime =
   recipe.prepTime || recipe.cookTime
@@ -37,11 +41,11 @@ const videoId = post.videoUrl?.split("v=")[1];
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Recipe",
-  name: post.title,
+  name,
   description: recipe.summary ?? post.description,
   author: { "@type": "Organization", name: post.author ?? "UlamPinoy" },
   datePublished: post.date.toISOString(),
-  ...(post.image && { image: [new URL(rawImagePath(post.image), Astro.site).toString()] }),
+  ...(image && { image: [new URL(rawImagePath(image), Astro.site).toString()] }),
   ...(recipe.prepTime !== undefined && { prepTime: isoDuration(recipe.prepTime) }),
   ...(recipe.cookTime !== undefined && { cookTime: isoDuration(recipe.cookTime) }),
   ...(totalTime !== undefined && { totalTime: isoDuration(totalTime) }),
@@ -81,6 +85,13 @@ const jsonLd = {
   }),
 };
 
+const meta = [
+  ["Prep", recipe.prepTime !== undefined ? formatMinutes(recipe.prepTime) : undefined],
+  ["Cook", recipe.cookTime !== undefined ? formatMinutes(recipe.cookTime) : undefined],
+  ["Total", totalTime !== undefined ? formatMinutes(totalTime) : undefined],
+  ["Servings", recipe.servings],
+].filter(([, v]) => v);
+
 const dark = variant === "dark";
 const c = {
   card: dark ? "bg-zinc-800 border-zinc-700 text-white" : "bg-white border-gray-200 text-gray-900 dark:bg-zinc-900 dark:border-zinc-700 dark:text-white",
@@ -92,17 +103,17 @@ const c = {
 ---
 
 <section
-  id="recipe"
+  id={recipeAnchor(index)}
   class={`recipe-card not-prose scroll-mt-24 my-12 mx-auto max-w-3xl rounded-xl border-2 border-t-8 !border-t-amber-500 shadow-xl overflow-hidden ${c.card}`}
 >
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
   <div class="flex flex-col sm:flex-row gap-6 p-6 sm:p-8">
     {
-      post.image && (
+      image && (
         <img
-          src={netlifyImage(post.image, 400)}
-          alt={post.title}
+          src={netlifyImage(image, 400)}
+          alt={name}
           width={200}
           height={200}
           loading="lazy"
@@ -112,7 +123,7 @@ const c = {
       )
     }
     <div class="flex-1 text-center sm:text-left">
-      <h2 class="savate-heavy text-3xl md:text-4xl mb-2">{post.title}</h2>
+      <h2 class="savate-heavy text-3xl md:text-4xl mb-2">{name}</h2>
       <p class={`text-sm mb-4 ${c.muted}`}>By {post.author ?? "UlamPinoy"}</p>
       {recipe.summary && <p class={`text-base leading-relaxed mb-4 ${c.body}`}>{recipe.summary}</p>}
       <div class="flex flex-wrap gap-2 justify-center sm:justify-start recipe-actions">
@@ -126,7 +137,7 @@ const c = {
         {
           slug && (
             <a
-              href={recipePdfPath(slug)}
+              href={recipePdfPath(slug, index)}
               download
               class="px-4 py-2 rounded-md border border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-white text-sm font-semibold transition-colors no-underline"
             >
@@ -150,23 +161,18 @@ const c = {
     </div>
   </div>
 
-  <dl class={`grid grid-cols-2 sm:grid-cols-4 gap-px text-center border-y ${c.divider} ${c.meta}`}>
-    {
-      [
-        ["Prep", recipe.prepTime !== undefined ? formatMinutes(recipe.prepTime) : undefined],
-        ["Cook", recipe.cookTime !== undefined ? formatMinutes(recipe.cookTime) : undefined],
-        ["Total", totalTime !== undefined ? formatMinutes(totalTime) : undefined],
-        ["Servings", recipe.servings],
-      ]
-        .filter(([, v]) => v)
-        .map(([label, value]) => (
+  {
+    meta.length > 0 && (
+      <dl class={`grid grid-cols-2 sm:grid-cols-4 gap-px text-center border-y ${c.divider} ${c.meta}`}>
+        {meta.map(([label, value]) => (
           <div class="py-4 px-2">
             <dt class={`text-xs uppercase tracking-wider font-semibold ${c.muted}`}>{label}</dt>
             <dd class="mt-1 font-bold text-amber-500">{value}</dd>
           </div>
-        ))
-    }
-  </dl>
+        ))}
+      </dl>
+    )
+  }
 
   {
     (recipe.course || recipe.cuisine) && (
@@ -179,6 +185,7 @@ const c = {
   }
 
   <div class="p-6 sm:p-8 space-y-10">
+    {recipe.ingredients.length > 0 && (
     <div>
       <h3 class="savate-heavy text-2xl mb-4 text-amber-500">Ingredients</h3>
       {
@@ -202,12 +209,14 @@ const c = {
         ))
       }
     </div>
+    )}
 
     <label class={`recipe-actions hidden items-center gap-3 text-sm cursor-pointer ${c.muted}`} data-cook-mode-wrap>
       <input type="checkbox" data-cook-mode class="h-4 w-4 accent-amber-500" />
       <span><strong>Cook Mode</strong> — keep your screen awake while cooking</span>
     </label>
 
+    {recipe.instructions.length > 0 && (
     <div>
       <h3 class="savate-heavy text-2xl mb-4 text-amber-500">Instructions</h3>
       {
@@ -228,6 +237,7 @@ const c = {
         ))
       }
     </div>
+    )}
 
     {
       recipe.notes.length > 0 && (
@@ -273,11 +283,16 @@ const c = {
 <script>
   document.querySelectorAll<HTMLButtonElement>("[data-recipe-print]").forEach((btn) => {
     btn.addEventListener("click", () => {
+      // Print only the card whose button was pressed
+      btn.closest(".recipe-card")?.classList.add("is-printing");
       document.body.classList.add("printing-recipe");
       window.print();
     });
   });
-  window.addEventListener("afterprint", () => document.body.classList.remove("printing-recipe"));
+  window.addEventListener("afterprint", () => {
+    document.body.classList.remove("printing-recipe");
+    document.querySelectorAll(".recipe-card.is-printing").forEach((card) => card.classList.remove("is-printing"));
+  });
 
   // Cook Mode: only offered where the Screen Wake Lock API exists
   if ("wakeLock" in navigator) {
@@ -312,13 +327,13 @@ const c = {
     body.printing-recipe * {
       visibility: hidden;
     }
-    body.printing-recipe .recipe-card,
-    body.printing-recipe .recipe-card * {
+    body.printing-recipe .recipe-card.is-printing,
+    body.printing-recipe .recipe-card.is-printing * {
       visibility: visible;
       color: #111 !important;
       background: #fff !important;
     }
-    body.printing-recipe .recipe-card {
+    body.printing-recipe .recipe-card.is-printing {
       position: absolute;
       inset: 0 auto auto 0;
       width: 100%;

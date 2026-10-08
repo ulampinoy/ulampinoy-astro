@@ -10,6 +10,27 @@ tags: ["fish", "seafoods", "sinigang"]
 related: ["tinola-tulya", "squid-adobo", "chicken-adobo-potato"]
 author: "UlamPinoy"
 draft: false
+recipe:
+  cuisine: "Filipino"
+  ingredients:
+    - items:
+        - "Fish (we use Corvina [Meagre])"
+        - "Sinigang Instant Powder Mix"
+        - "Okra"
+        - "Raddish"
+        - "Spinach"
+        - "Tomatoes"
+        - "Ginger"
+        - "Onion"
+        - "Garlic"
+        - "Long green chilis (siling haba)"
+        - "Patis (fermented fish sauce)"
+        - "Water or even better **_hugas bigas_**"
+  instructions:
+    - steps:
+        - "In a pot, add water, ginger, onion, garlic, green onions, green chilis, tomatoes and patis. Bring to a boil."
+        - "Add the vegetables: radish and okra. Cover and cook the vegetable half way through."
+        - "Add the Sinigang Powder Mix, season to taste and put in the fish cuts. Put the pot lid back and simmer for 8 minutes. Add the spinach leaves and finish cooking for another 2 minutes. Ready to serve!"
 ---
 
 Fish Sinigang is one of the dish you look forward to when you have too much land animal meat or too much vegetable lately. It is a perfect dish when you want to eat healthier. Fish smell is something acquired like liking a perfume, or liking the smell of cheese or patis that you can't resist yet for the others is something to avoid at all cost.
@@ -22,30 +43,7 @@ Sinigang is also the most intuitive way of cooking seafoods, fish included. Like
 
 Cooking Fish Sinigang is actually very easy and less stressful as there are no menacing hot splats of scalding hot oil! A bit of effort is required when preparing the ingredients but after that it's just waiting the spiced sour broth base to boil and goes the rest of the ingredients. Cooking time really depends on cooking the vegetables since it takes no time at all cooking fish.
 
-Let's cook our Ulam Pinoy version of Fish Sinigang...
-
-### Ingredients
-
-- Fish (we use Corvina [Meagre])
-- Sinigang Instant Powder Mix
-- Okra
-- Raddish
-- Spinach
-- Tomatoes
-- Ginger
-- Onion
-- Garlic
-- Long green chilis (siling haba)
-- Patis (fermented fish sauce)
-- Water or even better **_hugas bigas_**
-
 ![Sinigang base ingredients in a pot](/.netlify/images?url=/images/sinigang-base-pot.jpg)
-
-### Procedure
-
-1. In a pot, add water, ginger, onion, garlic, green onions, green chilis, tomatoes and patis. Bring to a boil.
-2. Add the vegetables: radish and okra. Cover and cook the vegetable half way through.
-3. Add the Sinigang Powder Mix, season to taste and put in the fish cuts. Put the pot lid back and simmer for 8 minutes. Add the spinach leaves and finish cooking for another 2 minutes. Ready to serve!
 
 ![Sinigang na Isda served in a serving dish](/.netlify/images?url=/images/sinigang-served.jpg)
 

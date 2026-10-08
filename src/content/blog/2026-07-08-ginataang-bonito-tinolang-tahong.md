@@ -10,6 +10,52 @@ tags: ["seafoods", "fish", "mussels", "ginataan", "tinola", "lutong-bahay"]
 related: ["2024-01-25-fish-sinigang", "2023-04-10-tinola-tulya", "2023-04-10-squid-adobo"]
 author: "UlamPinoy"
 draft: false
+recipe:
+  - name: "Ginataang Bonito"
+    image: "/.netlify/images?url=/images/ginataang-bonito-tuna.jpg"
+    cuisine: "Filipino"
+    ingredients:
+      - items:
+            - "1/2 kg bonito (or tuna), cut into steaks"
+            - "2 cups coconut milk (thick, first-press if available)"
+            - "1 cup thinner coconut milk (or water)"
+            - "1 head garlic, crushed"
+            - "1 onion, chopped"
+            - "1 inch ginger, thinly sliced"
+            - "3–5 long green chilies (or bird's eye chili for more heat)"
+            - "2 tablespoons fish sauce (patis)"
+            - "A little vinegar or calamansi"
+            - "Salt and pepper, to taste"
+            - "Oil for sautéing"
+    instructions:
+      - steps:
+            - "Sauté the garlic, onion, and ginger in a little oil until fragrant and soft."
+            - "Pour in the thinner coconut milk (or water) and bring to a gentle boil. Season with fish sauce."
+            - "Add the bonito steaks. Do not stir yet—let them settle and cook partway, about 5 to 7 minutes."
+            - "Add the thick coconut milk and the chilies. Lower the heat and let it simmer gently until the sauce thickens, about 8 to 10 minutes. Avoid a hard boil so the coconut milk does not curdle."
+            - "Season with salt, pepper, and a touch of vinegar or calamansi if you would like a hint of tang. Serve hot."
+  - name: "Tinolang Tahong"
+    image: "/.netlify/images?url=/images/tinolang-tahong.jpg"
+    cuisine: "Filipino"
+    ingredients:
+      - items:
+            - "1 kg fresh mussels, scrubbed and debearded"
+            - "1 inch ginger, thinly sliced"
+            - "1 head garlic, crushed"
+            - "1 onion, sliced"
+            - "2 tablespoons fish sauce (patis)"
+            - "4 cups water (or rice-washing water)"
+            - "1 bunch chili leaves or moringa (malunggay), or spinach"
+            - "1–2 long green chilies"
+            - "Salt and pepper, to taste"
+            - "Oil for sautéing"
+    instructions:
+      - steps:
+            - "Sauté the ginger, garlic, and onion until fragrant."
+            - "Pour in the water and bring to a boil. Season with fish sauce, salt, and pepper."
+            - "Once boiling, add the mussels. Cover and cook just until the shells open, only about 3 to 5 minutes. **Discard any mussels that do not open.**"
+            - "Add the chili leaves (or moringa) and the green chilies. Cook one more minute, until the leaves wilt."
+            - "Adjust the seasoning if needed, and serve immediately while hot."
 ---
 
 Today at lunch, two gifts from the sea met on our table—a rich, savory **ginataang bonito** and a light, warming **tinolang tahong**. Both were made from fresh ingredients, and both reminded us of a simple truth: good home cooking does not need to be complicated to be satisfying.
@@ -41,28 +87,6 @@ Bonito is naturally full of flavor, so only a little seasoning is needed. We let
 
 A classic way of cooking fish in coconut milk—fragrant, rich, and made for plenty of rice.
 
-### Ingredients
-
-- 1/2 kg bonito (or tuna), cut into steaks
-- 2 cups coconut milk (thick, first-press if available)
-- 1 cup thinner coconut milk (or water)
-- 1 head garlic, crushed
-- 1 onion, chopped
-- 1 inch ginger, thinly sliced
-- 3–5 long green chilies (or bird's eye chili for more heat)
-- 2 tablespoons fish sauce (patis)
-- A little vinegar or calamansi
-- Salt and pepper, to taste
-- Oil for sautéing
-
-### How to Cook
-
-1. Sauté the garlic, onion, and ginger in a little oil until fragrant and soft.
-2. Pour in the thinner coconut milk (or water) and bring to a gentle boil. Season with fish sauce.
-3. Add the bonito steaks. Do not stir yet—let them settle and cook partway, about 5 to 7 minutes.
-4. Add the thick coconut milk and the chilies. Lower the heat and let it simmer gently until the sauce thickens, about 8 to 10 minutes. Avoid a hard boil so the coconut milk does not curdle.
-5. Season with salt, pepper, and a touch of vinegar or calamansi if you would like a hint of tang. Serve hot.
-
 ![Ginataang bonito with a thick, fragrant sauce](/.netlify/images?url=/images/ginataang-bonito-tuna.jpg)
 
 ## Tinolang Tahong
@@ -72,27 +96,6 @@ While the coconut milk simmered, we prepared the **mussels** (tahong). They were
 The broth is at its best when kept simple, letting the natural sweetness of the mussels take center stage. One sip, and it is as if the sea itself has embraced you.
 
 Light, hot, and remarkably easy to make—perfect for days when you want a gentle, nourishing soup.
-
-#### Ingredients
-
-- 1 kg fresh mussels, scrubbed and debearded
-- 1 inch ginger, thinly sliced
-- 1 head garlic, crushed
-- 1 onion, sliced
-- 2 tablespoons fish sauce (patis)
-- 4 cups water (or rice-washing water)
-- 1 bunch chili leaves or moringa (malunggay), or spinach
-- 1–2 long green chilies
-- Salt and pepper, to taste
-- Oil for sautéing
-
-#### How to Cook
-
-1. Sauté the ginger, garlic, and onion until fragrant.
-2. Pour in the water and bring to a boil. Season with fish sauce, salt, and pepper.
-3. Once boiling, add the mussels. Cover and cook just until the shells open, only about 3 to 5 minutes. **Discard any mussels that do not open.**
-4. Add the chili leaves (or moringa) and the green chilies. Cook one more minute, until the leaves wilt.
-5. Adjust the seasoning if needed, and serve immediately while hot.
 
 ![Tinolang tahong with a clear, hot broth](/.netlify/images?url=/images/tinolang-tahong.jpg)
 

@@ -13,22 +13,23 @@ category: "Main Dishes"
 whetter: "Lutong Bahay"
 spotlight: true
 spotlightOrder: 2
+recipe:
+  course: "Main Dishes"
+  ingredients:
+    - items:
+        - "1/2 kg beef"
+        - "1/4 kg oyster mushroom"
+        - "1/2 kg broccoli"
+        - "3 gloves garlic"
+        - "1 onion"
+        - "3 tbs. oyster sauce"
+        - "1 tsp cornstarch"
+        - "1/2 cold water"
+        - "salt and pepper"
+        - "quail eggs for garnish"
 ---
 
 Pinoy noodles sauteéd with vegetable, pork belly and soy sauce
-
-### Ingredients
-
-- 1/2 kg beef
-- 1/4 kg oyster mushroom
-- 1/2 kg broccoli
-- 3 gloves garlic
-- 1 onion
-- 3 tbs. oyster sauce
-- 1 tsp cornstarch
-- 1/2 cold water
-- salt and pepper
-- quail eggs for garnish
 
 ![Beef, mushroom, and broccoli stir fry on a plate](/.netlify/images?url=/images/beef-mushroom-broccoli-02.jpg)
 

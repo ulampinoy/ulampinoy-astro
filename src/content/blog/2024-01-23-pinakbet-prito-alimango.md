@@ -11,6 +11,26 @@ tags: [] # Empty array instead of null
 related: [] # Add empty array if no related posts
 author: "UlamPinoy"
 draft: false
+recipe:
+  cuisine: "Filipino"
+  ingredients:
+    - items:
+        - "Ampalaya (bitter gourd)"
+        - "Squash"
+        - "String beans"
+        - "Okra"
+        - "Eggplant"
+        - "Tomatoes"
+        - "Onion"
+        - "Garlic"
+        - "Long green chilis (siling haba)"
+        - "Pork belly strips"
+        - "Bagoong (fermented fish sauce)"
+  instructions:
+    - steps:
+        - "In a pot at medium high heat, add pork belly strips with little water and a pinch of salt. Wait until the water disapper and the pork renders to its own fat. Add and sauté garlic, onions, tomatoes and bagoong. _(This is the moment we turn on the exhaust fan)_"
+        - "Add the vegetables: squash; string beans; orka; ampalaya and eggplant. _(The idea of the sequence is to put in first the vegetable that needs more cooking time)_"
+        - "Add water and simmer until the vegetables are cook to your liking. Ready to serve!"
 ---
 
 Once in a while you would need to eat vegetables to have a meat dish reset. Vegetable dishes need not to be boring nor bland. Pinakbet are both rich in flavor and packed with nutrition.
@@ -21,29 +41,7 @@ Pinakbet can be modest with just vegetables or can be extravagant with the addit
 
 ![Cooking Pinakbet in a wok](/.netlify/images?url=/images/pinakbet-wok.jpg)
 
-Let's cook our Ulam Pinoy version of Pinakbet...
-
-### Ingredients
-
-- Ampalaya (bitter gourd)
-- Squash
-- String beans
-- Okra
-- Eggplant
-- Tomatoes
-- Onion
-- Garlic
-- Long green chilis (siling haba)
-- Pork belly strips
-- Bagoong (fermented fish sauce)
-
 ![Pinakbet vegetable ingredients in a metallic bowl](/.netlify/images?url=/images/pinakbet-ingredients-bowl.jpg)
-
-### Procedure
-
-1. In a pot at medium high heat, add pork belly strips with little water and a pinch of salt. Wait until the water disapper and the pork renders to its own fat. Add and sauté garlic, onions, tomatoes and bagoong. _(This is the moment we turn on the exhaust fan)_
-2. Add the vegetables: squash; string beans; orka; ampalaya and eggplant. _(The idea of the sequence is to put in first the vegetable that needs more cooking time)_
-3. Add water and simmer until the vegetables are cook to your liking. Ready to serve!
 
 ![Pinakbet served in a serving dish](/.netlify/images?url=/images/pinakbet-bowl-02.jpg)
 

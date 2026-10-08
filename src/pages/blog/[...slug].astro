@@ -4,6 +4,7 @@ import { getCollection, getEntry, render } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { netlifyImage, netlifyImageSrcset } from "../../utils/image";
 import RecipeCard from "../../components/RecipeCard.astro";
+import { getRecipes } from "../../utils/recipe";
 
 // Import the client-side script
 import '../../scripts/glossary-links';
@@ -13,6 +14,7 @@ const { post } = Astro.props as { post: CollectionEntry<'blog'> };
 
 // Get the Content component
 const { Content } = await render(post);
+const recipes = getRecipes(post.data);
 
 // Author information is not used in this template
 
@@ -98,12 +100,12 @@ export async function getStaticPaths() {
               }
             </div>
             {
-              post.data.recipe && (
+              recipes.length > 0 && (
                 <a
                   href="#recipe"
                   class="mt-6 inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-amber-500 hover:bg-amber-600 text-white font-semibold transition-colors"
                 >
-                  Jump to Recipe ↓
+                  {recipes.length > 1 ? "Jump to Recipes ↓" : "Jump to Recipe ↓"}
                 </a>
               )
             }
@@ -140,7 +142,7 @@ export async function getStaticPaths() {
             <div class="prose dark:prose-invert max-w-none">
               <Content />
             </div>
-            {post.data.recipe && <RecipeCard post={post.data} slug={post.id} variant="dark" />}
+            {recipes.map((recipe, i) => <RecipeCard post={post.data} recipe={recipe} index={i} slug={post.id} variant="dark" />)}
             
             <!-- Add a script to initialize glossary links -->
             <script>

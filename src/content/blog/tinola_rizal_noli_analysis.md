@@ -11,6 +11,30 @@ author: UlamPinoy
 draft: false
 promoted: false
 featured: true
+recipe:
+  name: "Heritage Tinola"
+  servings: 4
+  cuisine: "Filipino"
+  ingredients:
+    - items:
+        - "1 native chicken, cut into serving pieces"
+        - "1 thumb-sized ginger, sliced thin"
+        - "1 medium red onion, quartered"
+        - "4 cloves garlic, crushed"
+        - "2 tbsp lard or rendered chicken fat"
+        - "2 cups green papaya (or calabaza squash), chunked"
+        - "A handful of chili leaves or malunggay"
+        - "Salt or fish sauce"
+        - "4 cups rice wash (_hugas bigas_) or water"
+  instructions:
+    - steps:
+        - "Heat lard in a clay or heavy-bottomed pot."
+        - "Sauté garlic, onion, and ginger until aromatic."
+        - "Add chicken pieces; cook until lightly browned."
+        - "Pour in rice wash or water. Bring to boil, skim scum."
+        - "Simmer 30 minutes or until chicken is tender."
+        - "Add papaya or squash; cook until soft."
+        - "Season to taste. Stir in greens just before serving."
 ---
 
 ## Dinner as Dialogue
@@ -34,30 +58,6 @@ The term _gulái_ signals regional influences, tracing back to Southeast Asia’
 - **Cultural parallels**: Rizal, observant and well-traveled, often used food to hint at relationships.
 
 ![Chicken tinola in palayok](/.netlify/images?url=/images/tinola-palayok.jpg)
-
-## Heritage Tinola Recipe
-
-**Ingredients (serves 4)**
-
-- 1 native chicken, cut into serving pieces
-- 1 thumb-sized ginger, sliced thin
-- 1 medium red onion, quartered
-- 4 cloves garlic, crushed
-- 2 tbsp lard or rendered chicken fat
-- 2 cups green papaya (or calabaza squash), chunked
-- A handful of chili leaves or malunggay
-- Salt or fish sauce
-- 4 cups rice wash (_hugas bigas_) or water
-
-**Method**
-
-1. Heat lard in a clay or heavy-bottomed pot.
-2. Sauté garlic, onion, and ginger until aromatic.
-3. Add chicken pieces; cook until lightly browned.
-4. Pour in rice wash or water. Bring to boil, skim scum.
-5. Simmer 30 minutes or until chicken is tender.
-6. Add papaya or squash; cook until soft.
-7. Season to taste. Stir in greens just before serving.
 
 ![Tinola with native chicken and papaya](/.netlify/images?url=/images/tinola-chicken-bowl.jpg)
 
